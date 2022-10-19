@@ -1,5 +1,7 @@
 import React from "react";
 import HeaderLogo from "./HeaderLogo";
+import HeaderUserLogged from "./HeaderUserLogged"
+import HeaderUserNotLogged from "./HeaderUserNotLogged"
 
 export default function AppHeader (props) {
     return (
