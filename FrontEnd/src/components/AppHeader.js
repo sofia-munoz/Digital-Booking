@@ -1,12 +1,12 @@
 import React from "react";
 import HeaderLogo from "./HeaderLogo";
-import HeaderUser from "./HeaderUser";
 
-export default function AppHeader () {
+export default function AppHeader (props) {
     return (
         <header>
             <HeaderLogo/>
-            <HeaderUser/>
+            {props.user&&(<HeaderUserLogged/>)}
+            {!props.user&&(<HeaderUserNotLogged/>)}
         </header>
     )
 }
