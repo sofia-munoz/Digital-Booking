@@ -1,28 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const CardCategoria = ({title}) => {
+const CardCategoria = ({ title }) => {
   return (
-
- 
-
     <>
+      <div className="card">
         
-            <div className='card'>             <h2>{title}</h2>
-  </div>
-
-                    
-
-
-     
+        <h2>{title}</h2>
+      </div>
     </>
+  );
+};
 
-    
-    )
-
-
-
-     
-  
-}
-
-export default CardCategoria
+export default CardCategoria;
