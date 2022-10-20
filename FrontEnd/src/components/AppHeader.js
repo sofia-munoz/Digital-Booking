@@ -1,14 +1,17 @@
 import React from "react";
 import HeaderLogo from "./HeaderLogo";
-import HeaderUserLogged from "./HeaderUserLogged"
-import HeaderUserNotLogged from "./HeaderUserNotLogged"
+import UserMenu from "./UserMenu";
+import UserMenuMobile from "./UserMenuMobile";
+import "../styles/appHeader.css"
 
 export default function AppHeader (props) {
     return (
         <header>
             <HeaderLogo/>
-            {props.user&&(<HeaderUserLogged/>)}
-            {!props.user&&(<HeaderUserNotLogged/>)}
+            <div className="userDisplay">
+                <UserMenu/>
+                <UserMenuMobile/>
+            </div>
         </header>
     )
 }

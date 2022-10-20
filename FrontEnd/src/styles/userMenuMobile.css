@@ -1,0 +1,10 @@
+.mobileMenu {
+    width: 25px;
+    height: 12px;
+}
+
+@media (min-width: 768px) {
+    .mobileMenu {
+        display: none;
+    } 
+}
