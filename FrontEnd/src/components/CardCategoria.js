@@ -3,7 +3,7 @@ import React from "react";
 const CardCategoria = ({ title }) => {
   return (
     <>
-      <div className="card">
+      <div className="card-body">
         
         <h2>{title}</h2>
       </div>
