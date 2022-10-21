@@ -11,7 +11,9 @@ export default function MenuDrawerLogged () {
                 <div className="barraMenuMobile">
                     <button className="cerrar">X</button>
                     <div className="greet">
-                    <img src={AvatarMobile} alt="Avatar"/> 
+                            <div className="avatar">
+                            <p>UN</p>
+                            </div>
                     <h3 className="userGreet">Hola,</h3>
                     <h3 className="userName">userName</h3>
                     </div>
