@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "categorias")
-public class Categorias {
+public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "categorias_secuencia")
     private Integer id;
@@ -11,14 +11,20 @@ public class Categorias {
     private String descripcion;
     private String imagenURL;
 
-    public Categorias(Integer id, String titulo, String descripcion, String imagenURL){
+    public Categoria(Integer id, String titulo, String descripcion, String imagenURL){
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagenURL = imagenURL;
     }
 
-    public Categorias(){
+    public Categoria(String titulo, String descripcion, String imagenURL){
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.imagenURL = imagenURL;
+    }
+
+    public Categoria(){
 
     }
 

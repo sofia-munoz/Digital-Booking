@@ -70,8 +70,13 @@
 			<version>5.9.0-M1</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>
