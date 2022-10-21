@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Karla&family=Roboto:wght@300;400&display=swap');
+*{
+    font-family: 'Roboto', 'Inter', 'Karla', sans-serif;
+    font-weight: 700;
+    font-size:16px;
+    color: #FFFFFF;
+}
+
+.footer {
+    background-color: #1DBEB4;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+    padding-left: 50px;
+    align-items: center;
+}
+
+.redesFooter {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.redesFooter img {
+    padding-right: 30px;
+    height: 50%;
+    width: 50%;
+}
+
+@media (max-width: 767.5px) {
+    .redesFooter {
+        display: none;
+    }
+}

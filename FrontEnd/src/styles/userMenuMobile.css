@@ -3,7 +3,7 @@
     height: 12px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767.5px) {
     .mobileMenu {
         display: none;
     } 

@@ -1,7 +1,20 @@
 import React from "react";
+import Facebook from "../assets/img/facebookDesktop.png";
+import LinkedIn from "../assets/img/linkedinDesktop.png";
+import Twitter from "../assets/img/twitterDesktop.png";
+import Instagram from "../assets/img/instagramDesktop.png";
+import "../styles/appFooter.css"
 
 export default function AppFooter () {
     return (
-<></>
+        <div className="footer">
+            <p>©2022 Digital Booking</p>
+            <div className="redesFooter">
+                <img src={Facebook} alt="Facebook" link to=''/>
+                <img src={LinkedIn} alt="LinkedIn" link to=''/>
+                <img src={Twitter} alt="Twitter" link to=''/>
+                <img src={Instagram} alt="Instagram" link to=''/>
+            </div>
+        </div>
     )
 }
