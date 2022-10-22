@@ -7,11 +7,11 @@ import AppFooter from './components/AppFooter';
 import {getdatos} from './/data/datos';
 
 function App() {
-  const [globalState, setglobalState] = useState({});
-  
+  // const [globalState, setglobalState] = useState({});
+  // user={globalState.user}
   return (
     <div className="App">
-      <AppHeader user={globalState.user} />
+      <AppHeader  />
       <AppBody data={getdatos()}/>
       <AppFooter/>
     </div>

@@ -1,14 +1,18 @@
 import React from "react";
-import avatar from "../assets/img/avatar.png";
+import "../styles/headerUserLogged.css"
 
 export default function HeaderUserLogged (props) {
-    // const {userLogged, onClickLogin} = props
     return (
         <>
-                <img src={avatar} alt="avatar"/>  
-                {/*después vemos como resolver la imagen del avatar con un JSON */}
-                <h2>Hola,</h2>
-                <h2>userName</h2>
+                <div className="avatar">
+                    <p>UN</p>
+                </div>
+                
+                <div className="userInfo">
+                    <p className="userGreet">Hola,</p>
+                    <p className="userName">userName</p>
+                </div>
+                <p className="cerrar" link to='' >X</p>
         </>
     )
 }

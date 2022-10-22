@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Karla&family=Roboto:wght@300;400&display=swap');
+*{
+    font-family: 'Roboto', 'Inter', 'Karla', sans-serif, 'Quicksand';
+}
+.cerrar {
+    margin-top: -15px;
+    color: #383B58;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+.avatar {
+    width: 37px;
+    height: 37px;
+    background-color: #383B58;
+    border-radius: 50%;
+    font-family: 'Quicksand';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userInfo {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18.75px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+.userInfo p {
+    padding: 0%;
+    margin: 0%;
+}
+.userGreet {
+    color: rgba(0, 0, 0, 0.5);
+}
+.userName {
+    color: #1DBEB4;
+}
+
+@media (max-width:767.5px){
+    .avatar, .userInfo, .cerrar {
+        display:none;
+    }
+    }
