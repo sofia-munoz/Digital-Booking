@@ -9,6 +9,7 @@ import Login from './components/Login';
 import CrearCuenta from './components/CrearCuenta';
 import {Routes, Route, Link}  from "react-router-dom"
 // import Login from './components/Login';
+import {getcategorias} from './/data//categorias';
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       <AppHeader/>
       <Routes>
-        <Route path='/' element={<AppBody data={getdatos()}/>}/>
+        <Route path='/' element={<AppBody data={getdatos()}  categorias={getcategorias()}/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
       </Routes>

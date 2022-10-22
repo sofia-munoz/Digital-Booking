@@ -3,14 +3,14 @@ import CardCategoria from "./CardCategoria";
 import Card from "./Card";
 import "..//styles/appBody.css";
 
-export default function AppBody({ data }) {
+export default function AppBody({ data, categorias }) {
   return (
     <>
       <div className="container">
         <h2>Buscar por tipo de alojamiento </h2>
         <div className="card-container-categoria">
-          {data.map((dato) => (
-            <CardCategoria title={dato.Category} />
+          {categorias.map((dato) => (
+            <CardCategoria title={dato.Category} img={dato.Crimg} />
           ))}
         </div>
         <div className="container-gris">
