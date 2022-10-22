@@ -54,7 +54,7 @@ const Login = () =>{
                 {errorForm ? <span>Por favor vuelva a intentarlo, sus credenciales son inválidas</span> : <span/>}
                 
                 <button type="submit">Ingresar</button>
-                <p>¿Aún no tenés cuenta? <Link to=''>Registrate</Link></p>
+                <p>¿Aún no tenés cuenta? <Link to='/register'>Registrate</Link></p>
             </form>
         </div>
     )

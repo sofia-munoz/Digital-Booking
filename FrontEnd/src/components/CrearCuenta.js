@@ -67,7 +67,7 @@ const CrearCuenta = () =>{
             {errorConfDistinto ? <span>La contraseñas ingresadas no coinciden</span> : <span/>}
 
             <button type="submit">Crear cuenta</button>
-            <p>¿Ya tienes una cuenta? <Link to=''>Iniciar sesión</Link></p>
+            <p>¿Ya tienes una cuenta? <Link to='/login'>Iniciar sesión</Link></p>
         </form>
         </div>
     )

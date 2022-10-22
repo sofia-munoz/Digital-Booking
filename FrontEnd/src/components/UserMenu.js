@@ -5,8 +5,8 @@ import HeaderUserNotLogged from "./HeaderUserNotLogged";
 export default function UserMenu (props) {
     return (
             <>
-                {true&&(<HeaderUserLogged/>)}
-                {false&&(<HeaderUserNotLogged/>)}
+                {false&&(<HeaderUserLogged/>)}
+                {true&&(<HeaderUserNotLogged/>)}
             </>
     )
 }

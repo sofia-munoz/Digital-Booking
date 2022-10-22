@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/headerUserLogged.css"
+import "../styles/headerUserLogged.css";
+import {Link} from "react-router-dom";
 
 export default function HeaderUserLogged (props) {
     return (
@@ -12,7 +13,7 @@ export default function HeaderUserLogged (props) {
                     <p className="userGreet">Hola,</p>
                     <p className="userName">userName</p>
                 </div>
-                <p className="cerrar" link to='' >X</p>
+                <Link to='/'><p className="cerrar">X</p></Link>
         </>
     )
 }
