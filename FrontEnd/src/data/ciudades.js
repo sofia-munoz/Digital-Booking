@@ -22,4 +22,4 @@ export const ciudades = [
 
 ]
 
-export const getdatos = () => ciudades
+export const getCiudades = () => ciudades
