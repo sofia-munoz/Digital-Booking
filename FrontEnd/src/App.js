@@ -10,6 +10,7 @@ import CrearCuenta from './components/CrearCuenta';
 import {Routes, Route, Link}  from "react-router-dom"
 // import Login from './components/Login';
 import {getcategorias} from './/data//categorias';
+import {usuarioPrueba} from './/data//usuario'
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
       <AppHeader/>
       <Routes>
         <Route path='/' element={<AppBody data={getdatos()}  categorias={getcategorias()}/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/login' element={<Login dataUsuario={usuarioPrueba}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
       </Routes>
       <AppFooter/>

@@ -3,8 +3,9 @@ import DatePicker, {registerLocale} from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
 registerLocale("es",es)
+import {dataCiudades} from '../data/ciudades'
 
-const Buscador = ({dataCiudades}) =>{
+const Buscador = () =>{
 
     const [ciudad, setCiudad] = useState('')
     const [openCalendar, setOpenCalendar]= useState(false)
