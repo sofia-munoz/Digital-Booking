@@ -5,6 +5,7 @@ import AppHeader from './components/AppHeader';
 import AppBody from './components/AppBody';
 import AppFooter from './components/AppFooter';
 import {getdatos} from './/data/datos';
+import {getcategorias} from './/data//categorias';
 
 function App() {
   // const [globalState, setglobalState] = useState({});
@@ -12,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader  />
-      <AppBody data={getdatos()}/>
+      <AppBody data={getdatos()}  categorias={getcategorias()}/>
       <AppFooter/>
     </div>
   );
