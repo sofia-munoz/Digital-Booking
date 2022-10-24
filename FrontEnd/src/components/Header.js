@@ -3,9 +3,9 @@ import HeaderLogo from "./HeaderLogo";
 import HeaderUserLogged from "./HeaderUserLogged";
 import {Link} from "react-router-dom"
 import menu from "../assets/img/menu.png"
-import "../styles/appHeader.css"
+import "../styles/Header.css"
 
-export default function AppHeader (props) {
+export default function Header (props) {
     return (
         <header>
             <HeaderLogo/>

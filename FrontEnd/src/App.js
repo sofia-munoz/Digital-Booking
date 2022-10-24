@@ -1,9 +1,9 @@
 
 import './App.css';
 import react from 'react';
-import AppHeader from './components/AppHeader';
-import AppBody from './components/AppBody';
-import AppFooter from './components/AppFooter';
+import Header from './components/Header';
+import Body from './components/Body';
+import AppFooter from './components/Footer';
 import {getdatos} from './/data/datos';
 import Login from './components/Login';
 import CrearCuenta from './components/CrearCuenta';
@@ -17,12 +17,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/login' element={<AppHeader hideRegister/>}/>
-        <Route path='/register' element={<AppHeader hideLogin/>}/>
-        <Route path='/' element={<AppHeader/>}/>
+        <Route path='/login' element={<Header hideRegister/>}/>
+        <Route path='/register' element={<Header hideLogin/>}/>
+        <Route path='/' element={<Header/>}/>
       </Routes>
       <Routes>
-        <Route path='/' element={<AppBody data={getdatos()}  categorias={getcategorias()}/>}/>
+        <Route path='/' element={<Body data={getdatos()}  categorias={getcategorias()}/>}/>
         <Route path='/login' element={<Login dataUsuario={usuarioPrueba}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
       </Routes>

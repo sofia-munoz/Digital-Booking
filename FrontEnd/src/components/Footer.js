@@ -3,9 +3,9 @@ import Facebook from "../assets/img/facebookDesktop.png";
 import LinkedIn from "../assets/img/linkedinDesktop.png";
 import Twitter from "../assets/img/twitterDesktop.png";
 import Instagram from "../assets/img/instagramDesktop.png";
-import "../styles/appFooter.css"
+import "../styles/Footer.css"
 
-export default function AppFooter () {
+export default function Footer () {
     return (
         <div className="footer">
             <p>©2022 Digital Booking</p>
