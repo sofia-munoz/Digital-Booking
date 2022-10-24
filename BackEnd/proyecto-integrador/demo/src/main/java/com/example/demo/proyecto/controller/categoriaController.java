@@ -25,7 +25,7 @@ public class categoriaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         categoriaService.eliminar(id);
-        return ResponseEntity.ok().body("Se Eliminó el odontologo con id: " + id);
+        return ResponseEntity.ok().body("Se Eliminó la categoría con id: " + id);
     }
 
     @GetMapping
@@ -40,7 +40,7 @@ public class categoriaController {
 
     @PutMapping
     public ResponseEntity<Categoria> actualizar(@RequestBody Categoria categoria) throws ResourceNotFoundException {
-        return ResponseEntity.ok(categoriaService.actualzar(categoria));
+        return ResponseEntity.ok(categoriaService.actualizar(categoria));
     }
 }
 
