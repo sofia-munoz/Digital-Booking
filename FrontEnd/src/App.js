@@ -16,7 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <AppHeader/>
+      <Routes>
+        <Route path='/login' element={<AppHeader hideRegister/>}/>
+        <Route path='/register' element={<AppHeader hideLogin/>}/>
+        <Route path='/' element={<AppHeader/>}/>
+      </Routes>
       <Routes>
         <Route path='/' element={<AppBody data={getdatos()}  categorias={getcategorias()}/>}/>
         <Route path='/login' element={<Login dataUsuario={usuarioPrueba}/>}/>

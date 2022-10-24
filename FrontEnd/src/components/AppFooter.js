@@ -10,10 +10,10 @@ export default function AppFooter () {
         <div className="footer">
             <p>©2022 Digital Booking</p>
             <div className="redesFooter">
-                <img src={Facebook} alt="Facebook" link to=''/>
-                <img src={LinkedIn} alt="LinkedIn" link to=''/>
-                <img src={Twitter} alt="Twitter" link to=''/>
-                <img src={Instagram} alt="Instagram" link to=''/>
+                <img src={Facebook} alt="Facebook" />
+                <img src={LinkedIn} alt="LinkedIn"/>
+                <img src={Twitter} alt="Twitter"/>
+                <img src={Instagram} alt="Instagram"/>
             </div>
         </div>
     )

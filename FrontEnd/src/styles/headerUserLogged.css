@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Karla&family=Roboto:wght@300;400&display=swap');
-*{
-    font-family: 'Roboto', 'Inter', 'Karla', sans-serif, 'Quicksand';
-}
+
 .cerrar {
     margin-top: -15px;
     color: #383B58;
