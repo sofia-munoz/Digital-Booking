@@ -15,12 +15,21 @@
   height: 100%;
 }
 
+.container-recomendaciones h2 {
+    text-align: left;
+    color: #383b58;
+    margin-left: 45px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
 .container-categorias h2 {
   text-align: left;
   color: #383b58;
   margin-left: 45px;
   font-size: 1.5rem;
   font-weight: 700;
+  margin-top: 20px;
 }
 
 .container h2 {
@@ -58,7 +67,7 @@
   margin-right: 2rem;
   margin-top: 0px;
   align-items: flex-start;
-
+    min-width: 600px;
   height: 100%;
   margin-bottom: 20px;
   width: 900px;
