@@ -12,8 +12,8 @@ export default function Body({ data, categorias }) {
       <div className="container-categorias">
         <h2>Buscar por tipo de alojamiento </h2>
         <div className="card-container-categoria">
-          {categorias.map((dato) => (
-            <CardCategoria title={dato.Category} img={dato.Crimg} info={dato.info}/>
+          {categorias.map((dato, index) => (
+            <CardCategoria title={dato.Category} img={dato.Crimg} info={dato.info} key={index}/>
           ))}
         </div>
       </div>

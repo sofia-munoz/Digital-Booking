@@ -2,6 +2,7 @@ import {useState} from 'react'
 import DatePicker, {registerLocale} from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
+import "..//styles/BodyBuscador.css";
 registerLocale("es",es)
 
 
@@ -26,8 +27,9 @@ const Buscador = ({dataCiudades}) =>{
       };
 
     return(
-        <div>
+        <div className='container'>
             <h1>Busca ofertas en hoteles, casas y mucho más</h1>
+            <div className='form'>
             <form onSubmit={handleSubmit}>
                 <select onChange={(e) =>{setCiudad(e.target.value)}} value={ciudad}>
                     <option value="default" hidden>¿A dónde vamos?</option>
@@ -103,8 +105,10 @@ const Buscador = ({dataCiudades}) =>{
                 </DatePicker>
                 )}
                 </>
-                <button type="submit">Buscar</button>
+                
+                <button className='btn-primary' type="submit">Buscar</button>
             </form>
+            </div>
         </div>
     )
 }
