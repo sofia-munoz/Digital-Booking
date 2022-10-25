@@ -6,6 +6,7 @@ import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.repository.CategoriaRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.dao.DataIntegrityViolationException;
 
@@ -17,10 +18,8 @@ import java.util.Optional;
 public class CategoriaService {
 
 
-
+    @Autowired
     private CategoriaRepository categoriaRepository;
-
-    private CategoriaService categoriaService;
 
     public CategoriaService(CategoriaRepository categoriaRepository) {
         this.categoriaRepository = categoriaRepository;
@@ -52,7 +51,7 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
-    public Categoria actualzar(Categoria categoria)throws ResourceNotFoundException{
+    public Categoria actualizar(Categoria categoria)throws ResourceNotFoundException{
         buscar(categoria.getId());
         return categoriaRepository.save(categoria);
     }

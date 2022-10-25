@@ -1,34 +1,38 @@
 import React from "react";
 import CardCategoria from "./CardCategoria";
 import Card from "./Card";
-import "..//styles/appBody.css";
+import "..//styles/Body.css";
+import Buscador from "./Buscador";
+import {getCiudades} from '../data/ciudades'
 
-export default function AppBody({ data, categorias }) {
+export default function Body({ data, categorias }) {
   return (
     <>
-      <div className="container">
+      <Buscador dataCiudades={getCiudades()}/>
+      <div className="container-categorias">
         <h2>Buscar por tipo de alojamiento </h2>
         <div className="card-container-categoria">
           {categorias.map((dato) => (
-            <CardCategoria title={dato.Category} img={dato.Crimg} info={dato.info} />
+            <CardCategoria title={dato.Category} img={dato.Crimg} />
           ))}
         </div>
-        <div className="container-gris">
+      </div>
+      <div className="container-recomendaciones">
         <h2> Recomendaciones </h2>
         <div className="card-container">
         
-          {data.map((dato) => (
+          {data.map((dato, index) => (
             <Card
               img={dato.Crimg}
               categoria={dato.Category}
               nombre={dato.Title}
               ubicacion={dato.Location}
               descripcion={dato.Description}
+              key={index}
             />
           ))}
         </div>
         </div>
-      </div>
     </>
   );
 }

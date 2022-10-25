@@ -11,9 +11,7 @@ const CrearCuenta = () =>{
     const [errorConfVacio,setErrorConfVacio] = useState(false)
     const [errorConfDistinto,setErrorConfDistinto] = useState(false)
     const [errorContraseña,setErrorContraseña] = useState(false)
-
-    console.log(contraseña)
-    console.log(contraseñaC)
+    const [errorCorreo,setErrorCorreo] = useState(false)   
 
     const handleSubmit = (event) =>{
         event.preventDefault()
@@ -32,6 +30,13 @@ const CrearCuenta = () =>{
             }
     }
 
+    const isEmail = (email) =>/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+
+    const onChangeCorreo=(e) =>{setCorreo(e.target.value)
+        if(!isEmail(correo)){setErrorCorreo(true)
+        } else {setErrorCorreo(false)}
+    }
+
     const onChangeContraseña=(e) =>{
         setContraseña(e.target.value)
         if(contraseña.length+1 < 6) {setErrorContraseña(true)} else setErrorContraseña(false)
@@ -40,8 +45,6 @@ const CrearCuenta = () =>{
 
     const onChangeConfirmacion=(e) =>{
         setContraseñaC(e.target.value)
-        if(contraseñaC !== contraseña) {setErrorConfDistinto(false)} else setErrorConfDistinto(true)
-        console.log(errorConfDistinto)
     }
     
     return(
@@ -55,7 +58,8 @@ const CrearCuenta = () =>{
                 <input type="text" onChange={(e) =>{setApellido(e.target.value)}} value={apellido}/>
             </div>
             <label htmlFor=''>Correo electrónico</label>
-            <input type="email" onChange={(e) =>{setCorreo(e.target.value)}} value={correo}/>
+            <input type="email" onChange={onChangeCorreo} value={correo}/>
+            {errorCorreo ? <span>El correo no es válido</span> : <span/>}
             
             <label htmlFor=''>Contraseña</label>
             <input type="password" onChange={onChangeContraseña} value={contraseña}/>
@@ -64,10 +68,10 @@ const CrearCuenta = () =>{
             <label htmlFor=''>Confirmar contraseña</label>
             <input type="password" onChange={onChangeConfirmacion} value={contraseñaC}/>
             {errorConfVacio ? <span>Este campo es obligatorio</span> : <span/>}
-            {errorConfDistinto ? <span>La contraseñas ingresadas no coinciden</span> : <span/>}
+            {errorConfDistinto ? <span>Las contraseñas ingresadas no coinciden</span> : <span/>}
 
             <button type="submit">Crear cuenta</button>
-            <p>¿Ya tienes una cuenta? <Link to=''>Iniciar sesión</Link></p>
+            <p>¿Ya tienes una cuenta? <Link to='/login'>Iniciar sesión</Link></p>
         </form>
         </div>
     )

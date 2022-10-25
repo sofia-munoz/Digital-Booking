@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table(name = "categorias")
 public class Categoria {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "categorias_secuencia")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
     private String descripcion;
@@ -60,6 +60,7 @@ public class Categoria {
     public void setImagenURL(String imagenURL) {
         this.imagenURL = imagenURL;
     }
+
     @Override
     public String toString() {
         return "Categorias{" +
