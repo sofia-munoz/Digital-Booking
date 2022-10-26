@@ -12,21 +12,30 @@ const CrearCuenta = () =>{
     const [errorConfDistinto,setErrorConfDistinto] = useState(false)
     const [errorContraseña,setErrorContraseña] = useState(false)
     const [errorCorreo,setErrorCorreo] = useState(false)   
+    const [errorNombreVacio,setErrorNombreVacio] = useState(false)
+    const [errorApellidoVacio,setErrorApellidoVacio] = useState(false)
+    const [errorCorreoVacio,setErrorCorreoVacio] = useState(false)
+    const [errorContraseñaVacio,setErrorContraseñaVacio] = useState(false)
 
     const handleSubmit = (event) =>{
         event.preventDefault()
+        nombre ===''? setErrorNombreVacio(true):setErrorNombreVacio(false)
+        apellido ===''? setErrorApellidoVacio(true):setErrorApellidoVacio(false)
+        correo ===''? setErrorCorreoVacio(true):setErrorCorreoVacio(false)
+        contraseña ===''? setErrorContraseñaVacio(true):setErrorContraseñaVacio(false)
+        contraseñaC ===''? setErrorConfVacio(true):setErrorConfVacio(false)
         if (contraseñaC === '') {
             setErrorConfVacio(true)
             setErrorConfDistinto(false)
             }else {if (contraseña !== contraseñaC){
-                    setErrorConfDistinto(true);
-                    setErrorConfVacio(false)
-                    setContraseñaC('')
-                    setContraseña('')
-                        }else { setErrorConfDistinto(false);
-                                setErrorConfVacio(false)
-                        };
-        
+                setErrorConfDistinto(true);
+                setErrorConfVacio(false)
+                setContraseñaC('')
+                setContraseña('')
+                    }else { 
+                        setErrorConfDistinto(false);
+                        setErrorConfVacio(false)
+                            };
             }
     }
 
@@ -54,16 +63,21 @@ const CrearCuenta = () =>{
             <div>
                 <label htmlFor=''>Nombre</label>
                 <input type="text" onChange={(e) =>{setNombre(e.target.value)}} value={nombre}/>
+                {errorNombreVacio ? <span>Este campo es obligatorio</span> : <span/>}
+                
                 <label htmlFor=''>Apellido</label>
                 <input type="text" onChange={(e) =>{setApellido(e.target.value)}} value={apellido}/>
+                {errorApellidoVacio ? <span>Este campo es obligatorio</span> : <span/>}
             </div>
             <label htmlFor=''>Correo electrónico</label>
             <input type="email" onChange={onChangeCorreo} value={correo}/>
             {errorCorreo ? <span>El correo no es válido</span> : <span/>}
+            {errorCorreoVacio ? <span>Este campo es obligatorio</span> : <span/>}
             
             <label htmlFor=''>Contraseña</label>
             <input type="password" onChange={onChangeContraseña} value={contraseña}/>
             {errorContraseña ? <span>La contraseña debe contener al menos 6 caracteres</span> : <span/>}
+            {errorContraseñaVacio ? <span>Este campo es obligatorio</span> : <span/>}
             
             <label htmlFor=''>Confirmar contraseña</label>
             <input type="password" onChange={onChangeConfirmacion} value={contraseñaC}/>
