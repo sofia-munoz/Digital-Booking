@@ -2,12 +2,15 @@ import React from "react";
 import MenuDrawerLogged from "./MenuDrawerLogged";
 import MenuDrawerNotLogged from "./MenuDrawerNotLogged";
 import "../styles/MenuDrawer.css"
+import { useContext } from "react";
+import { userContext } from "../App";
 
-export default function MenuDrawer ({handleModalMenu}) {
+export default function MenuDrawer ({ handleLogOut, handleModalMenu }) {
+    const userLogged = useContext(userContext)
     return (
         <div className="modal" id='modalMenu'>
-                    {false&&(<MenuDrawerLogged handleModalMenu={handleModalMenu} />)}
-                    {true&&(<MenuDrawerNotLogged handleModalMenu={handleModalMenu}/>)}
+                    {userLogged&&(<MenuDrawerLogged handleLogOut={handleLogOut} handleModalMenu={handleModalMenu} />)}
+                    {!userLogged&&(<MenuDrawerNotLogged  handleModalMenu={handleModalMenu} />)}
         </div>
     )
 }

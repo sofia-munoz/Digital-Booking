@@ -1,19 +1,27 @@
-import{Link} from 'react-router-dom'
+import{Link, Navigate, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
 
-const Login = ({dataUsuario}) =>{
+
+const Login = ({dataUsuario, handleUserLogged}) =>{
 
     const [correo, setCorreo] = useState('')
     const [contraseña, setContraseña] = useState('')
     const [errorForm,setErrorForm] = useState(false)
-    
+    const navigate = useNavigate();
+
     const handleSubmit = (event) =>{
         event.preventDefault()
-        if(correo !== dataUsuario.Email || contraseña !== dataUsuario.Password) 
+        if(correo !== dataUsuario.email || contraseña !== dataUsuario.password) 
             {setErrorForm(true); 
             setContraseña(''); 
             setCorreo('')
-        } else {setErrorForm(false)}
+        } else {setErrorForm(false)
+                handleUserLogged()
+                localStorage.setItem('userName', dataUsuario.name)
+                localStorage.setItem('userLastName', dataUsuario.apellido)
+                localStorage.setItem('userAvatar', dataUsuario.iniciales)
+                navigate("/");
+        }
     }
 
     const onChangeCorreo= (e) =>{
