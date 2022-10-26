@@ -1,8 +1,10 @@
-import{Link} from 'react-router-dom'
+import{Link, useNavigate} from 'react-router-dom'
 import {useState} from 'react'
+import "../styles/formularios.css"
 
 const CrearCuenta = () =>{
-
+    
+    const navigate = useNavigate();
     const [nombre, setNombre] = useState('')
     const [apellido, setApellido] = useState('')
     const [correo, setCorreo] = useState('')
@@ -35,6 +37,7 @@ const CrearCuenta = () =>{
                     }else { 
                         setErrorConfDistinto(false);
                         setErrorConfVacio(false)
+                        navigate("/login");
                             };
             }
     }
@@ -57,36 +60,51 @@ const CrearCuenta = () =>{
     }
     
     return(
-        <div>
+        <div className='body-form'>
+        <div className='form-container'>
         <h1>Crear cuenta</h1>
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className='form-component-name-lastname'>
+                <div className='form-component'>
                 <label htmlFor=''>Nombre</label>
                 <input type="text" onChange={(e) =>{setNombre(e.target.value)}} value={nombre}/>
                 {errorNombreVacio ? <span>Este campo es obligatorio</span> : <span/>}
-                
+                </div>
+                <div className='form-component'>
                 <label htmlFor=''>Apellido</label>
                 <input type="text" onChange={(e) =>{setApellido(e.target.value)}} value={apellido}/>
                 {errorApellidoVacio ? <span>Este campo es obligatorio</span> : <span/>}
+                </div>
             </div>
+
+            <div className='form-component'>
             <label htmlFor=''>Correo electrónico</label>
             <input type="email" onChange={onChangeCorreo} value={correo}/>
             {errorCorreo ? <span>El correo no es válido</span> : <span/>}
             {errorCorreoVacio ? <span>Este campo es obligatorio</span> : <span/>}
+            </div>
             
+            <div className='form-component'>
             <label htmlFor=''>Contraseña</label>
             <input type="password" onChange={onChangeContraseña} value={contraseña}/>
             {errorContraseña ? <span>La contraseña debe contener al menos 6 caracteres</span> : <span/>}
             {errorContraseñaVacio ? <span>Este campo es obligatorio</span> : <span/>}
-            
+            </div>
+
+            <div className='form-component'>
             <label htmlFor=''>Confirmar contraseña</label>
             <input type="password" onChange={onChangeConfirmacion} value={contraseñaC}/>
             {errorConfVacio ? <span>Este campo es obligatorio</span> : <span/>}
             {errorConfDistinto ? <span>Las contraseñas ingresadas no coinciden</span> : <span/>}
+            </div>
 
             <button type="submit">Crear cuenta</button>
-            <p>¿Ya tienes una cuenta? <Link to='/login'>Iniciar sesión</Link></p>
+
+            <div className='swith-path-component'>
+            <p>¿Ya tienes una cuenta? &nbsp;</p> <Link to='/login'><p className='swith-path-link'>Iniciar sesión</p></Link>
+            </div>
         </form>
+        </div>
         </div>
     )
 }
