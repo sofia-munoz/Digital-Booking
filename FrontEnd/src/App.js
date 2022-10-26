@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Header hideRegister handleModalMenu={handleModalMenu}/>}/>
         <Route path='/register' element={<Header hideLogin handleModalMenu={handleModalMenu}/>}/>
-        <Route path='/' element={<Header handleModalMenu={handleModalMenu}/>}/>
+        <Route path='/' element={<Header hideLogin hideRegister handleModalMenu={handleModalMenu}/>}/>
       </Routes>
       <Routes>
         <Route path='/' element={<Body data={getdatos()}  categorias={getcategorias()}/>}/>
