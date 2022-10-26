@@ -1,14 +1,13 @@
 import React from "react";
 import MenuDrawerLogged from "./MenuDrawerLogged";
 import MenuDrawerNotLogged from "./MenuDrawerNotLogged";
+import "../styles/MenuDrawer.css"
 
-export default function MenuDrawer (props) {
+export default function MenuDrawer ({handleModalMenu}) {
     return (
-        <div className="backgroundMenu">
-            <div className="modalContainer">
-                {props.user&&(<MenuDrawerLogged/>)}
-                {!props.user&&(<MenuDrawerNotLogged/>)}
-            </div>
+        <div className="modal" id='modalMenu'>
+                    {false&&(<MenuDrawerLogged handleModalMenu={handleModalMenu} />)}
+                    {true&&(<MenuDrawerNotLogged handleModalMenu={handleModalMenu}/>)}
         </div>
     )
 }

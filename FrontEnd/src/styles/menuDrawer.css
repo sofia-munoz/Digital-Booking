@@ -1,16 +1,20 @@
-.backgroundMenu {
-width: 100%;
-height: 100%;
-background-color: rgba(0,0,0,.5);
-padding: 0%;
-margin: 0%;
-display: flex;
+.menu-drawer-container {
+    background-color: #FFFFFF;
+    width: 70%;
+    height: 100%;
+    padding-right: 0px;
+    margin-right: 0px;
 }
 
-.modalContainer {
-    width: 75%;
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 1;
     height: 100%;
-    justify-content: flex-end;
-    padding: 0px;
-    margin: 0px;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
 }

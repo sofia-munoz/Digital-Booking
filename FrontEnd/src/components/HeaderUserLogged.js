@@ -4,16 +4,18 @@ import {Link} from "react-router-dom";
 
 export default function HeaderUserLogged (props) {
     return (
-        <>
-                <div className="avatar">
+        <div className="header-user-logged">
+                <div className="avatar-header">
                     <p>UN</p>
                 </div>
                 
-                <div className="userInfo">
-                    <p className="userGreet">Hola,</p>
-                    <p className="userName">userName</p>
+                <div className="userInfo-header">
+                    <p className="userGreet-header">Hola,</p>
+                    <p className="userName-header">userName</p>
                 </div>
-                <Link to='/'><p className="cerrar">X</p></Link>
-        </>
+                <div className="cerrar-header">
+                <Link to='/'><p>X</p></Link>
+                </div>
+        </div>
     )
 }
