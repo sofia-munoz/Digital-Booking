@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import HeaderLogo from "./HeaderLogo";
 import HeaderUserLogged from "./HeaderUserLogged";
-import {Link} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 import menu from "../assets/img/menu.png"
 import "../styles/Header.css"
 import { userContext } from "../App";
@@ -9,8 +9,9 @@ import { userContext } from "../App";
 
 
 
-export default function Header ({ handleLogOut, hideLogin, hideRegister, handleModalMenu} ) {
+export default function Header ({ handleLogOut, handleModalMenu} ) {
     const userLogged = useContext(userContext)
+    const location = useLocation();
     
     return (
         <header>
@@ -19,8 +20,8 @@ export default function Header ({ handleLogOut, hideLogin, hideRegister, handleM
                 {userLogged&&(<HeaderUserLogged handleLogOut={handleLogOut}/>)}
                 {!userLogged&&(
                    <>
-                    {!hideLogin&&(<Link to='/register'><button className="btnRegister">Crear cuenta</button></Link>)}
-                    {!hideRegister&&(<Link to='/login'><button className="btnLogin">Iniciar sesión</button></Link>)}
+                    {location.pathname!="/register" ? (<Link to='/register'><button className="btnRegister">Crear cuenta</button></Link>) :<></>}
+                    {location.pathname!="/login" ? (<Link to='/login'><button className="btnLogin">Iniciar sesión</button></Link>):<></>}
                     </>
                 )}
 
