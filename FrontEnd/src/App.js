@@ -12,7 +12,17 @@ import {getcategorias} from './/data//categorias';
 import {usuarioPrueba} from './/data//usuario'
 import MenuDrawer from './components/MenuDrawer';
 
+export const userContext1 = react.createContext();
+export const userContext2 = react.createContext();
+
 function App() {
+
+    const[userLogged, setUserLogged]=useState(false)
+    const handleUserLogged = ()=>{
+    setUserLogged(!userLogged)
+    }
+
+    console.log("APP userlogged:" + userLogged)
 
     const [showModal, setShowModal] = useState(false)
     const handleModalMenu = ()=>{
@@ -20,6 +30,9 @@ function App() {
     }
 
   return (
+
+    <userContext1.Provider value = {userLogged}>
+    <userContext2.Provider value = {usuarioPrueba}>
     <div className="App">
         {showModal && <MenuDrawer handleModalMenu={handleModalMenu}/>}
       <Routes>
@@ -29,12 +42,13 @@ function App() {
       </Routes>
       <Routes>
         <Route path='/' element={<Body data={getdatos()}  categorias={getcategorias()}/>}/>
-        <Route path='/login' element={<Login dataUsuario={usuarioPrueba}/>}/>
+        <Route path='/login' element={<Login dataUsuario={usuarioPrueba} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
       </Routes>
       <AppFooter/>
-      
     </div>
+    </userContext2.Provider>
+    </userContext1.Provider>
   );
 }
 

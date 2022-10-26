@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import HeaderLogo from "./HeaderLogo";
 import HeaderUserLogged from "./HeaderUserLogged";
 import {Link} from "react-router-dom"
 import menu from "../assets/img/menu.png"
 import "../styles/Header.css"
-
+import {userContext1} from '../App'
 
 
 export default function Header ({hideLogin, hideRegister, handleModalMenu} ) {
+
+    const userL = useContext(userContext1);
+    console.log("user Header: "+ userL);
+
     return (
         <header>
             <HeaderLogo/>
             <div className="userDisplay">
-                {false&&(<HeaderUserLogged/>)}
-                {true&&(
+                {userL&&(<HeaderUserLogged/>)}
+                {!userL&&(
                     <>
                     {(!hideLogin && !hideRegister)&&
                         <>
