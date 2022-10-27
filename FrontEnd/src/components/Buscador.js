@@ -45,6 +45,7 @@ const Buscador = ({dataCiudades}) =>{
                 <button className='btn-buscar' type="submit">Buscar</button>
             </form>
             {openCalendar && (
+                <>
                 <DatePicker calendarClassName='calendar-style'
                 renderCustomHeader={({
                     monthDate,
@@ -105,6 +106,7 @@ const Buscador = ({dataCiudades}) =>{
                     <br></br>
                     <button className='calendar-btn-apply' onClick={(e) => {setOpenCalendar(false); formatoFecha()}}>Aplicar</button>
                 </DatePicker>
+                </>
                 )}
         </div>
     )
