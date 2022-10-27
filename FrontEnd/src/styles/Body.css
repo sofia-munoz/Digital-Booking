@@ -212,7 +212,7 @@
 
 .card-categoria img {
   height: 250px;
-  width: 450px;
+  width: 350px;
   border-radius: 8px 8px 0px 0px;
   display: flex;
 }
@@ -227,4 +227,9 @@
 .card-categoria h2 {
   color: #383b58;
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
 }

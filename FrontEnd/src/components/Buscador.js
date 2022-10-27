@@ -29,9 +29,9 @@ const Buscador = ({dataCiudades}) =>{
     return(
         <div className='container'>
             <h1>Busca ofertas en hoteles, casas y mucho más</h1>
-            <div className='form'>
-            <form onSubmit={handleSubmit}>
-                <select onChange={(e) =>{setCiudad(e.target.value)}} value={ciudad}>
+            <div >
+            <form className='formulario-body' onSubmit={handleSubmit}>
+                <select className="select" onChange={(e) =>{setCiudad(e.target.value)}} value={ciudad}>
                     <option value="default" hidden>¿A dónde vamos?</option>
                     {dataCiudades.map((ciudad, index)=>
                     <option key={index}>
@@ -39,7 +39,9 @@ const Buscador = ({dataCiudades}) =>{
                     </option>)}
                 </select>
             <>
-                <button onClick={handleCalendar}>
+                <button className='calendario'
+                
+                onClick={handleCalendar}>
                 {inputCalendar}
                 </button>
                 {openCalendar && (
