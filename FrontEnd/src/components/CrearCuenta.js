@@ -26,20 +26,23 @@ const CrearCuenta = () =>{
         correo ===''? setErrorCorreoVacio(true):setErrorCorreoVacio(false)
         contraseña ===''? setErrorContraseñaVacio(true):setErrorContraseñaVacio(false)
         contraseñaC ===''? setErrorConfVacio(true):setErrorConfVacio(false)
-        if (contraseñaC === '') {
-            setErrorConfVacio(true)
-            setErrorConfDistinto(false)
-            }else {if (contraseña !== contraseñaC){
-                setErrorConfDistinto(true);
-                setErrorConfVacio(false)
-                setContraseñaC('')
-                setContraseña('')
-                    }else { 
-                        setErrorConfDistinto(false);
-                        setErrorConfVacio(false)
-                        navigate("/login");
-                            };
-            }
+
+        if(nombre!=='' & apellido!=='' & correo!==''){
+            if (contraseñaC === '') {
+                setErrorConfVacio(true)
+                setErrorConfDistinto(false)
+                }else {if (contraseña !== contraseñaC){
+                    setErrorConfDistinto(true);
+                    setErrorConfVacio(false)
+                    setContraseñaC('')
+                    setContraseña('')
+                        }else { 
+                            setErrorConfDistinto(false);
+                            setErrorConfVacio(false)
+                            navigate("/login");
+                                };
+                }
+         }
     }
 
     const isEmail = (email) =>/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
