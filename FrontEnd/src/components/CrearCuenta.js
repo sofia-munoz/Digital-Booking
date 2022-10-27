@@ -36,6 +36,8 @@ const CrearCuenta = () =>{
                     setErrorConfVacio(false)
                     setContraseñaC('')
                     setContraseña('')
+                    var element = document.getElementById('password2');
+                    element.classList.toggle('error');
                         }else { 
                             setErrorConfDistinto(false);
                             setErrorConfVacio(false)
@@ -48,14 +50,20 @@ const CrearCuenta = () =>{
     const isEmail = (email) =>/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
     const onChangeCorreo=(e) =>{setCorreo(e.target.value)
-        if(!isEmail(correo)){setErrorCorreo(true)
+        if(!isEmail(correo)){
+            setErrorCorreo(true)
+            var element = document.getElementById('email');
+            element.classList.toggle('error');
         } else {setErrorCorreo(false)}
     }
 
     const onChangeContraseña=(e) =>{
         setContraseña(e.target.value)
-        if(contraseña.length+1 < 6) {setErrorContraseña(true)} else setErrorContraseña(false)
-        console.log(errorContraseña)
+        if(contraseña.length+1 < 6) {
+            setErrorContraseña(true);
+            var element = document.getElementById('password1');
+            element.classList.toggle('error');
+        } else setErrorContraseña(false)
     }
 
     const onChangeConfirmacion=(e) =>{
@@ -68,35 +76,35 @@ const CrearCuenta = () =>{
         <h1>Crear cuenta</h1>
         <form onSubmit={handleSubmit}>
             <div className='form-component-name-lastname'>
-                <div className='form-component'>
+                <div className='form-component' id="name">
                 <label htmlFor=''>Nombre</label>
-                <input type="text" id="name" onChange={(e) =>{setNombre(e.target.value)}} value={nombre}/>
+                <input type="text" onChange={(e) =>{setNombre(e.target.value)}} value={nombre}/>
                 {errorNombreVacio ? <span>Este campo es obligatorio</span> : <span/>}
                 </div>
-                <div className='form-component'>
+                <div className='form-component' id="lastname">
                 <label htmlFor=''>Apellido</label>
-                <input type="text" id="lastname" onChange={(e) =>{setApellido(e.target.value)}} value={apellido}/>
+                <input type="text" onChange={(e) =>{setApellido(e.target.value)}} value={apellido}/>
                 {errorApellidoVacio ? <span>Este campo es obligatorio</span> : <span/>}
                 </div>
             </div>
 
-            <div className='form-component'>
+            <div className='form-component' id="email">
             <label htmlFor=''>Correo electrónico</label>
-            <input type="email" id="email" onChange={onChangeCorreo} value={correo}/>
+            <input type="email" onChange={onChangeCorreo} value={correo}/>
             {errorCorreo ? <span>El correo no es válido</span> : <span/>}
             {errorCorreoVacio ? <span>Este campo es obligatorio</span> : <span/>}
             </div>
             
-            <div className='form-component'>
+            <div className='form-component' id="password1">
             <label htmlFor=''>Contraseña</label>
-            <input type="password" id="password1" onChange={onChangeContraseña} value={contraseña}/>
+            <input type="password" onChange={onChangeContraseña} value={contraseña}/>
             {errorContraseña ? <span>La contraseña debe contener al menos 6 caracteres</span> : <span/>}
             {errorContraseñaVacio ? <span>Este campo es obligatorio</span> : <span/>}
             </div>
 
-            <div className='form-component'>
+            <div className='form-component' id="password2">
             <label htmlFor=''>Confirmar contraseña</label>
-            <input type="password" id="password2" onChange={onChangeConfirmacion} value={contraseñaC}/>
+            <input type="password"  onChange={onChangeConfirmacion} value={contraseñaC}/>
             {errorConfVacio ? <span>Este campo es obligatorio</span> : <span/>}
             {errorConfDistinto ? <span>Las contraseñas ingresadas no coinciden</span> : <span/>}
             </div>
