@@ -1,5 +1,7 @@
 import React from 'react'
-
+import { AiFillStar } from "react-icons/fa";
+import { GrStar } from "react-icons/gr";
+import "..//styles/card.css"
 const Card = ({img, categoria, nombre, ubicacion, descripcion}) => {
   return (
     <div className="card">
@@ -7,7 +9,8 @@ const Card = ({img, categoria, nombre, ubicacion, descripcion}) => {
         <img  className="img-mediana" src={img} alt="img" />
     </div>
     <div className="card-body">
-        <span className='font-categoria'>{categoria}</span>
+        <span className='font-categoria'>{categoria} <GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /> </span>
+        
         <h3>{nombre}</h3>
         <h4>{ubicacion}</h4>
         <p>{descripcion}</p>
