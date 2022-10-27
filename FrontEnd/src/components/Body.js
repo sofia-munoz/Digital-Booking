@@ -5,6 +5,7 @@ import "..//styles/Body.css";
 import Buscador from "./Buscador";
 import {getCiudades} from '../data/ciudades'
 
+
 export default function Body({ data, categorias }) {
   return (
     <>
@@ -24,6 +25,7 @@ export default function Body({ data, categorias }) {
           {data.map((dato, index) => (
             <Card
               img={dato.Crimg}
+              
               categoria={dato.Category}
               nombre={dato.Title}
               ubicacion={dato.Location}
