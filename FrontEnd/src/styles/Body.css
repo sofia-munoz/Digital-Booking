@@ -229,7 +229,26 @@
   margin-left: 10px;
 }
 
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 435px) {
   /* For mobile phones: */
   
+  .card{
+      
+      min-width: 300px;
+      flex-direction: column;
+  } 
+
+  .img-mediana{
+      height: 100%;
+      width: 100%;
+  }
+  
+
+  
+  
+  
+  
 }
+
+
