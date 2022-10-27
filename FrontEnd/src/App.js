@@ -12,6 +12,7 @@ import {usuarioPrueba} from './/data//usuario'
 import MenuDrawer from './components/MenuDrawer';
 
 export const userContext = react.createContext();
+export const userInfoContext = react.createContext();
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
   return (
 
     <userContext.Provider value = {userLogged}>
+    <userInfoContext.Provider value = {usuarioPrueba}>
     <div className="App">
       {showModal && <MenuDrawer handleLogOut={handleLogOut} handleModalMenu={handleModalMenu}/>}  
       <Header handleLogOut={handleLogOut} handleModalMenu={handleModalMenu}/>
@@ -45,6 +47,7 @@ function App() {
       </Routes>
       <AppFooter/>
     </div> 
+    </userInfoContext.Provider>
     </userContext.Provider>
   );
 }
