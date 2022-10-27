@@ -1,12 +1,13 @@
-.container {
+.container-buscador {
   background: #545776;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-width: 350px;
 }
 
-.container h1 {
+.container-buscador h1 {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;

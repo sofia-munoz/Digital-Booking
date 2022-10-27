@@ -27,7 +27,7 @@ const Buscador = ({dataCiudades}) =>{
       };
 
     return(
-        <div className='container'>
+        <div className='container-buscador'>
             <h1>Busca ofertas en hoteles, casas y mucho más</h1>
             <div >
             <form className='formulario-body' onSubmit={handleSubmit}>
