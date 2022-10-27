@@ -13,7 +13,7 @@ const Card = ({img, categoria, nombre, ubicacion, descripcion}) => {
         
         <h3>{nombre}</h3>
         <h4>{ubicacion}</h4>
-        <p>{descripcion}</p>
+        <p>{descripcion} <span className='card-span'> más...</span></p>
         <button className="btn-primary">Ver más</button>
 
     </div>
