@@ -29,7 +29,7 @@ const Buscador = ({dataCiudades}) =>{
     return(
         <div className='container-buscador'>
             <h1>Busca ofertas en hoteles, casas y mucho más</h1>
-            <div >
+            <div>
             <form className='formulario-body' onSubmit={handleSubmit}>
                 <select className="select" onChange={(e) =>{setCiudad(e.target.value)}} value={ciudad}>
                     <option value="default" hidden>¿A dónde vamos?</option>
@@ -39,7 +39,7 @@ const Buscador = ({dataCiudades}) =>{
                     </option>)}
                 </select>
             <>
-                <button className='calendario'
+                <button className='calendario-check-in-out'
                 
                 onClick={handleCalendar}>
                 {inputCalendar}
@@ -108,7 +108,7 @@ const Buscador = ({dataCiudades}) =>{
                 )}
                 </>
                 
-                <button className='btn-primary' type="submit">Buscar</button>
+                <button className='btn-buscar' type="submit">Buscar</button>
             </form>
             </div>
         </div>
