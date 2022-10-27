@@ -67,33 +67,33 @@ const CrearCuenta = () =>{
             <div className='form-component-name-lastname'>
                 <div className='form-component'>
                 <label htmlFor=''>Nombre</label>
-                <input type="text" onChange={(e) =>{setNombre(e.target.value)}} value={nombre}/>
+                <input type="text" id="name" onChange={(e) =>{setNombre(e.target.value)}} value={nombre}/>
                 {errorNombreVacio ? <span>Este campo es obligatorio</span> : <span/>}
                 </div>
                 <div className='form-component'>
                 <label htmlFor=''>Apellido</label>
-                <input type="text" onChange={(e) =>{setApellido(e.target.value)}} value={apellido}/>
+                <input type="text" id="lastname" onChange={(e) =>{setApellido(e.target.value)}} value={apellido}/>
                 {errorApellidoVacio ? <span>Este campo es obligatorio</span> : <span/>}
                 </div>
             </div>
 
             <div className='form-component'>
             <label htmlFor=''>Correo electrónico</label>
-            <input type="email" onChange={onChangeCorreo} value={correo}/>
+            <input type="email" id="email" onChange={onChangeCorreo} value={correo}/>
             {errorCorreo ? <span>El correo no es válido</span> : <span/>}
             {errorCorreoVacio ? <span>Este campo es obligatorio</span> : <span/>}
             </div>
             
             <div className='form-component'>
             <label htmlFor=''>Contraseña</label>
-            <input type="password" onChange={onChangeContraseña} value={contraseña}/>
+            <input type="password" id="password1" onChange={onChangeContraseña} value={contraseña}/>
             {errorContraseña ? <span>La contraseña debe contener al menos 6 caracteres</span> : <span/>}
             {errorContraseñaVacio ? <span>Este campo es obligatorio</span> : <span/>}
             </div>
 
             <div className='form-component'>
             <label htmlFor=''>Confirmar contraseña</label>
-            <input type="password" onChange={onChangeConfirmacion} value={contraseñaC}/>
+            <input type="password" id="password2" onChange={onChangeConfirmacion} value={contraseñaC}/>
             {errorConfVacio ? <span>Este campo es obligatorio</span> : <span/>}
             {errorConfDistinto ? <span>Las contraseñas ingresadas no coinciden</span> : <span/>}
             </div>

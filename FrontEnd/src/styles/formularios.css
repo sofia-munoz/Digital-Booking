@@ -49,7 +49,6 @@ form button{
 
 form {
     width: 500px;
-
 }
 
 .form-container {
@@ -60,6 +59,7 @@ form {
     justify-content: center;
     width: 100%;
     margin: 0%;
+    height: 79.2vh;
 }
 
 form span {
@@ -86,6 +86,11 @@ form span {
 
 .swith-path-link {
     color: #4285F4;
+}
+
+.error {
+    border: #FF0000;
+    background-color: #FFE1E1;
 }
 
 @media (max-width: 1023.5px){

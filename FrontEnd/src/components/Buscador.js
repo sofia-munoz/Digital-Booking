@@ -8,6 +8,7 @@ registerLocale("es",es)
 
 const Buscador = ({dataCiudades}) =>{
 
+
     const [ciudad, setCiudad] = useState('')
     const [openCalendar, setOpenCalendar]= useState(false)
     const [dateRange, setDateRange] = useState([null, null]);
@@ -45,7 +46,7 @@ const Buscador = ({dataCiudades}) =>{
                 {inputCalendar}
                 </button>
                 {openCalendar && (
-                <DatePicker 
+                <DatePicker calendarClassName='calendar-style'
                 renderCustomHeader={({
                     monthDate,
                     customHeaderCount,
@@ -103,7 +104,7 @@ const Buscador = ({dataCiudades}) =>{
                     }}
                     >
                     <br></br>
-                    <button onClick={(e) => {setOpenCalendar(false); formatoFecha()}}>Aplicar</button>
+                    <button className='calendar-btn-apply' onClick={(e) => {setOpenCalendar(false); formatoFecha()}}>Aplicar</button>
                 </DatePicker>
                 )}
                 </>
