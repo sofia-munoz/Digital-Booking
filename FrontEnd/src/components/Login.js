@@ -1,6 +1,6 @@
-import{Link, Navigate, useNavigate } from 'react-router-dom'
+import{Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
-
+import "../styles/formularios.css"
 
 const Login = ({dataUsuario, handleUserLogged}) =>{
 
@@ -8,7 +8,7 @@ const Login = ({dataUsuario, handleUserLogged}) =>{
     const [contraseña, setContraseña] = useState('')
     const [errorForm,setErrorForm] = useState(false)
     const navigate = useNavigate();
-
+ 
     const handleSubmit = (event) =>{
         event.preventDefault()
         if(correo !== dataUsuario.email || contraseña !== dataUsuario.password) 
@@ -29,21 +29,29 @@ const Login = ({dataUsuario, handleUserLogged}) =>{
     }
 
     return(
-        <div>
+        <div className='body-form'>
+        <div className='form-container'>
             <h1>Iniciar sesión</h1>
             <form onSubmit={handleSubmit}>
+                <div className='form-component'>
                 <label htmlFor=''>Correo electrónico</label>
                 <input type="email" onChange={onChangeCorreo} value={correo}/>
-
+                </div>
+                <div className='form-component'>
                 <label htmlFor=''>Contraseña</label>
                 <input type="password" onChange={(e) =>{setContraseña(e.target.value)}} value={contraseña}/>
-                
-                <br></br>
+                </div>
+
                 {errorForm ? <span>Por favor vuelva a intentarlo, sus credenciales son inválidas</span> : <span/>}
                 
                 <button type="submit">Ingresar</button>
-                <p>¿Aún no tenés cuenta? <Link to='/register'>Registrate</Link></p>
+
+                <div className='swith-path-component'>
+                <p>¿Aún no tenés cuenta?&nbsp;</p><Link to='/register'><p className='swith-path-link'> Registrate</p></Link>
+                </div>
+
             </form>
+        </div>
         </div>
     )
 }
