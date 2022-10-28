@@ -10,7 +10,7 @@ const Card = ({img, categoria, nombre, ubicacion, descripcion}) => {
     </div>
     <div className="card-body">
         <span className='font-categoria'>{categoria} <GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /><GrStar  className='start' /> </span>
-        
+        <span className="calificacion"> 8 </span>
         <h3>{nombre}</h3>
         <h4>{ubicacion}</h4>
         <p>{descripcion} <span className='card-span'> más...</span></p>
