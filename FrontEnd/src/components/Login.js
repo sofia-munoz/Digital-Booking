@@ -21,6 +21,7 @@ const Login = ({dataUsuario, handleUserLogged}) =>{
                 localStorage.setItem('userLastName', dataUsuario.apellido)
                 localStorage.setItem('userAvatar', dataUsuario.iniciales)
                 navigate("/");
+                console.log("Usuario logueado con exito")
         }
     }
 
@@ -42,7 +43,7 @@ const Login = ({dataUsuario, handleUserLogged}) =>{
                 <input type="password" onChange={(e) =>{setContraseña(e.target.value)}} value={contraseña}/>
                 </div>
 
-                {errorForm ? <span>Por favor vuelva a intentarlo, sus credenciales son inválidas</span> : <span/>}
+                {errorForm ? <span className='error-en-credenciales'>Por favor vuelva a intentarlo, sus credenciales son inválidas</span> : <span/>}
                 
                 <button type="submit">Ingresar</button>
 

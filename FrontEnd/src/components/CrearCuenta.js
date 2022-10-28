@@ -41,6 +41,7 @@ const CrearCuenta = () =>{
                         }else { 
                             setErrorConfDistinto(false);
                             setErrorConfVacio(false)
+                            console.log("Usuario creado con exito")
                             navigate("/login");
                                 };
                 }
