@@ -1,5 +1,8 @@
 package com.example.demo.proyecto.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "categorias")
@@ -10,6 +13,14 @@ public class Categoria {
     private String titulo;
     private String descripcion;
     private String imagenURL;
+
+//variable virtual no se guarda en base de datos
+
+    //bidireccional me permite crear la logica de listar todos los productos
+    //al seleccionar una categoría
+    //Una categoría puede tener muchos productos
+
+
 
     public Categoria(Integer id, String titulo, String descripcion, String imagenURL){
         this.id = id;
