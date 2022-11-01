@@ -16,9 +16,7 @@ public class Producto {
     private String politica;
     private Integer id_categoria;
 
-//    public Integer buscarIdCategoria(Categoria categoria){
-//        return categoria.getId();
-//    }
+
 
     public Producto(Integer id, String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Integer idCategoria) {
         this.id = id;
