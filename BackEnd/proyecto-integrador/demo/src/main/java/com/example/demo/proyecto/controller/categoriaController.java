@@ -17,28 +17,28 @@ public class categoriaController {
     @Autowired
     private CategoriaService categoriaService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/categoria/{id}")
     public ResponseEntity<Categoria> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(categoriaService.buscar(id));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/categoria/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         categoriaService.eliminar(id);
         return ResponseEntity.ok().body("Se Eliminó la categoría con id: " + id);
     }
 
-    @GetMapping
+    @GetMapping("/categoria")
     public ResponseEntity<List<Categoria>> buscarTodos(){
         return ResponseEntity.ok(categoriaService.buscarTodos());
     }
 
-    @PostMapping
+    @PostMapping("/categoria")
     public ResponseEntity<Categoria> guardar(@RequestBody Categoria categoria){
         return ResponseEntity.ok(categoriaService.guardar(categoria));
     }
 
-    @PutMapping
+    @PutMapping("/categoria")
     public ResponseEntity<Categoria> actualizar(@RequestBody Categoria categoria) throws ResourceNotFoundException {
         return ResponseEntity.ok(categoriaService.actualizar(categoria));
     }

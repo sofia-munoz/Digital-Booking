@@ -14,7 +14,7 @@ public class Producto {
     private String descripcion;
     private String disponibilidad;
     private String politica;
-    private Integer idCategoria;
+    private Integer id_categoria;
 
 //    public Integer buscarIdCategoria(Categoria categoria){
 //        return categoria.getId();
@@ -27,7 +27,7 @@ public class Producto {
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
         this.politica = politica;
-        this.idCategoria = idCategoria;
+        this.id_categoria = idCategoria;
     }
 
     public Producto(String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Integer idCategoria) {
@@ -36,7 +36,7 @@ public class Producto {
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
         this.politica = politica;
-        this.idCategoria = idCategoria;
+        this.id_categoria = idCategoria;
     }
 
     public Integer getId() {
@@ -87,12 +87,12 @@ public class Producto {
         this.politica = politica;
     }
 
-    public Integer getIdCategoria() {
-        return idCategoria;
+    public Integer getId_categoria() {
+        return id_categoria;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setId_categoria(Integer id_categoria) {
+        this.id_categoria = id_categoria;
     }
 
     //    public com.example.demo.proyecto.model.Categoria getCategoria() {
