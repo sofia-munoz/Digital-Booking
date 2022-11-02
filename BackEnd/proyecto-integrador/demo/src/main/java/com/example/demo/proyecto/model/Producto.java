@@ -1,5 +1,8 @@
 package com.example.demo.proyecto.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 
@@ -14,27 +17,33 @@ public class Producto {
     private String descripcion;
     private String disponibilidad;
     private String politica;
-    private Integer id_categoria;
+
+//    @JsonIgnoreProperties
+//            ({"hibernateLazyInitializer", "handler"})
+    @ManyToOne
+    @JoinColumn(name = "id_categoria",nullable = false)
+    private Categoria categoria;
 
 
 
-    public Producto(Integer id, String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Integer idCategoria) {
+    public Producto(){}
+    public Producto(Integer id, String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
         this.politica = politica;
-        this.id_categoria = idCategoria;
+        this.categoria = categoria;
     }
 
-    public Producto(String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Integer idCategoria) {
+    public Producto(String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Categoria categoria) {
         this.titulo = titulo;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
         this.politica = politica;
-        this.id_categoria = idCategoria;
+        this.categoria = categoria;
     }
 
     public Integer getId() {
@@ -85,45 +94,14 @@ public class Producto {
         this.politica = politica;
     }
 
-    public Integer getId_categoria() {
-        return id_categoria;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setId_categoria(Integer id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setIdCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    //    public com.example.demo.proyecto.model.Categoria getCategoria() {
-//        return categoria;
-//    }
-//
-//    public void setCategoria(com.example.demo.proyecto.model.Categoria categoria) {
-//        this.categoria = categoria;
-//    }
 
-//Muchos productos pueden tener una sola ciudad
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "producto_id")
-//    private Ciudad ciudad;
-//
-//    @OneToMany(cascade = CascadeType.ALL )
-//    @JoinColumn(name= "producto_id")
-//    private Set<Imagen> imagenes;
-    //hacer cambios para mejorar la performance
-    //controler obtener categoía por producto, devuelve listado categoría
-    //guardar producto por categoría aplico logica de abajo
-//    @ManyToMany
-//    @JoinTable(
-//            name="caractaristicasYProductos",
-//            joinColumns = @JoinColumn(name="id_producto"),
-//            inverseJoinColumns =
-//                    @JoinColumn(name="id_caracteristica")
-//    )
-//    @JsonIgnore
-//    private Set<Caracteristica> caracteristica;
-
-
-
-    //minimo dos productos por categorias
 
 }

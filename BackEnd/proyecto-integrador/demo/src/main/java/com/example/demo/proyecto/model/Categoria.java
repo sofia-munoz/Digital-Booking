@@ -14,11 +14,13 @@ public class Categoria {
     private String descripcion;
     private String imagenURL;
 
-//variable virtual no se guarda en base de datos
+    private transient int totalProductos;
 
-    //bidireccional me permite crear la logica de listar todos los productos
-    //al seleccionar una categoría
-    //Una categoría puede tener muchos productos
+//variable virtual no se guarda en base de datos
+    // Pablo:-->>> Aquí me habia corregido, no era virtual (Eso es para .Net), en java se usa el transient. Esto lo que hace es que no lo considera
+    // para guardar en la base de datos. Es decir que no debería darte error si no existe la columna en la base de datos.
+
+
 
 
 
@@ -70,6 +72,10 @@ public class Categoria {
 
     public void setImagenURL(String imagenURL) {
         this.imagenURL = imagenURL;
+    }
+
+    public int getTotalProductos() {
+        return totalProductos;
     }
 
     @Override

@@ -10,25 +10,23 @@
 //public class Caracteristica {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Integer id;
-//    private String caracteristica;
+//    private Set<Caracteristica> caracteristicas;
 //
-//    public Caracteristica(Integer id, String caracteristica) {
-//        this.id = id;
-//        this.caracteristica = caracteristica;
+//    @ManyToMany(mappedBy = "caracteristica")
+//    private Set<Producto> productos;
+//
+//
+//    public Caracteristica(Set<Caracteristica> caracteristicas, Set<Producto> productos) {
+//        this.caracteristicas = caracteristicas;
+//        this.productos = productos;
 //    }
 //
-//    public Caracteristica(String caracteristica) {
-//        this.caracteristica = caracteristica;
-//    }
-//
-//    //    @ManyToMany(mappedBy = "caracteristica")
-////    private Set<Producto> productos;
-////
-////
 //    public Caracteristica() {
 //
 //    }
 //
-//
+//    public void agregarCaracteristica(Caracteristica caracteristica){
+//        this.caracteristicas.add(caracteristica);
+//    }
+//  //caracteristicas
 //}

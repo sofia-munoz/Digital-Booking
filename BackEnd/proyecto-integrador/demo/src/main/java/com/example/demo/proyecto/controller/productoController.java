@@ -22,33 +22,33 @@ public class productoController {
 
     //buscar todo junto categoría, ciudad y fecha desde y hasta, si son nulos no filtrar
 
-    @GetMapping("/productos/buscar_por_categoria/{id_categoria}")
-    public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id_categoría){
-        return ResponseEntity.ok(productoService.productobycategoria(id_categoría));
+    @GetMapping("/byCategoria/{id}")
+    public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id){
+        return ResponseEntity.ok(productoService.productobycategoria(id));
     }
 
-    @GetMapping("/producto/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Producto> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.buscar(id));
     }
 
-    @DeleteMapping("/producto/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         productoService.eliminar(id);
         return ResponseEntity.ok().body("Se Eliminó el producto con id: " + id);
     }
 
-    @GetMapping("/producto")
+    @GetMapping
     public ResponseEntity<List<Producto>> buscarTodos(){
         return ResponseEntity.ok(productoService.buscarTodos());
     }
 
-    @PostMapping("/producto")
+    @PostMapping
     public ResponseEntity<Producto> guardar(@RequestBody Producto producto){
         return ResponseEntity.ok(productoService.guardar(producto));
     }
 
-    @PutMapping("/producto")
+    @PutMapping
     public ResponseEntity<Producto> actualizar(@RequestBody Producto producto) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.actualizar(producto));
     }

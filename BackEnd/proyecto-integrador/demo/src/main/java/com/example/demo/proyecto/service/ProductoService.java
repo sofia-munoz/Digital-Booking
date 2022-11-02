@@ -4,6 +4,7 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +37,12 @@ public class ProductoService  {
     }
 
     
-    public List<Producto> productobycategoria(Integer id_categoria){
-        List<Producto> productosEncontrados = buscarTodos();
-        for (Producto producto: productosEncontrados
-             ) {
-            if (producto.getId_categoria().equals(id_categoria)){
-                return productoRepository.findProductoByCategoriaParams(id_categoria);
+    public List<Producto> productobycategoria(Integer idCategoria){
+        try {
+            return productoRepository.findProductoByCategoriaParams(idCategoria);
+        } catch(Exception ex){
+return null;
             }
-        }
-        return null;
     }
 
     //hacer un buscar con id de categoría, id ciudad y la fecha
