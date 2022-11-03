@@ -31,20 +31,35 @@ public class ProductoService  {
     public Producto buscar(Integer id) throws ResourceNotFoundException {
         Optional<Producto> producto = productoRepository.findById(id);
         if(producto.isEmpty()){
-            throw new ResourceNotFoundException("No existe un turn con el ID: " + id);
+            throw new ResourceNotFoundException("No existe un producto con el ID: " + id);
         }
         return producto.get();
     }
 
     
-    public List<Producto> productobycategoria(Integer idCategoria){
+    public List<Producto> productoByCategoria(Integer idCategoria){
         try {
             return productoRepository.findProductoByCategoriaParams(idCategoria);
         } catch(Exception ex){
-return null;
+                return null;
             }
     }
 
+    public List<Producto> productoByCiudad(Integer idCiudad){
+        try {
+            return productoRepository.findProductoByCiudadParams(idCiudad);
+        } catch(Exception ex){
+            return null;
+        }
+    }
+
+    public List<Producto> productoByProvincia(Integer idProvincia){
+        try {
+            return productoRepository.findProductoByProvinciaParams(idProvincia);
+        } catch(Exception ex){
+            return null;
+        }
+    }
     //hacer un buscar con id de categoría, id ciudad y la fecha
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {

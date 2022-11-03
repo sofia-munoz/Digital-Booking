@@ -13,36 +13,44 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
-    private String ubicacion;
     private String descripcion;
     private String disponibilidad;
     private String politica;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_roducto", nullable = false)
+    private Ciudad ciudad;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_provincia", nullable = false)
+    private Provincia provincia;
+
 //    @JsonIgnoreProperties
 //            ({"hibernateLazyInitializer", "handler"})
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_categoria",nullable = false)
     private Categoria categoria;
 
-
-
     public Producto(){}
-    public Producto(Integer id, String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Categoria categoria) {
+
+    public Producto(Integer id, String titulo, String descripcion, String disponibilidad, String politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
-        this.ubicacion = ubicacion;
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
         this.politica = politica;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
         this.categoria = categoria;
     }
 
-    public Producto(String titulo, String ubicacion, String descripcion, String disponibilidad, String politica, Categoria categoria) {
+    public Producto(String titulo, String descripcion, String disponibilidad, String politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
         this.titulo = titulo;
-        this.ubicacion = ubicacion;
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
         this.politica = politica;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
         this.categoria = categoria;
     }
 
@@ -60,14 +68,6 @@ public class Producto {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
     }
 
     public String getDescripcion() {
@@ -94,14 +94,27 @@ public class Producto {
         this.politica = politica;
     }
 
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public Provincia getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(Provincia provincia) {
+        this.provincia = provincia;
+    }
+
     public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setIdCategoria(Categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-
-
-
 }

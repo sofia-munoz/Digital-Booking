@@ -1,9 +1,18 @@
 package com.example.demo.proyecto.model;
 
-public class Provincia {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "provincias")
+public class Provincia {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String Provincia;
+
+
+    public Provincia() {
+    }
 
     public Provincia(Integer id, String provincia) {
         this.id = id;

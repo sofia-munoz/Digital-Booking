@@ -4,9 +4,7 @@ package com.example.demo.proyecto.controller;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.model.Producto;
-import com.example.demo.proyecto.service.CategoriaService;
 import com.example.demo.proyecto.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +22,7 @@ public class productoController {
 
     @GetMapping("/byCategoria/{id}")
     public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id){
-        return ResponseEntity.ok(productoService.productobycategoria(id));
+        return ResponseEntity.ok(productoService.productoByCategoria(id));
     }
 
     @GetMapping("/{id}")
