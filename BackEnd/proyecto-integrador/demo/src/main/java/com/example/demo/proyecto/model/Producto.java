@@ -16,6 +16,7 @@ public class Producto {
     private String descripcion;
     private String disponibilidad;
     private String politica;
+    private String imagenPrincipalURL;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_roducto", nullable = false)
