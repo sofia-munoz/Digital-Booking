@@ -10,6 +10,7 @@ import {Routes, Route, Link, useLocation}  from "react-router-dom"
 import {getcategorias} from './/data//categorias';
 import {usuarioPrueba} from './/data//usuario'
 import MenuDrawer from './components/MenuDrawer';
+import Producto from './components/Producto'
 
 export const userContext = react.createContext();
 export const userInfoContext = react.createContext();
@@ -44,6 +45,7 @@ function App() {
         <Route path='/' element={<Body data={getdatos()}  categorias={getcategorias()}/>}/>
         <Route path='/login' element={<Login dataUsuario={usuarioPrueba} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
+        <Route path='/products/:id' element={<Producto/>}/>
       </Routes>
       <AppFooter/>
     </div> 

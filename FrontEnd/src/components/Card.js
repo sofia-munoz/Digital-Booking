@@ -1,8 +1,9 @@
 import React from 'react'
 import { AiFillStar } from "react-icons/fa";
 import { GrStar } from "react-icons/gr";
+import { Link } from 'react-router-dom';
 import "..//styles/card.css"
-const Card = ({img, categoria, nombre, ubicacion, descripcion}) => {
+const Card = ({img, categoria, nombre, ubicacion, descripcion,id}) => {
   return (
     <div className="card">
     <div className='card-image'>
@@ -14,7 +15,7 @@ const Card = ({img, categoria, nombre, ubicacion, descripcion}) => {
         <h3>{nombre}</h3>
         <h4>{ubicacion}</h4>
         <p>{descripcion}</p>
-        <button className="btn-primary">Ver más</button>
+        <Link to={'/products/'+id}><button className="btn-primary">Ver más</button></Link>
 
     </div>
     </div>
