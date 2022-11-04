@@ -8,8 +8,8 @@ variables:
 
 .base-rules:
   rules:
-    changes:
-     - $RULES_CHANGES_PATH
+    - changes:
+       - $RULES_CHANGES_PATH
 
 
 .backend:
