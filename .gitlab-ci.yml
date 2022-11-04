@@ -24,10 +24,13 @@ stages:
 
 backend-build:
   stage: build
+  image: maven:latest
   extends: .backend
   needs: []
   script:
-    - echo "Compiling the backend code..."
+    - cd BackEnd/proyecto-integrador/demo/
+    - echo "Building the backend code..."
+    - "mvn compile"
 
 frontend-build:
   stage: build
