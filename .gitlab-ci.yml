@@ -11,13 +11,12 @@ variables:
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - $RULES_CHANGES_PATH
-    - when: manual
       allow_failure: true
 
 .backend:
   extends: .base-rules
   variables:
-    RULES_CHANGES_PATH: "BackEnd/**/*"
+    RULES_CHANGES_PATH: "BackEnd/proyecto-integrador/demo/**/*"
 
 .frontend:
   extends: .base-rules
