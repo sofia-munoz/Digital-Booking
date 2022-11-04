@@ -11,13 +11,13 @@ variables:
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - $RULES_CHANGES_PATH
-    - when: always
+    - when: manual
       allow_failure: true
 
 .backend:
   extends: .base-rules
   variables:
-    RULES_CHANGES_PATH: "BackEnd/proyecto-integrador/demo/**/*"
+    RULES_CHANGES_PATH: "BackEnd/**/*"
 
 .frontend:
   extends: .base-rules
@@ -26,12 +26,10 @@ variables:
 
 backend-build:
   stage: build
-  image: maven:latest
   extends: .backend
   needs: []
   script:
-    - echo "Starting the Maven project compile..."
-    - "mvn compile"
+    - echo "Compiling the backend code..."
 
 frontend-build:
   stage: build
