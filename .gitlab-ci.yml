@@ -9,7 +9,7 @@ variables:
 .base-rules:
   rules:
     - changes:
-       - $RULES_CHANGES_PATH
+       - RULES_CHANGES_PATH
 
 
 .backend:
