@@ -22,7 +22,7 @@ variables:
 
 stages:          # List of stages for jobs, and their order of execution
   - build
-  - test
+
   - deploy
 
 build-job:       # This job runs in the build stage, which runs first.
@@ -56,6 +56,8 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Deploying application..."
     - echo "Application successfully deployed."
     - pip install awscli
+    - pwd
+    - ls -la
     - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
-    - aws s3 sync FrontEnd/build/ s3://grupo5-0521ptc6n2 --delete
+    - aws s3 sync build/ s3://grupo5-0521ptc6n2 --delete
