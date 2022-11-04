@@ -26,10 +26,12 @@ variables:
 
 backend-build:
   stage: build
+  image: maven:latest
   extends: .backend
   needs: []
   script:
-    - echo "Compiling the backend code..."
+    - echo "Starting the Maven project compile..."
+    - "mvn compile"
 
 frontend-build:
   stage: build
