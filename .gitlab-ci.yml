@@ -17,6 +17,7 @@ variables:
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
   AWS_S3_URL: $AWS_S3_URL
+  GO_PROJECT: gitlab.ctd.academy/ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/-/tree/development/FrontEnd
     
 
 stages:          # List of stages for jobs, and their order of execution
@@ -30,6 +31,8 @@ build-job:       # This job runs in the build stage, which runs first.
   script:
     - echo "Compiling the code..."
     - echo "Compile complete."
+    - ls
+    - cd ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/-/tree/development/FrontEnd
     - npm install 
     - CI-false npm run-script build
 
@@ -44,7 +47,6 @@ lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
   script:
     - echo "Linting code... This will take about 10 seconds."
-    - sleep 10
     - echo "No lint issues found."
 
 deploy-job:      # This job runs in the deploy stage.
