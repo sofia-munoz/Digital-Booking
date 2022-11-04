@@ -32,7 +32,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "Compiling the code..."
     - echo "Compile complete."
     - ls
-    - cd ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/-/tree/development/FrontEnd
+    - cd FrontEnd
     - npm install 
     - CI-false npm run-script build
 
