@@ -53,5 +53,5 @@ deploy-job:      # This job runs in the deploy stage.
     - echo "Application successfully deployed."
     - pip install awscli
     - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
-    - aws configure st aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
+    - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
     - aws s3 ./build/ $AWS_S3_URL    --delete
