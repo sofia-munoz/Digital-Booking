@@ -3,24 +3,22 @@ stages:
   - test
   - deploy
 
-variables:
-  RULES_CHANGES_PATH: "**/*"
 
 .base-rules:
   rules:
     - changes:
-       - RULES_CHANGES_PATH
+       - /**/*
 
 
 .backend:
-  extends: .base-rules
-  variables:
-    RULES_CHANGES_PATH: "BackEnd/**/*"
+  rules:
+    - changes:
+       - BackEnd/**/*
 
 .frontend:
-  extends: .base-rules
-  variables:
-    RULES_CHANGES_PATH: "FrontEnd/**/*"
+  rules:
+    - changes:
+       - FrontEnd/**/*
 
 backend-build:
   stage: build
