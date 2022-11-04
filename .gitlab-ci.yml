@@ -16,6 +16,7 @@
 variables:
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
+  AWS_S3_URL: $AWS_S3_URL
     
 
 stages:          # List of stages for jobs, and their order of execution
@@ -45,9 +46,12 @@ lint-test-job:   # This job also runs in the test stage.
     - echo "No lint issues found."
 
 deploy-job:      # This job runs in the deploy stage.
-  image: python:lastest
+  image: python:latest
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
-    - pip install aescli
+    - pip install awscli
+    - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
+    - aws configure st aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
+    - aws s3 ./build/ $AWS_S3_URL    --delete
