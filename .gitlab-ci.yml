@@ -11,6 +11,7 @@ variables:
     - if: '$CI_PIPELINE_SOURCE == "push"'
       changes:
         - $RULES_CHANGES_PATH
+    - when: always
       allow_failure: true
 
 .backend:
