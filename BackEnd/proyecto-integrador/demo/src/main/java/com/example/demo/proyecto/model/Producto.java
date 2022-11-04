@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -16,7 +17,15 @@ public class Producto {
     private String descripcion;
     private String disponibilidad;
     private String politica;
-    private String imagenPrincipalURL;
+
+    @ManyToMany
+    @JoinTable(
+            name= "caracteristicaPorProducto",
+            joinColumns = @JoinColumn(name="id_producto"),
+            inverseJoinColumns =
+                    @JoinColumn(name = "id_caracteristica")
+    )
+    private Set<Caracteristica> caracteristicasDelProducto;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_roducto", nullable = false)
