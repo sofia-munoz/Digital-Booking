@@ -17,7 +17,7 @@ variables:
 .backend:
   extends: .base-rules
   variables:
-    RULES_CHANGES_PATH: "BackEnd/proyecto-integrador/demo/**/*"
+    RULES_CHANGES_PATH: "BackEnd/**/*"
 
 .frontend:
   extends: .base-rules
@@ -30,6 +30,7 @@ backend-build:
   extends: .backend
   needs: []
   script:
+    - cd BackEnd/proyecto-integrador/demo/
     - echo "Starting the Maven project compile..."
     - "mvn compile"
 
