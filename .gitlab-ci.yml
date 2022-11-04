@@ -17,7 +17,7 @@ variables:
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
   AWS_S3_URL: $AWS_S3_URL
-  GO_PROJECT: gitlab.ctd.academy/ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/-/tree/development/FrontEnd
+  
     
 
 stages:          # List of stages for jobs, and their order of execution
@@ -58,4 +58,4 @@ deploy-job:      # This job runs in the deploy stage.
     - pip install awscli
     - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
-    - aws s3 sync build/ s3://grupo5-0521ptc6n2 --delete
+    - aws s3 sync FrontEnd/build/ s3://grupo5-0521ptc6n2 --delete
