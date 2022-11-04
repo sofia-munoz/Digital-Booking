@@ -33,7 +33,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - ls
     - cd FrontEnd
     - npm install 
-    - npm run build
+    - CI-FALSE npm run build
     - echo "Compile complete."
 
 unit-test-job:   # This job runs in the test stage.
