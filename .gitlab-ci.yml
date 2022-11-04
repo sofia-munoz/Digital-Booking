@@ -15,6 +15,7 @@
 
 variables:
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
     
 
 stages:          # List of stages for jobs, and their order of execution
@@ -23,6 +24,7 @@ stages:          # List of stages for jobs, and their order of execution
   - deploy
 
 build-job:       # This job runs in the build stage, which runs first.
+  image: node:16.14.2-alpine
   stage: build
   script:
     - echo "Compiling the code..."
@@ -43,7 +45,9 @@ lint-test-job:   # This job also runs in the test stage.
     - echo "No lint issues found."
 
 deploy-job:      # This job runs in the deploy stage.
+  image: python:lastest
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
+    - pip install aescli
