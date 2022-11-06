@@ -1,16 +1,14 @@
 import './App.css';
 import react , { useState } from 'react';
-import Header from './components/Header';
-import Body from './components/Body';
-import AppFooter from './components/Footer';
-import {getdatos} from './/data/datos';
-import Login from './components/Login';
-import CrearCuenta from './components/CrearCuenta';
-import {Routes, Route, Link, useLocation}  from "react-router-dom"
-import {getcategorias} from './/data//categorias';
-import {usuarioPrueba} from './/data//usuario'
-import MenuDrawer from './components/MenuDrawer';
-import Producto from './components/Producto'
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Login from './components/Formularios/Login';
+import CrearCuenta from './components/Formularios/CrearCuenta';
+import {Routes, Route}  from "react-router-dom"
+import usuario from './mocks/api/usuario.json'
+import MenuDrawer from './components/MenuDrawer/MenuDrawer';
+import ProductPage from './components/ProductsPage/ProductPage'
+import BodyHome from './components/Body/BodyHome';
 
 export const userContext = react.createContext();
 export const userInfoContext = react.createContext();
@@ -37,17 +35,17 @@ function App() {
   return (
 
     <userContext.Provider value = {userLogged}>
-    <userInfoContext.Provider value = {usuarioPrueba}>
+    <userInfoContext.Provider value = {usuario}>
     <div className="App">
       {showModal && <MenuDrawer handleLogOut={handleLogOut} handleModalMenu={handleModalMenu}/>}  
       <Header handleLogOut={handleLogOut} handleModalMenu={handleModalMenu}/>
       <Routes>
-        <Route path='/' element={<Body data={getdatos()}  categorias={getcategorias()}/>}/>
-        <Route path='/login' element={<Login dataUsuario={usuarioPrueba} handleUserLogged={handleUserLogged}/>}/>
+        <Route path='/' element={<BodyHome/>}/>
+        <Route path='/login' element={<Login usuario={usuario} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
-        <Route path='/products/:id' element={<Producto/>}/>
+        <Route path='/products/:id' element={<ProductPage/>}/>
       </Routes>
-      <AppFooter/>
+      <Footer/>
     </div> 
     </userInfoContext.Provider>
     </userContext.Provider>
