@@ -76,6 +76,7 @@ backend-deploy:
     - echo "Deploying the backend code..."
 
 frontend-deploy:
+  image: python:latest
   stage: deploy
   extends: .frontend
   needs: ["frontend-test"]
