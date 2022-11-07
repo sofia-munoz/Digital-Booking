@@ -46,7 +46,7 @@ backend-test:
   script:
     - cd BackEnd/proyecto-integrador/demo/
     - echo "Testing the backend code..."
-    - "mvn package"
+    - "mvn test"
 
 frontend-test:
   stage: test
