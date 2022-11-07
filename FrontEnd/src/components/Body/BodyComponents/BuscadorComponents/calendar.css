@@ -185,14 +185,7 @@ button.react-datepicker__navigation .react-datepicker__navigation--next {
 }
 
 /* tablet version */
-@media screen and (min-width: 1023px) {
-  .react-datepicker {
-    width: 50vw;
-  }
-}
-
-/* tablet version */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1023px) {
   .react-datepicker {
     width: 70vw;
     height: 27rem;
@@ -217,11 +210,12 @@ button.react-datepicker__navigation .react-datepicker__navigation--next {
 }
 
 /* mobile version */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   .calendar {
     flex: 0 0 auto;
     width: 100%;
     margin-left: 0;
+    
   }
 
   .react-datepicker {

@@ -106,14 +106,21 @@
     justify-content: center;
     padding: 15px;
 }
+.calendar_product{
+    margin: 15px;
+}
 
 .reservation_start{
     border-radius: 5px;
     background-color: var(--font-color-light);
     padding: 15px;
-    color: var(--font-color-dark);
-
 }
+
+.reservation_start p {
+    color: var(--font-color-dark);
+    font-weight: lighter;
+}
+
 .reservation_start button{
     width: 100%;
     height: 40px;
@@ -134,3 +141,34 @@ hr {
     border: 1px;
     width: 100%;
 }
+
+/* Responsive - Tablet */
+
+@media screen and (max-width:1023px) {
+    .reservation_container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+    .react-datepicker {
+            flex: 0 0 auto;
+            width: 70vw;
+            margin-left: 0;
+        }
+
+    .reservation_start {
+            background-color: var(--background-color-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+    }
+
+@media screen and (max-width:767px) {
+
+}
+
