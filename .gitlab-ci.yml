@@ -29,7 +29,7 @@ backend-build:
   needs: []
   script:
     - cd BackEnd/proyecto-integrador/demo/
-    - echo "Building the backend ..."
+    - echo "Building the backend code..."
     - "mvn compile"
 
 frontend-build:
