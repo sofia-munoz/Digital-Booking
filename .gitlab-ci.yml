@@ -22,9 +22,9 @@ variables:
 
 
 .frontend:
-  rules:
-    - changes:
-       - FrontEnd/**/*
+  extends: .base-rules
+  variables:
+    RULES_CHANGES_PATH: "FrontEnd/**/*"
 
 backend-build:
   stage: build
