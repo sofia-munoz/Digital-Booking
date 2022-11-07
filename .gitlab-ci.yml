@@ -5,6 +5,9 @@ stages:
 
 variables:
   RULES_CHANGES_PATH: "**/*"
+  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
+  AWS_S3_URL: $AWS_S3_URL
 
 .base-rules:
   rules:
@@ -36,11 +39,19 @@ backend-build:
     - "mvn compile"
 
 frontend-build:
+  image: node:16.14.2-alpine
   stage: build
   extends: .frontend
   needs: []
   script:
     - echo "Compiling the frontend code..."
+    - cd FrontEnd
+    - npm install 
+    - CI=false npm run build
+    - echo "Compile complete."
+  artifacts:
+    paths:
+    - FrontEnd/build
 
 backend-test:
   stage: test
@@ -69,4 +80,6 @@ frontend-deploy:
   extends: .frontend
   needs: ["frontend-test"]
   script:
-    - echo "Deploying the frontend code..."
+    - echo "Deploying the frontend app..."
+    - pip install awscli
+
