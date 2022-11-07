@@ -17,7 +17,7 @@ variables:
 .backend:
   extends: .base-rules
   variables:
-    RULES_CHANGES_PATH: "backend/**/*"
+    RULES_CHANGES_PATH: "BackEnd/**/*"
   image: maven:latest
 
 
