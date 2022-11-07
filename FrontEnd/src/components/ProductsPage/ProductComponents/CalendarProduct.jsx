@@ -45,7 +45,7 @@ export default function Calendar () {
       locale="es"
       dateFormat="dd 'de' MMM"
       //Show more than one month:
-      monthsShown={2}
+      monthsShown={width>767?2:1}
       //Disable previous dates:
       showDisabledMonthNavigation
       minDate={new Date()}

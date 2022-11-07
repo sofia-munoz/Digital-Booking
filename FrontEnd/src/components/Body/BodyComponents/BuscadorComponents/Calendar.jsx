@@ -44,7 +44,7 @@ export default function Calendar () {
       locale="es"
       dateFormat="dd 'de' MMM"
       //Show more than one month:
-      monthsShown={2}
+      monthsShown={width>767?2:1}
       //Disable previous dates:
       showDisabledMonthNavigation
       minDate={new Date()}
@@ -53,7 +53,7 @@ export default function Calendar () {
       onChange={(update) => {
         setDateRange(update)
       }}
-      withPortal={width <= 800 ? true : false}
+      withPortal={width <= 768 ? true : false}
       //isClearable={true}
       //Disable automatic close:
       shouldCloseOnSelect={true}

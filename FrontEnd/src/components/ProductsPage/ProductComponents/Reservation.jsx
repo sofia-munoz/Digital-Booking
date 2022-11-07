@@ -9,7 +9,7 @@ export default function Reservation () {
             <h2>Fechas Disponibles</h2>
             <div className={styles.reservation_container}>
                 <div className={styles.calendar_product}>
-                <CalendarProduct />
+                <CalendarProduct/>
                 </div>
                 <div className={styles.reservation_start}>
                     <p>Agregá tus fechas de viaje para obtener precios exactos</p>

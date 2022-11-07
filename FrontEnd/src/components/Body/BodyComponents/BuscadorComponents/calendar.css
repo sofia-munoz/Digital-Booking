@@ -210,7 +210,7 @@ button.react-datepicker__navigation .react-datepicker__navigation--next {
 }
 
 /* mobile version */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 767px) {
   .calendar {
     flex: 0 0 auto;
     width: 100%;
@@ -219,8 +219,7 @@ button.react-datepicker__navigation .react-datepicker__navigation--next {
   }
 
   .react-datepicker {
-    height: 86vh;
-    width: 90vw;
+    
     background: var(--font-color-light);
     flex-wrap: wrap;
     padding: 10px;

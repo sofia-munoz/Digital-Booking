@@ -4,7 +4,7 @@ import BloqueHeader from "./ProductComponents/BloqueHeader";
 import BloqueLocation from "./ProductComponents/BloqueLocation"
 import fav from '../../assets/favBlack.png';
 import share from "../../assets/share.png";
-import ImageGalery from "./ProductComponents/ImageGalery";
+import Gallery from "../Gallery/index";
 import Description from "./ProductComponents/Description";
 import ProductDetail from "./ProductComponents/ProductDetail";
 import PolicyAndRules from "./ProductComponents/PolicyAndRules";
@@ -20,7 +20,7 @@ export default function ProductPage () {
                 <img src={share} alt="share" />
                 <img src={fav} alt="favorite"/>
             </div>
-            <ImageGalery/>        
+            <Gallery/>        
             <Description/>
             <ProductDetail/>
             <PolicyAndRules/>
