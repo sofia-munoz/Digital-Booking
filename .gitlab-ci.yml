@@ -3,6 +3,8 @@ stages:
   - test
   - deploy
 
+variables:
+  RULES_CHANGES_PATH: "**/*"
 
 .base-rules:
   rules:
@@ -13,10 +15,11 @@ stages:
       allow_failure: true
 
 .backend:
+  extends: .base-rules
+  variables:
+    RULES_CHANGES_PATH: "backend/**/*"
   image: maven:latest
-  rules:
-    - changes:
-       - BackEnd/**/*
+
 
 .frontend:
   rules:
