@@ -34,6 +34,7 @@ backend-build:
     - cd BackEnd/proyecto-integrador/demo/
     - echo "Building the backend code..."
     - "mvn compile"
+    - "mvn test"
 
 frontend-build:
   stage: build
