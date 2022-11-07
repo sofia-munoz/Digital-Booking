@@ -45,6 +45,7 @@ backend-test:
   needs: ["backend-build"]
   script:
     - echo "Testing the backend code..."
+    - "mvn test"
 
 frontend-test:
   stage: test
