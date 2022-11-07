@@ -13,6 +13,7 @@ stages:
       allow_failure: true
 
 .backend:
+  image: maven:latest
   rules:
     - changes:
        - BackEnd/**/*
@@ -24,7 +25,6 @@ stages:
 
 backend-build:
   stage: build
-  image: maven:latest
   extends: .backend
   needs: []
   script:
