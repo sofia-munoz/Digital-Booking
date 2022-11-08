@@ -1,0 +1,242 @@
+[
+  {
+    "full_name": "Provincia de Misiones",
+    "fuente": "IGN",
+    "iso_id": "AR-N",
+    "name": "Misiones",
+    "id": "54",
+    "categoria": "Provincia",
+    "iso_name": "Misiones",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de San Luis",
+    "fuente": "IGN",
+    "iso_id": "AR-D",
+    "name": "San Luis",
+    "id": "74",
+    "categoria": "Provincia",
+    "iso_name": "San Luis",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de San Juan",
+    "fuente": "IGN",
+    "iso_id": "AR-J",
+    "name": "San Juan",
+    "id": "70",
+    "categoria": "Provincia",
+    "iso_name": "San Juan",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Entre Ríos",
+    "fuente": "IGN",
+    "iso_id": "AR-E",
+    "name": "Entre Ríos",
+    "id": "30",
+    "categoria": "Provincia",
+    "iso_name": "Entre Ríos",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Santa Cruz",
+    "fuente": "IGN",
+    "iso_id": "AR-Z",
+    "name": "Santa Cruz",
+    "id": "78",
+    "categoria": "Provincia",
+    "iso_name": "Santa Cruz",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Río Negro",
+    "fuente": "IGN",
+    "iso_id": "AR-R",
+    "name": "Río Negro",
+    "id": "62",
+    "categoria": "Provincia",
+    "iso_name": "Río Negro",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia del Chubut",
+    "fuente": "IGN",
+    "iso_id": "AR-U",
+    "name": "Chubut",
+    "id": "26",
+    "categoria": "Provincia",
+    "iso_name": "Chubut",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Córdoba",
+    "fuente": "IGN",
+    "iso_id": "AR-X",
+    "name": "Córdoba",
+    "id": "14",
+    "categoria": "Provincia",
+    "iso_name": "Córdoba",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Mendoza",
+    "fuente": "IGN",
+    "iso_id": "AR-M",
+    "name": "Mendoza",
+    "id": "50",
+    "categoria": "Provincia",
+    "iso_name": "Mendoza",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de La Rioja",
+    "fuente": "IGN",
+    "iso_id": "AR-F",
+    "name": "La Rioja",
+    "id": "46",
+    "categoria": "Provincia",
+    "iso_name": "La Rioja",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Catamarca",
+    "fuente": "IGN",
+    "iso_id": "AR-K",
+    "name": "Catamarca",
+    "id": "10",
+    "categoria": "Provincia",
+    "iso_name": "Catamarca",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de La Pampa",
+    "fuente": "IGN",
+    "iso_id": "AR-L",
+    "name": "La Pampa",
+    "id": "42",
+    "categoria": "Provincia",
+    "iso_name": "La Pampa",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Santiago del Estero",
+    "fuente": "IGN",
+    "iso_id": "AR-G",
+    "name": "Santiago del Estero",
+    "id": "86",
+    "categoria": "Provincia",
+    "iso_name": "Santiago del Estero",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Corrientes",
+    "fuente": "IGN",
+    "iso_id": "AR-W",
+    "name": "Corrientes",
+    "id": "18",
+    "categoria": "Provincia",
+    "iso_name": "Corrientes",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Santa Fe",
+    "fuente": "IGN",
+    "iso_id": "AR-S",
+    "name": "Santa Fe",
+    "id": "82",
+    "categoria": "Provincia",
+    "iso_name": "Santa Fe",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Tucumán",
+    "fuente": "IGN",
+    "iso_id": "AR-T",
+    "name": "Tucumán",
+    "id": "90",
+    "categoria": "Provincia",
+    "iso_name": "Tucumán",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia del Neuquén",
+    "fuente": "IGN",
+    "iso_id": "AR-Q",
+    "name": "Neuquén",
+    "id": "58",
+    "categoria": "Provincia",
+    "iso_name": "Neuquén",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Salta",
+    "fuente": "IGN",
+    "iso_id": "AR-A",
+    "name": "Salta",
+    "id": "66",
+    "categoria": "Provincia",
+    "iso_name": "Salta",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia del Chaco",
+    "fuente": "IGN",
+    "iso_id": "AR-H",
+    "name": "Chaco",
+    "id": "22",
+    "categoria": "Provincia",
+    "iso_name": "Chaco",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Formosa",
+    "fuente": "IGN",
+    "iso_id": "AR-P",
+    "name": "Formosa",
+    "id": "34",
+    "categoria": "Provincia",
+    "iso_name": "Formosa",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Jujuy",
+    "fuente": "IGN",
+    "iso_id": "AR-Y",
+    "name": "Jujuy",
+    "id": "38",
+    "categoria": "Provincia",
+    "iso_name": "Jujuy",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Ciudad Autónoma de Buenos Aires",
+    "fuente": "IGN",
+    "iso_id": "AR-C",
+    "name": "Ciudad Autónoma de Buenos Aires",
+    "id": "02",
+    "categoria": "Ciudad Autónoma",
+    "iso_name": "Ciudad Autónoma de Buenos Aires",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Buenos Aires",
+    "fuente": "IGN",
+    "iso_id": "AR-B",
+    "name": "Buenos Aires",
+    "id": "06",
+    "categoria": "Provincia",
+    "iso_name": "Buenos Aires",
+    "country": "Argentina"
+  },
+  {
+    "full_name": "Provincia de Tierra del Fuego",
+    "fuente": "IGN",
+    "iso_id": "AR-V",
+    "name": "Tierra del Fuego",
+    "id": "94",
+    "categoria": "Provincia",
+    "iso_name": "Tierra del Fuego",
+    "country": "Argentina"
+  }
+]
