@@ -37,6 +37,7 @@ backend-build:
     - cd BackEnd/proyecto-integrador/demo/
     - echo "Building the backend code..."
     - mvn clean package -DskipTests
+    - pwd
   artifacts:
     paths:
     - target/*.jar
