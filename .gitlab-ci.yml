@@ -61,7 +61,14 @@ backend-test:
   extends: .backend
   needs: ["backend-build"]
   script:
-    - cd BackEnd/proyecto-integrador/demo/
+    #- cd BackEnd/proyecto-integrador/demo/
+    - ls -l
+    - cd BackEnd
+    - ls -l
+    - cd proyecto-integrador
+    - ls -l
+    - cd demo
+    - ls -l
     - echo "Testing the backend code..."
 
 frontend-test:
