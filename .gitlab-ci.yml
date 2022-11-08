@@ -36,13 +36,13 @@ backend-build:
   script:
     - cd BackEnd/proyecto-integrador/demo/
     - echo "Building the backend code..."
-    - mvn clean package -DskipTests
+    - mvn clean package -DskipTests -U
     - pwd
     - cd target/
     - ls -l
   artifacts:
     paths:
-    - demo/target/*.jar
+    - target/*.jar
 
 frontend-build:
   image: node:16.14.2-alpine
