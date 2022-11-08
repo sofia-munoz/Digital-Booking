@@ -35,6 +35,7 @@ backend-build:
   needs: []
   script:
     - echo "Building the backend code..."
+    - cd BackEnd/proyecto-integrador/demo/
     - mvn clean package -DskipTests -U
   artifacts:
     paths:
