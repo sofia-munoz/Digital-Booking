@@ -1,8 +1,7 @@
 package com.example.demo.proyecto.model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "categorias")
@@ -19,9 +18,6 @@ public class Categoria {
 //variable virtual no se guarda en base de datos
     // Pablo:-->>> Aquí me habia corregido, no era virtual (Eso es para .Net), en java se usa el transient. Esto lo que hace es que no lo considera
     // para guardar en la base de datos. Es decir que no debería darte error si no existe la columna en la base de datos.
-
-
-
 
 
     public Categoria(Integer id, String titulo, String descripcion, String imagenURL){
