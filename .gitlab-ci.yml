@@ -21,7 +21,6 @@ variables:
   extends: .base-rules
   variables:
     RULES_CHANGES_PATH: "BackEnd/**/*"
-  image: maven:latest
 
 
 .frontend:
@@ -30,16 +29,13 @@ variables:
     RULES_CHANGES_PATH: "FrontEnd/**/*"
 
 backend-build:
+  image: maven:latest
   stage: build
   extends: .backend
   needs: []
   script:
-    - cd BackEnd/proyecto-integrador/demo/
     - echo "Building the backend code..."
     - mvn clean package -DskipTests -U
-    - pwd
-    - cd target/
-    - ls -l
   artifacts:
     paths:
     - /builds/ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/BackEnd/proyecto-integrador/demo/target/*.jar
@@ -78,9 +74,23 @@ backend-deploy:
   stage: deploy
   extends: .backend
   needs: ["backend-test"]
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    #The ssh-agent command outputs commands to set ce - cp -r * .publicrtain environment variables in the shell
+    - eval $(ssh-agent -s) #The eval command tells the shell to run the output of ssh-agent as shell commands
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - #"$SSH_PRIVATE_KEY" in this we added private key in variable
+    - mkdir -p ~/.ssh #create a directory
+    - chmod 700 ~/.ssh #usually the tools which use that directory will ask you to assign permissions to it
+    - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts #"$EC2_IPADDRESS" in this we added our instance ip_address in variable
+    - chmod 644 ~/.ssh/known_hosts #this is key file permission  
   script:
-    - echo "Deploying the backend code..."
-
+    - mkdir .public #create public directory
+    - cp -r * .public
+    - mv .public public
+    - zip -r public.zip public
+    - scp -o StrictHostKeyChecking=no public.zip ubuntu@52.14.221.16:/home/ubuntu/test
+    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu/test; touch foo.txt; unzip public.zip"
+    
 frontend-deploy:
   image: python:latest
   stage: deploy
