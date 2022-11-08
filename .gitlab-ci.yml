@@ -38,6 +38,8 @@ backend-build:
     - echo "Building the backend code..."
     - mvn clean package -DskipTests
     - pwd
+    - cd target/
+    - ls -l
   artifacts:
     paths:
     - demo/target/*.jar
