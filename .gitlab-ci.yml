@@ -84,9 +84,7 @@ frontend-test:
 backend-deploy:
   stage: deploy
   extends: .backend
-  needs:
-    - job: backend-test
-      artifacts: true
+  needs: ["backend-test"]
   before_script:
     - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
     #The ssh-agent command outputs commands to set ce - cp -r * .publicrtain environment variables in the shell
