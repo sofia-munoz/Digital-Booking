@@ -39,7 +39,7 @@ backend-build:
     - "mvn compile"
   artifacts:
     paths:
-    - /target
+    - target/
 
 frontend-build:
   image: node:16.14.2-alpine
