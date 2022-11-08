@@ -42,7 +42,7 @@ backend-build:
     - ls -l
   artifacts:
     paths:
-    - target/*.jar
+    - target/demo-0.0.1-SNAPSHOT.jar
 
 frontend-build:
   image: node:16.14.2-alpine
