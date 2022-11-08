@@ -24,6 +24,6 @@ public interface ProductoRepository extends JpaRepository<Producto,Integer> {
     List<Producto> findProductoByProvinciaParams(Integer provinciaId);
 
     @Query(value = "SELECT * FROM productos ORDER BY RAND() LIMIT 8 ",nativeQuery = true)
-    List<Producto> limitar();
+    List<Producto> randomProductsAndLimit();
 
 }

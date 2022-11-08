@@ -46,7 +46,7 @@ public class ProductoService  {
 
     public List<Producto> eightRandomProducts(){
         try {
-            return productoRepository.limitar();
+            return productoRepository.randomProductsAndLimit();
         } catch(Exception ex){
             return null;
         }
