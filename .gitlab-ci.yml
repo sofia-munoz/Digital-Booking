@@ -76,7 +76,6 @@ backend-deploy:
   extends: .backend
   needs: ["backend-test"]
   before_script:
-    - apt-get install -y zip unzip
     - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
     #The ssh-agent command outputs commands to set ce - cp -r * .publicrtain environment variables in the shell
     - eval $(ssh-agent -s) #The eval command tells the shell to run the output of ssh-agent as shell commands
@@ -86,12 +85,13 @@ backend-deploy:
     - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts #"$EC2_IPADDRESS" in this we added our instance ip_address in variable
     - chmod 644 ~/.ssh/known_hosts #this is key file permission  
   script:
-    - mkdir .public #create public directory
-    - cp -r * .public
-    - mv .public public
-    - zip -r public.zip public
-    - scp -o StrictHostKeyChecking=no public.zip ubuntu@52.14.221.16:/home/ubuntu/test
-    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu/test; touch foo.txt; unzip public.zip"
+    #- mkdir .public #create public directory
+    #- cp -r * .public
+    #- mv .public public
+    #- zip -r public.zip public
+    - touch test.txt
+    - scp -o StrictHostKeyChecking=no test.txt ubuntu@52.14.221.16:/home/ubuntu/test
+    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu/test; touch foo.txt"
     
 frontend-deploy:
   image: python:latest
