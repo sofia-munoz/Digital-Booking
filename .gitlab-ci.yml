@@ -62,13 +62,6 @@ backend-test:
   needs: ["backend-build"]
   script:
     #- cd BackEnd/proyecto-integrador/demo/
-    - ls -l
-    - cd BackEnd
-    - ls -l
-    - cd proyecto-integrador
-    - ls -l
-    - cd demo
-    - ls -l
     - echo "Testing the backend code..."
   artifacts:
     paths:
@@ -95,13 +88,8 @@ backend-deploy:
     - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts #"$EC2_IPADDRESS" in this we added our instance ip_address in variable
     - chmod 644 ~/.ssh/known_hosts #this is key file permission  
   script:
-    #- mkdir .public #create public directory
-    #- cp -r * .public
-    #- mv .public public
-    #- zip -r public.zip public
-    - touch test.txt
     - scp -o StrictHostKeyChecking=no BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
-    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu; touch foo.txt"
+    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu;  java -jar demo-0.0.1-SNAPSHOT.jar"
     
 frontend-deploy:
   image: python:latest
