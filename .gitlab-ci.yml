@@ -90,7 +90,7 @@ backend-deploy:
     #- mv .public public
     #- zip -r public.zip public
     - touch test.txt
-    - cd BackEnd/proyecto-integrador/demo
+    #- cd BackEnd/proyecto-integrador/demo
     - ls -l
     - cd ..
     - ls -l
