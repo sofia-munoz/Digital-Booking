@@ -90,8 +90,8 @@ backend-deploy:
     #- mv .public public
     #- zip -r public.zip public
     - touch test.txt
-    - scp -o StrictHostKeyChecking=no test.txt ubuntu@52.14.221.16:/home/ubuntu/test
-    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu/test; touch foo.txt"
+    - scp -o StrictHostKeyChecking=no /builds/ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
+    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu; touch foo.txt"
     
 frontend-deploy:
   image: python:latest
