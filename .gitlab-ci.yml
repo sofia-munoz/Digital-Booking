@@ -70,6 +70,9 @@ backend-test:
     - cd demo
     - ls -l
     - echo "Testing the backend code..."
+  artifacts:
+    paths:
+    - BackEnd/proyecto-integrador/demo/target/*.jar
 
 frontend-test:
   stage: test
