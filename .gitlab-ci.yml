@@ -76,6 +76,7 @@ backend-deploy:
   extends: .backend
   needs: ["backend-test"]
   before_script:
+    - sudo apt -y install zip
     - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
     #The ssh-agent command outputs commands to set ce - cp -r * .publicrtain environment variables in the shell
     - eval $(ssh-agent -s) #The eval command tells the shell to run the output of ssh-agent as shell commands
