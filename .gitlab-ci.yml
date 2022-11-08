@@ -54,7 +54,7 @@ frontend-build:
     - echo "Compile complete."
   artifacts:
     paths:
-    - /builds/ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/FrontEnd/build
+    - FrontEnd/build
 
 backend-test:
   stage: test
@@ -90,15 +90,7 @@ backend-deploy:
     #- mv .public public
     #- zip -r public.zip public
     - touch test.txt
-    #- cd BackEnd/proyecto-integrador/demo
-    - ls -l
-    - cd ..
-    - ls -l
-    - cd ..
-    - ls -l
-    - cd ..
-    - ls -l
-    - cd ..
+    - cd BackEnd/proyecto-integrador/demo
     - ls -l
     - scp -o StrictHostKeyChecking=no BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
     - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu; touch foo.txt"
