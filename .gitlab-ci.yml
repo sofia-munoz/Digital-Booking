@@ -40,7 +40,7 @@ backend-build:
     - pwd
   artifacts:
     paths:
-    - target/*.jar
+    - demo/target/*.jar
 
 frontend-build:
   image: node:16.14.2-alpine
