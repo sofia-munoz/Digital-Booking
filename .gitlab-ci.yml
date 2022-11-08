@@ -39,7 +39,7 @@ backend-build:
     - mvn clean package -DskipTests
   artifacts:
     paths:
-    - target/*
+    - target/*.jar
 
 frontend-build:
   image: node:16.14.2-alpine
