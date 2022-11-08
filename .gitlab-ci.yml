@@ -100,13 +100,6 @@ backend-deploy:
     #- mv .public public
     #- zip -r public.zip public
     - touch test.txt
-    - ls -l
-    - cd BackEnd
-    - ls -l
-    - cd proyecto-integrador
-    - ls -l
-    - cd demo
-    - ls -l
     - scp -o StrictHostKeyChecking=no BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
     - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu; touch foo.txt"
     
