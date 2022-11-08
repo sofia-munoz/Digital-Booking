@@ -37,6 +37,9 @@ backend-build:
     - cd BackEnd/proyecto-integrador/demo/
     - echo "Building the backend code..."
     - "mvn compile"
+  artifacts:
+    paths:
+    - BackEnd/target
 
 frontend-build:
   image: node:16.14.2-alpine
