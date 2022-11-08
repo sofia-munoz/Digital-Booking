@@ -37,6 +37,23 @@ export default function Calendar () {
     )
   }
 
+  const reservas = [
+    {
+        "start": "2022-11-12T15:30:00+05:00",
+        "end": "2022-12-11T16:30:00+05:00"
+    },
+    {
+        "start": "2023-01-01T16:00:00+05:00",
+        "end": "2023-02-02T20:00:00+05:00"
+    }
+];
+
+const disabledDateRanges = reservas.map(range => ({
+    start: new Date(range.start),
+    end: new Date(range.end)
+}));
+
+
   return (
     <DatePicker 
       inline
@@ -56,6 +73,7 @@ export default function Calendar () {
       }}
       //Disable automatic close:
       shouldCloseOnSelect={true}
+      excludeDateIntervals={disabledDateRanges}
     ></DatePicker>
   )
 }

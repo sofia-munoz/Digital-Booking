@@ -1,37 +1,66 @@
-import React from "react";
-// import CardCategoria from "../CardCategoria"; , { useState, useEffect }
-// import Card from "../Card";
-
+import React, {useState, useEffect} from "react";
 import Buscador from "./BodyComponents/Buscador";
 import ListaCategorias from "./BodyComponents/ListaCategorias";
 import ListaProductos from "./BodyComponents/ListaProductos.jsx";
-// import {getCiudades} from '../../data/ciudades'
-// import CategoryLoadingCard from "../CategoryLoadingCard";
-// import ProductLoadingCard from "../ProductLoadingCard";
+
+
+  const urlCategorias = 'http://localhost:3000/categorias'
+  const urlProductos = 'http://localhost:3000/productos'
+  const settings ={
+                   method: 'GET',
+                   headers: {
+                          'Content-Type': 'application/json'
+                   } 
+                  }
 
 export default function BodyHome() {
+  
+  const [productInfo, setProductInfo] = useState([])
+  const [categoryInfo, setCategoryInfo] = useState([])
+
+    useEffect(() => {
+            Promise.resolve().then(async function(){
+              try{
+                  const response = await fetch (urlCategorias, settings)
+                  console.log(response)
+                  const data = await response.json()
+                  console.log(data)
+                  setCategoryInfo(data) 
+              } catch (error){
+                  console.error(error)
+              }
+            })
+              }, [  ])
+    
+    useEffect(() => {
+            Promise.resolve().then(async function(){
+              try{
+                  const response = await fetch (urlProductos, settings)
+                  console.log(response)
+                  const data = await response.json()
+                  console.log(data)
+                  setProductInfo(data) 
+              } catch (error){
+                  console.error(error)
+              }
+            })
+              }, [  ])
+
   return (
     <>
       <Buscador />
-      <ListaCategorias />
-      <ListaProductos />
+      <ListaCategorias info={categoryInfo} />
+      <ListaProductos productInfo={productInfo}/>
     </>
   )
 } 
-//   const [categoryCard, setCategoryCard] = useState(null)
+//   
 //   const [productCard, setProductCard] = useState(null)
-//     const urlCategorias = 'http:localhost:8080/categorias'
+//     
 //     const urlProductos = 'http:localhost:8080/productos'
-//     const settings ={
-//                    method: 'GET'
-//                   }
+//     
     
-//     useEffect(() => {
-//             fetch(urlCategorias, settings)
-//               .then((response) => response.json())
-//               .then(data => setCategoryCard(data))
-//               .catch((err) => console.error(err))
-//     }, [  ])   
+   
 
 //     useEffect(() => {
 //             fetch(urlProductos, settings)

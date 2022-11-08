@@ -9,12 +9,12 @@ import usuario from './mocks/api/usuario.json'
 import MenuDrawer from './components/MenuDrawer/MenuDrawer';
 import ProductPage from './components/ProductsPage/ProductPage'
 import BodyHome from './components/Body/BodyHome';
+import Gallery from './components/Gallery/Gallery';
 
 export const userContext = react.createContext();
 export const userInfoContext = react.createContext();
 
 function App() {
-
     const[userLogged, setUserLogged]=useState(false)
     const handleUserLogged = ()=>{
     setUserLogged(true)
@@ -33,7 +33,6 @@ function App() {
     }
 
   return (
-
     <userContext.Provider value = {userLogged}>
     <userInfoContext.Provider value = {usuario}>
     <div className="App">
@@ -44,6 +43,7 @@ function App() {
         <Route path='/login' element={<Login usuario={usuario} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
         <Route path='/products/:id' element={<ProductPage/>}/>
+        <Route path='/products/:id/gallery' element={<Gallery closeButton/>} />
       </Routes>
       <Footer/>
     </div> 

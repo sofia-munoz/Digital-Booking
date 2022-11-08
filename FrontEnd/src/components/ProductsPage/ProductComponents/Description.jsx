@@ -2,11 +2,11 @@ import React from "react";
 import styles from '../productPage.module.css'
 
 
-export default function Description () {
+export default function Description ({product}) {
     return (            
             <div className={styles.description}>
-                <h2>Titulo de la descripción</h2>
+                <h2>Disfrutá de {product.ciudad.ciudad}</h2>
                 <hr/>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, deserunt quos rerum laboriosam a sit assumenda. Veniam eos, expedita, impedit omnis minus inventore pariatur deleniti rerum sit, eius consectetur atque.</p>
+                <p>{product.descripcion}</p>
             </div>
     )}

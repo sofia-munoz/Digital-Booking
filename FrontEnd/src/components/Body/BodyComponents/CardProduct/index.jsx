@@ -7,9 +7,11 @@ import ubi from "../../../../assets/ubication.png"
 import points from "../../../../assets/points.png"
 import wifi from "../../../../assets/wifi.png"
 import swim from "../../../../assets/swim.png"
+import { Link } from "react-router-dom";
 
 
 const CardProduct = ({producto}) => {
+  const descriptionCard = producto.descripcion.slice(0,101)
     return (
       <div className={styles.card}>
         <div className={styles.cardHeader}>
@@ -18,14 +20,10 @@ const CardProduct = ({producto}) => {
         </div>
         <div className={styles.cardBody}>
           <div className={styles.puntuation}>
-            <p className={styles.category}>{producto.category}</p>
-            <img className={styles.star} src={star} alt="imagen estrella"/>
-            <img className={styles.star} src={star} alt="imagen estrella"/>
-            <img className={styles.star} src={star} alt="imagen estrella"/>
-            <img className={styles.star} src={star} alt="imagen estrella"/>
-            <img className={styles.star} src={star} alt="imagen estrella"/>
+            <p className={styles.category}>{producto.categoria.titulo}</p>
+            {/* {Array(4).fill(<img className={styles.star} src={star} alt="imagen estrella"/>)} */}
           </div>
-            <h3 className={styles.title}>{producto.title}</h3>
+            <h3 className={styles.title}>{producto.titulo}</h3>
             <img className={styles.puntaje} src={points} alt="imagen puntaje"/>
             <div className={styles.ubication}>
               <img className={styles.ubi} src={ubi} alt="imagen ubicacion"/>
@@ -37,12 +35,11 @@ const CardProduct = ({producto}) => {
               <img className={styles.icon} src={swim} alt="imagen nadando"/>
             </div>
             <div className={styles.text}>
-              <p>{producto.description}</p>
+              <p>{descriptionCard}</p> 
             </div>
-            <p className={styles.link}>más...</p>
-            <div className={styles.button}>
-              <button text={"Ver más"} type={"button"} styling={"secondary"}/>
-            </div> 
+            <Link to={`/products/${producto.id}`}><p className={styles.link}>más...</p></Link>
+            <Link to={`/products/${producto.id}`}><button className={styles.button}>Ver más</button></Link>
+
         </div>        
       </div>
     )

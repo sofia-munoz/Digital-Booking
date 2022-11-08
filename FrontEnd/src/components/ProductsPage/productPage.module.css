@@ -7,8 +7,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 10px 40px;
 }
 
 .bloque_header_back{
@@ -41,10 +40,9 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items:flex-start;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 10px 40px;
     height: 50px;
-    padding-top: 15px;
+
 }
 
 .bloque_location_icon{
@@ -58,18 +56,73 @@
 }
 
 .icon_share_fav {
-    padding: 15px 40px;
+    padding: 10px 40px;
 }
 
 .icon_share_fav img {
     padding-right: 15px
 }
 
+/*imagenes*/
+
+.main_product_galery{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px 40px;
+    position: relative;
+
+    height: 420px;
+}
+
+.main_product_galery img {
+padding: 5px;
+border-radius: 10px;
+
+}
+
+.main_picture{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.main_picture img {
+ /* object-fit: cover; */
+  
+    height: 410px;
+
+}
+
+.second_column_pictures{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.second_column_pictures img {
+    height: 200px
+}
+
+.ver_mas{
+    position: absolute;
+    border: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    color: var(--font-color-light);
+    font-weight: lighter;
+    text-decoration: underline;
+    bottom: 25px;
+    right: 45px;
+    }
+
+
 /* Descripcion del producto */
 
 .description{
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 10px 40px;
 }
 
 
@@ -78,23 +131,65 @@
     color: var(--font-color-dark);
     font-size: 1.4rem;
     font-weight: lighter;
+    padding-left: 15px;
 }
 
 /* Caracteristicas del producto  */
 
 .detail_container{
-    padding: 40px;
+    padding: 10px 40px;
+}
+
+.amenities_container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.amenity img{
+    width: 28px;
+    height: 25px;
+    padding: 10px;
+}
+.amenity{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
 }
 
 /* Politicas */
+
 .info_policy {
-    padding: 40px;
+    padding: 10px 40px;
 }
+
+.policy_container{
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+    width: 75%;
+}
+.container_responsive {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: flex-start;
+
+}
+
+.container_responsive div {
+    padding: 0px 15px;
+    width: 300px;
+}
+
+.policy_container h3 {
+    font-size: 2rem;
+}
+
 
 /* Reservas*/
 
 .reservation{
-    padding: 5px 40px;
+    padding: 10px 40px;
     background-color: var(--background-color-body);
 }
 
@@ -165,10 +260,31 @@ hr {
             justify-content: center;
             text-align: center;
         }
-
+    
+    .policy_container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            
     }
 
-@media screen and (max-width:767px) {
+    .policy_container div{
+        min-width: 100px;
+    }
 
+    .amenity {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .container_responsive{
+        flex-direction: column;
+    }
+    .amenities_container {
+        display: flex;
+        flex-direction: column;
+    }
 }
 

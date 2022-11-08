@@ -1,14 +1,14 @@
 import React from 'react'
-import category from "../../../mocks/api/categories.json"
 import CardCategories from '../BodyComponents/CardCategories/index'
 import styles from "./listaCategorias.module.css"
 
-export default function Categorias() {
+export default function ListaCategorias({info}) {
+
   return (
     <>
     <h2 className={styles.title}>Buscar por tipo de alojamiento</h2>
       <div className={styles.container}>
-          {category.map((c) => <CardCategories key={c.id} category={c}/>)}
+          {info.map((c, index) => <CardCategories key={index} categoria={c}/>)}
       </div>
     </>
   )
