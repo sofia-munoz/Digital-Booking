@@ -25,6 +25,15 @@ public class ImagenService {
         return imagenRepository.save(imagen);
     }
 
+
+    public List<Imagen> imagenesByProducto(Integer idProducto){
+        try {
+            return imagenRepository.findImagenesByProductParams(idProducto);
+        } catch(Exception ex){
+            return null;
+        }
+    }
+
     public Imagen buscar(Integer id) throws ResourceNotFoundException {
         Optional<Imagen> imagen = imagenRepository.findById(id);
         if(imagen.isEmpty()){

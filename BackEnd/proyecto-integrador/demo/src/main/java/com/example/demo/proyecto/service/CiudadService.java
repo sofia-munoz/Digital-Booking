@@ -34,6 +34,13 @@ public class CiudadService {
         return ciudad.get();
     }
 
+    public List<Ciudad> ciudadesByProvincias(Integer idProvincia){
+        try {
+            return ciudadRepository.findCiudadesByProvinciaParams(idProvincia);
+        } catch(Exception ex){
+            return null;
+        }
+    }
 
 
 
