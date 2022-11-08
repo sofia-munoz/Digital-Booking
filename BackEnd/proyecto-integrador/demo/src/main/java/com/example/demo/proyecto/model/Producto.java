@@ -37,9 +37,6 @@ public class Producto {
     @JoinColumn(name = "id_ciudad", nullable = false)
     private Ciudad ciudad;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_provincia", nullable = false)
-    private Provincia provincia;
 
 //    @JsonIgnoreProperties
 //            ({"hibernateLazyInitializer", "handler"})
@@ -49,7 +46,7 @@ public class Producto {
 
     public Producto(){}
 
-    public Producto(Integer id, String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+    public Producto(Integer id, String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.tituloDescripcion = tituloDescripcion;
@@ -60,11 +57,10 @@ public class Producto {
         this.caracteristicasDelProducto = caracteristicasDelProducto;
         this.politica = politica;
         this.ciudad = ciudad;
-        this.provincia = provincia;
         this.categoria = categoria;
     }
 
-    public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+    public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Categoria categoria) {
         this.titulo = titulo;
         this.tituloDescripcion = tituloDescripcion;
         this.descripcion = descripcion;
@@ -74,7 +70,6 @@ public class Producto {
         this.caracteristicasDelProducto = caracteristicasDelProducto;
         this.politica = politica;
         this.ciudad = ciudad;
-        this.provincia = provincia;
         this.categoria = categoria;
     }
 
@@ -156,14 +151,6 @@ public class Producto {
 
     public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
-    }
-
-    public Provincia getProvincia() {
-        return provincia;
-    }
-
-    public void setProvincia(Provincia provincia) {
-        this.provincia = provincia;
     }
 
     public Categoria getCategoria() {

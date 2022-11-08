@@ -64,13 +64,13 @@ public class ProductoService  {
         }
     }
 
-    public List<Producto> productoByProvincia(Integer idProvincia){
-        try {
-            return productoRepository.findProductoByProvinciaParams(idProvincia);
-        } catch(Exception ex){
-            return null;
-        }
-    }
+//    public List<Producto> productoByProvincia(Integer idProvincia){
+//        try {
+//            return productoRepository.findProductoByProvinciaParams(idProvincia);
+//        } catch(Exception ex){
+//            return null;
+//        }
+//    }
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         try {
