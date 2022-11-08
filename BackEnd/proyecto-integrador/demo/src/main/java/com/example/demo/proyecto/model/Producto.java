@@ -14,9 +14,11 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
+    private String tituloDescripcion;
     private String descripcion;
     private String disponibilidad;
-    private String politica;
+    private String imagenPrincipalURL;
+    private String ubicacion;
 
     @ManyToMany
     @JoinTable(
@@ -28,7 +30,11 @@ public class Producto {
     private Set<Caracteristica> caracteristicasDelProducto;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_roducto", nullable = false)
+    @JoinColumn(name = "id_politica", nullable = false)
+    private Politica politica;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_ciudad", nullable = false)
     private Ciudad ciudad;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -43,21 +49,29 @@ public class Producto {
 
     public Producto(){}
 
-    public Producto(Integer id, String titulo, String descripcion, String disponibilidad, String politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+    public Producto(Integer id, String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
+        this.tituloDescripcion = tituloDescripcion;
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
+        this.imagenPrincipalURL = imagenPrincipalURL;
+        this.ubicacion = ubicacion;
+        this.caracteristicasDelProducto = caracteristicasDelProducto;
         this.politica = politica;
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.categoria = categoria;
     }
 
-    public Producto(String titulo, String descripcion, String disponibilidad, String politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+    public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
         this.titulo = titulo;
+        this.tituloDescripcion = tituloDescripcion;
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
+        this.imagenPrincipalURL = imagenPrincipalURL;
+        this.ubicacion = ubicacion;
+        this.caracteristicasDelProducto = caracteristicasDelProducto;
         this.politica = politica;
         this.ciudad = ciudad;
         this.provincia = provincia;
@@ -80,6 +94,14 @@ public class Producto {
         this.titulo = titulo;
     }
 
+    public String getTituloDescripcion() {
+        return tituloDescripcion;
+    }
+
+    public void setTituloDescripcion(String tituloDescripcion) {
+        this.tituloDescripcion = tituloDescripcion;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -96,11 +118,35 @@ public class Producto {
         this.disponibilidad = disponibilidad;
     }
 
-    public String getPolitica() {
+    public String getImagenPrincipalURL() {
+        return imagenPrincipalURL;
+    }
+
+    public void setImagenPrincipalURL(String imagenPrincipalURL) {
+        this.imagenPrincipalURL = imagenPrincipalURL;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public Set<Caracteristica> getCaracteristicasDelProducto() {
+        return caracteristicasDelProducto;
+    }
+
+    public void setCaracteristicasDelProducto(Set<Caracteristica> caracteristicasDelProducto) {
+        this.caracteristicasDelProducto = caracteristicasDelProducto;
+    }
+
+    public Politica getPolitica() {
         return politica;
     }
 
-    public void setPolitica(String politica) {
+    public void setPolitica(Politica politica) {
         this.politica = politica;
     }
 
@@ -128,3 +174,4 @@ public class Producto {
         this.categoria = categoria;
     }
 }
+

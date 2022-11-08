@@ -21,9 +21,6 @@ public class Categoria {
     // para guardar en la base de datos. Es decir que no debería darte error si no existe la columna en la base de datos.
 
 
-
-
-
     public Categoria(Integer id, String titulo, String descripcion, String imagenURL){
         this.id = id;
         this.titulo = titulo;

@@ -4,12 +4,12 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -36,13 +36,24 @@ public class ProductoService  {
         return producto.get();
     }
 
-    
     public List<Producto> productoByCategoria(Integer idCategoria){
         try {
             return productoRepository.findProductoByCategoriaParams(idCategoria);
         } catch(Exception ex){
                 return null;
             }
+    }
+
+    public List<Producto> eightRandomProducts(){
+        try {
+            return productoRepository.limitar();
+        } catch(Exception ex){
+            return null;
+        }
+    }
+
+    public List<Producto> buscarTodos(){
+        return productoRepository.findAll();
     }
 
     public List<Producto> productoByCiudad(Integer idCiudad){
@@ -60,7 +71,6 @@ public class ProductoService  {
             return null;
         }
     }
-    //hacer un buscar con id de categoría, id ciudad y la fecha
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         try {
@@ -72,9 +82,6 @@ public class ProductoService  {
         }
     }
 
-    public List<Producto> buscarTodos(){
-        return productoRepository.findAll();
-    }
 
     public Producto actualizar(Producto producto)throws ResourceNotFoundException{
         buscar(producto.getId());

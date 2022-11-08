@@ -1,7 +1,7 @@
 package com.example.demo.proyecto.model;
 
 import javax.persistence.*;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "imagenes")
@@ -15,19 +15,20 @@ public class Imagen {
     @JoinColumn(name="id_producto",nullable=false)
     private Producto producto;
 
-    public Imagen(Integer id, String titulo, String URL) {
+    public Imagen(Integer id, String titulo, String URL, Producto producto) {
         this.id = id;
         this.titulo = titulo;
         this.URL = URL;
+        this.producto = producto;
     }
 
-    public Imagen(String titulo, String URL) {
+    public Imagen(String titulo, String URL, Producto producto) {
         this.titulo = titulo;
         this.URL = URL;
+        this.producto = producto;
     }
 
-    public Imagen(){
-    }
+    public Imagen(){}
 
     public Integer getId() {
         return id;
@@ -51,5 +52,13 @@ public class Imagen {
 
     public void setURL(String URL) {
         this.URL = URL;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }

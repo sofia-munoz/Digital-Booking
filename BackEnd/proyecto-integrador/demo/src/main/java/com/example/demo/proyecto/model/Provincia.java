@@ -8,7 +8,7 @@ public class Provincia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String Provincia;
+    private String provincia;
 
 
     public Provincia() {
@@ -16,11 +16,11 @@ public class Provincia {
 
     public Provincia(Integer id, String provincia) {
         this.id = id;
-        Provincia = provincia;
+        this.provincia = provincia;
     }
 
     public Provincia(String provincia) {
-        Provincia = provincia;
+        this.provincia = provincia;
     }
 
     public Integer getId() {
@@ -32,10 +32,10 @@ public class Provincia {
     }
 
     public String getProvincia() {
-        return Provincia;
+        return provincia;
     }
 
     public void setProvincia(String provincia) {
-        Provincia = provincia;
+        this.provincia = provincia;
     }
 }
