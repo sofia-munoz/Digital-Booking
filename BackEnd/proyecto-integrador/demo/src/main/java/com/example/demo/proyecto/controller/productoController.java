@@ -24,10 +24,10 @@ public class productoController {
     public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByCategoria(id));
     }
-    @GetMapping("/byProvincia/{id}")
-    public ResponseEntity<List<Producto>> buscarPorProvincia(@PathVariable Integer id){
-        return ResponseEntity.ok(productoService.productoByProvincia(id));
-    }
+//    @GetMapping("/byProvincia/{id}")
+//    public ResponseEntity<List<Producto>> buscarPorProvincia(@PathVariable Integer id){
+//        return ResponseEntity.ok(productoService.productoByProvincia(id));
+//    }
     @GetMapping("/byCiudad/{id}")
     public ResponseEntity<List<Producto>> buscarPorCiudad(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByCiudad(id));
