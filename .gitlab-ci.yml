@@ -36,10 +36,10 @@ backend-build:
   script:
     - cd BackEnd/proyecto-integrador/demo/
     - echo "Building the backend code..."
-    - mvn package
+    - mvn clean package -DskipTest
   artifacts:
     paths:
-    - target/*.jar
+    - target/*
 
 frontend-build:
   image: node:16.14.2-alpine
