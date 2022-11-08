@@ -36,7 +36,7 @@ backend-build:
   script:
     - cd BackEnd/proyecto-integrador/demo/
     - echo "Building the backend code..."
-    - "mvn compile"
+    - mvn package
   artifacts:
     paths:
     - target/*.jar
