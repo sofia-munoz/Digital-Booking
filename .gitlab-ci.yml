@@ -39,7 +39,7 @@ backend-build:
     - mvn clean package -DskipTests -U
   artifacts:
     paths:
-    - /builds/ctd/proyecto-integrador-1022/0521-pt-c6/grupo-05/BackEnd/proyecto-integrador/demo/target/*.jar
+    - BackEnd/proyecto-integrador/demo/target/*.jar
 
 frontend-build:
   image: node:16.14.2-alpine
