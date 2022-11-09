@@ -105,4 +105,4 @@ frontend-deploy:
     - pip install awscli
     - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
-    - aws s3 sync FrontEnd/build/ s3://grupo5-0521ptc6n2 --delete
+    - aws s3 sync FrontEnd/build s3://grupo5-0521ptc6n2 --delete
