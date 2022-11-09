@@ -4,8 +4,8 @@ import DateSelector from "./BuscadorComponents/DateSelector";
 import styles from "./Buscador.module.css"
 import { Link } from "react-router-dom";
 
-export default function Buscador () {
-const [city, setCity] = useState(null);
+export default function Buscador ({city, setCity}) {
+
 
 
 const handleBuscar = (event) => {
