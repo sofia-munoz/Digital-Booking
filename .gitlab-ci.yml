@@ -1,13 +1,15 @@
-stages:
-  - build
-  - test
-  - deploy
-
 variables:
   RULES_CHANGES_PATH: "**/*"
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
   AWS_S3_URL: $AWS_S3_URL
+
+stages:
+  - build
+  - test
+  - deploy
+
+
 
 .base-rules:
   rules:
@@ -48,7 +50,7 @@ frontend-build:
   needs: []
   script:
     - echo "Compiling the frontend code..."
-    -ls
+    - ls
     - cd FrontEnd
     - npm install 
     - CI=false npm run build
