@@ -4,12 +4,12 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -31,21 +31,46 @@ public class ProductoService  {
     public Producto buscar(Integer id) throws ResourceNotFoundException {
         Optional<Producto> producto = productoRepository.findById(id);
         if(producto.isEmpty()){
-            throw new ResourceNotFoundException("No existe un turn con el ID: " + id);
+            throw new ResourceNotFoundException("No existe un producto con el ID: " + id);
         }
         return producto.get();
     }
 
-    
-    public List<Producto> productobycategoria(Integer idCategoria){
+    public List<Producto> productoByCategoria(Integer idCategoria){
         try {
             return productoRepository.findProductoByCategoriaParams(idCategoria);
         } catch(Exception ex){
-return null;
+                return null;
             }
     }
 
-    //hacer un buscar con id de categoría, id ciudad y la fecha
+    public List<Producto> eightRandomProducts(){
+        try {
+            return productoRepository.randomProductsAndLimit();
+        } catch(Exception ex){
+            return null;
+        }
+    }
+
+    public List<Producto> buscarTodos(){
+        return productoRepository.findAll();
+    }
+
+    public List<Producto> productoByCiudad(Integer idCiudad){
+        try {
+            return productoRepository.findProductoByCiudadParams(idCiudad);
+        } catch(Exception ex){
+            return null;
+        }
+    }
+
+    public List<Producto> productoByProvincia(Integer idProvincia){
+        try {
+            return productoRepository.findProductoByProvinciaParams(idProvincia);
+        } catch(Exception ex){
+            return null;
+        }
+    }
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         try {
@@ -57,9 +82,6 @@ return null;
         }
     }
 
-    public List<Producto> buscarTodos(){
-        return productoRepository.findAll();
-    }
 
     public Producto actualizar(Producto producto)throws ResourceNotFoundException{
         buscar(producto.getId());

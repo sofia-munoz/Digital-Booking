@@ -1,29 +1,26 @@
 package com.example.demo.proyecto.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import javax.persistence.*;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "ciudades")
 public class Ciudad {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String ciudad;
 
-    @ManyToOne
-    @JoinColumn(name = "provincia_id", nullable = false)
-    private Provincia provincia;
 
-    public Ciudad(Integer id, String ciudad, Provincia provincia) {
+    public Ciudad(Integer id, String ciudad) {
         this.id = id;
         this.ciudad = ciudad;
-        this.provincia = provincia;
     }
 
-    public Ciudad(String ciudad, Provincia provincia) {
+    public Ciudad(String ciudad) {
         this.ciudad = ciudad;
-        this.provincia = provincia;
     }
 
     public Ciudad() {

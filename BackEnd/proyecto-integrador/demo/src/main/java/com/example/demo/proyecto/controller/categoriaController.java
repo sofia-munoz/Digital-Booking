@@ -28,6 +28,8 @@ public class categoriaController {
         return ResponseEntity.ok().body("Se Eliminó la categoría con id: " + id);
     }
 
+
+
     @GetMapping
     public ResponseEntity<List<Categoria>> buscarTodos(){
         return ResponseEntity.ok(categoriaService.buscarTodos());
