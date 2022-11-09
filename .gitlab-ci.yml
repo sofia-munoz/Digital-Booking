@@ -76,6 +76,9 @@ frontend-test:
   needs: ["frontend-build"]
   script:
     - echo "Testing the frontend code..."
+  artifacts:
+    paths:
+    - FrontEnd/build
 
 backend-deploy:
   stage: deploy
