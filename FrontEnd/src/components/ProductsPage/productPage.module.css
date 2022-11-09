@@ -1,0 +1,290 @@
+/*bloque header del producto*/
+
+.bloque_header{
+    height: 60px;
+    background-color: var(--tertiary);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.bloque_header_back{
+    width: 20px;
+    height: 30px;
+}
+
+.info_container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.title_category{
+    font-size: 1.4rem;
+    color: var(--quaternary);
+    font-weight: lighter;
+}
+.title_product{
+    font-size: 2.4rem;
+    color: var(--font-color-light);
+}
+
+/* Bloque contenedor de la ubicación */
+
+.bloque_location{
+    background-color: var(--background-color-body);
+    color: var(--secondary); 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:flex-start;
+    padding: 10px 40px;
+    height: 50px;
+
+}
+
+.bloque_location_icon{
+    width: 10px;
+    height: 14px;
+}
+.bloque_location_info p{
+    font-size: 1.4rem;
+    padding-left: 10px;
+    margin: 0%;
+}
+
+.icon_share_fav {
+    padding: 10px 40px;
+}
+
+.icon_share_fav img {
+    padding-right: 15px
+}
+
+/*imagenes*/
+
+.main_product_galery{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px 40px;
+    position: relative;
+
+    height: 420px;
+}
+
+.main_product_galery img {
+padding: 5px;
+border-radius: 10px;
+
+}
+
+.main_picture{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.main_picture img {
+ /* object-fit: cover; */
+  
+    height: 410px;
+
+}
+
+.second_column_pictures{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.second_column_pictures img {
+    height: 200px
+}
+
+.ver_mas{
+    position: absolute;
+    border: 0px;
+    border-color: transparent;
+    background-color: transparent;
+    color: var(--font-color-light);
+    font-weight: lighter;
+    text-decoration: underline;
+    bottom: 25px;
+    right: 45px;
+    }
+
+
+/* Descripcion del producto */
+
+.description{
+    padding: 10px 40px;
+}
+
+
+
+.description p{
+    color: var(--font-color-dark);
+    font-size: 1.4rem;
+    font-weight: lighter;
+    padding-left: 15px;
+}
+
+/* Caracteristicas del producto  */
+
+.detail_container{
+    padding: 10px 40px;
+}
+
+.amenities_container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.amenity img{
+    width: 28px;
+    height: 25px;
+    padding: 10px;
+}
+.amenity{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+}
+
+/* Politicas */
+
+.info_policy {
+    padding: 10px 40px;
+}
+
+.policy_container{
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+    width: 75%;
+}
+.container_responsive {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: flex-start;
+
+}
+
+.container_responsive div {
+    padding: 0px 15px;
+    width: 300px;
+}
+
+.policy_container h3 {
+    font-size: 2rem;
+}
+
+
+/* Reservas*/
+
+.reservation{
+    padding: 10px 40px;
+    background-color: var(--background-color-body);
+}
+
+.reservation_container{
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.calendar_product{
+    margin: 15px;
+}
+
+.reservation_start{
+    border-radius: 5px;
+    background-color: var(--font-color-light);
+    padding: 15px;
+}
+
+.reservation_start p {
+    color: var(--font-color-dark);
+    font-weight: lighter;
+}
+
+.reservation_start button{
+    width: 100%;
+    height: 40px;
+    background-color: var(--primary);
+    color: var(--font-color-light);
+    border: 0px;
+    border-radius: 5px;
+}
+
+/* Titulo de cada container */
+
+h2 {
+    color: var(--secondary);
+    font-size: 2.4rem;
+}
+
+hr {
+    border: 1px;
+    width: 100%;
+}
+
+/* Responsive - Tablet */
+
+@media screen and (max-width:1023px) {
+    .reservation_container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+    .react-datepicker {
+            flex: 0 0 auto;
+            width: 70vw;
+            margin-left: 0;
+        }
+
+    .reservation_start {
+            background-color: var(--background-color-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    
+    .policy_container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            
+    }
+
+    .policy_container div{
+        min-width: 100px;
+    }
+
+    .amenity {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .container_responsive{
+        flex-direction: column;
+    }
+    .amenities_container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
