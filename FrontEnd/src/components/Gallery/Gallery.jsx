@@ -3,15 +3,13 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import styles from './gallery.module.css'
 import useScreenSize from "../../hooks/useScreenSize";
-import { Link, useParams } from "react-router-dom";
 
-export default function Gallery ({productId, closeButton}) {
+
+export default function Gallery ({onClick, showGallery, images}) {
 const { width } = useScreenSize();
-console.log("Gallery "+productId);
-const { id } = useParams();
     return (
       <div className={styles.container}>
-        {closeButton&&<Link to={`/products/${id}`}><button className={styles.close_gallery_button}>X</button></Link>}
+        {showGallery&&<button onClick={onClick} className={styles.close_gallery_button}>X</button>}
         {width<480?
         <ImageGallery showThumbnails={false} items={_IMAGES} showIndex={true}
         autoPlay={true} showPlayButton={false} showFullscreenButton={false} showBullets={true}/>

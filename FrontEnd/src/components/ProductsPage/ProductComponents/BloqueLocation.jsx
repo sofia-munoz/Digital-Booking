@@ -11,7 +11,7 @@ export default function BloqueHeader ({product}) {
                 
                 <div className={styles.bloque_location_info}>
                     <p>{product.ciudad.ciudad}, {product.provincia.provincia}, Argentina</p>
-                    <p>A 940m del centro</p>
+                    <p>{product.ubicacion}</p>
                 </div>
             </div>
     )}

@@ -4,12 +4,13 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './components/Formularios/Login';
 import CrearCuenta from './components/Formularios/CrearCuenta';
-import {Routes, Route}  from "react-router-dom"
-import usuario from './mocks/api/usuario.json'
+import {Routes, Route}  from "react-router-dom";
+import usuario from './mocks/api/usuario.json';
 import MenuDrawer from './components/MenuDrawer/MenuDrawer';
 import ProductPage from './components/ProductsPage/ProductPage'
 import BodyHome from './components/Body/BodyHome';
-import Gallery from './components/Gallery/Gallery';
+import BodyCategory from './components/Body/BodyCategory';
+import BodyCity from './components/Body/BodyCity';
 
 export const userContext = react.createContext();
 export const userInfoContext = react.createContext();
@@ -43,7 +44,8 @@ function App() {
         <Route path='/login' element={<Login usuario={usuario} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
         <Route path='/products/:id' element={<ProductPage/>}/>
-        <Route path='/products/:id/gallery' element={<Gallery closeButton/>} />
+        <Route path='/category/:id' element={<BodyCategory/>}/>
+        <Route path='/city/:id' element={<BodyCity/>}/>
       </Routes>
       <Footer/>
     </div> 

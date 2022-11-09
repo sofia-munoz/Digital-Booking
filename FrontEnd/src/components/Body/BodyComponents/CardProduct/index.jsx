@@ -15,7 +15,7 @@ const CardProduct = ({producto}) => {
     return (
       <div className={styles.card}>
         <div className={styles.cardHeader}>
-            <img className={styles.image} src={producto.img} alt="imagen de un hospedaje"/>
+            <img className={styles.image} src={producto.imagenPrincipalURL} alt="imagen de un hospedaje"/>
             <img className={styles.favourite} src={heart} alt="imagen corazon"/>
         </div>
         <div className={styles.cardBody}>

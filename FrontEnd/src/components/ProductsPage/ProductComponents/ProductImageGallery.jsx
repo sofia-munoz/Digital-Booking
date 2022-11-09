@@ -3,20 +3,22 @@ import { Link } from "react-router-dom";
 import styles from '../productPage.module.css'
 
 
-export default function ProductImageGallery ({productId}) {
+export default function ProductImageGallery ({productId, images, onClick}) {
+
+
 
     return (
         <div className={styles.main_product_galery}>
-            <div className={styles.main_picture}><img src={pictures[3].img}/></div>
+            <div className={styles.main_picture}><img src={images[0]}/></div>
             <div className={styles.second_column_pictures}>
-                <img src={pictures[1].img}/>
-                <img src={pictures[2].img}/>
+                <img src={images[1]}/>
+                <img src={images[2]}/>
             </div>
             <div className={styles.second_column_pictures}>    
-                <img src={pictures[0].img}/>
-                <img src={pictures[4].img}/>
+                <img src={images[3]}/>
+                <img src={images[4]}/>
             </div>
-            <Link to={`/products/${productId}/gallery`}><button className={styles.ver_mas}>Ver mas</button></Link>
+            <button className={styles.ver_mas} onClick={onClick}>Ver mas</button>
         </div>
        
     )}
