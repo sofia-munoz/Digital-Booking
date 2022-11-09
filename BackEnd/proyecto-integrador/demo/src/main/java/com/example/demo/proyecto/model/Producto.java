@@ -15,6 +15,7 @@ public class Producto {
     private Integer id;
     private String titulo;
     private String tituloDescripcion;
+    @Column(length=500)
     private String descripcion;
     private String disponibilidad;
     private String imagenPrincipalURL;
