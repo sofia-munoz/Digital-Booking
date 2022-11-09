@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface CiudadRepository extends JpaRepository<Ciudad,Integer> {
 
-    @Query("FROM Ciudad c WHERE c.provincia.id = ?1")
-    List<Ciudad> findCiudadesByProvinciaParams(Integer provinciaId);
+
 }

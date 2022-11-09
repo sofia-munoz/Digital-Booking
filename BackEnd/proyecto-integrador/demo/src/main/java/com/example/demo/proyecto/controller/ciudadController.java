@@ -23,10 +23,6 @@ public class ciudadController {
         return ResponseEntity.ok(ciudadService.buscar(id));
     }
 
-    @GetMapping("/byProvincia/{id}")
-    public ResponseEntity<List<Ciudad>> buscarPorCategoría(@PathVariable Integer id){
-        return ResponseEntity.ok(ciudadService.ciudadesByProvincias(id));
-    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
