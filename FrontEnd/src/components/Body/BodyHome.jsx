@@ -4,8 +4,8 @@ import ListaCategorias from "./BodyComponents/ListaCategorias";
 import ListaProductos from "./BodyComponents/ListaProductos.jsx";
 
 
-  const urlCategorias = 'http://localhost:3000/categorias'
-  const urlProductos = 'http://localhost:3000/productos'
+  const urlCategorias = 'http://52.14.221.16:8081/categorias'
+  const urlProductos = 'http://52.14.221.16:8081/productos'
   const settings ={
                    method: 'GET',
                    headers: {

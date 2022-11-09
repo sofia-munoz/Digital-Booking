@@ -48,6 +48,7 @@ frontend-build:
   needs: []
   script:
     - echo "Compiling the frontend code..."
+    -ls
     - cd FrontEnd
     - npm install 
     - CI=false npm run build
