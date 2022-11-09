@@ -11,9 +11,13 @@ public class Imagen {
     private Integer id;
     private String titulo;
     private String URL;
+
     @ManyToOne
-    @JoinColumn(name="id_producto",nullable=false)
+    @JoinColumn(name="id_producto",nullable = false)
     private Producto producto;
+
+
+    public Imagen(){}
 
     public Imagen(Integer id, String titulo, String URL, Producto producto) {
         this.id = id;
@@ -27,8 +31,6 @@ public class Imagen {
         this.URL = URL;
         this.producto = producto;
     }
-
-    public Imagen(){}
 
     public Integer getId() {
         return id;

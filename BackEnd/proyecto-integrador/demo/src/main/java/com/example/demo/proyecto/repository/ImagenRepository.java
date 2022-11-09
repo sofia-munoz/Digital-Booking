@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface ImagenRepository  extends JpaRepository<Imagen,Integer> {
 
-    @Query("FROM Imagen i WHERE i.producto.id = ?1")
+    @Query(" SELECT i FROM Imagen i WHERE i.producto.id = ?1")
     List<Imagen> findImagenesByProductParams(Integer productoId);
 
 }
