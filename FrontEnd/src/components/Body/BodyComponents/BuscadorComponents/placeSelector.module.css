@@ -66,9 +66,11 @@ ul.locationSelect {
   padding-top: 2rem;
 }
 
-.divider {
-  border-top: 0.1rem solid var(--primary);
-  margin: 1rem 1rem 0 1rem;
+.listContent hr {
+    border-top: 0.01rem solid var(--primary);
+      margin: 0px;
+        width: 98%;
+        padding: 0%;
 }
 
 .locationSelect {
@@ -94,11 +96,8 @@ ul.locationSelect {
 .textContainer {
   display: flex;
   width: calc(90%);
-}
-
-.country {
-  color: var(--tertiary);
-  font-size: 1.4rem;
+  align-items: center;
+  padding-bottom: 1.2rem;
 }
 
 /*---------  RESPONSIVE ---------*/

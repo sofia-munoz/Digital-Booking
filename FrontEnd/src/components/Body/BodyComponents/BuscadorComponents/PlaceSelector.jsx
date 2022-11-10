@@ -1,19 +1,23 @@
 import { FaMapMarkerAlt } from "react-icons/fa"
 import { GoLocation } from "react-icons/go"
 import React, { useState } from "react"
-import CITIES from "../../../../mocks/api/cities.json"
 import styles from "./placeSelector.module.css"
 
-export default function PlaceSelector() {
-  
+export default function PlaceSelector({cityList, citySelected, setCitySelected}) {
+
+  console.log("city en el Selector")  
+  console.log(cityList)  
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
 
   const toggling = () => setIsOpen((prevState) => !prevState)
 
   const handleClick = (city) => () => {
-    setSelectedOption(city)
+    setSelectedOption(city.ciudad)
+    setCitySelected(city.id)
     setIsOpen(false)
+    console.log("ciudad elegida")
+    console.log(citySelected)
   }
 
   const orderedCities = (cities) => {
@@ -40,19 +44,19 @@ export default function PlaceSelector() {
           <div className={styles.iconPreselected}>
             <FaMapMarkerAlt />
           </div>
-          {selectedOption || "¿A dónde vamos?"}
+          <>{selectedOption || "¿A dónde vamos?"}</>
         </div>
 
         {isOpen && (
           <div className={styles.listContainer}>
             <ul className={styles.locationSelect}>
               <div className={styles.space} />
-              {orderedCities(CITIES)?.map((city) => (
+              {orderedCities(cityList)?.map((city) => (
                 <li
-                  value={city.name}
+                  value={city.ciudad}
                   key={city.id}
                   className={styles.locationSelect}
-                  onClick={handleClick(city.name)}
+                  onClick={handleClick(city)}
                 >
                   <div className={styles.listContent}>
                     <div className={styles.textContainer}>
@@ -60,9 +64,9 @@ export default function PlaceSelector() {
                         <GoLocation />
                       </div>
                       <div className={styles.cityName}>
-                        {city.name}
+                        {city.ciudad}
                         <br />
-                        <span className={styles.country}>{city.country}</span>
+                        {/* <span className={styles.country}>Argentina</span> */}
                       </div>
                     </div>
                     <hr className={styles.divider} />

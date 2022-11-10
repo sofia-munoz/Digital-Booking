@@ -1,10 +1,10 @@
 .card{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: 1px solid #DFE4EA;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1rem;
-    max-width: 95%;
+    max-width: 48%;
     margin: 1rem;
     background-color: var(--font-color-light);
     position: relative;
@@ -15,7 +15,7 @@
     right: 1.5rem;
 }
 .cardHeader{
-width: 50%;
+    width: 50%;
 }
 .cardBody{
     width: 50%;
@@ -23,7 +23,9 @@ width: 50%;
     padding: 1rem;
 }
 .image{
+    height: 100%;
     width: 100%;
+    border-radius: 10px;
 }
 .puntuation{
     display: flex;
@@ -96,7 +98,7 @@ width: 50%;
     border-radius: 5px;
     border: 0px;
  }
- @media screen and (min-width: 481px) {
+ @media screen and (min-width: 481px) and (max-width:767px) {
     .icon{
         max-height: 2.3rem;
         display: block;
@@ -105,6 +107,7 @@ width: 50%;
      .card{
         flex-direction: row;
         padding: 1rem 1rem 1rem 0rem;
+        max-width: 95%;
      }
      .image{
         height: 100%;
@@ -139,9 +142,9 @@ width: 50%;
      }
   }
   
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 769px) and (max-width:1023px) {
     .card{
-        max-width: 50%;
+        max-width: 95%;
         max-height: 22rem;
         margin: 0.5rem;
      }

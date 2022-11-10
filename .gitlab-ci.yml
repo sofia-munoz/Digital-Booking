@@ -50,7 +50,11 @@ frontend-build:
   needs: []
   script:
     - echo "Compiling the frontend code..."
+<<<<<<< HEAD
     - ls
+=======
+    - ls -la
+>>>>>>> d4e592d2320d1bf2b0ea4b597e5970b9134fd935
     - cd FrontEnd
     - npm install 
     - CI=false npm run build
@@ -76,6 +80,12 @@ frontend-test:
   needs: ["frontend-build"]
   script:
     - echo "Testing the frontend code..."
+<<<<<<< HEAD
+=======
+  artifacts:
+    paths:
+    - FrontEnd/build
+>>>>>>> d4e592d2320d1bf2b0ea4b597e5970b9134fd935
 
 backend-deploy:
   stage: deploy
@@ -92,8 +102,13 @@ backend-deploy:
     - chmod 644 ~/.ssh/known_hosts #this is key file permission  
   script:
     - scp -o StrictHostKeyChecking=no BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
+<<<<<<< HEAD
     #- ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu;sudo kill -9 $(sudo lsof -t -i:8081);java -jar demo-0.0.1-SNAPSHOT.jar"
     - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu && java -jar demo-0.0.1-SNAPSHOT.jar"
+=======
+    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "/home/ubuntu/scripts/shutdown.sh;/home/ubuntu/scripts/startup.sh"
+
+>>>>>>> d4e592d2320d1bf2b0ea4b597e5970b9134fd935
     
 frontend-deploy:
   image: python:latest
@@ -105,4 +120,8 @@ frontend-deploy:
     - pip install awscli
     - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
+<<<<<<< HEAD
     - aws s3 sync FrontEnd/build s3://grupo5-0521ptc6n2 --delete
+=======
+    - aws s3 sync FrontEnd/build s3://grupo5-0521ptc6n2 --delete
+>>>>>>> d4e592d2320d1bf2b0ea4b597e5970b9134fd935
