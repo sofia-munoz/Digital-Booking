@@ -1,8 +1,8 @@
 ---categorias---
-insert into categorias (descripcion,imagenurl,titulo)values('Lorem Ipsum is simply dummy text of the printing and typesetting industry.','https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-1.jpg','Hoteles');
-insert into categorias (descripcion,imagenurl,titulo)values("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution",'https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-2.jpg','Hostels');
-insert into categorias (descripcion,imagenurl,titulo)values('Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old','https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-3.jpg','Departamentos');
-insert into categorias (descripcion,imagenurl,titulo)values('There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.','https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-4.jpg','Bed and breakfast');
+insert into categorias (descripcion,imagenurl,titulo)values('807.105 hoteles','https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-1.jpg','Hoteles');
+insert into categorias (descripcion,imagenurl,titulo)values('807.105 hostels','https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-2.jpg','Hostels');
+insert into categorias (descripcion,imagenurl,titulo)values('807.105 departamentos','https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-3.jpg','Departamentos');
+insert into categorias (descripcion,imagenurl,titulo)values('807.105 bed and breakfasts','https://0521ptc6n2db-grupo5-imagenes.s3.us-east-2.amazonaws.com/imagenes-frontend/categorias/cat-4.jpg','Bed and breakfast');
 
 ---caracteristicas---
 insert into caracteristicas (caracteristica)values('Cocina');
