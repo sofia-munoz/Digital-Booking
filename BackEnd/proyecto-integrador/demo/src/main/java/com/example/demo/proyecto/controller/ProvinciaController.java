@@ -13,36 +13,37 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/provincias")
+
 public class ProvinciaController {
     @Autowired
     private ProvinciaService provinciaService;
 
-    @CrossOrigin
+    @CrossOrigin(origins="http://grupo5-0521ptc6n2.s3-website.us-east-2.amazonaws.com:80")
     @GetMapping("/{id}")
     public ResponseEntity<Provincia> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(provinciaService.buscar(id));
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins="http://grupo5-0521ptc6n2.s3-website.us-east-2.amazonaws.com:80")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         provinciaService.eliminar(id);
         return ResponseEntity.ok().body("Se Eliminó la provincia con id: " + id);
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins="http://grupo5-0521ptc6n2.s3-website.us-east-2.amazonaws.com:80")
     @GetMapping
     public ResponseEntity<List<Provincia>> buscarTodos(){
         return ResponseEntity.ok(provinciaService.buscarTodos());
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins="http://grupo5-0521ptc6n2.s3-website.us-east-2.amazonaws.com:80")
     @PostMapping
     public ResponseEntity<Provincia> guardar(@RequestBody Provincia provincia){
         return ResponseEntity.ok(provinciaService.guardar(provincia));
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins="http://grupo5-0521ptc6n2.s3-website.us-east-2.amazonaws.com:80")
     @PutMapping
     public ResponseEntity<Provincia> actualizar(@RequestBody Provincia provincia) throws ResourceNotFoundException {
         return ResponseEntity.ok(provinciaService.actualizar(provincia));
