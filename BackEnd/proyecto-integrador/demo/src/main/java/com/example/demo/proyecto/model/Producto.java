@@ -86,6 +86,20 @@ public class Producto {
         this.categoria = categoria;
     }
 
+    public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+        this.titulo = titulo;
+        this.tituloDescripcion = tituloDescripcion;
+        this.descripcion = descripcion;
+        this.disponibilidad = disponibilidad;
+        this.imagenPrincipalURL = imagenPrincipalURL;
+        this.ubicacion = ubicacion;
+        this.caracteristicasDelProducto = caracteristicasDelProducto;
+        this.politica = politica;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.categoria = categoria;
+    }
+
     public Integer getId() {
         return id;
     }
