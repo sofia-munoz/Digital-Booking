@@ -21,6 +21,10 @@ public class Producto {
     private String imagenPrincipalURL;
     private String ubicacion;
 
+    @OneToMany(mappedBy = "producto")
+    @JsonIgnore
+    private Set <Imagen> imagenes;
+
     @ManyToMany
     @JoinTable(
             name= "caracteristicaPorProducto",
@@ -51,7 +55,7 @@ public class Producto {
 
     public Producto(){}
 
-    public Producto(Integer id, String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+    public Producto(Integer id, String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Imagen> imagenes, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.tituloDescripcion = tituloDescripcion;
@@ -59,6 +63,22 @@ public class Producto {
         this.disponibilidad = disponibilidad;
         this.imagenPrincipalURL = imagenPrincipalURL;
         this.ubicacion = ubicacion;
+        this.imagenes = imagenes;
+        this.caracteristicasDelProducto = caracteristicasDelProducto;
+        this.politica = politica;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.categoria = categoria;
+    }
+
+    public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Imagen> imagenes, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+        this.titulo = titulo;
+        this.tituloDescripcion = tituloDescripcion;
+        this.descripcion = descripcion;
+        this.disponibilidad = disponibilidad;
+        this.imagenPrincipalURL = imagenPrincipalURL;
+        this.ubicacion = ubicacion;
+        this.imagenes = imagenes;
         this.caracteristicasDelProducto = caracteristicasDelProducto;
         this.politica = politica;
         this.ciudad = ciudad;
@@ -134,6 +154,14 @@ public class Producto {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public Set<Imagen> getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(Set<Imagen> imagenes) {
+        this.imagenes = imagenes;
     }
 
     public Set<Caracteristica> getCaracteristicasDelProducto() {

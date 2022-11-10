@@ -1,12 +1,10 @@
 import React from "react";
 import styles from "./cardProduct.module.css"
-import heart from "../../../../assets/favorite.png"
-
-import star from "../../../../assets/star.png"
-import ubi from "../../../../assets/ubication.png"
-import points from "../../../../assets/points.png"
-import wifi from "../../../../assets/wifi.png"
-import swim from "../../../../assets/swim.png"
+import heart from "../../../../../assets/favorite.png"
+import ubi from "../../../../../assets/ubication.png"
+import points from "../../../../../assets/points.png"
+import wifi from "../../../../../assets/wifi.png"
+import swim from "../../../../../assets/swim.png"
 import { Link } from "react-router-dom";
 
 

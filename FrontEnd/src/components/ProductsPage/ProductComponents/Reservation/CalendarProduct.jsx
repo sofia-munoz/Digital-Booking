@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker"
 import { registerLocale } from "react-datepicker"
 import es from "date-fns/locale/es"
 import "react-datepicker/dist/react-datepicker.css"
-import "../../Body/BodyComponents/BuscadorComponents/calendar.css"
+import "../../../Body/BodyComponents/Buscador/BuscadorComponents/calendar.css"
 
 registerLocale("es", es)
 

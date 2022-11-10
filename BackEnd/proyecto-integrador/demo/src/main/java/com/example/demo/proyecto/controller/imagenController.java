@@ -26,7 +26,7 @@ public class imagenController {
     }
 
     @GetMapping("/byProducto/{id}")
-    public ResponseEntity<List<Imagen>> buscarPorCategoría(@PathVariable Integer id){
+    public ResponseEntity<List<Imagen>> findImagenesByProduct(@PathVariable Integer id){
         return ResponseEntity.ok(imagenService.imagenesByProducto(id));
     }
 

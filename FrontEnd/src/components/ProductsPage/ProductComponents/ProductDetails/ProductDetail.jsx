@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../productPage.module.css';
+import styles from './productDetail.module.css';
 
 export default function ProductDetail ({productAmenity}) {
   

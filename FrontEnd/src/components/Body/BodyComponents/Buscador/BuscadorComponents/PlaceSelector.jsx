@@ -10,7 +10,10 @@ export default function PlaceSelector({cityList, citySelected, setCitySelected})
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
 
-  const toggling = () => setIsOpen((prevState) => !prevState)
+  const toggling = () => {
+    if(cityList==null || cityList.length==0) return;
+    setIsOpen((prevState) => !prevState)
+  }
 
   const handleClick = (city) => () => {
     setSelectedOption(city.ciudad)

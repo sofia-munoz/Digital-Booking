@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import Buscador from "./BodyComponents/Buscador";
-import ListaCategorias from "./BodyComponents/ListaCategorias";
-import ListaProductos from "./BodyComponents/ListaProductos.jsx";
+import Buscador from "./BodyComponents/Buscador/Buscador";
+import ListaCategorias from "./BodyComponents/Categorias/ListaCategorias";
+import ListaProductos from "./BodyComponents/Resultados/ListaProductos.jsx";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 
   // const urlCategorias = 'http://52.14.221.16:8081/categorias'
@@ -71,6 +72,10 @@ export default function BodyHome() {
               }
             })
               }, [id])
+
+    if(productInfo==0){
+        return (<LoadingPage/>)
+    }
 
   return (
     <>

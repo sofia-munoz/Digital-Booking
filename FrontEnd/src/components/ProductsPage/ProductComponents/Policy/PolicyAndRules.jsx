@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../productPage.module.css'
+import styles from './policyAndRules.module.css'
 
 
 export default function PolicyAndRules () {

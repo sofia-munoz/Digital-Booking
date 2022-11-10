@@ -1,6 +1,6 @@
 import React from "react";
 import CalendarProduct from "./CalendarProduct";
-import styles from '../productPage.module.css'
+import styles from './reservation.module.css'
 
 
 export default function Reservation () {

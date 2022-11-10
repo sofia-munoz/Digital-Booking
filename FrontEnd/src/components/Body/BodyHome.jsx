@@ -1,26 +1,18 @@
 import React, {useState, useEffect} from "react";
-import Buscador from "./BodyComponents/Buscador";
-import ListaCategorias from "./BodyComponents/ListaCategorias";
-import ListaRecomendados from "./BodyComponents/ListaRecomendados.jsx";
-
+import Buscador from "./BodyComponents/Buscador/Buscador";
+import ListaCategorias from "./BodyComponents/Categorias/ListaCategorias";
+import ListaRecomendados from "./BodyComponents/Resultados/ListaRecomendados.jsx";
+import LoadingPage from "../LoadingPage/LoadingPage"
 
   // const urlCategorias = 'http://52.14.221.16:8081/categorias'
   // const urlProductos = 'http://52.14.221.16:8081/productos'
-
-
-  const settings ={
-                   method: 'GET',
-                   headers: {
-                          'Content-Type': 'application/json'
-                   } 
-                  }
 
 export default function BodyHome() {
   
   const [productInfo, setProductInfo] = useState([])
   const [categoryInfo, setCategoryInfo] = useState([])
   const [city, setCity] = useState();
-  const [citySelected, setCitySelected] = useState(null);
+  const [citySelected, setCitySelected] = useState([]);
   
   const urlCategorias = 'http://localhost:3000/categorias'
   const urlProductos = 'http://localhost:3000/productos'
@@ -73,11 +65,15 @@ export default function BodyHome() {
               }
             })
               }, [  ])
-
+  
+    if(productInfo==0){
+        return (<LoadingPage/>)
+    }
+  
   return (
     <>
       <Buscador cityList={city}/>
-      <ListaCategorias info={categoryInfo} />
+      <ListaCategorias info={categoryInfo} />  
       <ListaRecomendados productInfo={productInfo}/>
     </>
   )

@@ -4,6 +4,7 @@ package com.example.demo.proyecto.controller;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.ProductoDto;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class productoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Producto> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<ProductoDto> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.buscar(id));
     }
 
