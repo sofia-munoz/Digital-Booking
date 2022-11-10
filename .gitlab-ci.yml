@@ -95,10 +95,8 @@ backend-deploy:
     - chmod 644 ~/.ssh/known_hosts #this is key file permission  
   script:
     - scp -o StrictHostKeyChecking=no BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
-    #- ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu;sudo kill -9 $(sudo lsof -t -i:8081);java -jar demo-0.0.1-SNAPSHOT.jar"
-    #- ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu && java -jar demo-0.0.1-SNAPSHOT.jar"
     - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "/home/ubuntu/scripts/shutdown.sh;/home/ubuntu/scripts/startup.sh"
-    #- ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "/home/ubuntu/scripts/shutdown.sh;"
+
     
 frontend-deploy:
   image: python:latest
