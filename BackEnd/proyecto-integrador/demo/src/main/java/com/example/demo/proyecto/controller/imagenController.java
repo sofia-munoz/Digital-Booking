@@ -20,33 +20,38 @@ public class imagenController {
     @Autowired
     private ImagenService imagenService;
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<Imagen> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(imagenService.buscar(id));
     }
 
+    @CrossOrigin
     @GetMapping("/byProducto/{id}")
     public ResponseEntity<List<Imagen>> findImagenesByProduct(@PathVariable Integer id){
         return ResponseEntity.ok(imagenService.imagenesByProducto(id));
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         imagenService.eliminar(id);
         return ResponseEntity.ok().body("Se Eliminó la imagen con id: " + id);
     }
 
-
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<Imagen>> buscarTodos(){
         return ResponseEntity.ok(imagenService.buscarTodos());
     }
 
+    @CrossOrigin
     @PostMapping
     public ResponseEntity<Imagen> guardar(@RequestBody Imagen imagen){
         return ResponseEntity.ok(imagenService.guardar(imagen));
     }
 
+    @CrossOrigin
     @PutMapping
     public ResponseEntity<Imagen> actualizar(@RequestBody Imagen imagen) throws ResourceNotFoundException {
         return ResponseEntity.ok(imagenService.actualizar(imagen));
