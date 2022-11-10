@@ -14,9 +14,10 @@ export default function BodyHome() {
   
   const { id } = useParams();
   
-  const [city, setCity] = useState(null);
+
   const urlCategorias = 'http://localhost:3000/categorias'
-  const urlProductos = 'http://localhost:3000/productos/byCiudad/'+id
+  const urlCity = 'http://localhost:3000/productos/byCiudad/'+id
+  const urlCiudades = 'http://localhost:3000/ciudades'
   const settings ={
                    method: 'GET',
                    headers: {
@@ -26,6 +27,22 @@ export default function BodyHome() {
 
   const [productInfo, setProductInfo] = useState([])
   const [categoryInfo, setCategoryInfo] = useState([])
+  const [city, setCity] = useState();
+  const [citySelected, setCitySelected] = useState(null);
+
+      useEffect(() => {
+            Promise.resolve().then(async function(){
+              try{
+                  const response = await fetch (urlCiudades, settings)
+                  console.log("urlCiudades response: "+response)
+                  const data = await response.json()
+                  console.log(data)
+                  setCity(data) 
+              } catch (error){
+                  console.error(error)
+              }
+            })
+              }, [])
 
     useEffect(() => {
             Promise.resolve().then(async function(){
@@ -44,7 +61,7 @@ export default function BodyHome() {
     useEffect(() => {
             Promise.resolve().then(async function(){
               try{
-                  const response = await fetch (urlProductos, settings)
+                  const response = await fetch (urlCity, settings)
                   console.log("urlProductos response: "+response)
                   const data = await response.json()
                   console.log("urlProductos data: "+data)
@@ -57,7 +74,7 @@ export default function BodyHome() {
 
   return (
     <>
-      <Buscador />
+      <Buscador cityList={city}/>
       <ListaCategorias info={categoryInfo} />
       <ListaProductos productInfo={productInfo}/>
     </>

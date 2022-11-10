@@ -14,7 +14,7 @@ export default function BodyHome() {
   
   const { id } = useParams();
 
-  const [city, setCity] = useState(null);
+
   const urlCategorias = 'http://localhost:3000/categorias'
   const urlProductos = 'http://localhost:3000/productos/byCategoria/'+id
   const settings ={
@@ -57,7 +57,7 @@ export default function BodyHome() {
 
   return (
     <>
-      <Buscador setCity={setCity} city={city}/>
+      <Buscador/>
       <ListaCategorias info={categoryInfo} />
       <ListaProductos productInfo={productInfo}/>
     </>

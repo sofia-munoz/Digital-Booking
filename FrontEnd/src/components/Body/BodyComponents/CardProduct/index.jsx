@@ -27,8 +27,9 @@ const CardProduct = ({producto}) => {
             <img className={styles.puntaje} src={points} alt="imagen puntaje"/>
             <div className={styles.ubication}>
               <img className={styles.ubi} src={ubi} alt="imagen ubicacion"/>
-              <p className={styles.distance}>A 940 m del centro - </p>
-              <p className={styles.link}>MOSTRAR EN EL MAPA</p>
+              <p className={styles.distance}>{producto.ciudad.ciudad}</p>
+              <p className={styles.distance}>&nbsp; - &nbsp;{producto.ubicacion}</p>
+              <p className={styles.link}>&nbsp; - &nbsp;MOSTRAR EN EL MAPA</p>
             </div>
             <div className={styles.icons}>
               <img className={styles.icon} src={wifi} alt="imagen wifi"/>
