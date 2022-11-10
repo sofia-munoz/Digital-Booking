@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+.recomendation{
+    background-color: var(--quaternary);
+    margin-top: 2rem;
+    padding-top: 2rem;
+    padding: 40px;
+}
+.title{
+    margin: 0rem 2rem;
+    color: #383B58;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width:1023px) {
+    .container{
+        flex-direction: column;
+    }
+}
