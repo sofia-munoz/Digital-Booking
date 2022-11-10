@@ -11,23 +11,26 @@ public class Caracteristica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String caracteristica;
+    private String iconoURL;
 
 //
 //    @ManyToMany(mappedBy = "caracteristicaPorProducto")
 //    private Set<Producto> productos;
 
 
-    public Caracteristica(Integer id, String caracteristica) {
-        this.id = id;
-        this.caracteristica = caracteristica;
-    }
-
-    public Caracteristica(String caracteristica) {
-        this.caracteristica = caracteristica;
-    }
-
     public Caracteristica() {
 
+    }
+
+    public Caracteristica(Integer id, String caracteristica, String iconoURL) {
+        this.id = id;
+        this.caracteristica = caracteristica;
+        this.iconoURL = iconoURL;
+    }
+
+    public Caracteristica(String caracteristica, String iconoURL) {
+        this.caracteristica = caracteristica;
+        this.iconoURL = iconoURL;
     }
 
     public Integer getId() {
@@ -44,5 +47,13 @@ public class Caracteristica {
 
     public void setCaracteristica(String caracteristica) {
         this.caracteristica = caracteristica;
+    }
+
+    public String getIconoURL() {
+        return iconoURL;
+    }
+
+    public void setIconoURL(String iconoURL) {
+        this.iconoURL = iconoURL;
     }
 }

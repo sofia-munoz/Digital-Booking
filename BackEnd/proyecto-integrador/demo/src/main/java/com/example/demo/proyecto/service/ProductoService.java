@@ -4,8 +4,10 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.ProductoDto;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.repository.ProductoRepository;
+import com.example.demo.proyecto.repository.ImagenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,8 @@ public class ProductoService  {
 
     @Autowired
     private ProductoRepository productoRepository;
+    @Autowired
+    private ImagenRepository imagenRepository;
 
     public ProductoService(ProductoRepository productoRepository) {
         this.productoRepository = productoRepository;
@@ -28,12 +32,15 @@ public class ProductoService  {
         return productoRepository.save(producto);
     }
 
-    public Producto buscar(Integer id) throws ResourceNotFoundException {
+    public ProductoDto buscar(Integer id) throws ResourceNotFoundException {
+        ProductoDto response = new ProductoDto();
         Optional<Producto> producto = productoRepository.findById(id);
         if(producto.isEmpty()){
             throw new ResourceNotFoundException("No existe un producto con el ID: " + id);
         }
-        return producto.get();
+        response.setProducto(producto.get());
+        response.setImagenes(imagenRepository.findImagenesByProductParams(producto.get().getId()));
+        return response;
     }
 
     public List<Producto> productoByCategoria(Integer idCategoria){
@@ -64,13 +71,13 @@ public class ProductoService  {
         }
     }
 
-//    public List<Producto> productoByProvincia(Integer idProvincia){
-//        try {
-//            return productoRepository.findProductoByProvinciaParams(idProvincia);
-//        } catch(Exception ex){
-//            return null;
-//        }
-//    }
+    public List<Producto> productoByProvincia(Integer idProvincia){
+        try {
+            return productoRepository.findProductoByProvinciaParams(idProvincia);
+        } catch(Exception ex){
+            return null;
+        }
+    }
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         try {

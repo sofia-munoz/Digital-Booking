@@ -1,13 +1,15 @@
-stages:
-  - build
-  - test
-  - deploy
-
 variables:
   RULES_CHANGES_PATH: "**/*"
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
   AWS_S3_URL: $AWS_S3_URL
+
+stages:
+  - build
+  - test
+  - deploy
+
+
 
 .base-rules:
   rules:
@@ -48,6 +50,7 @@ frontend-build:
   needs: []
   script:
     - echo "Compiling the frontend code..."
+    - ls -la
     - cd FrontEnd
     - npm install 
     - CI=false npm run build
@@ -73,6 +76,9 @@ frontend-test:
   needs: ["frontend-build"]
   script:
     - echo "Testing the frontend code..."
+  artifacts:
+    paths:
+    - FrontEnd/build
 
 backend-deploy:
   stage: deploy
@@ -89,7 +95,8 @@ backend-deploy:
     - chmod 644 ~/.ssh/known_hosts #this is key file permission  
   script:
     - scp -o StrictHostKeyChecking=no BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
-    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "cd /home/ubuntu;  java -jar demo-0.0.1-SNAPSHOT.jar"
+    - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "/home/ubuntu/scripts/shutdown.sh;/home/ubuntu/scripts/startup.sh"
+
     
 frontend-deploy:
   image: python:latest
@@ -101,4 +108,4 @@ frontend-deploy:
     - pip install awscli
     - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
     - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
-    - aws s3 sync FrontEnd/build/ s3://grupo5-0521ptc6n2 --delete
+    - aws s3 sync FrontEnd/build s3://grupo5-0521ptc6n2 --delete

@@ -13,10 +13,6 @@ public class Ciudad {
     private Integer id;
     private String ciudad;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_provincia",nullable = false)
-    private Provincia provincia;
-
 
     public Ciudad(Integer id, String ciudad) {
         this.id = id;
