@@ -5,8 +5,6 @@ import styles from "./placeSelector.module.css"
 
 export default function PlaceSelector({cityList, citySelected, setCitySelected}) {
 
-  console.log("city en el Selector")  
-  console.log(cityList)  
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
 
@@ -17,10 +15,8 @@ export default function PlaceSelector({cityList, citySelected, setCitySelected})
 
   const handleClick = (city) => () => {
     setSelectedOption(city.ciudad)
-    setCitySelected(city.id)
+    setCitySelected(city)
     setIsOpen(false)
-    console.log("ciudad elegida")
-    console.log(citySelected)
   }
 
   const orderedCities = (cities) => {

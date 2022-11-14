@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import PlaceSelector from "./BuscadorComponents/PlaceSelector";
 import DateSelector from "./BuscadorComponents/DateSelector";
 import styles from "./Buscador.module.css"
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 export default function Buscador ({cityList}) {
 
-console.log("city en el buscador")  
-console.log(cityList)  
+  
 const navigate = useNavigate();
+
 
 const [citySelected, setCitySelected] = useState(null);
 const handleBuscar = (event) => {
     event.preventDefault()
-    if(citySelected == null) return;
-    {navigate(`/city/${citySelected}`)}
+    if(citySelected === null) return;
+    navigate(`/city/${citySelected.id}?${citySelected.ciudad.replace(/ /g,'-')}`)
 }
 
     return(
