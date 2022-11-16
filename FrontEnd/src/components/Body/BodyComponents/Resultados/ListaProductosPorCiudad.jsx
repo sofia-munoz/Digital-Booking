@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import CardProduct from './CardProduct/index'
 import styles from "./listaProductos.module.css"
+import LoadingCard from '../LoadingCard/LoadingCard'
 
 export default function ListaProductosPorCiudad() {
 
@@ -29,7 +30,7 @@ const {id} = useParams()
                 console.error(error)
               }
             })
-              }, [urlProductos])
+              }, [urlProductos])          
 
   return (
     <div className={styles.recomendation}>
