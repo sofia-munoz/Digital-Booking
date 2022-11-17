@@ -98,6 +98,15 @@
     border-radius: 5px;
     border: 0px;
  }
+
+ @media screen and (min-width: 1024px) and (max-width:1180px) {
+
+     .card {
+         flex-direction: row;
+         padding: 1rem 1rem 1rem 0rem;
+         max-width: 70%;
+     }
+    }
  @media screen and (min-width: 481px) and (max-width:767px) {
     .icon{
         max-height: 2.3rem;
@@ -107,7 +116,7 @@
      .card{
         flex-direction: row;
         padding: 1rem 1rem 1rem 0rem;
-        max-width: 95%;
+        max-width: 98%;
      }
      .image{
         height: 100%;
@@ -144,7 +153,7 @@
   
   @media screen and (min-width: 769px) and (max-width:1023px) {
     .card{
-        max-width: 95%;
+        max-width: 90%;
         max-height: 22rem;
         margin: 0.5rem;
      }

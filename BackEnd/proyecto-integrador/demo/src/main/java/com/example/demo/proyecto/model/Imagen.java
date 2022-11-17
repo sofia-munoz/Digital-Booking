@@ -1,10 +1,15 @@
 package com.example.demo.proyecto.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 
-
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "imagenes")
 public class Imagen {
@@ -13,20 +18,11 @@ public class Imagen {
     private Integer id;
     private String titulo;
     private String URL;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_producto",nullable = false)
     private Producto producto;
-
-
-    public Imagen(){}
-
-    public Imagen(Integer id, String titulo, String URL, Producto producto) {
-        this.id = id;
-        this.titulo = titulo;
-        this.URL = URL;
-        this.producto = producto;
-    }
 
     public Imagen(String titulo, String URL, Producto producto) {
         this.titulo = titulo;
@@ -34,35 +30,5 @@ public class Imagen {
         this.producto = producto;
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getURL() {
-        return URL;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
 }

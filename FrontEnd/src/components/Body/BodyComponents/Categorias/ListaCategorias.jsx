@@ -11,7 +11,7 @@ export default function ListaCategorias({info}) {
     <h2 className={styles.title}>Buscar por tipo de alojamiento</h2>
 
       <div className={styles.container}>
-          {info.map((c, index) => <CardCategories key={index} categoria={c}/>)}
+          {info.map((c, index) => <CardCategories  key={index} categoria={c}/>)}
       </div>
       
     </div>

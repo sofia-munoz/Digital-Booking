@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import Buscador from "./BodyComponents/Buscador/Buscador";
-import ListaCategorias from "./BodyComponents/Categorias/ListaCategorias";
-import ListaProductos from "./BodyComponents/Resultados/ListaProductos.jsx";
-import LoadingPage from "../LoadingPage/LoadingPage";
+import Buscador from "./BodyComponents/Buscador";
+import ListaCategorias from "./BodyComponents/ListaCategorias";
+import ListaProductos from "./BodyComponents/ListaProductos.jsx";
 
 
   // const urlCategorias = 'http://52.14.221.16:8081/categorias'
@@ -18,34 +17,15 @@ export default function BodyHome() {
 
   const urlCategorias = 'http://localhost:3000/categorias'
   const urlProductos = 'http://localhost:3000/productos/byCategoria/'+id
-   const urlCiudades = 'http://localhost:3000/ciudades'
   const settings ={
                    method: 'GET',
                    headers: {
                           'Content-Type': 'application/json'
                    } 
                   }
-  
-                      
 
   const [productInfo, setProductInfo] = useState([])
   const [categoryInfo, setCategoryInfo] = useState([])
-  const [city, setCity] = useState();
-  const [citySelected, setCitySelected] = useState(null);
-                  
-  useEffect(() => {
-            Promise.resolve().then(async function(){
-              try{
-                  const response = await fetch (urlCiudades, settings)
-                  console.log("urlCiudades response: "+response)
-                  const data = await response.json()
-                  console.log(data)
-                  setCity(data) 
-              } catch (error){
-                  console.error(error)
-              }
-            })
-              }, [])
 
     useEffect(() => {
             Promise.resolve().then(async function(){
@@ -75,13 +55,9 @@ export default function BodyHome() {
             })
               }, [id])
 
-if(productInfo==0){
-        return (<LoadingPage/>)
-    }
-
   return (
     <>
-      <Buscador cityList={city}/>
+      <Buscador/>
       <ListaCategorias info={categoryInfo} />
       <ListaProductos productInfo={productInfo}/>
     </>
