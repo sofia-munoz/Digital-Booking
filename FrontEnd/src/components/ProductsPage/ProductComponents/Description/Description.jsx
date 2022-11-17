@@ -5,8 +5,8 @@ import styles from './description.module.css'
 export default function Description ({product}) {
     return (            
             <div className={styles.description}>
-                <h2>Disfrutá de {product.producto.ciudad.ciudad}</h2>
+                <h2>Disfrutá de {product.ciudad.ciudad}</h2>
                 <hr/>
-                <p>{product.producto.descripcion}</p>
+                <p>{product.descripcion}</p>
             </div>
     )}

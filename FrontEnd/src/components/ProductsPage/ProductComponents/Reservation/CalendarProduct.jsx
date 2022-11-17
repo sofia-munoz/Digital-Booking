@@ -57,6 +57,7 @@ const disabledDateRanges = reservas.map(range => ({
   return (
     <DatePicker 
       inline
+      readOnly={true}
       selectsRange={true}
       //Language setting
       locale="es"

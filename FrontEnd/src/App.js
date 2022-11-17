@@ -40,7 +40,7 @@ function App() {
         <Route path='/*' element={<BodyHome/>}/>
         <Route path='/login' element={<Login usuario={usuario} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
-        <Route path='/products/:id' element={<ProductPage/>}/>
+        <Route path='/products/:id/*' element={<ProductPage/>}/>
       </Routes>
       <Footer/>
     </div> 

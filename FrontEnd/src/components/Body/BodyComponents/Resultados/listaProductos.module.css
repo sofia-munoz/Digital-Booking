@@ -12,7 +12,7 @@
 }
 .title{
     margin: 0rem 2rem;
-    color: #383B58;
+    color: var(--secondary);
     padding-bottom: 10px;
 }
 

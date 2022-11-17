@@ -1,9 +1,15 @@
 import React from "react";
 import CalendarProduct from "./CalendarProduct";
-import styles from './reservation.module.css'
+import styles from './reservation.module.css';
+import{useNavigate } from 'react-router-dom'
 
 
-export default function Reservation () {
+export default function Reservation ({product}) {
+    const navigate = useNavigate();
+    const HandleNavigate = ()=>{
+        navigate("/products/"+product.id+"/booking-detail");
+    }
+
     return (
         <div className={styles.reservation}>
             <h2>Fechas Disponibles</h2>
@@ -13,7 +19,7 @@ export default function Reservation () {
                 </div>
                 <div className={styles.reservation_start}>
                     <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-                    <button>Iniciar reserva</button>
+                    <button onClick={HandleNavigate}>Iniciar reserva</button>
                 </div>
             </div>
 
