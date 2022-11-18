@@ -17,7 +17,7 @@ export default function ProductPage () {
     const [images, setImages] = useState()
     const { id } = useParams();
     const { width } = useScreenSize();
-    const urlProductId = 'http://localhost:3000/productos/'+id
+    const urlProductId = 'http://52.14.221.16:8080/productos/'+id
     const settings ={
                    method: 'GET',
                    headers: {
