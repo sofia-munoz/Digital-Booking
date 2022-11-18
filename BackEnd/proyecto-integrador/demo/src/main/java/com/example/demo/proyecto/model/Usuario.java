@@ -1,6 +1,7 @@
 package com.example.demo.proyecto.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -26,6 +28,10 @@ public class Usuario implements UserDetails {
     private String email;
     private String password;
     private String  ciudad;
+
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
+    private Set<Reserva> reservas;
     @Enumerated(EnumType.STRING)
     private UsuarioRol usuarioRol;
 
