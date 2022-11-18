@@ -3,6 +3,7 @@ import BloqueHeader from "../ProductsPage/ProductComponents/BloqueHeader/BloqueH
 import CalendarProduct from "../ProductsPage/ProductComponents/Reservation/CalendarProduct";
 import styles from "./BookingPage.module.css"
 import ubicationIcon from "../../assets/ubication.png"
+import Datos from "./DatosReservation/Datos"
 
 export default function ProductPage ({product}) {
 const goBack = '/products/'+product.id
@@ -13,7 +14,7 @@ const goBack = '/products/'+product.id
                 <div className={styles.first_column}>
                     <div className={styles.user_data}>
                         <h3> Confirmá tus datos</h3>
-                        <form></form>
+                        <Datos/>
                     </div>
                     <div className={styles.calendar_select}>
                         <h3> Confirmá tu fecha de reserva</h3>
