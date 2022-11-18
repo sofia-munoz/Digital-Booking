@@ -51,6 +51,11 @@ public class Producto {
     @JsonIgnore
     private Set <Imagen> imagenes;
 
+    @OneToMany(mappedBy = "producto")
+    @JsonIgnore
+    private Set <Reserva> reservas;
+
+
 
     public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Imagen> imagenes, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
         this.titulo = titulo;
