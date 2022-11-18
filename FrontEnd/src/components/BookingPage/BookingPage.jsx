@@ -32,8 +32,8 @@ const goBack = '/products/'+product.id
                             <img src={product.imagenPrincipalURL} alt="imagen principal del alojamiento" />    
                         </div>
                         <div className={styles.detail_information}>
-                            <h4 className={styles.categoria}>{product.categoria.titulo.toUpperCase()}</h4>
-                            <h3>{product.titulo}</h3>
+                            <h5 className={styles.categoria}>{product.categoria.titulo.toUpperCase()}</h5>
+                            <h4>{product.titulo}</h4>
                             <div className={styles.location}>
                                 <img src={ubicationIcon} alt="ubication icon" className={styles.bloque_location_icon}/>
                                 <div className={styles.bloque_location_info}>
