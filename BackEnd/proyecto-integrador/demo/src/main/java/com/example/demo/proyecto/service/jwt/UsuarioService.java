@@ -1,11 +1,12 @@
-package com.example.demo.proyecto.service;
+package com.example.demo.proyecto.service.jwt;
 
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.proyecto.model.Usuario;
-import com.example.demo.proyecto.repository.UsuarioRepository;
-import com.example.demo.proyecto.repository.UsuarioRepository;
+import com.example.demo.proyecto.model.jwt.MainUserAuth;
+import com.example.demo.proyecto.model.jwt.Usuario;
+import com.example.demo.proyecto.repository.jwt.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,13 +22,15 @@ public class UsuarioService implements UserDetailsService{
 
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return usuarioRepository.findByEmail(email).get();
+        Usuario usuarioBuscado = usuarioRepository.findByEmail(email);
+            return MainUserAuth.build(usuarioBuscado);
     }
 
     public Usuario guardar(Usuario usuario) {

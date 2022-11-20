@@ -51,19 +51,19 @@ public class productoController {
         return ResponseEntity.ok().body("Se Eliminó el producto con id: " + id);
     }
 
-
+//user
     @GetMapping("/inicio")
     public ResponseEntity<List<Producto>> randomProducts(){
         return ResponseEntity.ok(productoService.eightRandomProducts());
     }
 
-
+//public
     @GetMapping
     public ResponseEntity<List<Producto>> buscarTodos(){
         return ResponseEntity.ok(productoService.buscarTodos());
     }
 
-
+    //admin
     @PostMapping
     public ResponseEntity<Producto> guardar(@RequestBody Producto producto){
         return ResponseEntity.ok(productoService.guardar(producto));

@@ -1,15 +1,14 @@
-package com.example.demo.proyecto.repository;
+package com.example.demo.proyecto.repository.jwt;
 
-import com.example.demo.proyecto.model.Usuario;
+import com.example.demo.proyecto.model.jwt.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 
 @Repository
 @Transactional
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-    Optional<Usuario> findByEmail(String email);
+    Usuario findByEmail(String email);
 }

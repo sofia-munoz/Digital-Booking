@@ -1,53 +1,59 @@
 package com.example.demo.proyecto.controller;
 
-import com.example.demo.exception.BadRequestException;
-import com.example.demo.exception.ReferentialIntegrityException;
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.proyecto.model.Usuario;
-import com.example.demo.proyecto.service.ProvinciaService;
-import com.example.demo.proyecto.service.UsuarioService;
+import com.example.demo.proyecto.model.jwt.Usuario;
+import com.example.demo.proyecto.service.jwt.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins="*")
 @RequestMapping("/usuarios")
 public class usuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Usuario> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
-        return ResponseEntity.ok(usuarioService.buscar(id));
-    }
-
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
-        usuarioService.eliminar(id);
-        return ResponseEntity.ok().body("Se Eliminó la usuario con id: " + id);
-    }
-
-
-    @GetMapping
-    public ResponseEntity<List<Usuario>> buscarTodos(){
-        return ResponseEntity.ok(usuarioService.buscarTodos());
-    }
-
+//    @PostMapping
+//    public ResponseEntity<Map<String,Object>> create(@RequestBody Usuario usuario){
+//        Map<String, Object> response = new HashMap<>();
+//        String passWEncrypt = passwordEncoder.encode(usuario.getPassword());
+//        usuario.setPassword(passWEncrypt);
+//        response.put("respuesta", usuarioService.guardar(usuario));
+//        return ResponseEntity.ok(response);
+//    }
 
     @PostMapping
     public ResponseEntity<Usuario> guardar(@RequestBody Usuario usuario){
+        String passWEncrypt = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(passWEncrypt);
         return ResponseEntity.ok(usuarioService.guardar(usuario));
     }
 
 
-    @PutMapping
-    public ResponseEntity<Usuario> actualizar(@RequestBody Usuario usuario) throws ResourceNotFoundException {
-        return ResponseEntity.ok(usuarioService.actualizar(usuario));
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Usuario> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
+//        return ResponseEntity.ok(usuarioService.buscar(id));
+//    }
+
+//
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
+//        usuarioService.eliminar(id);
+//        return ResponseEntity.ok().body("Se Eliminó la usuario con id: " + id);
+//    }
+//
+//
+//    @GetMapping
+//    public ResponseEntity<List<Usuario>> buscarTodos(){
+//        return ResponseEntity.ok(usuarioService.buscarTodos());
+//    }
+
+//    @PutMapping
+//    public ResponseEntity<Usuario> actualizar(@RequestBody Usuario usuario) throws ResourceNotFoundException {
+//        return ResponseEntity.ok(usuarioService.actualizar(usuario));
+//    }
 }
