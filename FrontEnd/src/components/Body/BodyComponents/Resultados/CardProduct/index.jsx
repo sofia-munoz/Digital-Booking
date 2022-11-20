@@ -19,7 +19,6 @@ const CardProduct = ({producto}) => {
         <div className={styles.cardBody}>
           <div className={styles.puntuation}>
             <p className={styles.category}>{producto.categoria.titulo}</p>
-            {/* {Array(4).fill(<img className={styles.star} src={star} alt="imagen estrella"/>)} */}
           </div>
             <h3 className={styles.title}>{producto.titulo}</h3>
             <img className={styles.puntaje} src={points} alt="imagen puntaje"/>

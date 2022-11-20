@@ -10,18 +10,27 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: 15px;
+    justify-content: space-between;
 }
 
 .calendar_product {
-    margin: 15px;
+    width: 100%;
+}
+
+.react-datepicker {
+    margin: 0%;
+    width: 100vw;
+    height: 27rem;
+    min-width: 22rem;
 }
 
 .reservation_start {
     border-radius: 5px;
     background-color: var(--font-color-light);
     padding: 15px;
+    width: 35%;
+    text-align: center;
+
 }
 
 .reservation_start p {
@@ -55,24 +64,68 @@ hr {
 @media screen and (max-width:1023px) {
     .reservation_container {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        padding: 15px;
+    }
+
+    .reservation_start button {
+        width: 50%;
+    }
+
+    .calendar_product {
+        width: 100%;
     }
 
     .react-datepicker {
         flex: 0 0 auto;
-        width: 70vw;
+        width: 100vw;
         margin-left: 0;
     }
 
     .reservation_start {
         background-color: var(--background-color-body);
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         text-align: center;
+        width: 100%;
+        padding: 20px 0px;
+        gap: 10px;
+
     }
 
+        .reservation_start p {
+            width: 50%;
+        }
+        .reservation_start button {
+            width: 50%;
+        }
+
+}
+
+@media screen and (max-width:767px) {
+    .reservation_container {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+    .reservation_start {
+            background-color: var(--background-color-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .reservation_start button {
+            width: 100%;
+        }
+    
+        .reservation_start p {
+            width: 100%;
+        }
 }

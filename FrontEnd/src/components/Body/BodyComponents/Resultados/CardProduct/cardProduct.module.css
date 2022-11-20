@@ -92,7 +92,7 @@
 
  .button{
     height: 20px;
-    width: 70%;
+    width: 100%;
     background-color: var(--primary);
     color: var(--font-color-light);
     border-radius: 5px;
@@ -104,15 +104,15 @@
      .card {
          flex-direction: row;
          padding: 1rem 1rem 1rem 0rem;
-         max-width: 70%;
      }
     }
- @media screen and (min-width: 481px) and (max-width:767px) {
+ @media screen and (max-width:767px) {
     .icon{
         max-height: 2.3rem;
         display: block;
         margin: 0.5rem;
      }
+
      .card{
         flex-direction: row;
         padding: 1rem 1rem 1rem 0rem;
@@ -131,7 +131,7 @@
         left: 42%;
     }
     .cardBody{
-
+        width: 95%;
         padding: 1rem;
     }
     .text{
@@ -147,7 +147,11 @@
         max-height: 1.9rem;
      }
      .button{
+        width: 100%;
         margin: 1rem 0rem;
+     }
+     .cardHeader{
+        width: 100%;
      }
   }
   
@@ -156,6 +160,7 @@
         max-width: 90%;
         max-height: 22rem;
         margin: 0.5rem;
+        flex-direction: row;
      }
      .favourite{
         position: absolute;
@@ -198,4 +203,23 @@
     .button{
         margin: 0.5rem 0rem;
     }
+  }
+
+  @media screen and (max-width: 500px){
+        .card {
+                flex-direction: column;
+                padding: 0rem;
+                max-width: 98%;
+            }
+
+            .image {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                margin: 0rem;
+                border-radius: 0rem 1rem 1rem 0rem;
+            }
+            .button {
+                width: 100%;
+            }
   }

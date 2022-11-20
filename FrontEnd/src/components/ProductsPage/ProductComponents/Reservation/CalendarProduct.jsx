@@ -3,11 +3,12 @@ import DatePicker from "react-datepicker"
 import { registerLocale } from "react-datepicker"
 import es from "date-fns/locale/es"
 import "react-datepicker/dist/react-datepicker.css"
-import "../../../Body/BodyComponents/Buscador/BuscadorComponents/calendar.css"
+import "./calendarProduct.css"
+import styles from "./reservation.module.css"
 
 registerLocale("es", es)
 
-export default function Calendar () {
+export default function CalendarProduct () {
   const [selectedStartDate, setSelectedStartDate] = useState("")
   const [selectedEndDate, setSelectedEndDate] = useState("")
   const [dateRange, setDateRange] = useState([null, null])
@@ -56,6 +57,7 @@ const disabledDateRanges = reservas.map(range => ({
 
   return (
     <DatePicker 
+      className={styles.date_picker}
       inline
       readOnly={true}
       selectsRange={true}

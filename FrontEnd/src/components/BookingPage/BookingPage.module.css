@@ -4,77 +4,71 @@
     height: 100hv;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 20px 40px 40px;
+}
+
+.booking_date_calendar_container {
+    width: 100%;
+    padding: 0px;
 }
 
 .first_column{
-    width: 70%;
+    width: 65%;
 }
 
 .second_column {
-    width: 30%;
+    width: 35%;
+    height: 100%;
    
 }
 
-.bloque_detail {
-    background-color: var(--font-color-light);
-}
-.detail_picture img {
-    width: 100%;
-}
-
-.location {
-    color: var(--secondary);
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10px 40px;
-    height: 50px;
-
-}
-
-.bloque_location_icon {
-    width: 10px;
-    height: 14px;
-}
-
-.bloque_location_info p {
-    font-size: 1.4rem;
-    padding-left: 10px;
-    margin: 0%;
-}
-
-.icon_share_fav {
-    padding: 10px 40px;
-}
-
-.icon_share_fav img {
-    padding-right: 15px
-}
-
 .calendar_select{
+    width: 100%;
+    padding-bottom: 20px;
+}
 
-
+.react-datepicker {
+    margin: 0px 40px;
 }
 
 h3 {    
-    margin: 0%;
-    padding: 10px 40px;
+    padding: 0px;
     color: var(--secondary);
     font-size: 2.4rem;
 }
 
 h4 {
     margin: 0%;
-    padding: 0px 40px;
+    padding: 0px 25px;
     color: var(--secondary);
     font-size: 2.4rem;
 }
 
 h5{ 
     margin: 0%;
-    padding: 10px 40px 0px;
+    padding: 40px 25px 0px;
     font-size: 1.4rem;
     color: #a7a8b5;
     font-weight: lighter;
+}
+
+
+@media (max-width:1023px) {
+
+    .container {
+        flex-direction: column;
+
+    }
+
+        .first_column {
+            width: 100%;
+        }
+    
+        .second_column {
+            width: 100%;
+    
+        }
+    
 }
