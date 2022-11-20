@@ -14,7 +14,6 @@ export default function BodyHome() {
   const [urlProductos, setUrlProductos] = useState([])
   const urlCategorias = 'http://52.14.221.16:8080/categorias'
   const urlCiudades = 'http://52.14.221.16:8080/ciudades'
-
   const settings ={
                    method: 'GET',
                    headers: {
