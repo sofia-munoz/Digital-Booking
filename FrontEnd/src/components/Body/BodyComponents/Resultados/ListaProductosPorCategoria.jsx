@@ -15,7 +15,7 @@ const settings ={
 
 const {id} = useParams()
 
-  const urlProductos = 'http://localhost:3000/productos/byCategoria/'+id
+  const urlProductos = 'http://52.14.221.16:8080/productos/byCategoria/'+id
 
     useEffect(() => {
         if(urlProductos===[]) return;

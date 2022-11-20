@@ -4,7 +4,7 @@ import styles from "./listaProductos.module.css";
 
 export default function Productos() {
   
-const urlProductos = 'http://localhost:3000/productos/inicio'
+const urlProductos = 'http://52.14.221.16:8080/productos/inicio'
 const [productInfo, setProductInfo] = useState([])
 const settings ={
               method: 'GET',

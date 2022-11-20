@@ -12,8 +12,9 @@ export default function BodyHome() {
   const [city, setCity] = useState();
 
   const [urlProductos, setUrlProductos] = useState([])
-  const urlCategorias = 'http://localhost:3000/categorias'
-  const urlCiudades = 'http://localhost:3000/ciudades'
+  const urlCategorias = 'http://52.14.221.16:8080/categorias'
+  const urlCiudades = 'http://52.14.221.16:8080/ciudades'
+
   const settings ={
                    method: 'GET',
                    headers: {
