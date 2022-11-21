@@ -46,10 +46,38 @@ const handleSubmit = (event) =>{
                             setErrorConfDistinto(false);
                             setErrorConfVacio(false)
                             setErrorContraseña(false)
+                             
+                           //conectado a la api 
+                            const data = {
+                                nombre: nombre,
+                                apellido: apellido,
+                                email: correo,
+                                password: contraseña
+                            }
+                            console.log(data)
+                            fetch('http://localhost:3000/usuarios', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data)
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Success:', data);
+                                if(data){
+                                    navigate('/login')
+                                }else{
+                                    console.log('Error:', data);
+                                }
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            });
 
                                 
 
-                            navigate("/login");  
+                           
                     }
                 }
             }
