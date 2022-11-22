@@ -70,20 +70,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuarios/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/productos/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/productos/**").hasAnyRole("ADMIN")
-//                .antMatchers(HttpMethod.GET, "/productos/**").hasAnyRole("USER")
-//                .antMatchers(HttpMethod.PUT, "/api/v1/product/**", "/api/v1/category/**"
-//                        , "/api/v1/city/**", "/api/v1/feature/**", "/api/v1/policy/**", "/api/v1/product-feature/**"
-//                        , "/api/v1/role/**", "/api/v1/user/**").hasAnyRole("ADMIN")
-//                .antMatchers(HttpMethod.DELETE, "/api/v1/product/**", "/api/v1/category/**"
-//                        , "/api/v1/city/**", "/api/v1/feature/**", "/api/v1/policy/**", "/api/v1/product-feature/**"
-//                        , "/api/v1/role/**", "/api/v1/user/**").hasAnyRole("ADMIN")
-//                .antMatchers(HttpMethod.GET, "/api/v1/role/**", "/api/v1/user/**").hasAnyRole("ADMIN")
-//                .antMatchers(HttpMethod.POST, "/api/v1/booking/**", "/api/v1/favorite/**").hasAnyRole("USER", "ADMIN")
-//                .antMatchers(HttpMethod.PUT, "/api/v1/booking/**", "/api/v1/favorite/**").hasAnyRole("USER", "ADMIN")
-//                .antMatchers(HttpMethod.DELETE, "/api/v1/booking/**", "/api/v1/favorite/**").hasAnyRole("USER", "ADMIN")
-//                .antMatchers(HttpMethod.GET, "/api/v1/booking/**", "/api/v1/favorite/**").hasAnyRole("USER", "ADMIN")
-
-                //.anyRequest().authenticated()
+                .antMatchers(HttpMethod.GET, "/categorias/**").hasAnyRole("USER")
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPointConfig)
                 .and()

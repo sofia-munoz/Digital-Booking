@@ -26,6 +26,8 @@ public class usuarioController {
 //        return ResponseEntity.ok(response);
 //    }
 
+    //add 201 code ()
+    //password encripted (ok)
     @PostMapping
     public ResponseEntity<Usuario> guardar(@RequestBody Usuario usuario){
         String passWEncrypt = passwordEncoder.encode(usuario.getPassword());

@@ -146,4 +146,12 @@ insert into caracteristica_por_producto (id_producto,id_caracteristica)values(10
 insert into caracteristica_por_producto (id_producto,id_caracteristica)values(10,6);
 insert into caracteristica_por_producto (id_producto,id_caracteristica)values(10,7);
 
+--Role
+
+INSERT INTO roles (id, descripcion, nombre) VALUES (1, 'ADMIN', 'ROLE_ADMIN');
+INSERT INTO roles (id, descripcion, nombre) VALUES (2, 'USER', 'ROLE_USER');
+
+--User
+INSERT INTO usuarios (id, apellido, ciudad, email, nombre, password, id_role) VALUES (1, 'fierro', 'Buenos Aires', 'celfiew@gmail.com', 'cesar', '1234', 1);
+INSERT INTO usuarios (id, apellido, ciudad, email, nombre, password, id_role) VALUES (2, 'manrique', 'Cordoba', 'carlos@gmail.com', 'carlos', '123*', 2);
 
