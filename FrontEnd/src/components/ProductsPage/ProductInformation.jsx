@@ -9,7 +9,7 @@ import ProductImageGallery from "./ProductComponents/DesktopGallery/ProductImage
 import useScreenSize from "../../hooks/useScreenSize";
 import BloqueHeader from "./ProductComponents/BloqueHeader/BloqueHeader";
 
-export default function ProductInformation ({product, images}) {
+export default function ProductInformation ({handleCheckIn, handleCheckOut, product, images}) {
     
     const [showGallery, setShowGallery] = useState()
     const { width } = useScreenSize();
@@ -41,7 +41,7 @@ export default function ProductInformation ({product, images}) {
                 <Description product={product}/>
                 <ProductDetail productAmenity={product.caracteristicasDelProducto}/>
                 <PolicyAndRules/>
-                <Reservation product={product}/>
+                <Reservation handleCheckIn = {handleCheckIn} handleCheckOut = {handleCheckOut} product={product}/>
             </>)}
             
         </>

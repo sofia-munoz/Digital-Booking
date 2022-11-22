@@ -7,19 +7,21 @@ import BookingTimeSelector from "./TimeSelector/BookingTimeSelector";
 import BookingDetail from "./BookingDetail/BookingDetail";
 import PolicyAndRules from "../ProductsPage/ProductComponents/Policy/PolicyAndRules";
 
-export default function ProductPage ({product}) {
+export default function ProductPage ({handleCheckIn, handleCheckOut, checkin, checkout, product}) {
 const goBack = '/products/'+product.id
+const booking = true
+
     return(
         <>  
             <BloqueHeader product={product} goBack={goBack}/>
             <div className={styles.container}>   
                 <div className={styles.first_column}>
                     <UserForm/>
-                    <BookingDateSelector/>
+                    <BookingDateSelector booking={booking} handleCheckIn = {handleCheckIn} handleCheckOut = {handleCheckOut}/>
                     <BookingTimeSelector/>
                 </div>
                 <div className={styles.second_column}>
-                    <BookingDetail product={product}/>
+                    <BookingDetail checkin={checkin} checkout={checkout} product={product} />
                 </div>
             </div>
             <PolicyAndRules/>

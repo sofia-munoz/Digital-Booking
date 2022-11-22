@@ -8,13 +8,14 @@ import styles from "./reservation.module.css"
 
 registerLocale("es", es)
 
-export default function CalendarProduct () {
+export default function CalendarProduct ({handleCheckIn, handleCheckOut, booking}) {
   const [selectedStartDate, setSelectedStartDate] = useState("")
   const [selectedEndDate, setSelectedEndDate] = useState("")
   const [dateRange, setDateRange] = useState([null, null])
   const [startDate, endDate] = dateRange
   const [width, setWidth] = useState(window.innerWidth)
   const handleResize = () => setWidth(window.innerWidth)
+  const [showError, setShowError] = useState(false)
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
@@ -25,9 +26,11 @@ export default function CalendarProduct () {
     if (startDate && endDate) {
       setSelectedStartDate(parseDates(startDate))
       setSelectedEndDate(parseDates(endDate))
+      handleCheckIn(parseDates(startDate))
+      handleCheckOut(parseDates(endDate))
     }
   }, dateRange)
-
+  
   const parseDates = (date) => {
     return (
       date.getFullYear() +
@@ -38,10 +41,53 @@ export default function CalendarProduct () {
     )
   }
 
+  const validateRange = (range) => {
+    const [start, end] = range;
+
+    const selectedDates = {
+      "start": start,
+      "end": end
+    }
+
+    setShowError(false)
+    
+    setDateRange(range)
+
+    if (!range[0] || !range[1]) return
+    
+    let overlaps = false
+    for (let i = 0; i < reservas.length && !overlaps; i++) {
+      const reserva = reservas[i];
+
+      reserva.start = new Date(reserva.start)
+      reserva.end = new Date(reserva.end)
+
+      overlaps = doesOverlap(selectedDates, reserva)
+
+      if (overlaps) {
+        setDateRange([null, null])
+        // llamar a metodo que muestra error en la UI
+        setShowError(true)
+      }
+    }
+  }
+
+
+  function doesOverlap(e1, e2) {
+    var e1start = e1.start.getTime();
+    var e1end = e1.end.getTime();
+    var e2start = e2.start.getTime();
+    var e2end = e2.end.getTime();
+
+    return (e1start > e2start && e1start < e2end ||
+      e2start > e1start && e2start < e1end)
+  }
+
+
   const reservas = [
     {
-        "start": "2022-11-12T15:30:00+05:00",
-        "end": "2022-12-11T16:30:00+05:00"
+        "start": "2022-12-23T15:30:00+05:00",
+        "end": "2022-12-25T16:30:00+05:00"
     },
     {
         "start": "2023-01-01T16:00:00+05:00",
@@ -55,7 +101,10 @@ const disabledDateRanges = reservas.map(range => ({
 }));
 
 
+
+
   return (
+    <>
     <DatePicker 
       className={styles.date_picker}
       inline
@@ -72,11 +121,13 @@ const disabledDateRanges = reservas.map(range => ({
       startDate={startDate}
       endDate={endDate}
       onChange={(update) => {
-        setDateRange(update)
+        validateRange(update)
       }}
       //Disable automatic close:
       shouldCloseOnSelect={true}
       excludeDateIntervals={disabledDateRanges}
     ></DatePicker>
+    {showError&&<div className={styles.show_error}>- Por favor, elija solamente fechas disponibles -</div>}
+    </>
   )
 }

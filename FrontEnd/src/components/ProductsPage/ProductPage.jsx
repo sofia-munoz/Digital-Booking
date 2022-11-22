@@ -8,6 +8,8 @@ export default function ProductPage () {
     const [product, setProduct] = useState(null)
     const { id } = useParams();
     const [images, setImages] = useState()
+    const [checkin, setCheckin] = useState('-/-/-')
+    const [checkout, setCheckout] = useState('-/-/-')
 
     const urlProductId = 'http://52.14.221.16:8080/productos/'+id
     const settings ={
@@ -37,8 +39,8 @@ export default function ProductPage () {
     return (
         <>
             <Routes>
-                <Route path='/' element={<ProductInformation images={images} product={product} />}/>
-                <Route path='/booking-detail' element={<BookingPage product={product} />} /> 
+                <Route path='/' element={<ProductInformation images={images} product={product} handleCheckIn = {setCheckin} handleCheckOut = {setCheckout}  checkin={checkin} checkout={checkout} />}/>
+                <Route path='/booking-detail' element={<BookingPage handleCheckIn = {setCheckin} handleCheckOut = {setCheckout} product={product} checkin={checkin} checkout={checkout}/>} /> 
             </Routes>
             
         </>

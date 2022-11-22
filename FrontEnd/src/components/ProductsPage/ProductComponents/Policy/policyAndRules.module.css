@@ -54,15 +54,19 @@ hr {
 
     }
 
-    .policy_container div {
-        min-width: 100px;
+    .container_responsive div {
+        padding: 0px 15px;
+        width: 300px;
     }
-
 }
 
 @media screen and (max-width:767px) {
     .container_responsive {
         flex-direction: column;
     }
-
+        .container_responsive div {
+            padding: 0px 15px;
+            width: 200px;
+        }
 }
+

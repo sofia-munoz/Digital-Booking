@@ -3,7 +3,7 @@ import styles from './BloqueDetail.module.css'
 import { DetailDate } from './DetailDate/DetailDate'
 import { DetailInformation } from './DetailInformation/DetailInformation'
 
-const BookingDetail = ({product}) => {
+const BookingDetail = ({checkin, checkout, product}) => {
   return (
             <div className={styles.bloque_detail}>
 
@@ -16,7 +16,7 @@ const BookingDetail = ({product}) => {
                     </div>
                     <div className={styles.bloque_detail_body}>
                         <DetailInformation product={product}/>
-                        <DetailDate/>
+                        <DetailDate checkin={checkin} checkout={checkout}/>
                         <div className={styles.button_container}>
                         <button className={styles.button_reserva}>Confirmar reserva</button></div>
                     </div>
