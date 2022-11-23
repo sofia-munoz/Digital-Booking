@@ -4,9 +4,7 @@ import com.example.demo.proyecto.dto.ReservaDto;
 import com.example.demo.proyecto.dto.ReservaRequest;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.model.Reserva;
-import com.example.demo.proyecto.model.Usuario;
-
-import java.beans.PropertyDescriptor;
+import com.example.demo.proyecto.model.jwt.Usuario;
 
 public class Mapper {
 

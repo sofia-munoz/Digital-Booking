@@ -1,5 +1,7 @@
 package com.example.demo.proyecto.model;
 
+import com.example.demo.proyecto.model.jwt.Usuario;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
