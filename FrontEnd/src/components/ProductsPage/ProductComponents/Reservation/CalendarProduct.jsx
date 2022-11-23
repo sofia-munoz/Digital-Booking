@@ -8,7 +8,7 @@ import styles from "./reservation.module.css"
 
 registerLocale("es", es)
 
-export default function CalendarProduct ({handleCheckIn, handleCheckOut, booking}) {
+export default function CalendarProduct ({handleCheckIn, handleCheckOut}) {
   const [selectedStartDate, setSelectedStartDate] = useState("")
   const [selectedEndDate, setSelectedEndDate] = useState("")
   const [dateRange, setDateRange] = useState([null, null])

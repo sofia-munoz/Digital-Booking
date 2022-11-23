@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./headerUserLogged.module.css";
-import {Link} from "react-router-dom";
 
 export default function HeaderUserLogged ({handleLogOut}) {
     const userName = localStorage.getItem('userName')
@@ -17,7 +16,7 @@ export default function HeaderUserLogged ({handleLogOut}) {
                     <p className={styles.userName_header}>{userName} {userLastName}</p>
                 </div>
                 <div className={styles.cerrar_header}>
-                <Link to='/'><p onClick={handleLogOut}>X</p></Link>
+                <p onClick={handleLogOut}>X</p>
                 </div>
         </div>
     )

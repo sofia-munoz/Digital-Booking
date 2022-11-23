@@ -10,8 +10,7 @@ export default function BodyHome() {
 
   const [categoryInfo, setCategoryInfo] = useState([])
   const [city, setCity] = useState();
-
-  const [urlProductos, setUrlProductos] = useState([])
+  localStorage.removeItem('idProducto')
   const urlCategorias = 'http://52.14.221.16:8080/categorias'
   const urlCiudades = 'http://52.14.221.16:8080/ciudades'
   const settings ={
@@ -31,7 +30,7 @@ export default function BodyHome() {
                   console.error(error)
               }
             })
-              }, [])
+            }, [])
     
     useEffect(() => {
             Promise.resolve().then(async function(){
@@ -43,7 +42,7 @@ export default function BodyHome() {
                   console.error(error)
               }
             })
-              }, [  ])
+              }, [])
 
   return (
     <>

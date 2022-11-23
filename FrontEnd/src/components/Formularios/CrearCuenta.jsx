@@ -26,7 +26,7 @@ const handleSubmit = (event) =>{
         correo ===''? setErrorCorreoVacio(true):setErrorCorreoVacio(false)
         contraseña ===''? setErrorContraseñaVacio(true):setErrorContraseñaVacio(false)
         contraseñaC ===''? setErrorConfVacio(true):setErrorConfVacio(false)
-        //modificacion sofi para corregir validacion correo
+
         if(nombre!=='' & apellido!=='' & correo!=='' & contraseña!==''){
             if(contraseña.length+1 < 6){ 
                 setErrorContraseña(true)
@@ -74,10 +74,8 @@ const handleSubmit = (event) =>{
                             .catch((error) => {
                                 console.error('Error:', error);
                             });
-
-                                
-
-                           
+                            //redireccionamiento a login
+                            navigate(-1);
                     }
                 }
             }

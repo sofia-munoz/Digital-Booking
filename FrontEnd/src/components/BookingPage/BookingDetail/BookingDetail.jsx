@@ -3,10 +3,10 @@ import styles from './BloqueDetail.module.css'
 import { DetailDate } from './DetailDate/DetailDate'
 import { DetailInformation } from './DetailInformation/DetailInformation'
 
-const BookingDetail = ({checkin, checkout, product}) => {
+const BookingDetail = ({handleBookingSucced, checkin, checkout, product}) => {
+
   return (
             <div className={styles.bloque_detail}>
-
                 <h3>Detalle de la reserva</h3>
                 <div className={styles.bloque_detail_container}>
                     <div className={styles.bloque_detail_title}>
@@ -18,7 +18,7 @@ const BookingDetail = ({checkin, checkout, product}) => {
                         <DetailInformation product={product}/>
                         <DetailDate checkin={checkin} checkout={checkout}/>
                         <div className={styles.button_container}>
-                        <button className={styles.button_reserva}>Confirmar reserva</button></div>
+                        <button className={styles.button_reserva} onClick={handleBookingSucced}>Confirmar reserva</button></div>
                     </div>
                 </div>    
             </div>

@@ -1,26 +1,33 @@
 import{Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
 import styles from "./formularios.module.css"
+import usuario from "../../mocks/api/usuario.json"
 
-const Login = ({usuario, handleUserLogged}) =>{
+const Login = ({handleUserLogged}) =>{
 
     const [correo, setCorreo] = useState('')
     const [contraseña, setContraseña] = useState('')
     const [errorForm,setErrorForm] = useState(false)
     const navigate = useNavigate();
- 
+    const producto=localStorage.getItem('idProducto')
+    
     const handleSubmit = (event) =>{
         event.preventDefault()
-        if(correo !== usuario.email || contraseña !== usuario.password) 
+        if(correo !== usuario[0].email || contraseña !== usuario[0].password) 
             {setErrorForm(true); 
             setContraseña(''); 
             setCorreo('')
         } else {setErrorForm(false)
                 handleUserLogged()
-                localStorage.setItem('userName', usuario.name)
-                localStorage.setItem('userLastName', usuario.apellido)
-                localStorage.setItem('userAvatar', usuario.iniciales)
-                navigate("/");
+                localStorage.setItem('userName', usuario[0].name)
+                localStorage.setItem('userLastName', usuario[0].apellido)
+                localStorage.setItem('userAvatar', usuario[0].iniciales)
+                if (producto){
+                navigate(`/products/${producto}/booking-detail`);    
+                } else{
+                navigate('/');     
+                }
+                
                 console.log("Usuario logueado con exito")
         }
     }

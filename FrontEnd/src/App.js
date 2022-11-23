@@ -23,6 +23,7 @@ function App() {
       localStorage.removeItem('userName')
       localStorage.removeItem('userLastName')
       localStorage.removeItem('userAvatar')
+      localStorage.removeItem('idProducto')
     }
 
     const [showModal, setShowModal] = useState(false)

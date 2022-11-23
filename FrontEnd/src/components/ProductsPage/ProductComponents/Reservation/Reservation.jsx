@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import CalendarProduct from "./CalendarProduct";
 import styles from './reservation.module.css';
 import{useNavigate } from 'react-router-dom'
@@ -6,8 +6,15 @@ import{useNavigate } from 'react-router-dom'
 
 export default function Reservation ({handleCheckIn, handleCheckOut, product}) {
     const navigate = useNavigate();
+    const userLogged = localStorage.getItem('userName')
+  
     const HandleNavigate = ()=>{
-        navigate("/products/"+product.id+"/booking-detail");
+        if (userLogged) {
+            navigate("/products/"+product.id+"/booking-detail"); 
+        } else { 
+            localStorage.setItem("idProducto", product.id);
+            navigate("/login");
+        }
     }
 
     return (

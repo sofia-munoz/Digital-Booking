@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import styles from './DetailDate.module.css'
 
 export const DetailDate = ({checkin, checkout}) => {

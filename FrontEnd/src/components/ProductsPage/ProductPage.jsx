@@ -39,9 +39,8 @@ export default function ProductPage () {
     return (
         <>
             <Routes>
-                <Route path='/' element={<ProductInformation images={images} product={product} handleCheckIn = {setCheckin} handleCheckOut = {setCheckout}  checkin={checkin} checkout={checkout} />}/>
+                <Route path='/' element={<ProductInformation images={images} product={product} handleCheckIn = {setCheckin} handleCheckOut = {setCheckout} />}/>
                 <Route path='/booking-detail' element={<BookingPage handleCheckIn = {setCheckin} handleCheckOut = {setCheckout} product={product} checkin={checkin} checkout={checkout}/>} /> 
             </Routes>
-            
         </>
     )}
