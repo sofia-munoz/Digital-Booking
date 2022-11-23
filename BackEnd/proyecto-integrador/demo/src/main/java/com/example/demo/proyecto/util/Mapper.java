@@ -1,7 +1,9 @@
 package com.example.demo.proyecto.util;
 
+import com.example.demo.proyecto.dto.ImagenDto;
 import com.example.demo.proyecto.dto.ReservaDto;
 import com.example.demo.proyecto.dto.ReservaRequest;
+import com.example.demo.proyecto.model.Imagen;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.model.Reserva;
 import com.example.demo.proyecto.model.jwt.Usuario;
@@ -27,5 +29,15 @@ public class Mapper {
         reserva.setUsuario(usuario);
 
         return reserva;
+    }
+
+    public static ImagenDto MapImagen(Imagen imagen){
+        ImagenDto imagenDto = new ImagenDto();
+        imagenDto.setId(imagen.getId());
+        imagenDto.setTitulo(imagen.getTitulo());
+        imagenDto.setURL(imagen.getURL());
+        imagenDto.setIdProducto(imagen.getProducto().getId());
+
+        return imagenDto;
     }
 }
