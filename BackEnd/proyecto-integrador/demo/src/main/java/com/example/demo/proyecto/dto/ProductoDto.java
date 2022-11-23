@@ -7,7 +7,8 @@ import java.util.List;
 
 public class ProductoDto {
     Producto producto;
-    List<Imagen> imagenes;
+    List<ImagenDto> imagenes;
+    List<ReservaDto> reservas;
 
     public ProductoDto() {
     }
@@ -20,11 +21,19 @@ public class ProductoDto {
         this.producto = producto;
     }
 
-    public List<Imagen> getImagenes() {
+    public List<ImagenDto> getImagenes() {
         return imagenes;
     }
 
-    public void setImagenes(List<Imagen> imagenes) {
+    public void setImagenes(List<ImagenDto> imagenes) {
         this.imagenes = imagenes;
+    }
+
+    public List<ReservaDto> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<ReservaDto> reservas) {
+        this.reservas = reservas;
     }
 }

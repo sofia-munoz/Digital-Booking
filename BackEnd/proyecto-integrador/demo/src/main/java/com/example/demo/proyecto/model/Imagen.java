@@ -19,7 +19,6 @@ public class Imagen {
     private String titulo;
     private String URL;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id_producto",nullable = false)
     private Producto producto;

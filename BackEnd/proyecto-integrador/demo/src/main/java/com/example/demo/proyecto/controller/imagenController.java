@@ -4,9 +4,9 @@ package com.example.demo.proyecto.controller;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.ImagenDto;
 import com.example.demo.proyecto.model.Imagen;
 import com.example.demo.proyecto.model.Producto;
-import com.example.demo.proyecto.service.CategoriaService;
 import com.example.demo.proyecto.service.ImagenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +23,13 @@ public class imagenController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Imagen> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<ImagenDto> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(imagenService.buscar(id));
     }
 
 
     @GetMapping("/byProducto/{id}")
-    public ResponseEntity<List<Imagen>> findImagenesByProduct(@PathVariable Integer id){
+    public ResponseEntity<List<ImagenDto>> findImagenesByProduct(@PathVariable Integer id){
         return ResponseEntity.ok(imagenService.imagenesByProducto(id));
     }
 
@@ -42,7 +42,7 @@ public class imagenController {
 
 
     @GetMapping
-    public ResponseEntity<List<Imagen>> buscarTodos(){
+    public ResponseEntity<List<ImagenDto>> buscarTodos(){
         return ResponseEntity.ok(imagenService.buscarTodos());
     }
 
