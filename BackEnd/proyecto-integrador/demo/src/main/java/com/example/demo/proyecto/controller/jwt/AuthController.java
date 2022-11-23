@@ -29,6 +29,7 @@ public class AuthController {
     private JwtProviderConfig jwtProviderConfig;
 
 
+
     /**
      * Metodo para iniciar la obtención del token de acuerdo a la información del usuario
      * UserDTO lo recibo completo, aquí ustedes pueden crear su propio objeto, pero ojo

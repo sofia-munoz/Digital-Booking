@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class MainUserAuth implements UserDetails {
 
-
+    private int id;
     private String nombre;
     private String apellido;
     private String email;
@@ -29,7 +29,7 @@ public class MainUserAuth implements UserDetails {
         List<GrantedAuthority> authoritiesU = new ArrayList<>();
         GrantedAuthority authority = new SimpleGrantedAuthority(usuario.getUsuarioRol().getNombre());
         authoritiesU.add(authority);
-        return new MainUserAuth(usuario.getNombre(), usuario.getApellido()
+        return new MainUserAuth(usuario.getId(), usuario.getNombre(), usuario.getApellido()
                 , usuario.getEmail(), usuario.getPassword(), usuario.getCiudad(), authoritiesU);
     }
 
@@ -68,6 +68,13 @@ public class MainUserAuth implements UserDetails {
         return true;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
