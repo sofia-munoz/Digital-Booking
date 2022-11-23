@@ -3,12 +3,15 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.ImagenDto;
 import com.example.demo.proyecto.model.Imagen;
 import com.example.demo.proyecto.repository.ImagenRepository;
+import com.example.demo.proyecto.util.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,20 +29,20 @@ public class ImagenService {
     }
 
 
-    public List<Imagen> imagenesByProducto(Integer idProducto){
-        try {
-            return imagenRepository.findImagenesByProductParams(idProducto);
-        } catch(Exception ex){
-            return null;
-        }
+    public List<ImagenDto> imagenesByProducto(Integer idProducto){
+        List<Imagen> imagenes = imagenRepository.findImagenesByProductParams(idProducto);
+        List<ImagenDto> imagenDtos = new ArrayList<>();
+        imagenes.forEach(i -> imagenDtos.add(Mapper.MapImagen(i)));
+
+        return imagenDtos;
     }
 
-    public Imagen buscar(Integer id) throws ResourceNotFoundException {
+    public ImagenDto buscar(Integer id) throws ResourceNotFoundException {
         Optional<Imagen> imagen = imagenRepository.findById(id);
         if(imagen.isEmpty()){
             throw new ResourceNotFoundException("No existe una imagen con el ID: " + id);
         }
-        return imagen.get();
+        return Mapper.MapImagen(imagen.get());
     }
 
 
@@ -53,8 +56,12 @@ public class ImagenService {
         }
     }
 
-    public List<Imagen> buscarTodos(){
-        return imagenRepository.findAll();
+    public List<ImagenDto> buscarTodos(){
+        List<Imagen> imagenes = imagenRepository.findAll();
+        List<ImagenDto> imagenDtos = new ArrayList<>();
+        imagenes.forEach(i -> imagenDtos.add(Mapper.MapImagen(i)));
+
+        return imagenDtos;
     }
 
     public Imagen actualizar(Imagen imagen)throws ResourceNotFoundException{
