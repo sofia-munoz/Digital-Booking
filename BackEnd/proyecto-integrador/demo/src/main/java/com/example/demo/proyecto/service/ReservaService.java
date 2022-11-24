@@ -81,9 +81,7 @@ public class ReservaService {
      * @return boolean
      */
     public boolean reservaDisponible(ReservaRequest reserva, Integer prodId){
-        List<Reserva> turnosAgendados = new ArrayList<Reserva>();
-        List<Reserva> turnosAgendados2 = new ArrayList<Reserva>();
-        turnosAgendados = reservaRepository.findAllByFechaInicialLessThanEqualAndFechaFinalGreaterThanEqual(reserva.getFechaFinal(),reserva.getFechaInicial());
+        List<Reserva> turnosAgendados = reservaRepository.findAllByFechaInicialLessThanEqualAndFechaFinalGreaterThanEqual(reserva.getFechaFinal(),reserva.getFechaInicial());
         turnosAgendados.removeIf( t -> t.getProducto().getId() != prodId);
 
         return turnosAgendados.isEmpty();
