@@ -18,6 +18,7 @@ const CrearCuenta = () =>{
     const [errorApellidoVacio,setErrorApellidoVacio] = useState(false)
     const [errorCorreoVacio,setErrorCorreoVacio] = useState(false)
     const [errorContraseñaVacio,setErrorContraseñaVacio] = useState(false)
+    const [errorRegister, setErrorRegister] = useState(false)
 
 const handleSubmit = (event) =>{
         event.preventDefault()
@@ -70,6 +71,7 @@ const handleSubmit = (event) =>{
                             .then(response => response.json())
                             .then(data => {
                                 console.log('Success:', data);
+                                setErrorRegister(false)
                                 if(data){
                                     navigate('/login')
                                 }else{
@@ -78,6 +80,7 @@ const handleSubmit = (event) =>{
                             })
                             .catch((error) => {
                                 console.error('Error:', error);
+                                setErrorRegister(true)
                             });
                     }
                 }
@@ -147,6 +150,12 @@ const handleSubmit = (event) =>{
                         {errorConfVacio ? <span>Este campo es obligatorio</span> : <span/>}
                         {errorConfDistinto ? <span>Las contraseñas ingresadas no coinciden</span> : <span/>}
                         </div>
+
+                        {errorRegister&&(
+                            <div className={styles.warning_booking}>
+                            <div className={styles.warning}>!</div>
+                            <p>El usuario no ha podido registrarse. Por favor, intente más tarde</p>
+                            </div>)}
 
                         <button type="submit">Crear cuenta</button>
 

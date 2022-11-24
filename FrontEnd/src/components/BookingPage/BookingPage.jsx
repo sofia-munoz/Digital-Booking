@@ -7,6 +7,7 @@ import BookingTimeSelector from "./TimeSelector/BookingTimeSelector";
 import BookingDetail from "./BookingDetail/BookingDetail";
 import PolicyAndRules from "../ProductsPage/ProductComponents/Policy/PolicyAndRules";
 import BookingSucced from "./BookingSucced/BookingSucced";
+import BookingFailed from './BookingFailed/BookingFailed';
 import { userInfoContext } from "../../App";
 
 
@@ -94,7 +95,7 @@ const handleBooking = ()=>{
                 </div>
                 <PolicyAndRules/>
                 {showModalBooking&&(<BookingSucced handleBooking={handleBooking}/>)}
-                {/* {showModalFailedBooking&&(<BookingFailed handleAcceptFailed={handleAcceptFailed}/>)} */}
+                {showModalFailedBooking&&(<BookingFailed handleAcceptFailed={handleAcceptFailed}/>)}
             </div>
         </>
     )
