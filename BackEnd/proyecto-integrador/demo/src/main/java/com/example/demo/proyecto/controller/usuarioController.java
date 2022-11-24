@@ -35,8 +35,9 @@ public class usuarioController {
     public ResponseEntity<Usuario> guardar(@RequestBody Usuario usuario){
         String passWEncrypt = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(passWEncrypt);
-        usuarioService.guardar(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return new ResponseEntity<Usuario>(
+                usuarioService.guardar(usuario),
+                HttpStatus.CREATED);
     }
 
 

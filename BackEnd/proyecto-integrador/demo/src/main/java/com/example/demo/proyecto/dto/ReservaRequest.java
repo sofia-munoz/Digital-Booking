@@ -1,11 +1,13 @@
 package com.example.demo.proyecto.dto;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ReservaRequest {
     private LocalDateTime fechaInicial;
     private LocalDateTime fechaFinal;
+    @NotNull(message = "debe asociar un producto valido")
     private Integer idProducto;
     private Integer idUsuario;
 

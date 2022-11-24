@@ -153,4 +153,14 @@ INSERT INTO roles (id, descripcion, nombre) VALUES (1, 'ADMIN', 'ROLE_ADMIN');
 INSERT INTO roles (id, descripcion, nombre) VALUES (2, 'USER', 'ROLE_USER');
 
 
+--Usuarios
+INSERT INTO usuarios (apellido, ciudad, email, nombre, password, id_role) VALUES ('almario','Buenos Aires', 'alma@gmail.com', 'carlos', '$2a$10$4dAIrzOOLdix4M25EAocX.6Vm2ICOfcic6UvUYs05pt.SGBsmVcsK', 2);
+INSERT INTO usuarios (apellido, ciudad, email, nombre, password, id_role) VALUES ('Fernandez','Buenos Aires', 'hector@gmail.com', 'hector', '$2a$10$K/i4XpJbtDkZMMBJrBMv7OB/JnEocQx71y6fjV/gHjKi39LPVKnU.', 1);
+
+----reservas
+--
+--INSERT INTO reservas (horallegada, fecha_final, fecha_inicial, id_producto, id_usuario) VALUES ('4:00', '2022-11-15 22:53:24','2022-11-10 22:53:24',1,1),
+--INSERT INTO reservas (horallegada, fecha_final, fecha_inicial, id_producto, id_usuario) VALUES ('4:00', '2022-11-20 22:53:24','2022-11-16 22:53:24',2,2),
+--INSERT INTO reservas (horallegada, fecha_final, fecha_inicial, id_producto, id_usuario) VALUES ('4:00', '2022-11-25 22:53:24','2022-11-21 22:53:24',1,1);
+--
 

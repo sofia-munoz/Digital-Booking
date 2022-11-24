@@ -1,18 +1,19 @@
 // package com.example.demo.proyecto.model;
 //
 //import javax.persistence.*;
+//import javax.validation.constraints.NotBlank;
 //
-//public class CategoriaPayload {
-//        @Id
-//        @GeneratedValue(strategy = GenerationType.IDENTITY)
+// public class CategoriaPayload {
+//
 //        private Integer id;
+//        @NotBlank(message = "debe cargar un titulo")
 //        private String titulo;
 //        private String descripcion;
 //        private String imagenURL;
 //
 //        public Categoria(Integer id, String titulo, String descripcion, String imagenURL){
 //            this.id = id;
-//            this.titulo = titulo;
+////            this.titulo = titulo;
 //            this.descripcion = descripcion;
 //            this.imagenURL = imagenURL;
 //        }
