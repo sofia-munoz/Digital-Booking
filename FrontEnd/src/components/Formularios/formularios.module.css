@@ -100,6 +100,32 @@ form span {
     background-color: #FFE1E1;
 }
 
+.warning_booking {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFE1E1;
+    border-radius: 5px;
+    color: var(--alert-border);;
+}
+.warning {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    background-color: var(--alert-border);
+    color: var(--font-color-light);
+}
+
+.warning_booking p {
+    padding: 15px;
+}
+
 @media (max-width: 1023.5px){
     .form_component_name_lastname {
             display: flex;
@@ -109,6 +135,9 @@ form span {
 }
 
 @media (max-width:767.5px) {
+    .warning_booking {
+            height: 80px;
+        }
     .form_container {
         width: 70%;
             

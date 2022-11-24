@@ -52,10 +52,15 @@ const handleSubmit = (event) =>{
                                 nombre: nombre,
                                 apellido: apellido,
                                 email: correo,
-                                password: contraseña
+                                password: contraseña,
+                                usuarioRol: {
+                                    id: 2,
+                                    nombre: "ROL_USER",
+                                    descripcion: "string"
+                                  }
                             }
                             console.log(data)
-                            fetch('http://localhost:3000/usuarios', {
+                            fetch('http://52.14.221.16:8080/usuarios', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'
@@ -74,8 +79,6 @@ const handleSubmit = (event) =>{
                             .catch((error) => {
                                 console.error('Error:', error);
                             });
-                            //redireccionamiento a login
-                            navigate(-1);
                     }
                 }
             }

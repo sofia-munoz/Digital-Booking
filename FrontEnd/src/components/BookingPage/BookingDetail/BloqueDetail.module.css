@@ -39,6 +39,16 @@
     text-align: center;
 }
 
+.alert_container{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.alert {
+    color: var(--alert-border);
+    padding: 0px;
+}
+
 @media screen and (min-width: 767px) and (max-width: 1023px) {
     .bloque_detail{
         margin-top: 0px;
@@ -71,6 +81,9 @@
     .bloque_detail_body {
         width: 50%;
     }
+
+
+
 }
 
 @media screen and (max-width: 767px) {

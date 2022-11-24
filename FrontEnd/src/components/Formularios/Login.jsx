@@ -1,7 +1,7 @@
 import{Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
 import styles from "./formularios.module.css"
-import usuario from "../../mocks/api/usuario.json"
+import jwt from 'jwt-decode'
 
 const Login = ({handleUserLogged}) =>{
 
@@ -11,25 +11,64 @@ const Login = ({handleUserLogged}) =>{
     const navigate = useNavigate();
     const producto=localStorage.getItem('idProducto')
     
-    const handleSubmit = (event) =>{
+    const usuario= {
+        email: correo,
+        password: contraseña
+    }
+
+        const handleSubmit = (event) =>{
         event.preventDefault()
-        if(correo !== usuario[0].email || contraseña !== usuario[0].password) 
-            {setErrorForm(true); 
-            setContraseña(''); 
-            setCorreo('')
-        } else {setErrorForm(false)
-                handleUserLogged()
-                localStorage.setItem('userName', usuario[0].name)
-                localStorage.setItem('userLastName', usuario[0].apellido)
-                localStorage.setItem('userAvatar', usuario[0].iniciales)
-                if (producto){
-                navigate(`/products/${producto}/booking-detail`);    
-                } else{
-                navigate('/');     
-                }
-                
-                console.log("Usuario logueado con exito")
-        }
+                        fetch('http://52.14.221.16:8080/auth/token', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(usuario)
+                            })
+                            .then(response => {
+                                if (response.status!=200){
+                                    throw new Error(response.error)
+                                } 
+                                return response.json()
+                            })
+                            .then(data => {
+
+                                console.log('Success:', data);
+                                const token = data.respuesta.token
+                                const decoded = jwt(token)
+                                
+                            //jwt 
+
+                                const userObj = {
+                                    tokenJWT : token,
+                                    name : decoded.name,
+                                    lastName : decoded.lastName,
+                                    id : decoded.id,
+                                    email: usuario.email
+                                }
+
+                                console.log("INFO: ", userObj)
+                                setErrorForm(false)
+                                handleUserLogged(userObj)
+                            
+                            // redireccionamiento a home o reserva 
+                                producto ? 
+                                    navigate(`/products/${producto}/booking-detail`) 
+                                    : 
+                                    navigate('/');
+                                console.log("Usuario logueado con exito")
+                                })  
+
+                            .catch((error) => {
+                                console.error('Error:', error);
+                                setErrorForm(true); 
+                                setContraseña(''); 
+                                setCorreo('')
+                            });
+
+
+
+
     }
 
     const onChangeCorreo= (e) =>{
@@ -39,6 +78,11 @@ const Login = ({handleUserLogged}) =>{
     return(
         <div className={styles.body_form}>
         <div className={styles.form_container}>
+            {producto&&(
+                <div className={styles.warning_booking}>
+                    <div className={styles.warning}>!</div>
+                    <p>Para realizar una reserva necesitas estar logueado</p>
+                </div>)}
             <h1>Iniciar sesión</h1>
             <form onSubmit={handleSubmit}>
                 <div className={styles.form_component}>

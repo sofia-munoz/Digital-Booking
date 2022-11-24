@@ -6,9 +6,6 @@ import menu from "../../assets/img/menu.png"
 import styles from "./Header.module.css"
 import { userContext } from "../../App";
 
-
-
-
 export default function Header ({ handleLogOut, handleModalMenu} ) {
     const userLogged = useContext(userContext)
     const location = useLocation();

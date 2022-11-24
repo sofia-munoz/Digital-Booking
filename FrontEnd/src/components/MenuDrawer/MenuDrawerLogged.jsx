@@ -1,24 +1,24 @@
-import React from "react";
+import React , {useContext} from "react";
 import Facebook from "../../assets/img/facebook.png";
 import LinkedIn from "../../assets/img/linkedin.png";
 import Twitter from "../../assets/img/twitter.png";
 import Instagram from "../../assets/img/instagram.png";
 import styles from "./menuDrawerLogged.module.css";
+import { userInfoContext } from "../../App";
 
 export default function MenuDrawerLogged ({handleLogOut, handleModalMenu}) {
-    const userName = localStorage.getItem('userName')
-    const userLastName = localStorage.getItem('userLastName')
-    const userAvatar = localStorage.getItem('userAvatar')
+const userInfo = useContext(userInfoContext)
+    
     return (
             <div className={styles.menu_drawer_logged}>
                     <div className={styles.barra_menu_drawer_logged}>
                                     <button className={styles.cerrar_menu_drawer} onClick={handleModalMenu}>X</button>
                                     <div className={styles.greet_menu_drawer_container}>
                                             <div className={styles.avatar_menu_drawer}>
-                                                <p>{userAvatar}</p>
+                                                <p>{userInfo.avatar}</p>
                                             </div>
                                             <h3 className={styles.userGreet_menu_drawer}>Hola,</h3>
-                                            <h3 className={styles.userName_menu_drawer}>{userName} {userLastName}</h3>                                            
+                                            <h3 className={styles.userName_menu_drawer}>{userInfo.name} {userInfo.lastName}</h3>                                            
                                     </div>
                     </div>
                     <div className={styles.footer_container}>

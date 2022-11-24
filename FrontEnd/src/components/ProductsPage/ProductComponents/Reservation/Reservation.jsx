@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import CalendarProduct from "./CalendarProduct";
 import styles from './reservation.module.css';
 import{useNavigate } from 'react-router-dom'
-
+import { userContext } from "../../../../App";
 
 export default function Reservation ({handleCheckIn, handleCheckOut, product}) {
+    const userLogged = useContext(userContext)
     const navigate = useNavigate();
-    const userLogged = localStorage.getItem('userName')
+
   
     const HandleNavigate = ()=>{
         if (userLogged) {

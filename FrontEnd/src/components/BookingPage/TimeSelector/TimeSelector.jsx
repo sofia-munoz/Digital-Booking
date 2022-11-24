@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import styles from "./timeSelector.module.css"
 import time from "../../../mocks/time.json"
 
-export default function TimeSelector() {
+export default function TimeSelector({setTimeArrival}) {
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
@@ -14,6 +14,7 @@ export default function TimeSelector() {
 
   const handleClick = (time) => () => {
     setSelectedOption(time.value)
+    setTimeArrival(true)
     setIsOpen(false)
   }
 
@@ -55,16 +56,6 @@ export default function TimeSelector() {
         )}
       </div>
     </section>
-/* <section className={styles.time}>
-<div className={styles.locationSelect}>
-      <div class="select">
-        <select>
-          <option value="">Elegí un tiempo estimado:</option>
-          <option value="opcion-1">Opción 1</option>
-          <option value="opcion-2">Opción 2</option>
-          <option value="opcion-x">Opción X</option>
-        </select>
-      </div>
-</div></section> */
+
   )
 }

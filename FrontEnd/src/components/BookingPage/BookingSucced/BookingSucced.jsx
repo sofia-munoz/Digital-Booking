@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import styles from './BookingSucced.module.css'
 import img from './Vector.png'
 
-const BookingSucced = ({handleBookingSucced}) => {
+const BookingSucced = ({ handleBooking}) => {
   const navigate = useNavigate()
 
   const handleButton = ()=>{
-    handleBookingSucced(false)
+    handleBooking(false)
     navigate("/")
   }
 
@@ -18,7 +18,7 @@ const BookingSucced = ({handleBookingSucced}) => {
       <img src={img } alt="/" border="0" />
       <p className={styles.mensaje}>Muchas Gracias </p>
       <span className={styles.text}>su reserva se ha realizado con exito </span>
-
+  
       <button className={styles.button} onClick={handleButton} >Aceptar</button>
       
       </div>

@@ -9,21 +9,27 @@ import usuario from './mocks/api/usuario.json';
 import MenuDrawer from './components/MenuDrawer/MenuDrawer';
 import ProductPage from './components/ProductsPage/ProductPage'
 import BodyHome from './components/Body/BodyHome';
+
 export const userContext = react.createContext();
 export const userInfoContext = react.createContext();
 
 function App() {
-    const[userLogged, setUserLogged]=useState(false)
-    const handleUserLogged = ()=>{
-    setUserLogged(true)
+    const[userLogged, setUserLogged]=useState(localStorage.getItem(false))
+    const [userInfo, setUserInfo] = useState({})
+    
+    const handleUserLogged = (userObj)=>{
+      setUserLogged(true)
+      localStorage.setItem("userToken", userObj.tokenJWT)
+
+      const avatar = (userObj.name.charAt(0)+userObj.lastName.charAt(0)).toUpperCase()
+      userObj.avatar = avatar;
+      setUserInfo(userObj)
     }
 
     const handleLogOut =()=>{
       setUserLogged(false)
-      localStorage.removeItem('userName')
-      localStorage.removeItem('userLastName')
-      localStorage.removeItem('userAvatar')
-      localStorage.removeItem('idProducto')
+      localStorage.removeItem("userToken")
+      setUserInfo({})
     }
 
     const [showModal, setShowModal] = useState(false)
@@ -33,7 +39,8 @@ function App() {
 
   return (
     <userContext.Provider value = {userLogged}>
-    <userInfoContext.Provider value = {usuario}>
+    <userInfoContext.Provider value = {userInfo}>
+  
     <div className="App">
       {showModal && <MenuDrawer handleLogOut={handleLogOut} handleModalMenu={handleModalMenu}/>}  
       <Header handleLogOut={handleLogOut} handleModalMenu={handleModalMenu}/>

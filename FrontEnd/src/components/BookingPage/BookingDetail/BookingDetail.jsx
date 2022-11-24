@@ -3,7 +3,7 @@ import styles from './BloqueDetail.module.css'
 import { DetailDate } from './DetailDate/DetailDate'
 import { DetailInformation } from './DetailInformation/DetailInformation'
 
-const BookingDetail = ({handleBookingSucced, checkin, checkout, product}) => {
+const BookingDetail = ({timeAlert, calendarAlert, handleBooking, checkin, checkout, product}) => {
 
   return (
             <div className={styles.bloque_detail}>
@@ -17,8 +17,12 @@ const BookingDetail = ({handleBookingSucced, checkin, checkout, product}) => {
                     <div className={styles.bloque_detail_body}>
                         <DetailInformation product={product}/>
                         <DetailDate checkin={checkin} checkout={checkout}/>
+                        <div className={styles.alert_container}>
+                            {timeAlert&&(<p className={styles.alert}>Por favor, elija un horario aproximado de llegada</p>)}
+                            {calendarAlert&&(<p className={styles.alert}>Por favor elija un rango de fechas para la reserva</p>)}                        
+                        </div>
                         <div className={styles.button_container}>
-                        <button className={styles.button_reserva} onClick={handleBookingSucced}>Confirmar reserva</button></div>
+                        <button className={styles.button_reserva} onClick={handleBooking}>Confirmar reserva</button></div>
                     </div>
                 </div>    
             </div>
