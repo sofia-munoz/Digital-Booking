@@ -20,9 +20,10 @@ import org.springframework.stereotype.Service;
 
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductoService  {
@@ -115,6 +116,24 @@ public class ProductoService  {
     public Producto actualizar(Producto producto)throws ResourceNotFoundException{
         buscar(producto.getId());
         return productoRepository.save(producto);
+    }
+
+    public List<Producto> productosDisponibles(String fechaInicial, String fechaFinal){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime fInicial = LocalDateTime.parse(fechaInicial, formatter);
+        LocalDateTime fFinal = LocalDateTime.parse(fechaFinal, formatter);
+
+        List<Producto> productosNoDisp = productoRepository.findAllByFechaInicialLessThanEqualAndFechaFinalGreaterThanEqual(fInicial, fFinal);
+        Set<Integer> idProdNoDisp = new HashSet<>();
+        productosNoDisp.forEach(p->idProdNoDisp.add(p.getId()));
+        List<Producto> productos = productoRepository.findAll();
+        List<Producto> productosDisponibles = new ArrayList<>();
+        productos.forEach(producto -> {
+            if(!idProdNoDisp.contains(producto.getId()))
+                productosDisponibles.add(producto);
+
+        });
+        return  productosDisponibles;
     }
 
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -73,5 +74,10 @@ public class productoController {
     @PutMapping
     public ResponseEntity<Producto> actualizar(@RequestBody Producto producto) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.actualizar(producto));
+    }
+
+    @GetMapping("/{fechaInicio}/{fechaFinal}")
+    public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable String fechaInicio, @PathVariable String fechaFinal){
+        return ResponseEntity.ok(productoService.productosDisponibles(fechaInicio, fechaFinal));
     }
 }

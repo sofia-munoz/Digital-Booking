@@ -3,6 +3,7 @@ package com.example.demo.proyecto.model;
 import com.example.demo.proyecto.model.jwt.Usuario;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,6 +19,8 @@ public class Reserva {
 
     private LocalDateTime fechaFinal;
 
+    private String HoraLLegada;
+
     @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
@@ -26,15 +29,15 @@ public class Reserva {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
-    public Reserva(Integer id, LocalDateTime fechaInicial, LocalDateTime fechaFinal, Producto producto, Usuario usuario) {
+    public Reserva() {
+    }
+    public Reserva(Integer id, LocalDateTime fechaInicial, LocalDateTime fechaFinal, String horaLLegada, Producto producto, Usuario usuario) {
         this.id = id;
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
+        HoraLLegada = horaLLegada;
         this.producto = producto;
         this.usuario = usuario;
-    }
-
-    public Reserva() {
     }
 
     public Integer getId() {
@@ -59,6 +62,14 @@ public class Reserva {
 
     public void setFechaFinal(LocalDateTime fechaFinal) {
         this.fechaFinal = fechaFinal;
+    }
+
+    public String getHoraLLegada() {
+        return HoraLLegada;
+    }
+
+    public void setHoraLLegada(String horaLLegada) {
+        HoraLLegada = horaLLegada;
     }
 
     public Producto getProducto() {
