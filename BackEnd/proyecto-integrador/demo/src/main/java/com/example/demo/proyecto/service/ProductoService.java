@@ -4,15 +4,23 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.ImagenDto;
 import com.example.demo.proyecto.dto.ProductoDto;
+import com.example.demo.proyecto.dto.ReservaDto;
+import com.example.demo.proyecto.model.Imagen;
 import com.example.demo.proyecto.model.Producto;
+import com.example.demo.proyecto.model.Reserva;
 import com.example.demo.proyecto.repository.ProductoRepository;
 import com.example.demo.proyecto.repository.ImagenRepository;
+import com.example.demo.proyecto.repository.ReservaRepository;
+import com.example.demo.proyecto.util.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,9 +31,13 @@ public class ProductoService  {
     private ProductoRepository productoRepository;
     @Autowired
     private ImagenRepository imagenRepository;
+    @Autowired
+    private ReservaRepository reservaRepository;
 
-    public ProductoService(ProductoRepository productoRepository) {
+    public ProductoService(ProductoRepository productoRepository, ImagenRepository imagenRepository, ReservaRepository reservaRepository) {
         this.productoRepository = productoRepository;
+        this.imagenRepository = imagenRepository;
+        this.reservaRepository = reservaRepository;
     }
 
     public Producto guardar(Producto producto) {
@@ -39,7 +51,17 @@ public class ProductoService  {
             throw new ResourceNotFoundException("No existe un producto con el ID: " + id);
         }
         response.setProducto(producto.get());
-        response.setImagenes(imagenRepository.findImagenesByProductParams(producto.get().getId()));
+
+        List<Imagen> imagenes = imagenRepository.findImagenesByProductParams(producto.get().getId());
+        List<ImagenDto> imagenDtos = new ArrayList<>();
+        imagenes.forEach(i -> imagenDtos.add(Mapper.MapImagen(i)));
+        response.setImagenes(imagenDtos);
+
+        List<ReservaDto> reservaDtos = new ArrayList<ReservaDto>();
+        List<Reserva> reservas = reservaRepository.findReservasByProductParams(id);
+        reservas.forEach(r -> reservaDtos.add(Mapper.MapReserva(r)));
+        response.setReservas(reservaDtos);
+
         return response;
     }
 
