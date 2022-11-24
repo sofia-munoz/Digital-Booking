@@ -3,6 +3,7 @@ package com.example.demo.proyecto.controller;
 import com.example.demo.proyecto.model.jwt.Usuario;
 import com.example.demo.proyecto.service.jwt.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -29,11 +30,13 @@ public class usuarioController {
 
     //add 201 code ()
     //password encripted (ok)
+//    @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping
     public ResponseEntity<Usuario> guardar(@RequestBody Usuario usuario){
         String passWEncrypt = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(passWEncrypt);
-        return ResponseEntity.ok(usuarioService.guardar(usuario));
+        usuarioService.guardar(usuario);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 
