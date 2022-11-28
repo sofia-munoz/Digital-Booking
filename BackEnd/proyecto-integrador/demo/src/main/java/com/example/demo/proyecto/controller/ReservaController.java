@@ -6,6 +6,7 @@ import com.example.demo.proyecto.dto.ReservaDto;
 import com.example.demo.proyecto.dto.ReservaRequest;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.model.Reserva;
+import com.example.demo.proyecto.model.jwt.Usuario;
 import com.example.demo.proyecto.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,9 @@ public class ReservaController {
 
     @PostMapping
     public ResponseEntity<ReservaDto> guardar(@RequestBody ReservaRequest reserva) throws BadRequestException {
-        return ResponseEntity.ok(reservaService.guardar(reserva));
+        return new ResponseEntity<ReservaDto>(
+                reservaService.guardar(reserva),
+                HttpStatus.CREATED);
     }
 
 }

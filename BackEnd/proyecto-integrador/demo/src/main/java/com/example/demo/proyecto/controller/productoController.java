@@ -21,8 +21,6 @@ public class productoController {
     @Autowired
     private ProductoService productoService;
 
-
-
     @GetMapping("/byCategoria/{id}")
     public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByCategoria(id));
@@ -69,7 +67,6 @@ public class productoController {
     public ResponseEntity<Producto> guardar(@RequestBody Producto producto){
         return ResponseEntity.ok(productoService.guardar(producto));
     }
-
 
     @PutMapping
     public ResponseEntity<Producto> actualizar(@RequestBody Producto producto) throws ResourceNotFoundException {

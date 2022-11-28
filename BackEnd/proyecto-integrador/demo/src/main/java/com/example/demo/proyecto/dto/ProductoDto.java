@@ -2,16 +2,15 @@ package com.example.demo.proyecto.dto;
 
 import com.example.demo.proyecto.model.Imagen;
 import com.example.demo.proyecto.model.Producto;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@NoArgsConstructor
 public class ProductoDto {
     Producto producto;
     List<ImagenDto> imagenes;
     List<ReservaDto> reservas;
-
-    public ProductoDto() {
-    }
 
     public Producto getProducto() {
         return producto;
