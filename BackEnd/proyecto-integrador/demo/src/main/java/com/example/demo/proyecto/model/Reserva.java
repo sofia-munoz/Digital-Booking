@@ -3,8 +3,8 @@ package com.example.demo.proyecto.model;
 import com.example.demo.proyecto.model.jwt.Usuario;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "reservas")
@@ -15,11 +15,11 @@ public class Reserva {
 
     private Integer id;
 
-    private LocalDateTime fechaInicial;
+    private LocalDate fechaInicial;
 
-    private LocalDateTime fechaFinal;
+    private LocalDate fechaFinal;
 
-    private String HoraLLegada;
+    private LocalTime HoraLLegada;
 
     @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
@@ -31,7 +31,7 @@ public class Reserva {
 
     public Reserva() {
     }
-    public Reserva(Integer id, LocalDateTime fechaInicial, LocalDateTime fechaFinal, String horaLLegada, Producto producto, Usuario usuario) {
+    public Reserva(Integer id, LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaLLegada, Producto producto, Usuario usuario) {
         this.id = id;
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
@@ -48,27 +48,27 @@ public class Reserva {
         this.id = id;
     }
 
-    public LocalDateTime getFechaInicial() {
+    public LocalDate getFechaInicial() {
         return fechaInicial;
     }
 
-    public void setFechaInicial(LocalDateTime fechaInicial) {
+    public void setFechaInicial(LocalDate fechaInicial) {
         this.fechaInicial = fechaInicial;
     }
 
-    public LocalDateTime getFechaFinal() {
+    public LocalDate getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(LocalDateTime fechaFinal) {
+    public void setFechaFinal(LocalDate fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
-    public String getHoraLLegada() {
+    public LocalTime getHoraLLegada() {
         return HoraLLegada;
     }
 
-    public void setHoraLLegada(String horaLLegada) {
+    public void setHoraLLegada(LocalTime horaLLegada) {
         HoraLLegada = horaLLegada;
     }
 

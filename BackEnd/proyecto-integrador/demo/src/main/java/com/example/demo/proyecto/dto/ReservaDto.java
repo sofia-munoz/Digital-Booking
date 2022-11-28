@@ -1,11 +1,11 @@
 package com.example.demo.proyecto.dto;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ReservaDto {
     private Integer id;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDate start;
+    private LocalDate end;
     private Integer idProducto;
     private Integer idUsuario;
 
@@ -20,19 +20,19 @@ public class ReservaDto {
         this.id = id;
     }
 
-    public LocalDateTime getStart() {
+    public LocalDate getStart() {
         return start;
     }
 
-    public void setStart(LocalDateTime start) {
+    public void setStart(LocalDate start) {
         this.start = start;
     }
 
-    public LocalDateTime getEnd() {
+    public LocalDate getEnd() {
         return end;
     }
 
-    public void setEnd(LocalDateTime end) {
+    public void setEnd(LocalDate end) {
         this.end = end;
     }
 

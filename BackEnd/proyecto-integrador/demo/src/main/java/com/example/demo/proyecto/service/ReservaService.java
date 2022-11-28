@@ -29,8 +29,10 @@ public class ReservaService {
     Usuario usuario;
     Reserva reservaEntity;
 
-    public ReservaService(ReservaRepository reservaRepository) {
+    public ReservaService(ReservaRepository reservaRepository, ProductoRepository productoRepository, UsuarioRepository usuarioRepository) {
         this.reservaRepository = reservaRepository;
+        this.productoRepository = productoRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
     /***
@@ -41,7 +43,7 @@ public class ReservaService {
      * @return ReservaDto
      * @throws BadRequestException
      */
-    public ReservaDto guardar(ReservaRequest reserva) throws BadRequestException {
+    public ReservaDto guardar(ReservaRequest reserva) throws Exception {
         Optional<Producto> prod = productoRepository.findById(reserva.getIdProducto());
         if(prod.isEmpty())
             throw new BadRequestException("No existe un producto con el ID: " + reserva.getIdProducto());
@@ -54,7 +56,11 @@ public class ReservaService {
             producto = prod.get();
             usuario = usu.get();
             reservaEntity = Mapper.MapReserva(reserva, producto, usuario);
-            return Mapper.MapReserva(reservaRepository.save(reservaEntity));
+
+            var response = reservaRepository.save(reservaEntity);
+            JavaMailService.enviarMail(usuario.getEmail(),"Reserva exitosa", JavaMailService.getBodyReserva(response, producto));
+            return Mapper.MapReserva(response);
+
         } else {
             throw new BadRequestException("No hay reserva disponible para esos dias");
         }
@@ -67,7 +73,7 @@ public class ReservaService {
      * @return List<ReservaDto>
      */
     public List<ReservaDto> buscarPorProductoId(Integer id) {
-        List<ReservaDto> reservaDtos = new ArrayList<ReservaDto>();
+        List<ReservaDto> reservaDtos = new ArrayList<>();
         List<Reserva> reservas = reservaRepository.findReservasByProductParams(id);
         reservas.forEach(r -> reservaDtos.add(Mapper.MapReserva(r)));
         return reservaDtos;

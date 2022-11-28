@@ -5,25 +5,25 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ReservaRequest {
-    private LocalDateTime fechaInicial;
-    private LocalDateTime fechaFinal;
+    private LocalDate fechaInicial;
+    private LocalDate fechaFinal;
     @NotNull(message = "debe asociar un producto valido")
     private Integer idProducto;
     private Integer idUsuario;
 
-    public LocalDateTime getFechaInicial() {
+    public LocalDate getFechaInicial() {
         return fechaInicial;
     }
 
-    public void setFechaInicial(LocalDateTime fechaInicial) {
+    public void setFechaInicial(LocalDate fechaInicial) {
         this.fechaInicial = fechaInicial;
     }
 
-    public LocalDateTime getFechaFinal() {
+    public LocalDate getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(LocalDateTime fechaFinal) {
+    public void setFechaFinal(LocalDate fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
