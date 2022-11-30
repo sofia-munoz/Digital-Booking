@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -23,11 +23,11 @@ public class Reserva {
 
     private Integer id;
 
-    private LocalDateTime fechaInicial;
+    private LocalDate fechaInicial;
 
-    private LocalDateTime fechaFinal;
+    private LocalDate fechaFinal;
 
-    private String HoraLLegada;
+    private LocalTime HoraLLegada;
 
     @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
@@ -37,4 +37,62 @@ public class Reserva {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
+    public Reserva() {
+    }
+    public Reserva(Integer id, LocalDate fechaInicial, LocalDate fechaFinal, LocalTime horaLLegada, Producto producto, Usuario usuario) {
+        this.id = id;
+        this.fechaInicial = fechaInicial;
+        this.fechaFinal = fechaFinal;
+        HoraLLegada = horaLLegada;
+        this.producto = producto;
+        this.usuario = usuario;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDate getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public void setFechaInicial(LocalDate fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
+    public LocalDate getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public void setFechaFinal(LocalDate fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+
+    public LocalTime getHoraLLegada() {
+        return HoraLLegada;
+    }
+
+    public void setHoraLLegada(LocalTime horaLLegada) {
+        HoraLLegada = horaLLegada;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }

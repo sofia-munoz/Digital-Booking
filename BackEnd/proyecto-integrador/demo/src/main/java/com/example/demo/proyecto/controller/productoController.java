@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,6 +20,10 @@ import java.util.List;
 public class productoController {
     @Autowired
     private ProductoService productoService;
+
+    public productoController(ProductoService productoService) {
+        this.productoService = productoService;
+    }
 
     @GetMapping("/byCategoria/{id}")
     public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id){
@@ -73,8 +77,11 @@ public class productoController {
         return ResponseEntity.ok(productoService.actualizar(producto));
     }
 
-    @GetMapping("/{fechaInicio}/{fechaFinal}")
-    public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable String fechaInicio, @PathVariable String fechaFinal){
-        return ResponseEntity.ok(productoService.productosDisponibles(fechaInicio, fechaFinal));
+    @GetMapping("/fechas")
+    public ResponseEntity<List<Producto>> buscarPorFecha(@RequestParam(required = false) Integer idCiudad, @RequestParam String fechaInicial, @RequestParam String fechaFinal){
+        List<Producto> productos = productoService.productosDisponibles(idCiudad,LocalDate.parse(fechaInicial), LocalDate.parse(fechaFinal));
+        return ResponseEntity.ok(productos);
     }
+
+
 }

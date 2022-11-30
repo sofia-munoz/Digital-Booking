@@ -20,8 +20,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.awt.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
 
@@ -118,22 +117,12 @@ public class ProductoService  {
         return productoRepository.save(producto);
     }
 
-    public List<Producto> productosDisponibles(String fechaInicial, String fechaFinal){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime fInicial = LocalDateTime.parse(fechaInicial, formatter);
-        LocalDateTime fFinal = LocalDateTime.parse(fechaFinal, formatter);
+    public List<Producto> productosDisponibles(Integer idCiudad, LocalDate fechaInicial, LocalDate fechaFinal){
+       List<Producto> productos = productoRepository.buscarDisponibles(fechaInicial, fechaFinal);
+       if(idCiudad!=null)
+           productos.removeIf(p->p.getCiudad().getId()!=idCiudad);
+       return productos;
 
-        List<Producto> productosNoDisp = productoRepository.findAllByFechaInicialLessThanEqualAndFechaFinalGreaterThanEqual(fInicial, fFinal);
-        Set<Integer> idProdNoDisp = new HashSet<>();
-        productosNoDisp.forEach(p->idProdNoDisp.add(p.getId()));
-        List<Producto> productos = productoRepository.findAll();
-        List<Producto> productosDisponibles = new ArrayList<>();
-        productos.forEach(producto -> {
-            if(!idProdNoDisp.contains(producto.getId()))
-                productosDisponibles.add(producto);
-
-        });
-        return  productosDisponibles;
     }
 
 }
