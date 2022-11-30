@@ -72,7 +72,6 @@ public class productoController {
         return ResponseEntity.ok(productoService.guardar(producto));
     }
 
-
     @PutMapping
     public ResponseEntity<Producto> actualizar(@RequestBody Producto producto) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.actualizar(producto));

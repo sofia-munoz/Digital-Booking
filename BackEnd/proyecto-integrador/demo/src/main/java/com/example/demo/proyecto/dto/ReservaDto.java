@@ -2,6 +2,9 @@ package com.example.demo.proyecto.dto;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class ReservaDto {
     private Integer id;
     private LocalDate start;
@@ -52,3 +55,4 @@ public class ReservaDto {
         this.idUsuario = idUsuario;
     }
 }
+
