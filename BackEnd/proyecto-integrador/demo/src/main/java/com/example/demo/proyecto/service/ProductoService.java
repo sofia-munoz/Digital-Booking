@@ -117,12 +117,26 @@ public class ProductoService  {
         return productoRepository.save(producto);
     }
 
-    public List<Producto> productosDisponibles(Integer idCiudad, LocalDate fechaInicial, LocalDate fechaFinal){
-       List<Producto> productos = productoRepository.buscarDisponibles(fechaInicial, fechaFinal);
-       if(idCiudad!=null)
-           productos.removeIf(p->p.getCiudad().getId()!=idCiudad);
-       return productos;
+    public List<Producto> productosDisponibles(Integer idCiudad, LocalDate fechaInicial, LocalDate fechaFinal) throws BadRequestException {
+        if (fechaInicial == null && fechaFinal != null || fechaInicial != null && fechaFinal == null)
+            throw new BadRequestException("Fechas inválidas");
+        //Sin filtros
+        if (idCiudad == null && fechaInicial == null && fechaFinal == null)
+            return eightRandomProducts();
 
+        List<Producto> productos = new ArrayList<>();
+        //Filtro por fechas
+        if (fechaInicial != null && fechaFinal != null) {
+            productos = productoRepository.buscarDisponibles(fechaInicial, fechaFinal);
+            //Filtro por fechas y ciudad
+            if (idCiudad != null)
+                productos.removeIf(p -> p.getCiudad().getId() != idCiudad);
+        } else{
+            //Filtro por ciudad
+            if (idCiudad != null)
+                productos = productoByCiudad(idCiudad);
+        }
+
+        return productos;
     }
-
 }

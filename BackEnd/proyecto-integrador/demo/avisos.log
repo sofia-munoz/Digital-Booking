@@ -15,3 +15,4 @@
 [2022-11-2519:28:52] [ ERROR] [GlobalExceptions:21] No hay reserva disponible para esos dias
 [2022-11-2521:18:48] [ ERROR] [GlobalExceptions:21] No existe un producto con el ID: 0
 [2022-11-2521:18:56] [ ERROR] [GlobalExceptions:21] No existe un usuario con el ID: 0
+[2022-12-0120:39:47] [ ERROR] [GlobalExceptions:21] Fechas inválidas
