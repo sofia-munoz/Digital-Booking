@@ -9,12 +9,14 @@ export default function Buscador ({cityList}) {
   
 const navigate = useNavigate();
 
-
 const [citySelected, setCitySelected] = useState(null);
 const handleBuscar = (event) => {
     event.preventDefault()
-    if(citySelected === null) return;
-    navigate(`/city/${citySelected.id}?${citySelected.ciudad.replace(/ /g,'-')}`)
+
+    if(citySelected!==null){
+    navigate(`/filter-by-city/id=${citySelected.id}/${citySelected.ciudad.replace(/ /g,'-')}`)
+    }
+
 }
 
     return(

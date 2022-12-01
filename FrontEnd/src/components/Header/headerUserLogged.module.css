@@ -24,6 +24,10 @@
     color: #383B58;
 }
 
+.cerrar_header:hover{
+    cursor: pointer;
+}
+
 .userInfo_header {
     font-weight: 700;
     font-size: 16px;

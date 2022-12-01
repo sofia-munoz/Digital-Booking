@@ -9,7 +9,8 @@ const Login = ({handleUserLogged}) =>{
     const [contraseña, setContraseña] = useState('')
     const [errorForm,setErrorForm] = useState(false)
     const navigate = useNavigate();
-    const producto=localStorage.getItem('idProducto')
+    const prodId=localStorage.getItem('idProduct')
+    const prodName=localStorage.getItem('nameProduct')
     
     const usuario= {
         email: correo,
@@ -52,8 +53,8 @@ const Login = ({handleUserLogged}) =>{
                                 handleUserLogged(userObj)
                             
                             // redireccionamiento a home o reserva 
-                                producto ? 
-                                    navigate(`/products/${producto}/booking-detail`) 
+                                prodId ? 
+                                    navigate(`/products/id=${prodId}/${prodName}/booking-detail`) 
                                     : 
                                     navigate('/');
                                 console.log("Usuario logueado con exito")
@@ -78,7 +79,7 @@ const Login = ({handleUserLogged}) =>{
     return(
         <div className={styles.body_form}>
         <div className={styles.form_container}>
-            {producto&&(
+            {prodId&&(
                 <div className={styles.warning_booking}>
                     <div className={styles.warning}>!</div>
                     <p>Para realizar una reserva necesitas estar logueado</p>

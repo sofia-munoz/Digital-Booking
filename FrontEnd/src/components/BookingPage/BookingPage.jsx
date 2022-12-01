@@ -12,7 +12,7 @@ import { userInfoContext } from "../../App";
 
 
 export default function ProductPage ({handleCheckIn, handleCheckOut, checkin, checkout, product}) {
-const goBack = '/products/'+product.id
+const goBack = '/products/id='+product.id+'/'+product.titulo.replace(/ /g,'-')
 const [showModalFailedBooking, setShowModalFailedBooking] = useState(false)
 const [showModalBooking, setShowModalBooking] = useState(false)
 const [timeArrival, setTimeArrival] = useState(null)
@@ -73,8 +73,6 @@ const handleBooking = ()=>{
                                 console.error('Error:', error);
                                 setShowModalFailedBooking(true)
                             });
-
-
         } 
 
     }

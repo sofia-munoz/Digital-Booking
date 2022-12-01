@@ -7,14 +7,15 @@ import { userContext } from "../../../../App";
 export default function Reservation ({handleCheckIn, handleCheckOut, product}) {
     const userLogged = useContext(userContext)
     const navigate = useNavigate();
-
+    const productTitle = product.titulo.replace(/ /g,'-')
   
     const HandleNavigate = ()=>{
         if (userLogged) {
-            navigate("/products/"+product.id+"/booking-detail"); 
+            navigate("/products/id="+product.id+"/"+productTitle+"/booking-detail", window.scroll(0, 0)); 
         } else { 
-            localStorage.setItem("idProducto", product.id);
-            navigate("/login");
+            localStorage.setItem("idProduct", product.id);
+            localStorage.setItem("nameProduct", productTitle);
+            navigate("/login", window.scroll(0, 0));
         }
     }
 

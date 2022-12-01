@@ -11,18 +11,16 @@ const RenderAmenities = () => {
 
             result.push(
                 (
-                    (<div className={styles.amenity}>
+                    (<div className={styles.amenity} key={product.id}>
                         <img src={product.iconoURL} alt={product.caracteristica} />
                         <p>{product.caracteristica}</p>
                     </div>)
                 )
-            );
+            ); 
         }
-
+       
         return result;
     }
-
-    console.log(productAmenity);
 
     return (
         <div className={styles.detail_container}>

@@ -7,7 +7,7 @@ import "./calendar.css"
 
 registerLocale("es", es)
 
-export default function Calendar () {
+export default function Calendar ({setNewDateSelected}) {
   const [selectedStartDate, setSelectedStartDate] = useState("")
   const [selectedEndDate, setSelectedEndDate] = useState("")
   const [dateRange, setDateRange] = useState([null, null])
@@ -24,6 +24,10 @@ export default function Calendar () {
     if (startDate && endDate) {
       setSelectedStartDate(parseDates(startDate))
       setSelectedEndDate(parseDates(endDate))
+      setNewDateSelected({
+        fechaInicio: selectedStartDate,
+        fechaFinal: selectedEndDate
+      })
     }
   }, dateRange)
 

@@ -5,6 +5,7 @@ import ListaRecomendados from "./BodyComponents/Resultados/ListaRecomendados.jsx
 import { Route, Routes, } from "react-router-dom";
 import ListaProductosPorCiudad from "./BodyComponents/Resultados/ListaProductosPorCiudad"
 import ListaProductosPorCategoria from "./BodyComponents/Resultados/ListaProductosPorCategoria"
+import ListaProductosPorFecha from "./BodyComponents/Resultados/ListaProductosPorFecha"
 
 export default function BodyHome() {
 
@@ -30,6 +31,7 @@ export default function BodyHome() {
                   console.error(error)
               }
             })
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             }, [])
     
     useEffect(() => {
@@ -42,6 +44,7 @@ export default function BodyHome() {
                   console.error(error)
               }
             })
+            // eslint-disable-next-line react-hooks/exhaustive-deps
               }, [])
 
   return (
@@ -50,8 +53,9 @@ export default function BodyHome() {
       <ListaCategorias info={categoryInfo} />
       <Routes>  
           <Route path="/" element={<ListaRecomendados/>}/>
-          <Route path="/category/:id" element={<ListaProductosPorCategoria/>}/>          
-          <Route path="/city/:id" element={<ListaProductosPorCiudad/>}/>
+          <Route path="/filter-by-category/id=:id/*" element={<ListaProductosPorCategoria/>}/>          
+          <Route path="/filter-by-city/id=:id/*" element={<ListaProductosPorCiudad/>}/>
+          <Route path="/filter-by-date/" element={<ListaProductosPorFecha/>}/>
       </Routes>
     </>
   )

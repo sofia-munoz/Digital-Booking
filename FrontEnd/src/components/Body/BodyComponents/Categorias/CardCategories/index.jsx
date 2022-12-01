@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const CardCategories = ({categoria}) => {
   const navigate = useNavigate();
     const handleFiltrar = (event) => {
-    navigate(`/category/${categoria.id}?${categoria.titulo.replace(/ /g,'-')}`)    
+    navigate(`/filter-by-category/id=${categoria.id}/${categoria.titulo.replace(/ /g,'-')}`)    
   }
     return (
           <div className={styles.card} onClick={handleFiltrar}>

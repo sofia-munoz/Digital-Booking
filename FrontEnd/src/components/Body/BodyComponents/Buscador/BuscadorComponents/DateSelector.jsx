@@ -3,11 +3,11 @@ import { FaCalendarDay } from "react-icons/fa"
 import "./calendar.css"
 import styles from "./dateSelector.module.css"
 
-export default function DateSelector() {
+export default function DateSelector({setNewDateSelected}) {
   return (
     <section className={styles.calendar}>
       <FaCalendarDay className={styles.calendarIcon} />
-      <Calendar name="date" label="date" />
+      <Calendar setNewDateSelected={setNewDateSelected} name="date" label="date" />
     </section>
   )
 }

@@ -1,15 +1,28 @@
 import React from "react";
 import styles from "./cardProduct.module.css"
-import heart from "../../../../../assets/favorite.png"
 import ubi from "../../../../../assets/ubication.png"
 import points from "../../../../../assets/points.png"
-import wifi from "../../../../../assets/wifi.png"
-import swim from "../../../../../assets/swim.png"
 import { Link } from "react-router-dom";
-import star from "../../../../../assets/star.png"
  
 const CardProduct = ({producto}) => {
   const descriptionCard = producto.descripcion.slice(0,101)
+  const productTitle = producto.titulo.replace(/ /g,'-')
+
+  const RenderAmenitiesCard = () => {
+        let result = [];
+        let amenity = producto.caracteristicasDelProducto
+        for (let i = 0; i < amenity.length; i++) {
+            result.push(
+                (
+                    (<div key={amenity[i].id} className={styles.amenity}>
+                        <img src={amenity[i].iconoURL} alt={amenity[i].caracteristica} />
+                    </div>)
+                )
+            );
+        }
+        return result;
+    }
+
     return (
       <div className={styles.card}>
         
@@ -18,7 +31,6 @@ const CardProduct = ({producto}) => {
             <div className={styles.main_image_container}>
               <img className={styles.image} src={producto.imagenPrincipalURL} alt="imagen de un hospedaje"/>
             </div>
-            {/* <img className={styles.favourite} src={heart} alt="imagen corazon"/> */}
         </div>
 
         {/* body information */}
@@ -27,7 +39,6 @@ const CardProduct = ({producto}) => {
             <div className={styles.title_container}>
               <div className={styles.category_container}>
                 <p className={styles.category}>{producto.categoria.titulo}</p>
-                {/* <img className={styles.star} src={star} alt="star"/> */}
               </div>
               <h3 className={styles.title}>{producto.titulo}</h3>
             </div>
@@ -42,15 +53,14 @@ const CardProduct = ({producto}) => {
           </div>
             
           <div className={styles.icons}>
-              <img className={styles.icon} src={wifi} alt="imagen wifi"/>
-              <img className={styles.icon} src={swim} alt="imagen nadando"/>
+              {RenderAmenitiesCard()}
           </div>
 
             <div className={styles.description}>
               <p>{descriptionCard}...
-              <Link to={`/products/${producto.id}`}><span className={styles.link}>más...</span></Link></p>
+              <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><span className={styles.link}>más...</span></Link></p>
             </div>
-            <Link to={`/products/${producto.id}`}><button className={styles.button}>Ver más</button></Link>
+            <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><button className={styles.button}>Ver más</button></Link>
 
         </div>        
       </div>
