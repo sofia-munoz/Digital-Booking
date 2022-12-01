@@ -19,32 +19,4 @@ public class ReservaRequest {
     @NotNull(message = "debe asociar un usuario valido")
     private Integer idUsuario;
 
-    public LocalDate getFechaInicial() {
-        return fechaInicial;
-    }
-
-    public void setFechaInicial(LocalDate fechaInicial) {
-        this.fechaInicial = fechaInicial;
-    }
-
-    public LocalDate getFechaFinal() {
-        return fechaFinal;
-    }
-
-    public void setFechaFinal(LocalDate fechaFinal) {
-        this.fechaFinal = fechaFinal;
-    }
-
-    public Integer getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
-
 }

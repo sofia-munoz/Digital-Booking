@@ -11,7 +11,5 @@ public class ImagenDto {
     private Integer id;
     private String titulo;
     private String URL;
-
     private Integer idProducto;
-
 }

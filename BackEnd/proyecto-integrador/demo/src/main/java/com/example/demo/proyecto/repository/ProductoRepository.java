@@ -27,6 +27,7 @@ public interface ProductoRepository extends JpaRepository<Producto,Integer> {
 
     @Query(value = "SELECT * FROM productos ORDER BY RAND() LIMIT 8 ",nativeQuery = true)
     List<Producto> randomProductsAndLimit();
+    
     @Query(value = "select * from productos as p " +
             "where p.id not in(" +
             "select distinct id_producto from reservas as r " +
