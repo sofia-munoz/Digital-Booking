@@ -43,8 +43,8 @@ const handleBooking = ()=>{
         if(calendarOk && timeOk)
         {
             const data = {
-                start : checkin+"T00:00:00.000",
-                end : checkout+"T00:00:00.000",
+                start : checkin,
+                end : checkout,
                 idProducto : product.id,
                 idUsuario : userInfo.id,
 

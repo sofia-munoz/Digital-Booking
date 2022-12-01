@@ -55,7 +55,7 @@ export default function BodyHome() {
           <Route path="/" element={<ListaRecomendados/>}/>
           <Route path="/filter-by-category/id=:id/*" element={<ListaProductosPorCategoria/>}/>          
           <Route path="/filter-by-city/id=:id/*" element={<ListaProductosPorCiudad/>}/>
-          <Route path="/filter-by-date/" element={<ListaProductosPorFecha/>}/>
+          {/* <Route path="/filter-by-date/" element={<ListaProductosPorFecha/>}/> */}
       </Routes>
     </>
   )
