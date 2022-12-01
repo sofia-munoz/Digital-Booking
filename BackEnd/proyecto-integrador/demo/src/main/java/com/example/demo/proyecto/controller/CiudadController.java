@@ -4,7 +4,6 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.proyecto.model.Ciudad;
-import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.service.CiudadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins="*")
 @RequestMapping("/ciudades")
-public class ciudadController {
+public class CiudadController {
     @Autowired
     private CiudadService ciudadService;
 

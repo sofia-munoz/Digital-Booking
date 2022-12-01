@@ -17,11 +17,11 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins="*")
 @RequestMapping("/productos")
-public class productoController {
+public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
-    public productoController(ProductoService productoService) {
+    public ProductoController(ProductoService productoService) {
         this.productoService = productoService;
     }
 
@@ -78,8 +78,10 @@ public class productoController {
     }
 
     @GetMapping("/fechas")
-    public ResponseEntity<List<Producto>> buscarPorFecha(@RequestParam(required = false) Integer idCiudad, @RequestParam String fechaInicial, @RequestParam String fechaFinal){
-        List<Producto> productos = productoService.productosDisponibles(idCiudad,LocalDate.parse(fechaInicial), LocalDate.parse(fechaFinal));
+    public ResponseEntity<List<Producto>> buscarPorFiltros(@RequestParam(required = false) Integer idCiudad, @RequestParam(required = false) String fechaInicial, @RequestParam(required = false) String fechaFinal) throws BadRequestException {
+        LocalDate fInicial = fechaInicial == null ? null : LocalDate.parse(fechaInicial);
+        LocalDate fFinal = fechaFinal == null ? null : LocalDate.parse(fechaFinal);
+        List<Producto> productos = productoService.productosDisponibles(idCiudad,fInicial, fFinal);
         return ResponseEntity.ok(productos);
     }
 
