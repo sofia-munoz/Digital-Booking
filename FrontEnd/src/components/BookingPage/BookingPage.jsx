@@ -12,7 +12,6 @@ import { userInfoContext } from "../../App";
 
 
 export default function ProductPage ({handleCheckIn, handleCheckOut, checkin, checkout, product}) {
-const goBack = '/products/id='+product.id+'/'+product.titulo.replace(/ /g,'-')
 const [showModalFailedBooking, setShowModalFailedBooking] = useState(false)
 const [showModalBooking, setShowModalBooking] = useState(false)
 const [timeArrival, setTimeArrival] = useState(null)
@@ -79,7 +78,6 @@ const handleBooking = ()=>{
 
     return(
         <>
-            <BloqueHeader product={product} goBack={goBack}/>
             <div className={styles.main_container}> 
                 <div className={styles.container}>   
                     <div className={styles.first_column}>

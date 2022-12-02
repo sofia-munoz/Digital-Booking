@@ -14,11 +14,11 @@ const settings ={
                 }
 console.log("hola")
 
-const {fechaInicio} = useParams()
-const {fechaFinal} = useParams()
-console.log(fechaFinal)
+const {startDate} = useParams()
+const {endDate} = useParams()
 
-    const urlProductos = 'http://52.14.221.16:8080/productos/'+fechaInicio+'%2000:00:00/'+fechaFinal+'%2000:00:00'
+
+    const urlProductos = 'http://52.14.221.16:8080/productos/fechas?fechaInicial='+startDate+'&fechaFinal='+endDate
 
     console.log(urlProductos)
     

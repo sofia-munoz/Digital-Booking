@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ProductInformation from "./ProductInformation";
-import BookingPage from "../BookingPage/BookingPage"
+import BookingPage from "../BookingPage/BookingPage";
+import BloqueHeader from "./ProductComponents/BloqueHeader/BloqueHeader";
 
 export default function ProductPage () {
     const [product, setProduct] = useState(null)
@@ -38,6 +39,7 @@ export default function ProductPage () {
 
     return (
         <>
+            <BloqueHeader info={product} />  
             <Routes>
                 <Route path='/' element={<ProductInformation images={images} product={product} handleCheckIn = {setCheckin} handleCheckOut = {setCheckout} />}/>
                 <Route path='/booking-detail' element={<BookingPage handleCheckIn = {setCheckin} handleCheckOut = {setCheckout} product={product} checkin={checkin} checkout={checkout}/>} /> 

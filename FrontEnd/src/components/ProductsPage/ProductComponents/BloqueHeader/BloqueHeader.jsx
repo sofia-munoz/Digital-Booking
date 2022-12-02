@@ -1,20 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate  } from "react-router-dom";
 import pathBackButton from "../../../../assets/pathBack.png"
-import styles from './bloqueHeader.module.css'
+import styles from './bloqueHeader.module.css';
 
 
-export default function BloqueHeader ({goBack, product}) {
+export default function BloqueHeader ({info}) {
+    const location = useLocation();
+
+    const navigate = useNavigate();
+    const HandleGoBack = ()=>{
+        if (location.pathname.includes('/booking-detail')){
+            navigate(location.pathname.slice(0, -15))
+        } else {
+            navigate('/')
+        }
+    }
+
+    
+
     return (
             <div className={styles.bloque_header}>
                 <div className={styles.info_container}>
-                    <div className={styles.title_category}>
-                        {product.categoria.titulo.toUpperCase()} 
-                    </div>
+                    {info.categoria&&(<div className={styles.title_category}>
+                        {info.categoria.titulo.toUpperCase()} 
+                    </div>)}
                     <div className={styles.title_product}>
-                        { product.titulo} 
+                        { info.titulo} 
                     </div>
                 </div>
-                <Link to={goBack} ><img src={pathBackButton} alt="Back" className={styles.bloque_header_back}/></Link>
+                <img src={pathBackButton} alt="Back" className={styles.bloque_header_back} onClick={HandleGoBack}/>
             </div>
 )}

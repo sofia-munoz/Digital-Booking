@@ -13,7 +13,6 @@ export default function ProductInformation ({handleCheckIn, handleCheckOut, prod
     
     const [showGallery, setShowGallery] = useState()
     const { width } = useScreenSize();
-    const goBack = '/'
     const imagesArray = useMemo(()=>{
         if(images){
             return images.map((image)=>image.url)
@@ -30,7 +29,6 @@ export default function ProductInformation ({handleCheckIn, handleCheckOut, prod
 
     return (
         <>
-            <BloqueHeader goBack={goBack}  product={product} />
             <BloqueLocation product={product}/>
             {
                 width<1023 || showGallery ? 

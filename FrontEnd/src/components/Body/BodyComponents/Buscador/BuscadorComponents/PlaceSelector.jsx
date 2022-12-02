@@ -1,9 +1,31 @@
 import { FaMapMarkerAlt } from "react-icons/fa"
 import { GoLocation } from "react-icons/go"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styles from "./placeSelector.module.css"
 
-export default function PlaceSelector({cityList, citySelected, setCitySelected}) {
+export default function PlaceSelector({citySelected, setCitySelected}) {
+  
+  const [cityList, setCityList] = useState();
+  const urlCiudades = 'http://52.14.221.16:8080/ciudades'
+  const settings ={
+                   method: 'GET',
+                   headers: {
+                          'Content-Type': 'application/json'
+                   } 
+                  }
+
+    useEffect(() => { 
+            Promise.resolve().then(async function(){
+              try{
+                  const response = await fetch (urlCiudades, settings)
+                  const data = await response.json()
+                  setCityList(data) 
+              } catch (error){
+                  console.error(error)
+              }
+            })
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            }, [])
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
