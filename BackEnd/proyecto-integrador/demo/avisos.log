@@ -16,3 +16,6 @@
 [2022-11-2521:18:48] [ ERROR] [GlobalExceptions:21] No existe un producto con el ID: 0
 [2022-11-2521:18:56] [ ERROR] [GlobalExceptions:21] No existe un usuario con el ID: 0
 [2022-12-0120:39:47] [ ERROR] [GlobalExceptions:21] Fechas inválidas
+[2022-12-0121:16:50] [ ERROR] [GlobalExceptions:21] El id de usuario 0no existe
+[2022-12-0121:18:04] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0
+[2022-12-0121:22:31] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0

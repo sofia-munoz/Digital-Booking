@@ -42,4 +42,12 @@ public class ReservaController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+    @Operation(summary = "Obtiene reservas registradas por Usuario")
+    @GetMapping("/byUsuario/{idUsuario}")
+    public ResponseEntity<List<ReservaDto>> buscarPorUsuario(@PathVariable Integer idUsuario) throws BadRequestException {
+        List<ReservaDto> reservas = reservaService.buscarPorUsuarioId(idUsuario);
+        if(!reservas.isEmpty()){
+            return ResponseEntity.ok(reservas);
+        }else return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 }
