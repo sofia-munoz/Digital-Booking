@@ -42,7 +42,7 @@ public class Reserva {
 
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
-        HoraLLegada = horaLLegada;
+        this.HoraLLegada = horaLLegada;
         this.producto = producto;
         this.usuario = usuario;
     }

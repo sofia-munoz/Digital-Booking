@@ -3,8 +3,10 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.CaracteristicaDto;
 import com.example.demo.proyecto.model.Caracteristica;
 import com.example.demo.proyecto.repository.CaracteristicaRepository;
+import com.example.demo.proyecto.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -14,24 +16,29 @@ import java.util.Optional;
 
 @Service
 public class CaracteristicaService {
+
+
     @Autowired
     private CaracteristicaRepository caracteristicaRepository;
+    @Autowired
+    private MapperUtil mapperUtil;
 
     public CaracteristicaService(CaracteristicaRepository caracteristicaRepository) {
         this.caracteristicaRepository = caracteristicaRepository;
     }
 
-    public Caracteristica guardar(Caracteristica caracteristica) {
-        return caracteristicaRepository.save(caracteristica);
+    public CaracteristicaDto guardar(CaracteristicaDto caracteristica) {
+        return  mapperUtil.map(caracteristicaRepository.save(mapperUtil.map(caracteristica, Caracteristica.class)), CaracteristicaDto.class);
     }
 
-    public Caracteristica buscar(Integer id) throws ResourceNotFoundException {
+    public CaracteristicaDto buscar(Integer id) throws ResourceNotFoundException {
         Optional<Caracteristica> caracteristica = caracteristicaRepository.findById(id);
         if(caracteristica.isEmpty()){
             throw new ResourceNotFoundException("No existe una caracteristica con el ID: " + id);
         }
-        return caracteristica.get();
+        return mapperUtil.map(caracteristicaRepository.findById(id),CaracteristicaDto.class);
     }
+
 
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
@@ -44,12 +51,12 @@ public class CaracteristicaService {
         }
     }
 
-    public List<Caracteristica> buscarTodos(){
-        return caracteristicaRepository.findAll();
+    public List<CaracteristicaDto> buscarTodos(){
+        return mapperUtil.mapAll(caracteristicaRepository.findAll(),CaracteristicaDto.class);
     }
 
-    public Caracteristica actualizar(Caracteristica caracteristica)throws ResourceNotFoundException{
+    public CaracteristicaDto actualizar(CaracteristicaDto caracteristica)throws ResourceNotFoundException{
         buscar(caracteristica.getId());
-        return caracteristicaRepository.save(caracteristica);
+        return mapperUtil.map(caracteristicaRepository.save(mapperUtil.map(caracteristica, Caracteristica.class)), CaracteristicaDto.class);
     }
 }

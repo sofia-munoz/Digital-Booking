@@ -67,12 +67,12 @@ public class ProductoController {
     }
 
     //admin
-    @PostMapping
+    @PostMapping("/administracion")
     public ResponseEntity<Producto> guardar(@RequestBody Producto producto){
         return ResponseEntity.ok(productoService.guardar(producto));
     }
 
-    @PutMapping
+    @PutMapping("/administracion")
     public ResponseEntity<Producto> actualizar(@RequestBody Producto producto) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.actualizar(producto));
     }
