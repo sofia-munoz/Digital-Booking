@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46aa7352-d3ee-4ed6-9afd-d490feda2b42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CaracteristicaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/CaracteristicaDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/CategoriaDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/util/MapperUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/CiudadDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/config/security/AppResourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/config/security/AppResourceConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/config/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CategoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProductoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/model/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/model/Reserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CaracteristicaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CaracteristicaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CategoriaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CategoriaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CiudadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CiudadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ImagenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ImagenDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CiudadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CiudadService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

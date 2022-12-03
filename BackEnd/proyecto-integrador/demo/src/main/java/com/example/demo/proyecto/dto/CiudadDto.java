@@ -9,9 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ImagenDto {
+public class CiudadDto {
     private Integer id;
-    private String titulo;
-    private String URL;
-    private Integer idProducto;
+    private String ciudad;
 }

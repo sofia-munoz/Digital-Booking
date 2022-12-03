@@ -28,7 +28,7 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.buscar(id));
     }
 
-    @Operation(summary = "Elimina una categoriaa por id")
+    @Operation(summary = "Elimina una categoria por id")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminar(@PathVariable Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         categoriaService.eliminar(id);
