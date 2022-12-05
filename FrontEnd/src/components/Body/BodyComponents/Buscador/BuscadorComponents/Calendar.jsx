@@ -4,6 +4,7 @@ import { registerLocale } from "react-datepicker"
 import es from "date-fns/locale/es"
 import "react-datepicker/dist/react-datepicker.css"
 import "./calendar.css"
+import {useLocation} from "react-router-dom"
 
 registerLocale("es", es)
 
@@ -15,6 +16,16 @@ export default function Calendar ({setNewDateSelected}) {
   const [width, setWidth] = useState(window.innerWidth)
   const handleResize = () => setWidth(window.innerWidth)
 
+  const location = useLocation()
+  useEffect(()=>{
+    if (!location.pathname.includes("date")){
+        setSelectedStartDate("")
+        setSelectedEndDate("")
+        setDateRange([null, null])
+        setNewDateSelected(null)
+    } 
+  }, [location.pathname])
+
   useEffect(() => {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
@@ -22,12 +33,16 @@ export default function Calendar ({setNewDateSelected}) {
 
   useEffect(() => {
     if (startDate && endDate) {
-      setSelectedStartDate(parseDates(startDate))
-      setSelectedEndDate(parseDates(endDate))
-      setNewDateSelected({
-        fechaInicio: selectedStartDate,
-        fechaFinal: selectedEndDate
-      })
+      let parsedStartDate = parseDates(startDate)
+      let parsedEndDate = parseDates(endDate)
+
+      setSelectedStartDate(parsedStartDate)
+      setSelectedEndDate(parsedEndDate)
+      let date = {
+        fechaInicio: parsedStartDate,
+        fechaFinal: parsedEndDate
+      }
+      setNewDateSelected(date)
     }
   }, dateRange)
 

@@ -1,9 +1,8 @@
 
 import React, { useState } from "react"
-import CategoryList from '../../../mocks/api/categories.json'
-import styles from "./categorySelector.module.css"
+import styles from "./Selector.module.css"
 
-export default function CategorySelector({handleCategory}) {
+export default function Selector({handleSelected, infoList}) {
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState(null)
@@ -12,9 +11,9 @@ export default function CategorySelector({handleCategory}) {
     setIsOpen((prevState) => !prevState)
   }
 
-  const handleClick = (category) => () => {
-    setSelectedOption(category.titulo)
-    handleCategory(category)
+  const handleClick = (info) => () => {
+    setSelectedOption(info.titulo || info.ciudad)
+    handleSelected(info)
     setIsOpen(false)
   }
 
@@ -27,24 +26,24 @@ export default function CategorySelector({handleCategory}) {
             selectedOption ? styles.selected : ""
           }`}
         >
-          <>{selectedOption || "Seleccioná una categoría"}</>
+          <>{selectedOption || "Elegí una opción"}</>
         </div>
 
         {isOpen && (
           <div className={styles.listContainer}>
             <ul className={styles.locationSelect}>
               <div className={styles.space} />
-              {CategoryList?.map((category) => (
+              {infoList?.map((info) => (
                 <li
-                  value={category.titulo}
-                  key={category.id}
+                  value={info.titulo || info.ciudad}
+                  key={info.id}
                   className={styles.locationSelect}
-                  onClick={handleClick(category)}
+                  onClick={handleClick(info)}
                 >
                   <div className={styles.listContent}>
                     <div className={styles.textContainer}>
                       <div className={styles.cityName}>
-                        {category.titulo}
+                        {info.titulo || info.ciudad}
                         <br />
                       </div>
                     </div>

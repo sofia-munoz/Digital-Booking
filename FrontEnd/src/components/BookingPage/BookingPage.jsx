@@ -1,5 +1,4 @@
 import React, {useState, useContext} from "react";
-import BloqueHeader from "../ProductsPage/ProductComponents/BloqueHeader/BloqueHeader";
 import styles from "./BookingPage.module.css"
 import UserForm from "./UserForm/UserForm";
 import BookingDateSelector from "./Calendar/BookingDateSelector";

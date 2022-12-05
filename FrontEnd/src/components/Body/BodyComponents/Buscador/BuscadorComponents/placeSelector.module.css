@@ -1,4 +1,5 @@
 .location {
+  width: 100%;
   background-color: var(--font-color-light);
   border-radius: 0.5rem;
   max-height: 4rem;
@@ -43,7 +44,7 @@ li.locationSelect {
   font-weight: 700;
   background-color: var(--font-color-light);
   cursor: pointer;
-  max-width: 100;
+  max-width: 100%;
   z-index: 10;
 }
 
@@ -95,7 +96,7 @@ ul.locationSelect {
 
 .textContainer {
   display: flex;
-  width: calc(90%);
+  width: 90%;
   align-items: center;
   padding-bottom: 1.2rem;
 }

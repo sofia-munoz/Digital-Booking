@@ -21,9 +21,9 @@
   width: 90%;
 }
 
-section:nth-child(2) {
+/* section:nth-child(2) {
   margin-top: 1rem;
-}
+} */
 
 .btn_buscar{
   width: 20%;

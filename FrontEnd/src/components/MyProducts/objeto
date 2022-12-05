@@ -1,0 +1,21 @@
+{
+  "titulo": "string",
+  "tituloDescripcion": "string",
+  "descripcion": "string",
+  "disponibilidad": "string",
+  "ubicacion": "string",
+  "idCaracteristicas": [
+    0
+  ],
+  "politica": {
+    "normas": "string",
+    "seguridad": "string",
+    "cancelacion": "string"
+  },
+  "idCiudad": 0,
+  "idProvincia": 0,
+  "idCategoria": 0,
+  "imagenesURL": [
+    "string"
+  ]
+}
