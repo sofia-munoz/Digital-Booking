@@ -5,13 +5,8 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.proyecto.dto.*;
-import com.example.demo.proyecto.model.Imagen;
-import com.example.demo.proyecto.model.Producto;
-import com.example.demo.proyecto.model.Provincia;
-import com.example.demo.proyecto.model.Reserva;
-import com.example.demo.proyecto.repository.ProductoRepository;
-import com.example.demo.proyecto.repository.ImagenRepository;
-import com.example.demo.proyecto.repository.ReservaRepository;
+import com.example.demo.proyecto.model.*;
+import com.example.demo.proyecto.repository.*;
 import com.example.demo.proyecto.util.Mapper;
 import com.example.demo.proyecto.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +38,9 @@ public class ProductoService  {
     private ProvinciaRepository provinciaRepository;
     @Autowired
     private CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private MapperUtil mapperUtil;
 
     public ProductoService(ProductoRepository productoRepository, ImagenRepository imagenRepository, ReservaRepository reservaRepository, PoliticaRepository politicaRepository, CaracteristicaRepository caracteristicaRepository, CiudadRepository ciudadRepository, ProvinciaRepository provinciaRepository, CategoriaRepository categoriaRepository) {
         this.productoRepository = productoRepository;

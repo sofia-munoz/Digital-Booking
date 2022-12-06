@@ -70,7 +70,7 @@ public class ProductoController {
 
     //admin
     @PostMapping("/administracion")
-    public ResponseEntity<ProductoCompletoDto> guardar(@RequestBody Producto producto){
+    public ResponseEntity<Producto> guardar(@RequestBody ProductoRequest producto) throws BadRequestException {
         return ResponseEntity.ok(productoService.guardar(producto));
     }
 
