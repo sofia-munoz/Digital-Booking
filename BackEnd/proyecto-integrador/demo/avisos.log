@@ -16,6 +16,11 @@
 [2022-11-2521:18:48] [ ERROR] [GlobalExceptions:21] No existe un producto con el ID: 0
 [2022-11-2521:18:56] [ ERROR] [GlobalExceptions:21] No existe un usuario con el ID: 0
 [2022-12-0120:39:47] [ ERROR] [GlobalExceptions:21] Fechas inválidas
-[2022-12-0121:16:50] [ ERROR] [GlobalExceptions:21] El id de usuario 0no existe
-[2022-12-0121:18:04] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0
-[2022-12-0121:22:31] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0
+[2022-12-0520:14:23] [ ERROR] [GlobalExceptions:21] No existe ciudad con id 0
+[2022-12-0520:16:49] [ ERROR] [GlobalExceptions:21] No existe ciudad con id 0
+[2022-12-0520:16:56] [ ERROR] [GlobalExceptions:21] No existe provincia con id 0
+[2022-12-0520:17:02] [ ERROR] [GlobalExceptions:21] No existe categoria con id 0
+[2022-12-0520:30:19] [ ERROR] [GlobalExceptions:21] No existe provincia con id 0
+[2022-12-0520:48:48] [ ERROR] [GlobalExceptions:21] No existe provincia con id 0
+[2022-12-0520:56:15] [ ERROR] [GlobalExceptions:21] No existe un turn con el ID: 0
+[2022-12-0520:56:45] [ ERROR] [GlobalExceptions:21] No existe una categoria con el ID: 0

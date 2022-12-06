@@ -24,7 +24,7 @@ public class CategoriaController {
 
     @Operation(summary = "Obtiene categorias registradas por id")
     @GetMapping("/{id}")
-    public ResponseEntity<CategoriaDto> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<Categoria> buscar(@PathVariable Integer id) throws BadRequestException {
         return ResponseEntity.ok(categoriaService.buscar(id));
     }
 
@@ -49,7 +49,7 @@ public class CategoriaController {
 
     @Operation(summary = "Modifica una categoría")
     @PutMapping
-    public ResponseEntity<CategoriaDto> actualizar(@RequestBody CategoriaDto categoria) throws ResourceNotFoundException {
+    public ResponseEntity<CategoriaDto> actualizar(@RequestBody CategoriaDto categoria) throws BadRequestException {
         return ResponseEntity.ok(categoriaService.actualizar(categoria));
     }
 }

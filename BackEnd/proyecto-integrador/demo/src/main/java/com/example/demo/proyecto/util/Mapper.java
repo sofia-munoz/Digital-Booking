@@ -1,12 +1,13 @@
 package com.example.demo.proyecto.util;
 
 import com.example.demo.proyecto.dto.ImagenDto;
+import com.example.demo.proyecto.dto.ProductoRequest;
 import com.example.demo.proyecto.dto.ReservaDto;
 import com.example.demo.proyecto.dto.ReservaRequest;
-import com.example.demo.proyecto.model.Imagen;
-import com.example.demo.proyecto.model.Producto;
-import com.example.demo.proyecto.model.Reserva;
+import com.example.demo.proyecto.model.*;
 import com.example.demo.proyecto.model.jwt.Usuario;
+
+import java.util.Set;
 
 public class Mapper {
 
@@ -39,5 +40,22 @@ public class Mapper {
         imagenDto.setIdProducto(imagen.getProducto().getId());
 
         return imagenDto;
+    }
+
+    public static Producto MapProducto(ProductoRequest prod, Set<Caracteristica> caracteristicas, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria){
+        Producto producto = new Producto();
+        producto.setTitulo(prod.getTitulo());
+        producto.setTituloDescripcion(prod.getTituloDescripcion());
+        producto.setDescripcion(prod.getDescripcion());
+        producto.setDisponibilidad(prod.getDisponibilidad());
+        producto.setImagenPrincipalURL(prod.getImagenesURL().get(0));
+        producto.setUbicacion(prod.getUbicacion());
+        producto.setCaracteristicasDelProducto(caracteristicas);
+        producto.setPolitica(politica);
+        producto.setCiudad(ciudad);
+        producto.setCategoria(categoria);
+        if(provincia.getProvincia()!=null)
+            producto.setProvincia(provincia);
+        return producto;
     }
 }
