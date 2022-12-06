@@ -6,7 +6,8 @@ import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.proyecto.dto.CategoriaDto;
 import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.repository.CategoriaRepository;
-import com.example.demo.proyecto.util.MapperUtil;
+
+import com.example.demo.proyecto.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -18,27 +19,30 @@ import java.util.Optional;
 @Service
 public class CategoriaService {
 
-
     @Autowired
     private CategoriaRepository categoriaRepository;
-
     @Autowired
-    private MapperUtil mapperUtil;
+    private ProductoRepository productoRepository;
 
-    public CategoriaService(CategoriaRepository categoriaRepository) {
+    public CategoriaService(CategoriaRepository categoriaRepository, ProductoRepository productoRepository) {
         this.categoriaRepository = categoriaRepository;
+        this.productoRepository = productoRepository;
     }
 
     public CategoriaDto guardar(CategoriaDto categoria) {
         return mapperUtil.map(categoriaRepository.save(mapperUtil.map(categoria, Categoria.class)),CategoriaDto.class);
     }
 
-    public CategoriaDto buscar(Integer id) throws ResourceNotFoundException {
+    public Categoria buscar(Integer id) throws BadRequestException {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
         if(categoria.isEmpty()){
-           throw new ResourceNotFoundException("No existe una categoria con el ID: " + id);
+           throw new BadRequestException("No existe una categoria con el ID: " + id);
         }
-        return mapperUtil.map(categoriaRepository.findById(id), CategoriaDto.class);
+        Categoria categoriaDB = categoria.get();
+        categoriaDB.setTotalProductos(productoRepository.findProductoByCategoriaParams(id).size());
+        categoriaDB.setDescripcion(String.valueOf(categoriaDB.getTotalProductos() + " " + categoriaDB.getTitulo().toLowerCase()));
+
+        return categoriaDB;
     }
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
@@ -55,7 +59,7 @@ public class CategoriaService {
         return mapperUtil.mapAll(categoriaRepository.findAll(), CategoriaDto.class);
     }
 
-    public CategoriaDto actualizar(CategoriaDto categoria)throws ResourceNotFoundException{
+    public Categoria actualizar(Categoria categoria) throws BadRequestException {
         buscar(categoria.getId());
         return mapperUtil.map(categoriaRepository.save(mapperUtil.map(categoria, Categoria.class)),CategoriaDto.class);
     }
