@@ -8,6 +8,7 @@ import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.repository.CategoriaRepository;
 
 import com.example.demo.proyecto.repository.ProductoRepository;
+import com.example.demo.proyecto.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -23,6 +24,9 @@ public class CategoriaService {
     private CategoriaRepository categoriaRepository;
     @Autowired
     private ProductoRepository productoRepository;
+
+    @Autowired
+    private MapperUtil mapperUtil;
 
     public CategoriaService(CategoriaRepository categoriaRepository, ProductoRepository productoRepository) {
         this.categoriaRepository = categoriaRepository;
@@ -59,7 +63,7 @@ public class CategoriaService {
         return mapperUtil.mapAll(categoriaRepository.findAll(), CategoriaDto.class);
     }
 
-    public Categoria actualizar(Categoria categoria) throws BadRequestException {
+    public CategoriaDto actualizar(CategoriaDto categoria) throws BadRequestException {
         buscar(categoria.getId());
         return mapperUtil.map(categoriaRepository.save(mapperUtil.map(categoria, Categoria.class)),CategoriaDto.class);
     }

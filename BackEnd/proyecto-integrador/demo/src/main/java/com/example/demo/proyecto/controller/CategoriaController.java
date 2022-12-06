@@ -49,7 +49,7 @@ public class CategoriaController {
 
     @Operation(summary = "Modifica una categoría")
     @PutMapping
-    public ResponseEntity<Categoria> actualizar(@RequestBody Categoria categoria) throws BadRequestException {
+    public ResponseEntity<CategoriaDto> actualizar(@RequestBody CategoriaDto categoria) throws BadRequestException {
         return ResponseEntity.ok(categoriaService.actualizar(categoria));
     }
 }
