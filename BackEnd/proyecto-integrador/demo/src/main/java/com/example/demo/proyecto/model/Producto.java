@@ -40,7 +40,7 @@ public class Producto {
     private Ciudad ciudad;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_provincia",nullable = false)
+    @JoinColumn(name = "id_provincia",nullable = true)
     private Provincia provincia;
 
     @ManyToOne(fetch = FetchType.EAGER)

@@ -92,4 +92,12 @@ public class ReservaService {
 
         return turnosAgendados.isEmpty();
     }
+
+    public List<ReservaDto> buscarPorUsuarioId(Integer idUsuario) throws BadRequestException {
+        Optional<Usuario> usuario = usuarioRepository.findById(idUsuario);
+        if(usuario.isEmpty()){
+            throw new BadRequestException("No existe usuario con id " + idUsuario);
+        }
+        return reservaRepository.findByUsuario(usuario.get());
+    }
 }

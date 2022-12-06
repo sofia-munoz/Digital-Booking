@@ -6,13 +6,10 @@ import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.proyecto.dto.ImagenDto;
 import com.example.demo.proyecto.dto.ProductoDto;
+import com.example.demo.proyecto.dto.ProductoRequest;
 import com.example.demo.proyecto.dto.ReservaDto;
-import com.example.demo.proyecto.model.Imagen;
-import com.example.demo.proyecto.model.Producto;
-import com.example.demo.proyecto.model.Reserva;
-import com.example.demo.proyecto.repository.ProductoRepository;
-import com.example.demo.proyecto.repository.ImagenRepository;
-import com.example.demo.proyecto.repository.ReservaRepository;
+import com.example.demo.proyecto.model.*;
+import com.example.demo.proyecto.repository.*;
 import com.example.demo.proyecto.util.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -33,15 +30,63 @@ public class ProductoService  {
     private ImagenRepository imagenRepository;
     @Autowired
     private ReservaRepository reservaRepository;
+    @Autowired
+    private PoliticaRepository politicaRepository;
+    @Autowired
+    private CaracteristicaRepository caracteristicaRepository;
+    @Autowired
+    private CiudadRepository ciudadRepository;
+    @Autowired
+    private ProvinciaRepository provinciaRepository;
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
-    public ProductoService(ProductoRepository productoRepository, ImagenRepository imagenRepository, ReservaRepository reservaRepository) {
+    public ProductoService(ProductoRepository productoRepository, ImagenRepository imagenRepository, ReservaRepository reservaRepository, PoliticaRepository politicaRepository, CaracteristicaRepository caracteristicaRepository, CiudadRepository ciudadRepository, ProvinciaRepository provinciaRepository, CategoriaRepository categoriaRepository) {
         this.productoRepository = productoRepository;
         this.imagenRepository = imagenRepository;
         this.reservaRepository = reservaRepository;
+        this.politicaRepository = politicaRepository;
+        this.caracteristicaRepository = caracteristicaRepository;
+        this.ciudadRepository = ciudadRepository;
+        this.provinciaRepository = provinciaRepository;
+        this.categoriaRepository = categoriaRepository;
     }
 
-    public Producto guardar(Producto producto) {
-        return productoRepository.save(producto);
+    public Producto guardar(ProductoRequest producto) throws BadRequestException {
+        List<Caracteristica> caracteristicasDB = caracteristicaRepository.findAll();
+        Set<Caracteristica> caracteristicas = new HashSet<>();
+        caracteristicasDB.forEach(c->{
+            if(producto.getIdCaracteristicas().contains(c.getId())){
+                caracteristicas.add(c);
+            }
+        });
+        Optional<Ciudad> ciudad = ciudadRepository.findById(producto.getIdCiudad());
+        if(ciudad.isEmpty())
+            throw new BadRequestException("No existe ciudad con id " + producto.getIdCiudad());
+
+        Provincia provinciaEntity = new Provincia();
+        if(producto.getIdProvincia()!=null) {
+            Optional<Provincia> provincia = provinciaRepository.findById(producto.getIdProvincia());
+            if (provincia.isEmpty())
+                throw new BadRequestException("No existe provincia con id " + producto.getIdProvincia());
+            provinciaEntity = provincia.get();
+        }
+
+        Optional<Categoria> categoria = categoriaRepository.findById(producto.getIdCategoria());
+        if(categoria.isEmpty())
+            throw new BadRequestException("No existe categoria con id " + producto.getIdCategoria());
+
+        Politica politica = new Politica();
+        if(producto.getPolitica().getCancelacion()!=null || producto.getPolitica().getNormas()!=null || producto.getPolitica().getSeguridad()!=null)
+            politica = politicaRepository.save(producto.getPolitica());
+
+        Producto productoDB = productoRepository.save(Mapper.MapProducto(producto, caracteristicas, politica, ciudad.get(), provinciaEntity, categoria.get()));
+
+        producto.getImagenesURL().forEach( i ->
+                imagenRepository.save(new Imagen(null,i,productoDB))
+        );
+
+        return productoDB;
     }
 
     public ProductoDto buscar(Integer id) throws ResourceNotFoundException {

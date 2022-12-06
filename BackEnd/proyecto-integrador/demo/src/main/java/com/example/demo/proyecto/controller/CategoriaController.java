@@ -20,7 +20,7 @@ public class CategoriaController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<Categoria> buscar(@PathVariable Integer id) throws BadRequestException {
         return ResponseEntity.ok(categoriaService.buscar(id));
     }
 
@@ -45,7 +45,7 @@ public class CategoriaController {
 
 
     @PutMapping
-    public ResponseEntity<Categoria> actualizar(@RequestBody Categoria categoria) throws ResourceNotFoundException {
+    public ResponseEntity<Categoria> actualizar(@RequestBody Categoria categoria) throws BadRequestException {
         return ResponseEntity.ok(categoriaService.actualizar(categoria));
     }
 }

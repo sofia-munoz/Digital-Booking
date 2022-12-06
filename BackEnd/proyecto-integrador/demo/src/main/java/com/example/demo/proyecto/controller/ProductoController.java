@@ -5,6 +5,7 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.proyecto.dto.ProductoDto;
+import com.example.demo.proyecto.dto.ProductoRequest;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +69,7 @@ public class ProductoController {
 
     //admin
     @PostMapping
-    public ResponseEntity<Producto> guardar(@RequestBody Producto producto){
+    public ResponseEntity<Producto> guardar(@RequestBody ProductoRequest producto) throws BadRequestException {
         return ResponseEntity.ok(productoService.guardar(producto));
     }
 
