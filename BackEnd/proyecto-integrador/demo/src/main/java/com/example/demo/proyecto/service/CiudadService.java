@@ -34,7 +34,7 @@ public class CiudadService {
     public CiudadDto buscar(Integer id) throws ResourceNotFoundException {
         Optional<Ciudad> ciudad = ciudadRepository.findById(id);
         if(ciudad.isEmpty()){
-            throw new ResourceNotFoundException("No existe un turn con el ID: " + id);
+            throw new ResourceNotFoundException("No existe una ciudad con el ID: " + id);
         }
         return mapperUtil.map(ciudadRepository.findById(id), CiudadDto.class);
     }

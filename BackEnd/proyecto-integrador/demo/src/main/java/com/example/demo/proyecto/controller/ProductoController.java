@@ -4,6 +4,7 @@ package com.example.demo.proyecto.controller;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.ProductoCompletoDto;
 import com.example.demo.proyecto.dto.ProductoDto;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.service.ProductoService;
@@ -26,7 +27,7 @@ public class ProductoController {
     }
 
     @GetMapping("/byCategoria/{id}")
-    public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id){
+    public ResponseEntity<List<ProductoCompletoDto>> buscarPorCategoría(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByCategoria(id));
     }
 
@@ -62,18 +63,18 @@ public class ProductoController {
 
 //public
     @GetMapping
-    public ResponseEntity<List<Producto>> buscarTodos(){
+    public ResponseEntity<List<ProductoCompletoDto>> buscarTodos(){
         return ResponseEntity.ok(productoService.buscarTodos());
     }
 
     //admin
     @PostMapping("/administracion")
-    public ResponseEntity<Producto> guardar(@RequestBody Producto producto){
+    public ResponseEntity<ProductoCompletoDto> guardar(@RequestBody Producto producto){
         return ResponseEntity.ok(productoService.guardar(producto));
     }
 
     @PutMapping("/administracion")
-    public ResponseEntity<Producto> actualizar(@RequestBody Producto producto) throws ResourceNotFoundException {
+    public ResponseEntity<ProductoCompletoDto> actualizar(@RequestBody ProductoCompletoDto producto) throws ResourceNotFoundException {
         return ResponseEntity.ok(productoService.actualizar(producto));
     }
 

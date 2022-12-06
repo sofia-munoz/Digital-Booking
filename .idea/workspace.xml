@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46aa7352-d3ee-4ed6-9afd-d490feda2b42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/CiudadDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/PoliticaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/PoliticaDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ProductoCompletoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ProvinciaDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/repository/PoliticaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/PoliticaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CategoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CiudadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/CiudadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ImagenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ImagenDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProductoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProvinciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProvinciaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ProductoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/dto/ProductoDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CiudadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/CiudadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/ProductoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/ProvinciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/service/ProvinciaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +27,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>

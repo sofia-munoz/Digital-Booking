@@ -3,9 +3,15 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.CiudadDto;
+import com.example.demo.proyecto.dto.PoliticaDto;
+import com.example.demo.proyecto.dto.ProvinciaDto;
+import com.example.demo.proyecto.model.Ciudad;
+import com.example.demo.proyecto.model.Politica;
 import com.example.demo.proyecto.model.Provincia;
 import com.example.demo.proyecto.repository.ProvinciaRepository;
 
+import com.example.demo.proyecto.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -18,30 +24,22 @@ public class ProvinciaService {
     @Autowired
     private ProvinciaRepository provinciaRepository;
 
+    @Autowired
+    private MapperUtil mapperUtil;
+
     public ProvinciaService(ProvinciaRepository provinciaRepository) {this.provinciaRepository = provinciaRepository;}
 
-    public Provincia guardar(Provincia provincia) {
-        return provinciaRepository.save(provincia);
+    public ProvinciaDto guardar(ProvinciaDto provincia) {
+        return mapperUtil.map(provinciaRepository.save(mapperUtil.map(provincia, Provincia.class)), ProvinciaDto.class) ;
     }
 
-    public Provincia buscar(Integer id) throws ResourceNotFoundException {
+    public ProvinciaDto buscar(Integer id) throws ResourceNotFoundException {
         Optional<Provincia> provincia = provinciaRepository.findById(id);
         if(provincia.isEmpty()){
             throw new ResourceNotFoundException("No existe una provincia con el ID: " + id);
         }
-        return provincia.get();
+        return mapperUtil.map(provinciaRepository.findById(id), ProvinciaDto.class);
     }
-
-
-//    public List<Provincia> productobycategoria(Integer idCategoria){
-//        try {
-//            return provincia.findProductoByCategoriaParams(idCategoria);
-//        } catch(Exception ex){
-//            return null;
-//        }
-//    }
-
-    //hacer un buscar con id de categoría, id provincia y la fecha
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         try {
@@ -53,13 +51,13 @@ public class ProvinciaService {
         }
     }
 
-    public List<Provincia> buscarTodos(){
-        return provinciaRepository.findAll();
+    public List<ProvinciaDto> buscarTodos(){
+        return mapperUtil.mapAll(provinciaRepository.findAll(), ProvinciaDto.class);
     }
 
-    public Provincia actualizar(Provincia provincia)throws ResourceNotFoundException{
+    public ProvinciaDto actualizar(ProvinciaDto provincia)throws ResourceNotFoundException{
         buscar(provincia.getId());
-        return provinciaRepository.save(provincia);
+        return mapperUtil.map(provinciaRepository.save(mapperUtil.map(provincia, Provincia.class)), ProvinciaDto.class);
     }
 
 }
