@@ -1,6 +1,8 @@
 import{Link, useNavigate} from 'react-router-dom'
 import {useState} from 'react'
 import styles from "./formularios.module.css"
+import Selector from '../MyProducts/MyProductsComponents/Selector';
+import userRoleList from '../../mocks/api/usuario.json'
 
 const CrearCuenta = () =>{
 
@@ -19,6 +21,8 @@ const CrearCuenta = () =>{
     const [errorCorreoVacio,setErrorCorreoVacio] = useState(false)
     const [errorContraseñaVacio,setErrorContraseñaVacio] = useState(false)
     const [errorRegister, setErrorRegister] = useState(false)
+    const [userRoleSelected, setUserRoleSelected] = useState(-1)
+    const [errorUserRoleVacio, setErrorUserRoleVacio] = useState(false)
 
 const handleSubmit = (event) =>{
         event.preventDefault()
@@ -27,8 +31,9 @@ const handleSubmit = (event) =>{
         correo ===''? setErrorCorreoVacio(true):setErrorCorreoVacio(false)
         contraseña ===''? setErrorContraseñaVacio(true):setErrorContraseñaVacio(false)
         contraseñaC ===''? setErrorConfVacio(true):setErrorConfVacio(false)
+        userRoleSelected ===-1 ? setErrorUserRoleVacio(true):setErrorUserRoleVacio(false)
 
-        if(nombre!=='' & apellido!=='' & correo!=='' & contraseña!==''){
+        if(nombre!=='' & apellido!=='' & correo!=='' & contraseña!=='' & userRoleSelected!==-1){
             if(contraseña.length+1 < 6){ 
                 setErrorContraseña(true)
                 setErrorConfDistinto(false)
@@ -47,18 +52,15 @@ const handleSubmit = (event) =>{
                             setErrorConfDistinto(false);
                             setErrorConfVacio(false)
                             setErrorContraseña(false)
+                            setErrorUserRoleVacio(false)
                              
-                           //conectado a la api 
+                            const role = userRoleList.filter(user => user.id === userRoleSelected) 
                             const data = {
                                 nombre: nombre,
                                 apellido: apellido,
                                 email: correo,
                                 password: contraseña,
-                                usuarioRol: {
-                                    id: 2,
-                                    nombre: "ROL_USER",
-                                    descripcion: "string"
-                                  }
+                                usuarioRol: role
                             }
                             console.log(data)
                             fetch('http://52.14.221.16:8080/usuarios', {
@@ -112,6 +114,13 @@ const handleSubmit = (event) =>{
         setContraseñaC(e.target.value)
     }
 
+    const HandleUserRoleSelected = (id)=> {
+        setUserRoleSelected(id)
+        setErrorUserRoleVacio(false)
+        console.log("USER ROLE ID", id)
+    }
+
+
     return(
         <div className={styles.body_form}>
             <div className={styles.form_container}>
@@ -151,6 +160,15 @@ const handleSubmit = (event) =>{
                         {errorConfDistinto ? <span>Las contraseñas ingresadas no coinciden</span> : <span/>}
                         </div>
 
+                        <div className={styles.form_component} id="role">
+                        <label htmlFor=''>Elegí qué clase de usuario querés ser</label>
+                        <Selector infoList={userRoleList.map((element) => {return {id : element.id, value : element.descripcion}})} handleSelected={HandleUserRoleSelected}/>
+                        {errorUserRoleVacio ? <span>Este campo es obligatorio</span> : <span/>}
+                        </div>
+                        {userRoleSelected===1&&(<div  className={styles.warning_user}>Te recordamos que los usuarios administradores no pueden realizar reservas</div>)}
+                        {userRoleSelected===2&&(<div  className={styles.warning_user}>Te recordamos que los usuarios inquilinos no pueden administrar propiedades</div>)}
+                        
+                        
                         {errorRegister&&(
                             <div className={styles.warning_booking}>
                             <div className={styles.warning}>!</div>

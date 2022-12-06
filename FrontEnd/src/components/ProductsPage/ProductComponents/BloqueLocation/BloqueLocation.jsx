@@ -10,7 +10,7 @@ export default function BloqueHeader ({product}) {
                 <img src={ubicationIcon} alt="ubication icon" className={styles.bloque_location_icon}/>
                 
                 <div className={styles.bloque_location_info}>
-                    <p>{product.ciudad.ciudad}, {product.provincia.provincia}, Argentina</p>
+                    <p>{product.ciudad.ciudad}, Argentina</p>
                     <p>{product.ubicacion}</p>
                 </div>
             </div>

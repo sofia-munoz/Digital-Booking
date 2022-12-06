@@ -12,8 +12,8 @@ export default function Selector({handleSelected, infoList}) {
   }
 
   const handleClick = (info) => () => {
-    setSelectedOption(info.titulo || info.ciudad)
-    handleSelected(info)
+    setSelectedOption(info.value)
+    handleSelected(info.id)
     setIsOpen(false)
   }
 
@@ -35,7 +35,7 @@ export default function Selector({handleSelected, infoList}) {
               <div className={styles.space} />
               {infoList?.map((info) => (
                 <li
-                  value={info.titulo || info.ciudad}
+                  value={info.value}
                   key={info.id}
                   className={styles.locationSelect}
                   onClick={handleClick(info)}
@@ -43,7 +43,7 @@ export default function Selector({handleSelected, infoList}) {
                   <div className={styles.listContent}>
                     <div className={styles.textContainer}>
                       <div className={styles.cityName}>
-                        {info.titulo || info.ciudad}
+                        {info.value}
                         <br />
                       </div>
                     </div>

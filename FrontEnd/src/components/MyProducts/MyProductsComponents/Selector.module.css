@@ -2,6 +2,7 @@
   background-color: var(--font-color-light);
   border-radius: 0.5rem;
   max-height: 4rem;
+  width: 100%;
 }
 
 .searchLocationIcon {
@@ -124,9 +125,6 @@ ul.locationSelect {
 
 /* mobile version */
 @media screen and (max-width: 767px) {
-  .location {
-    width: 90%;
-  }
 
   .iconPreselected {
     margin: 0 1rem;

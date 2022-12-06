@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useParams, useLocation } from 'react-router-dom'
 import CardProduct from './CardProduct/index'
 import styles from "./listaProductos.module.css"
-
-import LoadingCard from '../LoadingCard/LoadingCard'
+import LoadingPage from '../../../LoadingPage/LoadingPage'
 
 export default function ListaProductos() {
 
@@ -24,19 +23,19 @@ const [title, setTitle] = useState('')
 
 useEffect(()=>{
 if (location.pathname.includes('date') && location.pathname.includes('city')){
-    setUrlProductos('http://52.14.221.16:8080/productos/fechas?idCiudad='+id+'&fechaInicial='+startDate+'&fechaFinal='+endDate)
+    setUrlProductos('http://52.14.221.16:8080/productos/filter?idCiudad='+id+'&fechaInicial='+startDate+'&fechaFinal='+endDate)
     setTitle("Resultados de la búsqueda")
 } else if (location.pathname.includes('city')){
     setUrlProductos('http://52.14.221.16:8080/productos/byCiudad/'+id)
     setTitle("Resultados de la búsqueda")
 } else if (location.pathname.includes('date')) {
-    setUrlProductos('http://52.14.221.16:8080/productos/fechas?fechaInicial='+startDate+'&fechaFinal='+endDate)
+    setUrlProductos('http://52.14.221.16:8080/productos/filter?fechaInicial='+startDate+'&fechaFinal='+endDate)
     setTitle("Resultados de la búsqueda")
 } else if (location.pathname.includes('category')){
     setUrlProductos('http://52.14.221.16:8080/productos/byCategoria/'+id)
     setTitle("Resultados de la búsqueda")
 } else {
-  setUrlProductos('http://52.14.221.16:8080/productos/inicio')
+  setUrlProductos('http://52.14.221.16:8080/productos/filter')
   setTitle("Recomendaciones")
 }
 
@@ -48,20 +47,18 @@ if (location.pathname.includes('date') && location.pathname.includes('city')){
         if(urlProductos===[]) return;
             Promise.resolve().then(async function(){
               try{
-                console.log("urlProductos ",urlProductos)
                   const response = await fetch (urlProductos, settings)
                   const data = await response.json()
                   setProductInfo(data) 
+                  console.log("DATA EN INICIO ", data)
               } catch (error){
                 console.error(error)
               }
             })
-              }, [urlProductos])          
+              }, [urlProductos])     
 
-  if(!productInfo){
-    return (
-      <LoadingCard/>
-    )
+  if(productInfo===[]){
+    return (<LoadingPage/>)
   }
             
   return (

@@ -3,6 +3,27 @@
     flex-direction: row;
 }
 
+.userInformation {
+    display: flex;
+    flex-direction: row;
+}
+
+.user_profile button {
+    margin-left: 10px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #1DBEB4;
+        text-align: center;
+        width: 200px;
+        height: 40px;
+        border: 1px solid #1DBEB4;
+        border-radius: 5px;
+        background-color: #FFFFFF;
+}
+
 .avatar_header {
     width: 37px;
     height: 37px;

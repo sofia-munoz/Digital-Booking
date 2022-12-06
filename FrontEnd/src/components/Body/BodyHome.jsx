@@ -6,7 +6,8 @@ import ListaProductos from "./BodyComponents/Resultados/ListaProductos"
 
 export default function BodyHome() {
 
-  localStorage.removeItem('idProducto')
+  localStorage.removeItem('idProduct')
+  localStorage.removeItem('nameProduct')
   const [categoryInfo, setCategoryInfo] = useState([])
   const [cityList, setCityList] = useState();
   const urlCiudades = 'http://52.14.221.16:8080/ciudades'
