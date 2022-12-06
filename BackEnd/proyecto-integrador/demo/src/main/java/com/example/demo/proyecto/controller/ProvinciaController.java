@@ -3,6 +3,7 @@ package com.example.demo.proyecto.controller;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.ProvinciaDto;
 import com.example.demo.proyecto.model.Provincia;
 import com.example.demo.proyecto.service.ProvinciaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,8 @@ public class ProvinciaController {
     @Autowired
     private ProvinciaService provinciaService;
 
-
     @GetMapping("/{id}")
-    public ResponseEntity<Provincia> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<ProvinciaDto> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
         return ResponseEntity.ok(provinciaService.buscar(id));
     }
 
@@ -30,21 +30,18 @@ public class ProvinciaController {
         return ResponseEntity.ok().body("Se Eliminó la provincia con id: " + id);
     }
 
-
     @GetMapping
-    public ResponseEntity<List<Provincia>> buscarTodos(){
+    public ResponseEntity<List<ProvinciaDto>> buscarTodos(){
         return ResponseEntity.ok(provinciaService.buscarTodos());
     }
 
-
     @PostMapping
-    public ResponseEntity<Provincia> guardar(@RequestBody Provincia provincia){
+    public ResponseEntity<ProvinciaDto> guardar(@RequestBody ProvinciaDto provincia){
         return ResponseEntity.ok(provinciaService.guardar(provincia));
     }
-
-
+    
     @PutMapping
-    public ResponseEntity<Provincia> actualizar(@RequestBody Provincia provincia) throws ResourceNotFoundException {
+    public ResponseEntity<ProvinciaDto> actualizar(@RequestBody ProvinciaDto provincia) throws ResourceNotFoundException {
         return ResponseEntity.ok(provinciaService.actualizar(provincia));
     }
 

@@ -15,6 +15,4 @@ public class ProductoDto {
     Producto producto;
     List<ImagenDto> imagenes;
     List<ReservaDto> reservas;
-
-
 }

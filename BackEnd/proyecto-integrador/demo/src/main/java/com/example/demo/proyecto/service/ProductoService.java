@@ -4,13 +4,16 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.proyecto.dto.ImagenDto;
-import com.example.demo.proyecto.dto.ProductoDto;
-import com.example.demo.proyecto.dto.ProductoRequest;
-import com.example.demo.proyecto.dto.ReservaDto;
-import com.example.demo.proyecto.model.*;
-import com.example.demo.proyecto.repository.*;
+import com.example.demo.proyecto.dto.*;
+import com.example.demo.proyecto.model.Imagen;
+import com.example.demo.proyecto.model.Producto;
+import com.example.demo.proyecto.model.Provincia;
+import com.example.demo.proyecto.model.Reserva;
+import com.example.demo.proyecto.repository.ProductoRepository;
+import com.example.demo.proyecto.repository.ImagenRepository;
+import com.example.demo.proyecto.repository.ReservaRepository;
 import com.example.demo.proyecto.util.Mapper;
+import com.example.demo.proyecto.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -110,13 +113,15 @@ public class ProductoService  {
         return response;
     }
 
-    public List<Producto> productoByCategoria(Integer idCategoria){
+
+    public List<ProductoCompletoDto> productoByCategoria(Integer idCategoria){
         try {
-            return productoRepository.findProductoByCategoriaParams(idCategoria);
+            return mapperUtil.mapAll(productoRepository.findProductoByCategoriaParams(idCategoria), ProductoCompletoDto.class);
         } catch(Exception ex){
-                return null;
-            }
+            return null;
+        }
     }
+
 
     public List<Producto> eightRandomProducts(){
         try {
@@ -126,8 +131,8 @@ public class ProductoService  {
         }
     }
 
-    public List<Producto> buscarTodos(){
-        return productoRepository.findAll();
+    public List<ProductoCompletoDto> buscarTodos(){
+        return mapperUtil.mapAll(productoRepository.findAll(), ProductoCompletoDto.class);
     }
 
     public List<Producto> productoByCiudad(Integer idCiudad){
@@ -157,9 +162,9 @@ public class ProductoService  {
     }
 
 
-    public Producto actualizar(Producto producto)throws ResourceNotFoundException{
+    public ProductoCompletoDto actualizar(ProductoCompletoDto producto)throws ResourceNotFoundException{
         buscar(producto.getId());
-        return productoRepository.save(producto);
+        return mapperUtil.map(productoRepository.save(mapperUtil.map(producto, Producto.class)), ProductoCompletoDto.class);
     }
 
     public List<Producto> productosDisponibles(Integer idCiudad, LocalDate fechaInicial, LocalDate fechaFinal) throws BadRequestException {
