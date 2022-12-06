@@ -3,6 +3,7 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.CategoriaDto;
 import com.example.demo.proyecto.model.Categoria;
 import com.example.demo.proyecto.repository.CategoriaRepository;
 
@@ -28,8 +29,8 @@ public class CategoriaService {
         this.productoRepository = productoRepository;
     }
 
-    public Categoria guardar(Categoria categoria) {
-        return categoriaRepository.save(categoria);
+    public CategoriaDto guardar(CategoriaDto categoria) {
+        return mapperUtil.map(categoriaRepository.save(mapperUtil.map(categoria, Categoria.class)),CategoriaDto.class);
     }
 
     public Categoria buscar(Integer id) throws BadRequestException {
@@ -54,13 +55,13 @@ public class CategoriaService {
         }
     }
 
-    public List<Categoria> buscarTodos(){
-        return categoriaRepository.findAll();
+    public List<CategoriaDto> buscarTodos(){
+        return mapperUtil.mapAll(categoriaRepository.findAll(), CategoriaDto.class);
     }
 
     public Categoria actualizar(Categoria categoria) throws BadRequestException {
         buscar(categoria.getId());
-        return categoriaRepository.save(categoria);
+        return mapperUtil.map(categoriaRepository.save(mapperUtil.map(categoria, Categoria.class)),CategoriaDto.class);
     }
 
 }

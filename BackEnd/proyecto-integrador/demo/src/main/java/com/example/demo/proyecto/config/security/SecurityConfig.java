@@ -69,6 +69,8 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth/**", "/usuarios/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/reservas/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.POST, "/productos/administracion**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/productos/administracion**").hasAnyRole("ADMIN")
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPointConfig)
                 .and()

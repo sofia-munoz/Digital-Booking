@@ -3,10 +3,12 @@ package com.example.demo.proyecto.service;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.proyecto.dto.CiudadDto;
 import com.example.demo.proyecto.model.Ciudad;
 import com.example.demo.proyecto.model.Producto;
 import com.example.demo.proyecto.repository.CiudadRepository;
 import com.example.demo.proyecto.repository.ProductoRepository;
+import com.example.demo.proyecto.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -20,31 +22,22 @@ public class CiudadService {
     @Autowired
     private CiudadRepository ciudadRepository;
 
+    @Autowired
+    private MapperUtil mapperUtil;
+
     public CiudadService(ProductoRepository ciudad) {this.ciudadRepository = ciudadRepository;}
 
-    public Ciudad guardar(Ciudad ciudad) {
-        return ciudadRepository.save(ciudad);
+    public CiudadDto guardar(CiudadDto ciudad) {
+        return mapperUtil.map(ciudadRepository.save(mapperUtil.map(ciudad, Ciudad.class)), CiudadDto.class);
     }
 
-    public Ciudad buscar(Integer id) throws ResourceNotFoundException {
+    public CiudadDto buscar(Integer id) throws ResourceNotFoundException {
         Optional<Ciudad> ciudad = ciudadRepository.findById(id);
         if(ciudad.isEmpty()){
             throw new ResourceNotFoundException("No existe un turn con el ID: " + id);
         }
-        return ciudad.get();
+        return mapperUtil.map(ciudadRepository.findById(id), CiudadDto.class);
     }
-
-//    public List<Ciudad> ciudadesByProvincias(Integer idProvincia){
-//        try {
-//            return ciudadRepository.findCiudadesByProvinciaParams(idProvincia);
-//        } catch(Exception ex){
-//            return null;
-//        }
-//    }
-
-
-
-    //hacer un buscar con id de categoría, id ciudad y la fecha
 
     public String eliminar(Integer id) throws ReferentialIntegrityException, ResourceNotFoundException, BadRequestException {
         try {
@@ -56,13 +49,13 @@ public class CiudadService {
         }
     }
 
-    public List<Ciudad> buscarTodos(){
-        return ciudadRepository.findAll();
+    public List<CiudadDto> buscarTodos(){
+        return mapperUtil.mapAll(ciudadRepository.findAll(),CiudadDto.class);
     }
 
-    public Ciudad actualizar(Ciudad ciudad)throws ResourceNotFoundException{
+    public CiudadDto actualizar(CiudadDto ciudad)throws ResourceNotFoundException{
         buscar(ciudad.getId());
-        return ciudadRepository.save(ciudad);
+        return mapperUtil.map(ciudadRepository.save(mapperUtil.map(ciudad, Ciudad.class)), CiudadDto.class);
     }
 
 }
