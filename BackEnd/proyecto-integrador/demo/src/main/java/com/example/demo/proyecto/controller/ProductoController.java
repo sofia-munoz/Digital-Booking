@@ -79,7 +79,7 @@ public class ProductoController {
         return ResponseEntity.ok(productoService.actualizar(producto));
     }
 
-    @GetMapping("/fechas")
+    @GetMapping("/filter")
     public ResponseEntity<List<Producto>> buscarPorFiltros(@RequestParam(required = false) Integer idCiudad, @RequestParam(required = false) String fechaInicial, @RequestParam(required = false) String fechaFinal) throws BadRequestException {
         LocalDate fInicial = fechaInicial == null ? null : LocalDate.parse(fechaInicial);
         LocalDate fFinal = fechaFinal == null ? null : LocalDate.parse(fechaFinal);
