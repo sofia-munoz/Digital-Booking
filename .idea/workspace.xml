@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="46aa7352-d3ee-4ed6-9afd-d490feda2b42" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/config/jwt/JwtProviderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/config/jwt/JwtProviderConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/controller/ProductoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/model/jwt/MainUserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/proyecto-integrador/demo/src/main/java/com/example/demo/proyecto/model/jwt/MainUserAuth.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

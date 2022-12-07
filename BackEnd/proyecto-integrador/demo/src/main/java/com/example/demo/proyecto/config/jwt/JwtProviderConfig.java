@@ -39,6 +39,7 @@ public class JwtProviderConfig {
         claims.put("lastName",mainUserAuth.getApellido());
         claims.put("name",mainUserAuth.getNombre());
         claims.put("id",mainUserAuth.getId());
+        claims.put("idRole",mainUserAuth.getId1());
         return Jwts.builder()
                 .setSubject(mainUserAuth.getUsername())
                 .addClaims(claims)
@@ -62,5 +63,6 @@ public class JwtProviderConfig {
         Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
         return true;
     }
+
 
 }

@@ -21,16 +21,19 @@ public class MainUserAuth implements UserDetails {
     private String email;
     private String password;
     private String  ciudad;
+    private int id1;
 
 
     private Collection<? extends GrantedAuthority> authorities;
+
+
 
     public static MainUserAuth build(Usuario usuario) {
         List<GrantedAuthority> authoritiesU = new ArrayList<>();
         GrantedAuthority authority = new SimpleGrantedAuthority(usuario.getUsuarioRol().getNombre());
         authoritiesU.add(authority);
         return new MainUserAuth(usuario.getId(), usuario.getNombre(), usuario.getApellido()
-                , usuario.getEmail(), usuario.getPassword(), usuario.getCiudad(), authoritiesU);
+                ,usuario.getEmail(), usuario.getPassword(), usuario.getCiudad(), usuario.getUsuarioRol().getId(), authoritiesU);
     }
 
     @Override
@@ -106,5 +109,13 @@ public class MainUserAuth implements UserDetails {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public int getId1() {
+        return id1;
+    }
+
+    public void setId1(int id1) {
+        this.id1 = id1;
     }
 }

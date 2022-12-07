@@ -32,18 +32,15 @@ public class ProductoController {
         return ResponseEntity.ok(productoService.productoByCategoria(id));
     }
 
-
     @GetMapping("/byProvincia/{id}")
     public ResponseEntity<List<Producto>> buscarPorProvincia(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByProvincia(id));
     }
 
-
     @GetMapping("/byCiudad/{id}")
     public ResponseEntity<List<Producto>> buscarPorCiudad(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByCiudad(id));
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductoDto> buscar(@PathVariable Integer id) throws ResourceNotFoundException {
@@ -86,6 +83,5 @@ public class ProductoController {
         List<Producto> productos = productoService.productosDisponibles(idCiudad,fInicial, fFinal);
         return ResponseEntity.ok(productos);
     }
-
 
 }
