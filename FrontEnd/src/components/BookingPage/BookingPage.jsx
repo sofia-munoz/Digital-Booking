@@ -17,6 +17,23 @@ const [timeArrival, setTimeArrival] = useState(null)
 const [calendarAlert, setCalendarAlert] =useState(false)
 const [timeAlert, setTimeAlert] =useState(false)
 const userInfo = useContext(userInfoContext)
+const [userCity, setUserCity] = useState('')
+
+const usuarioCiudad = {          
+    id: userInfo.id,
+    nombre: userInfo.name,
+    apellido: userInfo.lastName,
+    email: userInfo.email,
+    password: userInfo.password,
+    ciudad: userCity,
+    usuarioRol: {
+        id: 2,
+        nombre: "ROL_USER",
+        descripcion: "string"
+  }
+}
+
+
 
 const handleAcceptFailed = () => {
     setShowModalFailedBooking(false)
@@ -71,6 +88,29 @@ const handleBooking = ()=>{
                                 console.error('Error:', error);
                                 setShowModalFailedBooking(true)
                             });
+                
+                fetch('http://52.14.221.16:8080/usuarios/', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${userInfo.tokenJWT}`,
+                        'Content-Type': 'application/json'
+                        },
+                    body: JSON.stringify(usuarioCiudad)
+                    })
+                        .then(response => {
+                            if (response.status!=200){
+                                throw new Error(response.error)
+                            } 
+                                return response.json()
+                            })
+                        .then(usuarioCiudad => {
+                            console.log("se cambio con exito ciudad " + usuarioCiudad.ciudad)
+                            
+                            })
+                        .catch((error) => {
+                                console.error('Error:', error);
+                                
+                            });
         } 
 
     }
@@ -80,7 +120,7 @@ const handleBooking = ()=>{
             <div className={styles.main_container}> 
                 <div className={styles.container}>   
                     <div className={styles.first_column}>
-                        <UserForm/>
+                        <UserForm handleUserCity={setUserCity}/>
                         <BookingDateSelector handleCheckIn = {handleCheckIn} handleCheckOut = {handleCheckOut}/>
                         <BookingTimeSelector setTimeArrival={setTimeArrival}/>
                     </div>

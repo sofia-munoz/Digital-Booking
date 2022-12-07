@@ -3,6 +3,7 @@ import { useParams, useLocation } from 'react-router-dom'
 import CardProduct from './CardProduct/index'
 import styles from "./listaProductos.module.css"
 import LoadingPage from '../../../LoadingPage/LoadingPage'
+import ListaCategorias from '../Categorias/ListaCategorias'
 
 export default function ListaProductos() {
 
@@ -57,10 +58,12 @@ if (location.pathname.includes('date') && location.pathname.includes('city')){
             })
               }, [urlProductos])     
 
-  if(productInfo===[]){
-    return (<LoadingPage/>)
+  if(productInfo===[] || !productInfo ){
+    return
   }
-            
+  
+  console.log("PRODUCTO ListaCategorias ", productInfo)
+  
   return (
     <div className={styles.recomendation}>
     <h2 className={styles.title}>{title}</h2>

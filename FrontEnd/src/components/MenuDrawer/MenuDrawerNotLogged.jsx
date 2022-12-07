@@ -17,9 +17,9 @@ export default function MenuDrawerNotLogged ({ handleModalMenu}) {
                         <p className={styles.tittle_menu_drawer}>MENÚ</p>
                     </div>
                     <div className={styles.login_register_section}>
-                            {location.pathname!="/register" ? <Link to='/register'><button className="btnRegisterMobile" onClick={handleModalMenu}>Crear cuenta</button></Link> : <></>}
+                            {location.pathname!="/register" ? <Link to='/register'><button className={styles.btnMobile} onClick={handleModalMenu}>Crear cuenta</button></Link> : <></>}
                             {location.pathname=="/" ? <hr/> : <></>}
-                            {location.pathname!="/login" ? <Link to='/login'><button className="btnLoginMobile" onClick={handleModalMenu}>Iniciar sesión</button></Link> : <></>}
+                            {location.pathname!="/login" ? <Link to='/login'><button className={styles.btnMobile} onClick={handleModalMenu}>Iniciar sesión</button></Link> : <></>}
                     </div>
                 </div>
                 <div className={styles.footer_menu_drawer}>

@@ -70,7 +70,10 @@
     padding-right: 15px;
 }
 
-
+.btnMobile {
+    border: 0rem;
+    padding: 2rem 1rem;
+}
 .menu_drawer_not_logged {
     background-color: #FFFFFF;
     width: 70%;

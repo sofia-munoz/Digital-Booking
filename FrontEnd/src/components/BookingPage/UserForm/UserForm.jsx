@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styles from './userForm.module.css'
 import { userInfoContext } from "../../../App";
 
-const UserForm = () => {
+const UserForm = ({handleUserCity}) => {
   const userInfo = useContext(userInfoContext)
   
   return (
@@ -28,7 +28,7 @@ const UserForm = () => {
                 </div>
                 <div className={styles.form_component_i}>
                   <label htmlFor="">Ciudad</label>
-                  <input className= {styles.input } type="text" name="city" id="city" placeholder="Ciudad" />
+                  <input className= {styles.input } type="text" onChange={(e)=>{handleUserCity(e.target.value)}} name="city" id="city" placeholder="Ciudad en la que estás" />
                 </div>
             </div>
         </form>

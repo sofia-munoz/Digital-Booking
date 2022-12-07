@@ -109,3 +109,20 @@ hr {
 .redes_menu_drawer img {
     padding-right: 15px;
 }
+
+.menu_drawer_body_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.upper_body_container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.btnMobile{
+    border: 0rem;
+    padding: 2rem 1rem;
+}

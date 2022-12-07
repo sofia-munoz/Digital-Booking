@@ -1,10 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import LoadingPage from '../../../LoadingPage/LoadingPage'
 import CardCategories from './CardCategories/index'
 import styles from "./listaCategorias.module.css"
 
 
 
 export default function ListaCategorias({categoryInfo}) {
+
+if (!categoryInfo) {
+  return <LoadingPage/>
+}
 
   return (
   <div className={styles.categories_container}>
