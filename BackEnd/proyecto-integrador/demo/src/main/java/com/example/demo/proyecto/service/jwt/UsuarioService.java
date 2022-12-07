@@ -33,8 +33,12 @@ public class UsuarioService implements UserDetailsService{
             return MainUserAuth.build(usuarioBuscado);
     }
 
-    public Usuario guardar(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+    public Usuario guardar(Usuario usuario) throws BadRequestException {
+        Usuario usu = usuarioRepository.findByEmail(usuario.getEmail());
+        if(usu == null)
+            return usuarioRepository.save(usuario);
+        else
+            throw new BadRequestException("El email ya se encuentra registrado");
     }
 
     public Usuario buscar(Integer id) throws ResourceNotFoundException {
