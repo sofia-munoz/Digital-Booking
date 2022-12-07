@@ -1,7 +1,7 @@
 import{Link, useNavigate} from 'react-router-dom'
 import {useState} from 'react'
 import styles from "./formularios.module.css"
-import Selector from '../MyProducts/MyProductsComponents/Selector';
+import Selector from '../MyProducts/MyNewProductComponents/Selector';
 import userRoleList from '../../mocks/api/usuario.json'
 
 const CrearCuenta = () =>{
@@ -54,13 +54,16 @@ const handleSubmit = (event) =>{
                             setErrorContraseña(false)
                             setErrorUserRoleVacio(false)
                              
-                            const role = userRoleList.filter(user => user.id === userRoleSelected) 
                             const data = {
                                 nombre: nombre,
                                 apellido: apellido,
                                 email: correo,
                                 password: contraseña,
-                                usuarioRol: role
+                                usuarioRol: {
+                                    id: userRoleSelected,
+                                    nombre: "ROL_ADMIN",
+                                    descripcion: "ADMIN"
+                                }
                             }
                             console.log(data)
                             fetch('http://52.14.221.16:8080/usuarios', {

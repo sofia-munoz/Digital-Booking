@@ -9,7 +9,7 @@ import usuario from './mocks/api/usuario.json';
 import MenuDrawer from './components/MenuDrawer/MenuDrawer';
 import ProductPage from './components/ProductsPage/ProductPage'
 import BodyHome from './components/Body/BodyHome';
-import MyProducts from './components/MyProducts/MyProducts';
+import MyProductsPage from './components/MyProducts/MyProductsPage';
 
 export const userContext = react.createContext();
 export const userInfoContext = react.createContext();
@@ -50,7 +50,7 @@ function App() {
         <Route path='/login' element={<Login usuario={usuario} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
         <Route path='/products/id=:id/:title/*' element={<ProductPage/>}/>
-        <Route path='/my-products' element={<MyProducts/>}/>
+        <Route path='/my-products/*' element={<MyProductsPage/>}/>
       </Routes>
       <Footer/>
     </div> 

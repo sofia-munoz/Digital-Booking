@@ -11,8 +11,8 @@ export default function BloqueHeader ({info, preview}) {
     const HandleGoBack = ()=>{
         if (location.pathname.includes('/booking-detail')){
             navigate(location.pathname.slice(0, -15))
-        } else if (preview){
-            navigate('')
+        } else if (location.pathname.includes('/my-new-product')){
+            navigate('/my-products')
         } else {
             navigate('/')
         }

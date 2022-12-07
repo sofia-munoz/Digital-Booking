@@ -1,14 +1,15 @@
 import React, {useContext, useState} from "react";
 import styles from "./headerUserLogged.module.css";
 import { userInfoContext } from "../../App";
-import { useNavigation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function HeaderUserLogged ({handleLogOut}) {
 const userInfo = useContext(userInfoContext)
 const [buttonText, setButtonText] = useState('')
 const [profilePath, setProfilePath] = useState('')
-const navigate = useNavigation()
-    
+
+useEffect(()=>{
     if (userInfo.idRole===2) {
         setButtonText('Mis Reservas'); 
         setProfilePath('/my-bookings')
@@ -16,16 +17,14 @@ const navigate = useNavigation()
         setButtonText('Mis Productos');
         setProfilePath('/my-products')
     }
-     
-    const HandleUserProfile=()=> {
-        navigate(profilePath)
-    }
+}, [userInfo])
+    
 
 
     return (
         <div className={styles.header_user_logged}>
             <div className={styles.user_profile}>
-                <button onClick={HandleUserProfile()}>{buttonText}</button>
+                <Link to={profilePath}><button>Mis Productos</button></Link>
             </div>
             <div className={styles.userInformation}>
                 <div className={styles.avatar_header}>

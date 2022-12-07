@@ -1,15 +1,14 @@
 import React from 'react'
 import { useState, useEffect, useContext } from 'react'
-import BloqueHeader from '../ProductsPage/ProductComponents/BloqueHeader/BloqueHeader'
 import styles from './MyProducts.module.css'
-import Selector from './MyProductsComponents/Selector'
-import CheckboxList from './MyProductsComponents/CheckboxList'
-import ImageList from './MyProductsComponents/imageList/ImageList'
+import Selector from './MyNewProductComponents/Selector'
+import CheckboxList from './MyNewProductComponents/CheckboxList'
+import ImageList from './MyNewProductComponents/imageList/ImageList'
 import { userInfoContext } from "../../App";
-import Preview from './MyProductsComponents/Preview/Preview'
 
 
-export default function MyProducts () {
+
+export default function MyNewProduct () {
     const info = {
         titulo: "Administración de propiedades"
     }
@@ -115,7 +114,7 @@ export default function MyProducts () {
                 descripcion: description,
                 disponibilidad: null,
                 ubicacion: address,
-                idCaracteristicas: amenityList,
+                idCaracteristicas: selectedAmenities,
                 politica: {
                     normas: rules,
                     seguridad: security,
@@ -127,8 +126,9 @@ export default function MyProducts () {
                 imagenesURL: imageList
                 }
 
+            console.log('PRODUCTO POST: ',data)  
 
-            fetch('http://52.14.221.16:8080/producto/administracion', {
+            fetch('http://52.14.221.16:8080/productos/administracion', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${userInfo.tokenJWT}`,
@@ -152,49 +152,9 @@ export default function MyProducts () {
                     });
     }
 
-    // const [showPreview, setShowPreview] = useState(false)
-
-    //info para vista previa
-    
-    // const [images, setImages] = useState(imageList)
-    // const [previewAmenities, setPreviewAmenities] = useState([])
-    // const [previewCategory, setPreviewCategory] = useState(0)
-    // const [previewCity, setPreviewCity] = useState(0)
-
-    // const [product, setProduct] =useState({
-    //     caracteristicasDelProducto : previewAmenities,
-    //     categoria:previewCategory,
-    //     ciudad: previewCity,
-    //     tituloDescripcion: titleDescription,
-    //     descripcion: description,
-    //     ubicacion: address,
-    //     titulo:title,
-    //     id: "n"
-    // })
-
-    // const HandlePreview = () => {
-    //     setPreviewAmenities (amenityList.filter(amenity => selectedAmenities.includes(amenity.id)))
-    //     setPreviewCategory (categoryList.filter(category => category.id=== categorySelected))
-    //     setPreviewCity(cityList.filter(city => city.id=== citySelected))
-    //     setProduct({
-    //     caracteristicasDelProducto : previewAmenities,
-    //     categoria:previewCategory,
-    //     ciudad: previewCity,
-    //     tituloDescripcion: titleDescription,
-    //     descripcion: description,
-    //     ubicacion: address,
-    //     titulo:title,
-    //     id: "n"
-    //     })
-    //     setShowPreview(true)
-    //     console.log("PREVIEW PRODUCT ", product)
-    //     console.log("PREVIEW AMENITY ", previewAmenities)
-    //     console.log("PREVIEW IMAGES ", images)
-    // }
 
   return (
     <>
-        <BloqueHeader info={info}/>
         <div className={styles.main_container}>
             <h2>Crear propiedad</h2>
             <div className={styles.form_container}>
@@ -258,10 +218,8 @@ export default function MyProducts () {
                     </div>    
                 </form>
                 <div className={styles.submit_buttons}>
-                        {/* <button onClick={HandlePreview}>Vista previa</button> */}
                         <button onClick={HandleSubmit}>Crear producto</button>
                 </div>
-                {/* {showPreview&&<Preview images={images} product={product}/>} */}
                 {showProductCreated&&<></>}
                 {showProductFailed&&<></>}
             </div>
