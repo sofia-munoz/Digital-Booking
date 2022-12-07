@@ -112,9 +112,9 @@ public class ProductoService  {
     }
 
 
-    public List<ProductoCompletoDto> productoByCategoria(Integer idCategoria){
+    public List<Producto> productoByCategoria(Integer idCategoria){
         try {
-            return mapperUtil.mapAll(productoRepository.findProductoByCategoriaParams(idCategoria), ProductoCompletoDto.class);
+            return productoRepository.findProductoByCategoriaParams(idCategoria);
         } catch(Exception ex){
             return null;
         }
@@ -144,6 +144,13 @@ public class ProductoService  {
     public List<Producto> productoByProvincia(Integer idProvincia){
         try {
             return productoRepository.findProductoByProvinciaParams(idProvincia);
+        } catch(Exception ex){
+            return null;
+        }
+    }
+    public List<Producto> productoByUsuario(Integer idUsuario){
+        try {
+            return productoRepository.findProductoByUsuario(idUsuario);
         } catch(Exception ex){
             return null;
         }

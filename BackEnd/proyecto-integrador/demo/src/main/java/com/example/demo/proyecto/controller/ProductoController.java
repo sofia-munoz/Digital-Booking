@@ -28,13 +28,18 @@ public class ProductoController {
     }
 
     @GetMapping("/byCategoria/{id}")
-    public ResponseEntity<List<ProductoCompletoDto>> buscarPorCategoría(@PathVariable Integer id){
+    public ResponseEntity<List<Producto>> buscarPorCategoría(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByCategoria(id));
     }
 
     @GetMapping("/byProvincia/{id}")
     public ResponseEntity<List<Producto>> buscarPorProvincia(@PathVariable Integer id){
         return ResponseEntity.ok(productoService.productoByProvincia(id));
+    }
+
+    @GetMapping("/byUsuario/{id}")
+    public ResponseEntity<List<Producto>> buscarPorUsuario(@PathVariable Integer id){
+        return ResponseEntity.ok(productoService.productoByUsuario(id));
     }
 
     @GetMapping("/byCiudad/{id}")

@@ -18,4 +18,5 @@ public class ProductoCompletoDto {
     private String disponibilidad;
     private String imagenPrincipalURL;
     private String ubicacion;
+    private double precio;
 }

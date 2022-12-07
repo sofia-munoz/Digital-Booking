@@ -1,4 +1,5 @@
 package com.example.demo.proyecto.model;
+import com.example.demo.proyecto.model.jwt.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class Producto {
     private String disponibilidad;
     private String imagenPrincipalURL;
     private String ubicacion;
+    private double precio;
 
     @ManyToMany
     @JoinTable(
@@ -55,21 +57,27 @@ public class Producto {
     @JsonIgnore
     private Set <Reserva> reservas;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario",nullable = false)
+    private Usuario usuario;
 
 
-    public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, Set<Imagen> imagenes, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria) {
+    public Producto(String titulo, String tituloDescripcion, String descripcion, String disponibilidad, String imagenPrincipalURL, String ubicacion, double precio, Set<Caracteristica> caracteristicasDelProducto, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria, Set<Imagen> imagenes, Set<Reserva> reservas, Usuario usuario) {
         this.titulo = titulo;
         this.tituloDescripcion = tituloDescripcion;
         this.descripcion = descripcion;
         this.disponibilidad = disponibilidad;
         this.imagenPrincipalURL = imagenPrincipalURL;
         this.ubicacion = ubicacion;
-        this.imagenes = imagenes;
+        this.precio = precio;
         this.caracteristicasDelProducto = caracteristicasDelProducto;
         this.politica = politica;
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.categoria = categoria;
+        this.imagenes = imagenes;
+        this.reservas = reservas;
+        this.usuario = usuario;
     }
 }
 

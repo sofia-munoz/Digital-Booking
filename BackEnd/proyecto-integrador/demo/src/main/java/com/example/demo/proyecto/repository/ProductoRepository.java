@@ -4,6 +4,7 @@ import com.example.demo.proyecto.model.Producto;
 
 
 import com.example.demo.proyecto.model.Reserva;
+import com.example.demo.proyecto.model.jwt.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -24,6 +25,9 @@ public interface ProductoRepository extends JpaRepository<Producto,Integer> {
 
     @Query("FROM Producto p WHERE p.provincia.id = ?1")
     List<Producto> findProductoByProvinciaParams(Integer provinciaId);
+
+    @Query("FROM Producto p WHERE p.usuario.id = ?1")
+    List<Producto> findProductoByUsuario(Integer usuarioId);
 
     @Query(value = "SELECT * FROM productos ORDER BY RAND() LIMIT 8 ",nativeQuery = true)
     List<Producto> randomProductsAndLimit();
