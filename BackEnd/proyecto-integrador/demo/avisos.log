@@ -24,3 +24,27 @@
 [2022-12-0520:48:48] [ ERROR] [GlobalExceptions:21] No existe provincia con id 0
 [2022-12-0520:56:15] [ ERROR] [GlobalExceptions:21] No existe un turn con el ID: 0
 [2022-12-0520:56:45] [ ERROR] [GlobalExceptions:21] No existe una categoria con el ID: 0
+[2022-12-0620:45:21] [ ERROR] [GlobalExceptions:21] El email ya se encuentra registrado
+[2022-12-0620:55:17] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
+[2022-12-0620:55:23] [ ERROR] [GlobalExceptions:21] El email ya se encuentra registrado
+[2022-12-0621:05:16] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:05:31] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
+[2022-12-0621:07:38] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
+[2022-12-0621:09:15] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:09:24] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:09:30] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:09:37] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:09:59] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:10:10] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:10:18] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:11:15] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:11:21] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:11:27] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:11:37] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:11:39] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:11:47] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:11:59] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:13:48] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:16:09] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
+[2022-12-0621:16:14] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0621:16:25] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
