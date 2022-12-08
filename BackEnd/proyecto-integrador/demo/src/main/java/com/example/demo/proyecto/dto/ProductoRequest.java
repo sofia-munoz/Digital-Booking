@@ -26,4 +26,6 @@ public class ProductoRequest {
     private Integer idProvincia;
     private Integer idCategoria;
     private List<String> imagenesURL;
+    private double precio;
+    private Integer idUsuario;
 }

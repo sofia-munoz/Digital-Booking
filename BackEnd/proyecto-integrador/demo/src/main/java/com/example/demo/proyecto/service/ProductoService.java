@@ -6,7 +6,9 @@ import com.example.demo.exception.ReferentialIntegrityException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.proyecto.dto.*;
 import com.example.demo.proyecto.model.*;
+import com.example.demo.proyecto.model.jwt.Usuario;
 import com.example.demo.proyecto.repository.*;
+import com.example.demo.proyecto.repository.jwt.UsuarioRepository;
 import com.example.demo.proyecto.util.Mapper;
 import com.example.demo.proyecto.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,8 @@ public class ProductoService  {
     private ProvinciaRepository provinciaRepository;
     @Autowired
     private CategoriaRepository categoriaRepository;
-
+    @Autowired
+    private UsuarioRepository usuarioRepository;
     @Autowired
     private MapperUtil mapperUtil;
 
@@ -77,11 +80,15 @@ public class ProductoService  {
         if(categoria.isEmpty())
             throw new BadRequestException("No existe categoria con id " + producto.getIdCategoria());
 
+        Optional<Usuario> usuario = usuarioRepository.findById(producto.getIdUsuario());
+        if(usuario.isEmpty())
+            throw new BadRequestException("No existe usuario con id " + producto.getIdUsuario());
+
         Politica politica = new Politica();
         if(producto.getPolitica().getCancelacion()!=null || producto.getPolitica().getNormas()!=null || producto.getPolitica().getSeguridad()!=null)
             politica = politicaRepository.save(producto.getPolitica());
 
-        Producto productoDB = productoRepository.save(Mapper.MapProducto(producto, caracteristicas, politica, ciudad.get(), provinciaEntity, categoria.get()));
+        Producto productoDB = productoRepository.save(Mapper.MapProducto(producto, caracteristicas, politica, ciudad.get(), provinciaEntity, categoria.get(), usuario.get()));
 
         producto.getImagenesURL().forEach( i ->
                 imagenRepository.save(new Imagen(null,i,productoDB))
