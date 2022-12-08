@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import styles from "./BookingPage.module.css"
 import UserForm from "./UserForm/UserForm";
 import BookingDateSelector from "./Calendar/BookingDateSelector";
@@ -8,9 +8,12 @@ import PolicyAndRules from "../ProductsPage/ProductComponents/Policy/PolicyAndRu
 import BookingSucced from "./BookingSucced/BookingSucced";
 import BookingFailed from './BookingFailed/BookingFailed';
 import { userInfoContext } from "../../App";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export default function ProductPage ({handleCheckIn, handleCheckOut, checkin, checkout, product}) {
+
+const navigate = useNavigate()
 const [showModalFailedBooking, setShowModalFailedBooking] = useState(false)
 const [showModalBooking, setShowModalBooking] = useState(false)
 const [timeArrival, setTimeArrival] = useState(null)
@@ -18,6 +21,16 @@ const [calendarAlert, setCalendarAlert] =useState(false)
 const [timeAlert, setTimeAlert] =useState(false)
 const userInfo = useContext(userInfoContext)
 const [userCity, setUserCity] = useState('')
+const location = useLocation()
+
+    useEffect(()=>{
+        if(userInfo.idRole!==2){
+            if(localStorage.getItem("idProduct")){
+                navigate("/login")
+            }
+            navigate(location.pathname.slice(0, -15))
+        }
+    }, [userInfo.idRole])
 
 const usuarioCiudad = {          
     id: userInfo.id,

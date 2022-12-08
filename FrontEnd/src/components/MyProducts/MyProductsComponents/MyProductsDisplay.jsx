@@ -12,7 +12,7 @@ export default function MyProductsPage () {
             <Link to='/my-products/my-new-product'><button>Crear nueva propiedad</button></Link>
         </div>
         <div className={styles.my_product_list}>
-            <ListaProductos/>
+            {/* <ListaProductos/> */}
         </div>
     </>
   )

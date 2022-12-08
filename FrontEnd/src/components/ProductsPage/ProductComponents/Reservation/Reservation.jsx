@@ -2,15 +2,15 @@ import React, { useContext } from "react";
 import CalendarProduct from "./CalendarProduct";
 import styles from './reservation.module.css';
 import{useNavigate } from 'react-router-dom'
-import { userContext } from "../../../../App";
+import { userInfoContext } from "../../../../App";
 
 export default function Reservation ({handleCheckIn, handleCheckOut, product}) {
-    const userLogged = useContext(userContext)
+    const userLogged = useContext(userInfoContext)
     const navigate = useNavigate();
     const productTitle = product.titulo.replace(/ /g,'-')
   
     const HandleNavigate = ()=>{
-        if (userLogged) {
+        if (userLogged.idRole===2) {
             navigate("/products/id="+product.id+"/"+productTitle+"/booking-detail", window.scroll(0, 0)); 
         } else { 
             localStorage.setItem("idProduct", product.id);

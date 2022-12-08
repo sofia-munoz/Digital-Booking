@@ -10,18 +10,19 @@ import MenuDrawer from './components/MenuDrawer/MenuDrawer';
 import ProductPage from './components/ProductsPage/ProductPage'
 import BodyHome from './components/Body/BodyHome';
 import MyProductsPage from './components/MyProducts/MyProductsPage';
+import useLogin from './hooks/useLogin';
 
-export const userContext = react.createContext();
 export const userInfoContext = react.createContext();
 
 function App() {
+
+    const user = useLogin()
+    console.log("USER", user)
     const location = useLocation()
     const navigate = useNavigate()
-    const[userLogged, setUserLogged]=useState(localStorage.getItem(false))
-    const [userInfo, setUserInfo] = useState({})
+    const [userInfo, setUserInfo] = useState(user ?? {})
     
     const handleUserLogged = (userObj)=>{
-      setUserLogged(true)
       localStorage.setItem("userToken", userObj.tokenJWT)
       const avatar = (userObj.name.charAt(0)+userObj.lastName.charAt(0)).toUpperCase()
       userObj.avatar = avatar;
@@ -29,7 +30,6 @@ function App() {
     }
 
     const handleLogOut =()=>{
-      setUserLogged(false)
       localStorage.removeItem("userToken")
       setUserInfo({})
       if(location.pathname.includes('my-products') || location.pathname.includes('my-bookings') ){
@@ -49,7 +49,6 @@ function App() {
     }
 
   return (
-    <userContext.Provider value = {userLogged}>
     <userInfoContext.Provider value = {userInfo}>
   
     <div className="App">
@@ -65,7 +64,6 @@ function App() {
       <Footer/>
     </div> 
     </userInfoContext.Provider>
-    </userContext.Provider>
   );
 }
 

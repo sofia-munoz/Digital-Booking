@@ -1,12 +1,21 @@
 import{Link, useNavigate} from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import styles from "./formularios.module.css"
 import Selector from '../MyProducts/MyNewProductComponents/Selector';
 import userRoleList from '../../mocks/api/usuario.json'
+import { userInfoContext } from '../../App'
 
 const CrearCuenta = () =>{
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const userInfo = useContext(userInfoContext)
+    
+    useEffect(()=>{
+        if(userInfo.name){
+            navigate('/')
+        }
+    }, [userInfo.name])
+
     const [nombre, setNombre] = useState('')
     const [apellido, setApellido] = useState('')
     const [correo, setCorreo] = useState('')

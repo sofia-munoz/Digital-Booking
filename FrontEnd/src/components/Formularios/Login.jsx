@@ -1,14 +1,23 @@
 import{Link, useNavigate } from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import styles from "./formularios.module.css"
+import { userInfoContext } from '../../App'
 import jwt from 'jwt-decode'
 
 const Login = ({handleUserLogged}) =>{
 
+    const navigate = useNavigate()
+    const userInfo = useContext(userInfoContext)
+    
+    useEffect(()=>{
+        if(userInfo.name){
+            navigate('/')
+        }
+    }, [userInfo.name])
+
     const [correo, setCorreo] = useState('')
     const [contraseña, setContraseña] = useState('')
     const [errorForm,setErrorForm] = useState(false)
-    const navigate = useNavigate();
     const prodId=localStorage.getItem('idProduct')
     const prodName=localStorage.getItem('nameProduct')
     
@@ -45,7 +54,6 @@ const Login = ({handleUserLogged}) =>{
                                     name : decoded.name,
                                     lastName : decoded.lastName,
                                     id : decoded.id,
-                                    email: usuario.email,
                                     idRole: decoded.idRole
                                 }
 
