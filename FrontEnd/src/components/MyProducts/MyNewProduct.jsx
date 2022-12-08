@@ -25,17 +25,13 @@ export default function MyNewProduct () {
     const [titleDescription, setTitleDescription] = useState('')
     const [description, setDescription] = useState('')
     const [rules, setRules] = useState(
-        `-Check-out: 10:00.
--No se permiten fiestas.
--No se permite fumar.`
+        "-Check-out: 10:00. -No se permiten fiestas. -No se permite fumar"
     )
     const [security, setSecurity] = useState(
-        `-Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus.
--Contamos con detector de monóxido de carbono.
--Contamos con caja fuerte.`
+        "-Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus. -Contamos con detector de monóxido de carbono. -Contamos con caja fuerte."
     )
     const [cancelation, setCancelation] = useState(
-        `-Posibilidad de cancelar hasta 24hs antes de la reserva.`
+        "-Posibilidad de cancelar hasta 24hs antes de la reserva."
     )
     
     const [imageList, setImageList] = useState([])
@@ -123,7 +119,9 @@ export default function MyNewProduct () {
                 idCiudad: citySelected,
                 idProvincia: null,
                 idCategoria: categorySelected,
-                imagenesURL: imageList
+                imagenesURL: imageList,
+                precio: 4000,
+                idUsuario: userInfo.id
                 }
 
             console.log('PRODUCTO POST: ',data)  
