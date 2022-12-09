@@ -3,7 +3,7 @@ import styles from './BloqueDetail.module.css'
 import { DetailDate } from './DetailDate/DetailDate'
 import { DetailInformation } from './DetailInformation/DetailInformation'
 
-const BookingDetail = ({timeAlert, calendarAlert, handleBooking, checkin, checkout, product}) => {
+const BookingDetail = ({checkin, checkout, timeAlert, calendarAlert, handleBooking, product}) => {
 
   return (
             <div className={styles.bloque_detail}>

@@ -3,15 +3,12 @@ import { useState, useEffect, useContext } from 'react'
 import styles from './MyProducts.module.css'
 import Selector from './MyNewProductComponents/Selector'
 import CheckboxList from './MyNewProductComponents/CheckboxList'
-import ImageList from './MyNewProductComponents/imageList/ImageList'
+import ItemListAdd from './MyNewProductComponents/ItemListAdd/ItemListAdd'
 import { userInfoContext } from "../../App";
-
-
+import ModalMessage from '../ModalMessage/ModalMessage'
 
 export default function MyNewProduct () {
-    const info = {
-        titulo: "Administración de propiedades"
-    }
+
     const userInfo = useContext(userInfoContext)
     
     const [title, setTitle] = useState('')
@@ -39,7 +36,21 @@ export default function MyNewProduct () {
     
     const [showProductCreated, setShowProductCreated] = useState(false)
     const [showProductFailed, setShowProductFailed] = useState(false)
-
+    
+    const succedMessage = {
+        path:"/",
+        icon:"../../assets/succed.png",
+        title:"¡Felicidades!",
+        body: "Su producto se ha creado con éxito",
+        text: ""
+        }
+    const failedMessage = {
+        path:"",
+        icon:"../../assets/error.png",
+        title:"¡Lo sentimos!",
+        body: "Su producto NO se ha creado con éxito",
+        text: "Por favor, intente más tarde"
+        }
 
     const urlCiudades = 'http://52.14.221.16:8080/ciudades'
     const urlCategorias = 'http://52.14.221.16:8080/categorias'
@@ -62,8 +73,7 @@ export default function MyNewProduct () {
                   console.error(error)
               }
             })
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            }, [])
+            }, [urlCiudades])
 
     useEffect(() => {
             Promise.resolve().then(async function(){
@@ -75,8 +85,7 @@ export default function MyNewProduct () {
                   console.error(error)
               }
             })
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-              }, [])
+              }, [urlCategorias])
 
     useEffect(() => {
         Promise.resolve().then(async function(){
@@ -88,8 +97,7 @@ export default function MyNewProduct () {
                 console.error(error)
             }
         })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-            }, [])
+            }, [urlAmenity])
 
     const HandleSelectCategory = (id) =>{
         setCategorySelected(id)
@@ -150,7 +158,6 @@ export default function MyNewProduct () {
                     });
     }
 
-
   return (
     <>
         <div className={styles.main_container}>
@@ -188,7 +195,7 @@ export default function MyNewProduct () {
                     <div className={styles.amenity_options}>
                     <h3>Atributos</h3>
                     <span>Elegí los atributos que contenga tu propiedad. Recordá que podés elegir más de uno.</span>
-                        <CheckboxList amenityList={amenityList} selectedAmenities ={selectedAmenities} handleSelectedAmenities ={setSelectedAmenities}/>
+                        <CheckboxList itemList={amenityList} selectedItems ={selectedAmenities} handleSelectedItems ={setSelectedAmenities}/>
                     </div>
                     <h3>Politicas del producto</h3>
                     <span>Te brindamos una serie de políticas como guía para que las edites y queden acorde a las de tu propiedad</span>
@@ -212,14 +219,14 @@ export default function MyNewProduct () {
                     <div className={styles.images}>
                     <h3>Cargar imágenes</h3>
                     <span>Te recomendamos cargar imágenes horizontales para que sean mejor apreciadas. Recordá que la primer imágen cargada será la imagen de portada. Cargá mínimo 5 imágenes</span>
-                    <ImageList imageList={imageList} setImageList={setImageList}/>                      
+                    <ItemListAdd itemList={imageList} handleItemList={setImageList} inputPlaceHolder={"URL de la imagen"}/>                      
                     </div>    
                 </form>
                 <div className={styles.submit_buttons}>
                         <button onClick={HandleSubmit}>Crear producto</button>
                 </div>
-                {showProductCreated&&<></>}
-                {showProductFailed&&<></>}
+                {showProductCreated&&(<ModalMessage handleShowMessage={setShowProductCreated} modalInfo={succedMessage}/>)}
+                {showProductFailed&&(<ModalMessage handleShowMessage={setShowProductFailed} modalInfo={failedMessage}/>)}
             </div>
         </div>
     </>

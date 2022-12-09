@@ -5,13 +5,12 @@ import BookingDateSelector from "./Calendar/BookingDateSelector";
 import BookingTimeSelector from "./TimeSelector/BookingTimeSelector";
 import BookingDetail from "./BookingDetail/BookingDetail";
 import PolicyAndRules from "../ProductsPage/ProductComponents/Policy/PolicyAndRules";
-import BookingSucced from "./BookingSucced/BookingSucced";
-import BookingFailed from './BookingFailed/BookingFailed';
 import { userInfoContext } from "../../App";
 import { useLocation, useNavigate } from "react-router-dom";
+import ModalMessage from "../ModalMessage/ModalMessage";
 
 
-export default function ProductPage ({handleCheckIn, handleCheckOut, checkin, checkout, product}) {
+export default function ProductPage ({daysBooked, handleCheckIn, handleCheckOut, checkin, checkout, product}) {
 
 const navigate = useNavigate()
 const [showModalFailedBooking, setShowModalFailedBooking] = useState(false)
@@ -23,6 +22,21 @@ const userInfo = useContext(userInfoContext)
 const [userCity, setUserCity] = useState('')
 const location = useLocation()
 
+const succedMessage = {
+    path:"/",
+    title:"¡Muchas Gracias!",
+    body: "Su reserva se ha realizado con éxito",
+    text: "",
+    succed: true
+}
+const failedMessage = {
+    path:"",
+    title:"¡Lo sentimos!",
+    body: "Su reserva NO se ha realizado con éxito",
+    text: "Por favor, intente más tarde",
+    succed: false
+}
+
     useEffect(()=>{
         if(userInfo.idRole!==2){
             if(localStorage.getItem("idProduct")){
@@ -32,21 +46,11 @@ const location = useLocation()
         }
     }, [userInfo.idRole])
 
+
 const usuarioCiudad = {          
     id: userInfo.id,
-    nombre: userInfo.name,
-    apellido: userInfo.lastName,
-    email: userInfo.email,
-    password: userInfo.password,
     ciudad: userCity,
-    usuarioRol: {
-        id: 2,
-        nombre: "ROL_USER",
-        descripcion: "string"
-  }
 }
-
-
 
 const handleAcceptFailed = () => {
     setShowModalFailedBooking(false)
@@ -70,25 +74,30 @@ const handleBooking = ()=>{
         
         if(calendarOk && timeOk)
         {
-            const data = {
-                start : checkin,
-                end : checkout,
+            const data = { 
+                fechaInicial : checkin,
+                fechaFinal : checkout,
                 idProducto : product.id,
-                idUsuario : userInfo.id,
-
+                idUsuario : userInfo.id
             }
+
             console.log("reserva", data)
-                fetch('http://52.14.221.16:8080/reservas', {
+            
+            const settings = {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${userInfo.tokenJWT}`,
                         'Content-Type': 'application/json'
                         },
                     body: JSON.stringify(data)
-                            })
+                            }
+            
+            console.log("SETTINGS ", settings)                
+            
+                fetch('http://52.14.221.16:8080/reservas', settings)
                     .then(response => {
                         if (response.status!=200){
-                            throw new Error(response.error)
+                            throw new Error(response)
                         } 
                             return response.json()
                         })
@@ -134,7 +143,7 @@ const handleBooking = ()=>{
                 <div className={styles.container}>   
                     <div className={styles.first_column}>
                         <UserForm handleUserCity={setUserCity}/>
-                        <BookingDateSelector handleCheckIn = {handleCheckIn} handleCheckOut = {handleCheckOut}/>
+                        <BookingDateSelector daysBooked={daysBooked} handleCheckIn={handleCheckIn} handleCheckOut={handleCheckOut}/>
                         <BookingTimeSelector setTimeArrival={setTimeArrival}/>
                     </div>
                     <div className={styles.second_column}>
@@ -142,9 +151,9 @@ const handleBooking = ()=>{
                     </div>
                 </div>
                 <PolicyAndRules/>
-                {showModalBooking&&(<BookingSucced handleBooking={handleBooking}/>)}
-                {showModalFailedBooking&&(<BookingFailed handleAcceptFailed={handleAcceptFailed}/>)}
+                {showModalBooking&&(<ModalMessage handleShowMessage={setShowModalBooking} modalInfo={succedMessage}/>)}
+                {showModalFailedBooking&&(<ModalMessage handleShowMessage={handleAcceptFailed} modalInfo={failedMessage}/>)}
             </div>
         </>
     )
-    }
+}

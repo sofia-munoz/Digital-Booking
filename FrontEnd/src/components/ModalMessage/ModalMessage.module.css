@@ -6,7 +6,8 @@
     width: 100%;
     padding: 0%;
     margin: 0%;
-    top: 0px
+    top: 0px;
+    left: 0px
 }
 
 .campo {
@@ -27,10 +28,11 @@
     justify-content: center;
     background-color: var(--font-color-light);
     text-align: center;
-    
+    padding: 2rem 0rem;
+
 }
 
-.button{
+.button {
     height: 30px;
     width: 30%;
     background-color: var(--primary);
@@ -39,20 +41,27 @@
     border: 0px;
     margin: 10px;
     padding: 5px 5px 5px 5px;
- }
+}
 
- .mensaje{
+.mensaje {
     color: var(--primary);
     margin: 0rem;
     font-size: 2.2rem;
     padding: 10px;
- }
+}
 
- .text {
+.text {
     font-weight: lighter;
     font-size: 1.8rem;
     margin: 0rem;
     padding: 10px;
- }
+}
 
- 
+.campo span {
+    color: var(---tertiary);
+    font-size: 1.4rem;
+}
+
+.campo img {
+    padding: 1rem;
+}

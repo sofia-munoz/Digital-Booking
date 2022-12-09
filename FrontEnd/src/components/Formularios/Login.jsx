@@ -54,7 +54,8 @@ const Login = ({handleUserLogged}) =>{
                                     name : decoded.name,
                                     lastName : decoded.lastName,
                                     id : decoded.id,
-                                    idRole: decoded.idRole
+                                    idRole: decoded.idRole,
+                                    sub : decoded.sub
                                 }
 
                                 console.log("INFO: ", userObj)

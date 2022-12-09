@@ -1,7 +1,12 @@
 
 import React, { useState } from "react"
 import styles from "./Selector.module.css"
-
+/**
+ * Descripcion
+ * 
+ * @param handleSelected a setState awating for a boolean
+ * @param infoList an array of objects. Structure {id:number, value:string}
+ */
 export default function Selector({handleSelected, infoList}) {
 
   const [isOpen, setIsOpen] = useState(false)

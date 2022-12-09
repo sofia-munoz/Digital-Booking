@@ -27,6 +27,7 @@ function App() {
       const avatar = (userObj.name.charAt(0)+userObj.lastName.charAt(0)).toUpperCase()
       userObj.avatar = avatar;
       setUserInfo(userObj)
+      console.log("userOBJ", userObj)
     }
 
     const handleLogOut =()=>{
@@ -58,7 +59,7 @@ function App() {
         <Route path='/*' element={<BodyHome/>}/>
         <Route path='/login' element={<Login usuario={usuario} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
-        <Route path='/products/id=:id/:title/*' element={<ProductPage/>}/>
+        <Route path='/products/id=:id/:title/*' element={<ProductPage handleLogOut={handleLogOut}/>}/>
         <Route path='/my-products/*' element={<MyProductsPage/>}/>
       </Routes>
       <Footer/>

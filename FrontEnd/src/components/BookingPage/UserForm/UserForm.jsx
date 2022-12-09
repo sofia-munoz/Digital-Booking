@@ -24,7 +24,7 @@ const UserForm = ({handleUserCity}) => {
               <div className={styles.form_component}>
                 <div className={styles.form_component_i} >
                   <label htmlFor=''>Correo electrónico</label>
-                  <input className= {styles.input } type="email" name="email" id="email" placeholder={userInfo.email} readOnly />
+                  <input className= {styles.input } type="email" name="email" id="email" placeholder={userInfo.sub} readOnly />
                 </div>
                 <div className={styles.form_component_i}>
                   <label htmlFor="">Ciudad</label>

@@ -4,6 +4,7 @@ import styles from "./formularios.module.css"
 import Selector from '../MyProducts/MyNewProductComponents/Selector';
 import userRoleList from '../../mocks/api/usuario.json'
 import { userInfoContext } from '../../App'
+import ModalMessage from '../ModalMessage/ModalMessage';
 
 const CrearCuenta = () =>{
 
@@ -32,6 +33,24 @@ const CrearCuenta = () =>{
     const [errorRegister, setErrorRegister] = useState(false)
     const [userRoleSelected, setUserRoleSelected] = useState(-1)
     const [errorUserRoleVacio, setErrorUserRoleVacio] = useState(false)
+    const [succed, setSucced] = useState(false)
+
+    const succedMessage = {
+    path:"/Login",
+    succed:true,
+    title:"¡Muchas Gracias!",
+    body: "El usuario ha sido creado con éxito",
+    text: ""
+    }
+
+    const failedMessage = {
+    path:"",
+    succed:false,
+    title:"¡Lo sentimos!",
+    body: "El usuario NO ha sido creado con éxito",
+    text: "Verifique sus datos y vuelva a intentarlo"
+    }
+
 
 const handleSubmit = (event) =>{
         event.preventDefault()
@@ -86,15 +105,12 @@ const handleSubmit = (event) =>{
                             .then(data => {
                                 console.log('Success:', data);
                                 setErrorRegister(false)
-                                if(data){
-                                    navigate('/login')
-                                }else{
-                                    console.log('Error:', data);
-                                }
+                                setSucced(true)
                             })
                             .catch((error) => {
                                 console.error('Error:', error);
                                 setErrorRegister(true)
+                                setSucced(false)
                             });
                     }
                 }
@@ -181,11 +197,8 @@ const handleSubmit = (event) =>{
                         {userRoleSelected===2&&(<div  className={styles.warning_user}>Te recordamos que los usuarios inquilinos no pueden administrar propiedades</div>)}
                         
                         
-                        {errorRegister&&(
-                            <div className={styles.warning_booking}>
-                            <div className={styles.warning}>!</div>
-                            <p>El usuario no ha podido registrarse. Por favor, intente más tarde</p>
-                            </div>)}
+                        {errorRegister&&(<ModalMessage handleShowMessage={setErrorRegister} modalInfo={failedMessage}/>)}
+                        {succed&&(<ModalMessage handleShowMessage={setSucced} modalInfo={succedMessage}/>)}                            
 
                         <button type="submit">Crear cuenta</button>
 

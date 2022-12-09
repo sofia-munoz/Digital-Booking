@@ -1,17 +1,29 @@
 import React, {useState} from "react";
 import './Checkbox.css'
 
-export default function Checkbox ({amenity, handleSelectAmenity}) {
+/**
+ * Descripcion
+ * 
+ * @param handleSelectItem saves the id of the item selected and pushes it into an array of ids 
+ * @param item an object from the array "itemList".
+ * structure: {
+    id:number,
+    iconoURL: string (path to the icon to display next to the checkbox. can be empty to avoid displaying an icon),
+    caracteristica:string (title or description of the item)
+}
+ */
+
+export default function Checkbox ({item, handleSelectItem}) {
 const [isChecked, setIsChecked] = useState(false)
 
 return(
     <>
-        <label key={amenity.id} className="checkbox_content">
+        <label key={item.id} className="checkbox_content">
             <input type="checkbox" onChange={()=>{
                 let checked = !isChecked;
                 setIsChecked(checked);
 
-                handleSelectAmenity(checked, amenity.id);
+                handleSelectItem(checked, item.id);
                 
             }}/>
             <svg className={`checkbox ${(isChecked ? "checkbox--active" : "")}`}
@@ -23,8 +35,8 @@ return(
                 stroke={isChecked ? "#FFF" : "none"}
                 />
             </svg>
-            <img src={amenity.iconoURL}/>
-            {amenity.caracteristica}
+            <img src={item.iconoURL}/>
+            {item.caracteristica}
         </label>
     </>
 )

@@ -4,17 +4,12 @@
     border: 1px solid #DFE4EA;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 1rem;
-    max-width: 47%;
+    width: 47%;
     margin: 1rem;
     background-color: var(--font-color-light);
 
 }
-.favourite{
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 1;
-}
+
 .cardPicture{
     width: 50%;
 }
@@ -29,6 +24,7 @@
     height: 100%;
     width: 100%;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .cardBody{
@@ -40,19 +36,19 @@
     justify-content: space-between;
 }
 
-.header{
+/* .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-}
+} */
 
 .title_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 80%;
+    width: 100%;
 }
 
  .punctuation_container {
@@ -77,7 +73,6 @@
 }
 .title{
     margin: 0rem 0.5rem;
-    max-width: 17rem;
 }
 
 .ubication{
@@ -95,6 +90,15 @@
 
 .amenity{
     padding: 2px;
+    height: 1rem;
+}
+
+.description{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
  .description p {
@@ -126,65 +130,14 @@
     border-radius: 5px;
     border: 0px;
  }
-/* 
- @media screen and (min-width: 1023.5px)  {
 
-     .card {
-         flex-direction: row;
-         width: 47%;
-     }
-    } */
-  
-  /* @media screen and (min-width: 767.5px) and (max-width:1023px) {
-    .card{
-        max-width: 90%;
-        max-height: 22rem;
-        margin: 0.5rem;
-        flex-direction: row;
-     }
-     .favourite{
-        position: absolute;
-        top: 2rem;
-        left: 38%;
+    @media screen and (min-width:1850px) {
+        .card {
+                display: flex;
+                flex-direction: row;
+                width: 850px;
+            }
     }
-    .cardBody{
-        font-size: 1.1rem;
-        padding: 0rem 1rem;
-    }
-    .star{
-        max-height: 1.2rem;
-    }
-    .puntaje{
-        max-height: 2.8rem;
-        position: absolute;
-        right: 0rem;
-        top: 0rem;
-     }
-     .icon{
-        max-height: 1.4rem;
-        margin: 0.3rem;
-     }
-     .text{
-        font-size: 1.1rem;
-     }
-     .distance{
-        font-size: 1rem;
-        margin-left: 0rem;
-    }
-    .title{
-        margin-top: 1rem;
-    }
-    .ubi{
-        margin: 0.5rem;
-    }
-    .link{
-        font-size: 1.1rem;
-    }
-    .button{
-        margin: 0.5rem 0rem;
-    }
-    
-  } */
 
    @media screen and (max-width:1023.5px) {
        .icon {
@@ -195,7 +148,7 @@
 
        .card {
            flex-direction: row;
-           max-width: 98%;
+           width: 90%;
        }
 
        .image {
@@ -262,3 +215,5 @@
                 width: 100%;
             }
   } 
+
+     

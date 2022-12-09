@@ -35,21 +35,19 @@ const CardProduct = ({producto}) => {
 
         {/* body information */}
         <div className={styles.cardBody}>
-          <div className={styles.header}>
             <div className={styles.title_container}>
               <div className={styles.category_container}>
                 <p className={styles.category}>{producto.categoria.titulo}</p>
               </div>
               <h3 className={styles.title}>{producto.titulo}</h3>
             </div>
-            <div className={styles.punctuation_container}>
+            {/* <div className={styles.punctuation_container}>
               <img className={styles.punctuation} src={points} alt="imagen puntaje"/>
-            </div>
-          </div>  
+            </div> */} 
 
           <div className={styles.ubication}>
               <img className={styles.ubi} src={ubi} alt="icono ubicacion"/>
-              <p className={styles.distance}>{producto.ciudad.ciudad}&nbsp; - &nbsp;{producto.ubicacion} <span className={styles.link}>&nbsp; - &nbsp;MOSTRAR EN EL MAPA</span></p>
+              <p className={styles.distance}>{producto.ciudad.ciudad}&nbsp; - &nbsp;{producto.ubicacion}</p>
           </div>
             
           <div className={styles.icons}>
@@ -57,8 +55,8 @@ const CardProduct = ({producto}) => {
           </div>
 
             <div className={styles.description}>
-              <p>{descriptionCard}...
-              <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><span className={styles.link}>más...</span></Link></p>
+              <p>{descriptionCard}
+              {/* <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><span className={styles.link}>más...</span></Link> */}</p>
             </div>
             <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><button className={styles.button}>Ver más</button></Link>
 

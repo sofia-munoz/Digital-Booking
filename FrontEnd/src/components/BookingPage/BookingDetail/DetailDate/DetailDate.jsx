@@ -1,6 +1,6 @@
 import React from 'react'
-import { useEffect } from 'react'
 import styles from './DetailDate.module.css'
+import DateDisplayer from '../../../DateDisplayer/DateDisplayer'
 
 export const DetailDate = ({checkin, checkout}) => {
 
@@ -9,12 +9,12 @@ export const DetailDate = ({checkin, checkout}) => {
         <hr />
         <div className={styles.check_in_out}>
         <p>Check-in</p>
-        <p>{checkin}</p>
+        <p><DateDisplayer date={checkin}/></p>
         </div>
         <hr />
         <div className={styles.check_in_out}>
         <p>Check-out</p>
-        <p>{checkout}</p>
+        <p><DateDisplayer date={checkout}/></p>
         </div>
         <hr />
     </div>

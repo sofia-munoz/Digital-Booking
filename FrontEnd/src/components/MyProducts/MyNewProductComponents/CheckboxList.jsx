@@ -1,38 +1,39 @@
 import React from "react";
 import Checkbox from "./Checkbox"
 
-export default function AmenitiesCheckboxes ({amenityList, selectedAmenities , handleSelectedAmenities}) {
+/**
+ * Descripcion
+ * 
+ * @param handleSelectedItems updates the state the array "selectedItems"
+ * @param selectedItems an array of ids of those items that were selected.
+ * @param itemList an array of objects that contains the information of the items to display
+ * structure: [{
+    id:number,
+    iconoURL: string (path to the icon to display next to the checkbox. can be empty to avoid displaying an icon),
+    caracteristica:string (title or description of the item)
+}]
+ */
 
-const handleSelect = (selected, amenityID) =>{
-    let amenities = [...selectedAmenities];
+export default function CheckboxList ({itemList, selectedItems , handleSelectedItems}) {
+
+const handleSelect = (selected, itemID) =>{
+    let items = [...selectedItems];
 
     if(selected){
-        amenities.push(amenityID)
+        items.push(itemID)
     }
     else{
-        let index = amenities.indexOf(amenityID);
-        
+        let index = items.indexOf(itemID);
         if(index === -1) return;
-
-        amenities.splice(index, 1);
+        items.splice(index, 1);
     }
     
-    handleSelectedAmenities(amenities);
-}
-
-const generateCheckboxList = () =>{
-    let list = [];
-
-    amenityList.forEach(amenity => {
-        list.push(<Checkbox key={amenity.id} amenity={amenity} handleSelectAmenity ={handleSelect}/>)
-    });
-
-    return list;
+    handleSelectedItems(items);
 }
 
 return(
     <>
-        {generateCheckboxList()}
+        {itemList.map((item) => <Checkbox item={item} key={item.id} handleSelectItem ={handleSelect}/>)}
     </>
 )
 }

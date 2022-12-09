@@ -8,7 +8,7 @@ import styles from "./reservation.module.css"
 
 registerLocale("es", es)
 
-export default function CalendarProduct ({handleCheckIn, handleCheckOut}) {
+export default function CalendarProduct ({daysBooked, handleCheckIn, handleCheckOut}) {
   const [selectedStartDate, setSelectedStartDate] = useState("")
   const [selectedEndDate, setSelectedEndDate] = useState("")
   const [dateRange, setDateRange] = useState([null, null])
@@ -56,8 +56,8 @@ export default function CalendarProduct ({handleCheckIn, handleCheckOut}) {
     if (!range[0] || !range[1]) return
     
     let overlaps = false
-    for (let i = 0; i < reservas.length && !overlaps; i++) {
-      const reserva = reservas[i];
+    for (let i = 0; i < daysBooked.length && !overlaps; i++) {
+      const reserva = daysBooked[i];
 
       reserva.start = new Date(reserva.start)
       reserva.end = new Date(reserva.end)
@@ -83,19 +83,7 @@ export default function CalendarProduct ({handleCheckIn, handleCheckOut}) {
       e2start > e1start && e2start < e1end)
   }
 
-
-  const reservas = [
-    {
-        "start": "2022-12-23T15:30:00+05:00",
-        "end": "2022-12-25T16:30:00+05:00"
-    },
-    {
-        "start": "2023-01-01T16:00:00+05:00",
-        "end": "2023-02-02T20:00:00+05:00"
-    }
-];
-
-const disabledDateRanges = reservas.map(range => ({
+const disabledDateRanges = daysBooked.map(range => ({
     start: new Date(range.start),
     end: new Date(range.end)
 }));
@@ -123,8 +111,7 @@ const disabledDateRanges = reservas.map(range => ({
       onChange={(update) => {
         validateRange(update)
       }}
-      //Disable automatic close:
-      shouldCloseOnSelect={true}
+      //Disable dates already booked:
       excludeDateIntervals={disabledDateRanges}
     ></DatePicker>
     {showError&&<div className={styles.show_error}>- Por favor, elija solamente fechas disponibles -</div>}

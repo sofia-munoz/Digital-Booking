@@ -16,13 +16,13 @@ export default function MyProductsPage () {
         }
     }, [userInfo.idRole])
     
-    const info = {
-        titulo: "Administración de propiedades"
+    const infoHeader = {
+        title: "Administración de propiedades"
     }  
   
     return (
     <>
-        <BloqueHeader info={info}/>
+        <BloqueHeader header={infoHeader}/>
         <Routes>
             <Route path="/" element={<MyProductsDisplay/>}/>
             <Route path="/my-new-product" element={<MyNewProduct/>}/>
