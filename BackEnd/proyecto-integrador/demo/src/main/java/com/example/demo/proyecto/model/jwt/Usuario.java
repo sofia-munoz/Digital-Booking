@@ -23,7 +23,7 @@ public class Usuario {
     private String apellido;
     private String email;
     private String password;
-    private String  ciudad;
+    private String ciudad;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_role")

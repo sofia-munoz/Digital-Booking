@@ -40,6 +40,7 @@ public class JwtProviderConfig {
         claims.put("name",mainUserAuth.getNombre());
         claims.put("id",mainUserAuth.getId());
         claims.put("idRole",mainUserAuth.getId1());
+        claims.put("email",mainUserAuth.getEmail());
         return Jwts.builder()
                 .setSubject(mainUserAuth.getUsername())
                 .addClaims(claims)
