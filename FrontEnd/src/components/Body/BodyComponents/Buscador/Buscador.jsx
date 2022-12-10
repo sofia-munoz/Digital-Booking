@@ -4,10 +4,31 @@ import DateSelector from "./BuscadorComponents/DateSelector";
 import styles from "./Buscador.module.css"
 import {useNavigate, useLocation} from "react-router-dom";
 
-export default function Buscador ({cityList}) {
-
-  
+export default function Buscador () {
+ 
 const navigate = useNavigate();
+
+  const [cityList, setCityList] = useState();
+  const urlCiudades = 'http://52.14.221.16:8080/ciudades'
+  const settings ={
+                   method: 'GET',
+                   headers: {
+                          'Content-Type': 'application/json'
+                   } 
+                  }
+
+    useEffect(() => { 
+            Promise.resolve().then(async function(){
+              try{
+                  const response = await fetch (urlCiudades, settings)
+                  const data = await response.json()
+                  setCityList(data) 
+              } catch (error){
+                  console.error(error)
+              }
+            })
+            }, [urlCiudades])
+
 
 const [citySelected, setCitySelected] = useState(null);
 const [newDateSelected, setNewDateSelected] = useState(null)

@@ -33,12 +33,16 @@ export default function Reservation ({daysBooked, handleLogOut, handleCheckIn, h
     const HandleNavigate = ()=>{
         if (userLogged.idRole===2) {
             navigate("/products/id="+product.id+"/"+productTitle+"/booking-detail", window.scroll(0, 0)); 
-        } else if(userLogged.id===product.usuario.id){
+        } else if(userLogged.idRole===1 && userLogged.id===product.usuario.id){
             navigate("/my-products", window.scroll(0, 0));
         }else if (userLogged.idRole===1){ 
             localStorage.setItem("idProduct", product.id);
             localStorage.setItem("nameProduct", productTitle);
             handleLogOut()
+            navigate("/login", window.scroll(0, 0));
+        } else {
+            localStorage.setItem("idProduct", product.id);
+            localStorage.setItem("nameProduct", productTitle);
             navigate("/login", window.scroll(0, 0));
         }
     }
