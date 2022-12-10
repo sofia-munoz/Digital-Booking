@@ -48,3 +48,8 @@
 [2022-12-0621:16:09] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
 [2022-12-0621:16:14] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
 [2022-12-0621:16:25] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
+[2022-12-0719:59:14] [ ERROR] [GlobalExceptions:21] La email ingresado no es valido
+[2022-12-0719:59:22] [ ERROR] [GlobalExceptions:21] La contraseña debe tener al menos 6 caracteres
+[2022-12-0720:12:18] [ ERROR] [GlobalExceptions:21] El email ya se encuentra registrado
+[2022-12-0721:14:40] [ ERROR] [GlobalExceptions:21] El email ya se encuentra registrado
+[2022-12-0721:15:45] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0

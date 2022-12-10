@@ -43,21 +43,6 @@ backend-build:
     paths:
     - BackEnd/proyecto-integrador/demo/target/*.jar
 
-frontend-build:
-  image: node:16.14.2-alpine
-  stage: build
-  extends: .frontend
-  needs: []
-  script:
-    - echo "Compiling the frontend code..."
-    - ls -la
-    - cd FrontEnd
-    - npm install 
-    - CI=false npm run build
-    - echo "Compile complete."
-  artifacts:
-    paths:
-    - FrontEnd/build
 
 backend-test:
   stage: test
@@ -70,15 +55,6 @@ backend-test:
     paths:
     - BackEnd/proyecto-integrador/demo/target/*.jar
 
-frontend-test:
-  stage: test
-  extends: .frontend
-  needs: ["frontend-build"]
-  script:
-    - echo "Testing the frontend code..."
-  artifacts:
-    paths:
-    - FrontEnd/build
 
 backend-deploy:
   stage: deploy
@@ -97,15 +73,4 @@ backend-deploy:
     - scp -o StrictHostKeyChecking=no BackEnd/proyecto-integrador/demo/target/demo-0.0.1-SNAPSHOT.jar ubuntu@52.14.221.16:/home/ubuntu/
     - ssh -o StrictHostKeyChecking=no ubuntu@52.14.221.16 "/home/ubuntu/scripts/shutdown.sh;/home/ubuntu/scripts/startup.sh"
 
-    
-frontend-deploy:
-  image: python:latest
-  stage: deploy
-  extends: .frontend
-  needs: ["frontend-test"]
-  script:
-    - echo "Deploying the frontend app..."
-    - pip install awscli
-    - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
-    - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
-    - aws s3 sync FrontEnd/build s3://grupo5-0521ptc6n2 --delete
+

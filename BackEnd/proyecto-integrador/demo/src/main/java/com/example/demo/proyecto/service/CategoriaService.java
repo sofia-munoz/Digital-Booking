@@ -60,7 +60,12 @@ public class CategoriaService {
     }
 
     public List<CategoriaDto> buscarTodos(){
-        return mapperUtil.mapAll(categoriaRepository.findAll(), CategoriaDto.class);
+        List<Categoria> categorias = categoriaRepository.findAll();
+        categorias.forEach(c -> {
+            c.setTotalProductos(productoRepository.findProductoByCategoriaParams(c.getId()).size());
+            c.setDescripcion(c.getTotalProductos() + " " + c.getTitulo());
+        });
+        return mapperUtil.mapAll(categorias, CategoriaDto.class);
     }
 
     public CategoriaDto actualizar(CategoriaDto categoria) throws BadRequestException {

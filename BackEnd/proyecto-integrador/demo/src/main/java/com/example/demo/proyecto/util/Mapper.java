@@ -42,7 +42,7 @@ public class Mapper {
         return imagenDto;
     }
 
-    public static Producto MapProducto(ProductoRequest prod, Set<Caracteristica> caracteristicas, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria){
+    public static Producto MapProducto(ProductoRequest prod, Set<Caracteristica> caracteristicas, Politica politica, Ciudad ciudad, Provincia provincia, Categoria categoria, Usuario usuario){
         Producto producto = new Producto();
         producto.setTitulo(prod.getTitulo());
         producto.setTituloDescripcion(prod.getTituloDescripcion());
@@ -56,6 +56,8 @@ public class Mapper {
         producto.setCategoria(categoria);
         if(provincia.getProvincia()!=null)
             producto.setProvincia(provincia);
+        producto.setPrecio(prod.getPrecio());
+        producto.setUsuario(usuario);
         return producto;
     }
 }
