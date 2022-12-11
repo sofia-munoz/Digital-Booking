@@ -81,7 +81,8 @@ const handleSubmit = (event) =>{
                             setErrorConfVacio(false)
                             setErrorContraseña(false)
                             setErrorUserRoleVacio(false)
-                             
+                            const userRole = userRoleList.filter(role=>role.id===userRoleSelected)
+                            
                             const data = {
                                 nombre: nombre,
                                 apellido: apellido,
@@ -89,8 +90,8 @@ const handleSubmit = (event) =>{
                                 password: contraseña,
                                 usuarioRol: {
                                     id: userRoleSelected,
-                                    nombre: "ROL_ADMIN",
-                                    descripcion: "ADMIN"
+                                    nombre: userRole.nombre,
+                                    descripcion: userRole.descripcion
                                 }
                             }
                             console.log(data)
@@ -150,10 +151,10 @@ const handleSubmit = (event) =>{
 
 
     return(
-        <div className={styles.body_form}>
-            <div className={styles.form_container}>
-                <h1>Crear cuenta</h1>
-                    <form onSubmit={handleSubmit}>
+        <div className={styles.body_form}>     
+                    <form className={styles.form_container} onSubmit={handleSubmit}>
+
+                        <h1>Crear cuenta</h1>
                         <div className={styles.form_component_name_lastname}>
                             <div className={styles.form_component} id="name">
                             <label htmlFor=''>Nombre</label>
@@ -206,7 +207,7 @@ const handleSubmit = (event) =>{
                         <p>¿Ya tienes una cuenta? &nbsp;</p> <Link to='/login'><p className={styles.switch_path_link}>Iniciar sesión</p></Link>
                         </div>
                     </form>
-            </div>
+            
         </div>
     )
 }

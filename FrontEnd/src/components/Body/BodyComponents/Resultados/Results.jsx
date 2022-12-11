@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useParams, useLocation} from "react-router-dom";
-import ListaProductos from "./ListaProductos"
+import ListaProductos from "../../../ProductList/ListaProductos"
 
 export default function Reults() {
 

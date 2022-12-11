@@ -49,7 +49,18 @@ const failedMessage = {
 
 const usuarioCiudad = {          
     id: userInfo.id,
+    nombre: userInfo.name,
+    apellido: userInfo.lastName,
+    email: userInfo.email || userInfo.sub,
+    password: userInfo.password,
     ciudad: userCity,
+    usuarioRol: {
+      id: 2,
+      nombre: "ROL_USER",
+      descripcion: "Usuario inquilino"
+    
+  }
+
 }
 
 const handleAcceptFailed = () => {

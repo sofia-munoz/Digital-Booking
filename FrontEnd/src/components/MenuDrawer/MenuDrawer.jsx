@@ -9,8 +9,8 @@ export default function MenuDrawer ({ handleLogOut, handleModalMenu }) {
     const userInfo = useContext(userInfoContext)
     return (
         <div className={styles.modal} id='modalMenu'>
-                    {userInfo&&(<MenuDrawerLogged handleLogOut={handleLogOut} handleModalMenu={handleModalMenu} />)}
-                    {!userInfo&&(<MenuDrawerNotLogged  handleModalMenu={handleModalMenu} />)}
+                    {userInfo.name&&(<MenuDrawerLogged handleLogOut={handleLogOut} handleModalMenu={handleModalMenu} />)}
+                    {!userInfo.name&&(<MenuDrawerNotLogged  handleModalMenu={handleModalMenu} />)}
         </div>
     )
 }

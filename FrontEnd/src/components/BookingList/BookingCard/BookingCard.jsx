@@ -1,27 +1,11 @@
 import React from "react";
-import styles from "./cardProduct.module.css"
-import ubi from "../../../../../assets/ubication.png"
-import points from "../../../../../assets/points.png"
+import styles from "./BookingCard.module.css"
+import ubi from "../../../assets/ubication.png"
 import { Link } from "react-router-dom";
  
-const CardProduct = ({producto}) => {
-  const descriptionCard = producto.descripcion.slice(0,101)
-  const productTitle = producto.titulo.replace(/ /g,'-')
+const BookingCard = ({booking, producto}) => {
 
-  const RenderAmenitiesCard = () => {
-        let result = [];
-        let amenity = producto.caracteristicasDelProducto
-        for (let i = 0; i < amenity.length; i++) {
-            result.push(
-                (
-                    (<div key={amenity[i].id} className={styles.amenity}>
-                        <img src={amenity[i].iconoURL} alt={amenity[i].caracteristica} />
-                    </div>)
-                )
-            );
-        }
-        return result;
-    }
+  const productTitle = producto.titulo.replace(/ /g,'-')
 
     return (
       <div className={styles.card}>
@@ -65,4 +49,4 @@ const CardProduct = ({producto}) => {
     )
   }
 
-  export default CardProduct;
+  export default BookingCard;

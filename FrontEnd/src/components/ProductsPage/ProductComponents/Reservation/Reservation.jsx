@@ -5,7 +5,6 @@ import{useNavigate } from 'react-router-dom'
 import { userInfoContext } from "../../../../App";
 import { useState } from "react";
 import { useEffect } from "react";
-import MyProductsPage from "../../../MyProducts/MyProductsPage";
 
 export default function Reservation ({daysBooked, handleLogOut, handleCheckIn, handleCheckOut, product}) {
     const userLogged = useContext(userInfoContext)

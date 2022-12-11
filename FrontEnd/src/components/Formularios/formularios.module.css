@@ -20,9 +20,9 @@ label {
     width: 98%
 }
 
-.form_container form {
+/* .form_container form {
     width: 100%;
-}
+} */
 
 .form_component {
     display: flex;
@@ -58,14 +58,9 @@ form button{
 }
 
 .form_container {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0%;
-    height: 77.7vh;
-    width: 500px;
+  flex-direction: column;
+  width: 39rem;
+  height: 4rem;
 }
 
 form span {
@@ -77,10 +72,11 @@ form span {
 }
 
 .body_form{
+    height: 60rem;
+    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    margin: auto;
 }
 
 .switch_path_component{
@@ -99,7 +95,7 @@ form span {
     background-color: #FFE1E1;
 }
 
-.warning_booking {
+/* .warning_booking {
     height: 50px;
     width: 100%;
     display: flex;
@@ -109,7 +105,7 @@ form span {
     background-color: #FFE1E1;
     border-radius: 5px;
     color: var(--alert-border);;
-}
+} */
 .warning {
     border-radius: 50%;
     display: flex;
@@ -145,7 +141,11 @@ form span {
             height: 80px;
         }
     .form_container {
-        width: 70%;
-            
+        width: 70%;            
+    }
+}
+@media screen and (max-width:400px){
+    .body_form{
+        height: 65rem;
     }
 }
