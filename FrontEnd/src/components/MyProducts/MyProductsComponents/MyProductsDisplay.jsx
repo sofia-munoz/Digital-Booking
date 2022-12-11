@@ -27,6 +27,11 @@ export default function MyProductsPage () {
             })
     },[])  
     
+    console.log(urlProductos)
+
+    if (!myProducts){
+      return
+    }
 
     return (
     <>
@@ -34,7 +39,7 @@ export default function MyProductsPage () {
             <Link to='/my-products/my-new-product'><button>Crear nueva propiedad</button></Link>
         </div>
         <div className={styles.my_product_list}>
-            <ListaProductos productInfo={myProducts} title={"Mis productos"}/>
+            <ListaProductos productInfo={myProducts} title={"Mis productos"} userOwnsProduct={true}/>
         </div>
     </>
   )

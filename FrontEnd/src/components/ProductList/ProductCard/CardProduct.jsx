@@ -2,9 +2,21 @@ import React from "react";
 import styles from "./cardProduct.module.css"
 import ubi from "../../../assets/ubication.png"
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
  
-const CardProduct = ({producto}) => {
+const CardProduct = ({producto, userOwnsProduct}) => {
   const productTitle = producto.titulo.replace(/ /g,'-')
+  const [path, setPath] = useState()
+
+  useEffect(()=>{
+    if (!userOwnsProduct){
+    setPath("/products/id="+producto.id+"/"+productTitle)
+  }else{
+    setPath("/my-product/id="+producto.id+"/"+productTitle)
+  }
+  },[])
+  
 
   const RenderAmenitiesCard = () => {
         let result = [];
@@ -53,7 +65,7 @@ const CardProduct = ({producto}) => {
               <p>{producto.descripcion}
               {/* <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><span className={styles.link}>más...</span></Link> */}</p>
             </div>
-            <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><button className={styles.button}>Ver más</button></Link>
+            <Link to={path} onClick={() => {window.scroll(0, 0); }}><button className={styles.button}>Ver más</button></Link>
 
         </div>        
       </div>

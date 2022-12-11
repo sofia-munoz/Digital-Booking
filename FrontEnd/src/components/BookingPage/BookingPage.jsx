@@ -122,28 +122,28 @@ const handleBooking = ()=>{
                                 setShowModalFailedBooking(true)
                             });
                 
-                fetch('http://52.14.221.16:8080/usuarios/', {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `Bearer ${userInfo.tokenJWT}`,
-                        'Content-Type': 'application/json'
-                        },
-                    body: JSON.stringify(usuarioCiudad)
-                    })
-                        .then(response => {
-                            if (response.status!=200){
-                                throw new Error(response.error)
-                            } 
-                                return response.json()
-                            })
-                        .then(usuarioCiudad => {
-                            console.log("se cambio con exito ciudad " + usuarioCiudad.ciudad)
+                // fetch('http://52.14.221.16:8080/usuarios/', {
+                //     method: 'PUT',
+                //     headers: {
+                //         'Authorization': `Bearer ${userInfo.tokenJWT}`,
+                //         'Content-Type': 'application/json'
+                //         },
+                //     body: JSON.stringify(usuarioCiudad)
+                //     })
+                //         .then(response => {
+                //             if (response.status!=200){
+                //                 throw new Error(response.error)
+                //             } 
+                //                 return response.json()
+                //             })
+                //         .then(usuarioCiudad => {
+                //             console.log("se cambio con exito ciudad " + usuarioCiudad.ciudad)
                             
-                            })
-                        .catch((error) => {
-                                console.error('Error:', error);
+                //             })
+                //         .catch((error) => {
+                //                 console.error('Error:', error);
                                 
-                            });
+                //             });
         } 
 
     }
