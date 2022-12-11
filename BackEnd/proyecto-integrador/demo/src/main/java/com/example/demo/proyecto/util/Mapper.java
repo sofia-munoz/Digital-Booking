@@ -29,13 +29,13 @@ public class Mapper {
         return reserva;
     }
 
-    public static ReservaByUsuarioDto MapReserva(ReservaDto r, Producto producto){
+    public static ReservaByUsuarioDto MapReservaByUsuario(Reserva r){
         ReservaByUsuarioDto reserva = new ReservaByUsuarioDto();
         reserva.setId(r.getId());
-        reserva.setStart(r.getStart());
-        reserva.setEnd(r.getEnd());
-        reserva.setProducto(producto);
-        reserva.setIdUsuario(r.getIdUsuario());
+        reserva.setStart(r.getFechaInicial());
+        reserva.setEnd(r.getFechaFinal());
+        reserva.setProducto(r.getProducto());
+        reserva.setIdUsuario(r.getUsuario().getId());
 
         return reserva;
     }

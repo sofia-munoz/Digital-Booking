@@ -99,11 +99,10 @@ public class ReservaService {
         if(usuario.isEmpty()){
             throw new BadRequestException("No existe usuario con id " + idUsuario);
         }
-        List<ReservaDto> reservas = reservaRepository.findByUsuario(usuario.get());
+        List<Reserva> reservas = reservaRepository.findByUsuario(usuario.get());
         List<ReservaByUsuarioDto> reservaDtoList = new ArrayList<>();
         reservas.forEach(r->{
-            Producto prod = productoRepository.findById(r.getIdProducto()).get();
-            reservaDtoList.add(Mapper.MapReserva(r, prod));
+            reservaDtoList.add(Mapper.MapReservaByUsuario(r));
         });
         return reservaDtoList;
     }

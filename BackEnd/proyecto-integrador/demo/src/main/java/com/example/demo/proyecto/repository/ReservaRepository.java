@@ -16,5 +16,5 @@ public interface ReservaRepository extends JpaRepository<Reserva,Integer> {
     @Query(" SELECT r FROM Reserva r WHERE r.producto.id = ?1")
     List<Reserva> findReservasByProductParams(Integer productoId);
     List<Reserva> findAllByFechaInicialLessThanEqualAndFechaFinalGreaterThanEqual(LocalDate endDate, LocalDate startDate);
-    List<ReservaDto> findByUsuario(Usuario usuario);
+    List<Reserva> findByUsuario(Usuario usuario);
 }
