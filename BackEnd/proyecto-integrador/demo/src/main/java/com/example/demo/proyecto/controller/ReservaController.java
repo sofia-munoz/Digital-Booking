@@ -1,6 +1,7 @@
 package com.example.demo.proyecto.controller;
 
 import com.example.demo.exception.BadRequestException;
+import com.example.demo.proyecto.dto.ReservaByUsuarioDto;
 import com.example.demo.proyecto.dto.ReservaDto;
 import com.example.demo.proyecto.dto.ReservaRequest;
 import com.example.demo.proyecto.service.ReservaService;
@@ -44,8 +45,8 @@ public class ReservaController {
     }
     @Operation(summary = "Obtiene reservas registradas por Usuario")
     @GetMapping("/byUsuario/{idUsuario}")
-    public ResponseEntity<List<ReservaDto>> buscarPorUsuario(@PathVariable Integer idUsuario) throws BadRequestException {
-        List<ReservaDto> reservas = reservaService.buscarPorUsuarioId(idUsuario);
+    public ResponseEntity<List<ReservaByUsuarioDto>> buscarPorUsuario(@PathVariable Integer idUsuario) throws BadRequestException {
+        List<ReservaByUsuarioDto> reservas = reservaService.buscarPorUsuarioId(idUsuario);
         if(!reservas.isEmpty()){
             return ResponseEntity.ok(reservas);
         }else return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

@@ -1,9 +1,6 @@
 package com.example.demo.proyecto.util;
 
-import com.example.demo.proyecto.dto.ImagenDto;
-import com.example.demo.proyecto.dto.ProductoRequest;
-import com.example.demo.proyecto.dto.ReservaDto;
-import com.example.demo.proyecto.dto.ReservaRequest;
+import com.example.demo.proyecto.dto.*;
 import com.example.demo.proyecto.model.*;
 import com.example.demo.proyecto.model.jwt.Usuario;
 
@@ -28,6 +25,17 @@ public class Mapper {
         reserva.setFechaFinal(r.getFechaFinal());
         reserva.setProducto(producto);
         reserva.setUsuario(usuario);
+
+        return reserva;
+    }
+
+    public static ReservaByUsuarioDto MapReserva(ReservaDto r, Producto producto){
+        ReservaByUsuarioDto reserva = new ReservaByUsuarioDto();
+        reserva.setId(r.getId());
+        reserva.setStart(r.getStart());
+        reserva.setEnd(r.getEnd());
+        reserva.setProducto(producto);
+        reserva.setIdUsuario(r.getIdUsuario());
 
         return reserva;
     }

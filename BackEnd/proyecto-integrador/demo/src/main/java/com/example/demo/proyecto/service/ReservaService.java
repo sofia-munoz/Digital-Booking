@@ -1,6 +1,7 @@
 package com.example.demo.proyecto.service;
 
 import com.example.demo.exception.BadRequestException;
+import com.example.demo.proyecto.dto.ReservaByUsuarioDto;
 import com.example.demo.proyecto.dto.ReservaDto;
 import com.example.demo.proyecto.dto.ReservaRequest;
 import com.example.demo.proyecto.model.Producto;
@@ -56,8 +57,8 @@ public class ReservaService {
             producto = prod.get();
             usuario = usu.get();
             reservaEntity = Mapper.MapReserva(reserva, producto, usuario);
-
-            var response = reservaRepository.save(reservaEntity);
+            Reserva response = new Reserva();
+            response = reservaRepository.save(reservaEntity);
             JavaMailService.enviarMail(usuario.getEmail(),"Reserva exitosa", JavaMailService.getBodyReserva(response, producto));
             return Mapper.MapReserva(response);
 
@@ -93,11 +94,17 @@ public class ReservaService {
         return turnosAgendados.isEmpty();
     }
 
-    public List<ReservaDto> buscarPorUsuarioId(Integer idUsuario) throws BadRequestException {
+    public List<ReservaByUsuarioDto> buscarPorUsuarioId(Integer idUsuario) throws BadRequestException {
         Optional<Usuario> usuario = usuarioRepository.findById(idUsuario);
         if(usuario.isEmpty()){
             throw new BadRequestException("No existe usuario con id " + idUsuario);
         }
-        return reservaRepository.findByUsuario(usuario.get());
+        List<ReservaDto> reservas = reservaRepository.findByUsuario(usuario.get());
+        List<ReservaByUsuarioDto> reservaDtoList = new ArrayList<>();
+        reservas.forEach(r->{
+            Producto prod = productoRepository.findById(r.getIdProducto()).get();
+            reservaDtoList.add(Mapper.MapReserva(r, prod));
+        });
+        return reservaDtoList;
     }
 }

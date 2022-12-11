@@ -53,3 +53,12 @@
 [2022-12-0720:12:18] [ ERROR] [GlobalExceptions:21] El email ya se encuentra registrado
 [2022-12-0721:14:40] [ ERROR] [GlobalExceptions:21] El email ya se encuentra registrado
 [2022-12-0721:15:45] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0
+[2022-12-0722:27:01] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0
+[2022-12-0722:32:52] [ ERROR] [GlobalExceptions:21] El email ya se encuentra registrado
+[2022-12-0722:35:09] [ ERROR] [GlobalExceptions:21] No hay reserva disponible para esos dias
+[2022-12-0722:35:24] [ ERROR] [GlobalExceptions:21] No hay reserva disponible para esos dias
+[2022-12-0722:40:04] [ ERROR] [GlobalExceptions:21] No hay reserva disponible para esos dias
+[2022-12-0722:42:39] [ ERROR] [GlobalExceptions:21] No hay reserva disponible para esos dias
+[2022-12-0722:45:42] [ ERROR] [GlobalExceptions:21] No hay reserva disponible para esos dias
+[2022-12-0722:52:04] [ ERROR] [GlobalExceptions:21] No hay reserva disponible para esos dias
+[2022-12-1118:57:23] [ ERROR] [GlobalExceptions:21] No existe usuario con id 0
