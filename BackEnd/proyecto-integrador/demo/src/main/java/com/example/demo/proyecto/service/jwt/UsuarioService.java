@@ -64,8 +64,9 @@ public class UsuarioService implements UserDetailsService{
     }
 
     public Usuario actualizar(Usuario usuario)throws ResourceNotFoundException{
-        buscar(usuario.getId());
-        return usuarioRepository.save(usuario);
+        Usuario usuarioDB = buscar(usuario.getId());
+        usuarioDB.setCiudad(usuario.getCiudad());
+        return usuarioRepository.save(usuarioDB);
     }
 
 }
