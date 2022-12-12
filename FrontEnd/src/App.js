@@ -11,6 +11,7 @@ import ProductPage from './components/ProductsPage/ProductPage'
 import BodyHome from './components/Body/BodyHome';
 import MyProductsPage from './components/MyProducts/MyProductsPage';
 import useLogin from './hooks/useLogin';
+import MyBookingPage from './components/MyBookings/MyBookingPage'
 
 export const userInfoContext = react.createContext();
 
@@ -60,9 +61,9 @@ function App() {
         <Route path='/login' element={<Login usuario={usuario} handleUserLogged={handleUserLogged}/>}/>
         <Route path='/register' element={<CrearCuenta/>}/>
         <Route path='/products/id=:id/:title/*' element={<ProductPage handleLogOut={handleLogOut}/>}/>
-
         <Route path='/my-products/*' element={<MyProductsPage/>}/>
         <Route path='/my-product/id=:id/:title/*' element={<ProductPage handleLogOut={handleLogOut}/>}/>
+        <Route path='/my-bookings' element={<MyBookingPage/>}/>
 
       </Routes>
       <Footer/>

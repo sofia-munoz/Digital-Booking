@@ -25,7 +25,7 @@ export default function ProductInformation ({daysBooked, handleLogOut, handleChe
       },
       [showGallery]
     )
-
+      console.log("POLICY", product.politica)
     return (
         <>
             <BloqueLocation product={product}/>
@@ -37,7 +37,7 @@ export default function ProductInformation ({daysBooked, handleLogOut, handleChe
             { !showGallery&&(<>
                 <Description product={product}/>
                 <ProductDetail productAmenity={product.caracteristicasDelProducto}/>
-                <PolicyAndRules/>
+                <PolicyAndRules info={product.politica}/>
                 <Reservation daysBooked={daysBooked} handleCheckIn = {handleCheckIn} handleCheckOut = {handleCheckOut} product={product} handleLogOut={handleLogOut}/>
             </>)}
             

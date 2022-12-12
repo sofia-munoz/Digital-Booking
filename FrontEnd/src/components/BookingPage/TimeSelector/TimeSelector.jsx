@@ -14,7 +14,7 @@ export default function TimeSelector({setTimeArrival}) {
 
   const handleClick = (time) => () => {
     setSelectedOption(time.value)
-    setTimeArrival(true)
+    setTimeArrival(time.value)
     setIsOpen(false)
   }
 

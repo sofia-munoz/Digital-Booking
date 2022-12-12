@@ -56,6 +56,8 @@ if (location.pathname.includes('date') && location.pathname.includes('city')){
   if(!title&&!productInfo){
     return
   }
+
+  console.log("PRODUCT INFO", productInfo)
   
   return(
     <ListaProductos productInfo={productInfo} title={title}/>

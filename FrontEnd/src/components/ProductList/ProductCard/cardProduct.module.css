@@ -10,6 +10,20 @@
 
 }
 
+.booking_date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 1.2rem;
+}
+
+.booking_date p{
+    padding: 0rem;
+    margin: 0.5rem 0rem;
+}
+
 .cardPicture{
     width: 50%;
 }
@@ -50,16 +64,6 @@
     align-items: flex-start;
     width: 100%;
 }
-
- .punctuation_container {
-     width: 20%;
-     padding: 10px;
- }
-
- .punctuation {
-     width: 100%;
-     
- }
 
 .category_container{
     display: flex;
@@ -129,6 +133,7 @@
     color: var(--font-color-light);
     border-radius: 5px;
     border: 0px;
+    margin: 1rem 0rem;
  }
 
     @media screen and (min-width:1850px) {
@@ -186,7 +191,6 @@
 
        .button {
            width: 100%;
-           margin: 1rem 0rem;
        }
 
        .cardHeader {

@@ -4,6 +4,7 @@ import ubi from "../../../assets/ubication.png"
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import DateDisplayer from "../../DateDisplayer/DateDisplayer";
  
 const CardProduct = ({producto, userOwnsProduct}) => {
   const productTitle = producto.titulo.replace(/ /g,'-')
@@ -17,22 +18,6 @@ const CardProduct = ({producto, userOwnsProduct}) => {
   }
   },[])
   
-
-  const RenderAmenitiesCard = () => {
-        let result = [];
-        let amenity = producto.caracteristicasDelProducto
-        for (let i = 0; i < amenity.length; i++) {
-            result.push(
-                (
-                    (<div key={amenity[i].id} className={styles.amenity}>
-                        <img src={amenity[i].iconoURL} alt={amenity[i].caracteristica} />
-                    </div>)
-                )
-            );
-        }
-        return result;
-    }
-
     return (
       <div className={styles.card}>
         
@@ -58,13 +43,29 @@ const CardProduct = ({producto, userOwnsProduct}) => {
           </div>
             
           <div className={styles.icons}>
-              {RenderAmenitiesCard()}
+            {producto.caracteristicasDelProducto.map((amenity, i)=>
+                <div key={amenity.id} className={styles.amenity}>
+                  <img src={amenity.iconoURL} alt={amenity.caracteristica} />
+                </div>)}
           </div>
 
             <div className={styles.description}>
               <p>{producto.descripcion}
               {/* <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><span className={styles.link}>más...</span></Link> */}</p>
             </div>
+
+            {producto.checkin&&(
+              <>
+                <div className={styles.booking_date}>
+                  <p>Check in:</p>
+                  <DateDisplayer date={producto.checkin}/>
+                </div>
+                <div className={styles.booking_date}>
+                  <p>Check out:</p>
+                  <DateDisplayer date={producto.checkout}/>
+                </div>
+              </>
+            )}
             <Link to={path} onClick={() => {window.scroll(0, 0); }}><button className={styles.button}>Ver más</button></Link>
 
         </div>        

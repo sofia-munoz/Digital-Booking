@@ -11,6 +11,10 @@
     width: 75%;
 }
 
+.policy_container p {
+    font-weight: lighter;
+}
+
 .container_responsive {
     display: flex;
     flex-direction: row;

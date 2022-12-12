@@ -6,11 +6,12 @@ import CheckboxList from './MyNewProductComponents/CheckboxList'
 import ItemListAdd from './MyNewProductComponents/ItemListAdd/ItemListAdd'
 import { userInfoContext } from "../../App";
 import ModalMessage from '../ModalMessage/ModalMessage'
+import { useNavigate } from 'react-router-dom'
 
 export default function MyNewProduct () {
 
     const userInfo = useContext(userInfoContext)
-    
+    const navigate = useNavigate()
     const [title, setTitle] = useState('')
     const [address, setAddress] = useState('')
     const [categoryList, setCategoryList] = useState([])
@@ -151,10 +152,12 @@ export default function MyNewProduct () {
             .then(data => {
                     console.log(data)
                     setShowProductCreated(true)
+                    navigate(window.scrollTo(0, 0))
                     })
             .catch((error) => {
                     console.error('Error:', error);
                     setShowProductFailed(true)
+                    navigate(window.scrollTo(0, 0))
                     });
     }
 

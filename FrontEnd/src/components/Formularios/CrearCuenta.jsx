@@ -151,7 +151,7 @@ const handleSubmit = (event) =>{
 
 
     return(
-        <div className={styles.body_form}>     
+        <div className={styles.register_form}>     
                     <form className={styles.form_container} onSubmit={handleSubmit}>
 
                         <h1>Crear cuenta</h1>

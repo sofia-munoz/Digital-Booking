@@ -15,7 +15,7 @@ export default function ProductPage ({daysBooked, handleCheckIn, handleCheckOut,
 const navigate = useNavigate()
 const [showModalFailedBooking, setShowModalFailedBooking] = useState(false)
 const [showModalBooking, setShowModalBooking] = useState(false)
-const [timeArrival, setTimeArrival] = useState(null)
+const [timeArrival, setTimeArrival] = useState("")
 const [calendarAlert, setCalendarAlert] =useState(false)
 const [timeAlert, setTimeAlert] =useState(false)
 const userInfo = useContext(userInfoContext)
@@ -49,19 +49,9 @@ const failedMessage = {
 
 const usuarioCiudad = {          
     id: userInfo.id,
-    nombre: userInfo.name,
-    apellido: userInfo.lastName,
-    email: userInfo.email || userInfo.sub,
-    password: userInfo.password,
-    ciudad: userCity,
-    usuarioRol: {
-      id: 2,
-      nombre: "ROL_USER",
-      descripcion: "Usuario inquilino"
-    
+    ciudad: userCity
   }
 
-}
 
 const handleAcceptFailed = () => {
     setShowModalFailedBooking(false)
@@ -73,7 +63,7 @@ const handleBooking = ()=>{
     let calendarOk = true;
     let timeOk = true;
 
-    if (checkin==='-/-/-') {
+    if (!checkin) {
         setCalendarAlert(true)
         calendarOk = false;
     } 
@@ -89,7 +79,8 @@ const handleBooking = ()=>{
                 fechaInicial : checkin,
                 fechaFinal : checkout,
                 idProducto : product.id,
-                idUsuario : userInfo.id
+                idUsuario : userInfo.id,
+                horaLlegada : timeArrival
             }
 
             console.log("reserva", data)
@@ -116,34 +107,36 @@ const handleBooking = ()=>{
                             console.log(data)
                             setShowModalBooking(true)
                             localStorage.removeItem("idProducto")
+                            navigate(window.scrollTo(0, 0))
                             })
                         .catch((error) => {
                                 console.error('Error:', error);
                                 setShowModalFailedBooking(true)
+                                navigate(window.scrollTo(0, 0))
                             });
                 
-                // fetch('http://52.14.221.16:8080/usuarios/', {
-                //     method: 'PUT',
-                //     headers: {
-                //         'Authorization': `Bearer ${userInfo.tokenJWT}`,
-                //         'Content-Type': 'application/json'
-                //         },
-                //     body: JSON.stringify(usuarioCiudad)
-                //     })
-                //         .then(response => {
-                //             if (response.status!=200){
-                //                 throw new Error(response.error)
-                //             } 
-                //                 return response.json()
-                //             })
-                //         .then(usuarioCiudad => {
-                //             console.log("se cambio con exito ciudad " + usuarioCiudad.ciudad)
+                fetch('http://52.14.221.16:8080/usuarios/', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${userInfo.tokenJWT}`,
+                        'Content-Type': 'application/json'
+                        },
+                    body: JSON.stringify(usuarioCiudad)
+                    })
+                        .then(response => {
+                            if (response.status!=200){
+                                throw new Error(response.error)
+                            } 
+                                return response.json()
+                            })
+                        .then(usuarioCiudad => {
+                            console.log("se cambio con exito ciudad " + usuarioCiudad.ciudad)
                             
-                //             })
-                //         .catch((error) => {
-                //                 console.error('Error:', error);
+                            })
+                        .catch((error) => {
+                                console.error('Error:', error);
                                 
-                //             });
+                            });
         } 
 
     }
@@ -161,7 +154,7 @@ const handleBooking = ()=>{
                         <BookingDetail timeAlert={timeAlert} calendarAlert={calendarAlert} handleBooking={handleBooking} checkin={checkin} checkout={checkout} product={product} />
                     </div>
                 </div>
-                <PolicyAndRules/>
+                <PolicyAndRules info={product.politica}/>
                 {showModalBooking&&(<ModalMessage handleShowMessage={setShowModalBooking} modalInfo={succedMessage}/>)}
                 {showModalFailedBooking&&(<ModalMessage handleShowMessage={handleAcceptFailed} modalInfo={failedMessage}/>)}
             </div>

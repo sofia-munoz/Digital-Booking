@@ -71,8 +71,19 @@ form span {
     justify-content: flex-end;
 }
 
-.body_form{
-    height: 60rem;
+.login_form{
+    padding-top: 4rem;
+    height: 55rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.register_form {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    height: 56rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -95,17 +106,6 @@ form span {
     background-color: #FFE1E1;
 }
 
-/* .warning_booking {
-    height: 50px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFE1E1;
-    border-radius: 5px;
-    color: var(--alert-border);;
-} */
 .warning {
     border-radius: 50%;
     display: flex;

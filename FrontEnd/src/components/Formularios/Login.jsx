@@ -87,7 +87,7 @@ const Login = ({handleUserLogged}) =>{
     }
 
     return(
-        <div className={styles.body_form}>
+        <div className={styles.login_form}>
         <div className={styles.form_container}>
             {prodId&&(
                 <div className={styles.warning_booking}>
