@@ -46,9 +46,6 @@ public class ReservaController {
     @Operation(summary = "Obtiene reservas registradas por Usuario")
     @GetMapping("/byUsuario/{idUsuario}")
     public ResponseEntity<List<ReservaByUsuarioDto>> buscarPorUsuario(@PathVariable Integer idUsuario) throws BadRequestException {
-        List<ReservaByUsuarioDto> reservas = reservaService.buscarPorUsuarioId(idUsuario);
-        if(!reservas.isEmpty()){
-            return ResponseEntity.ok(reservas);
-        }else return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok( reservaService.buscarPorUsuarioId(idUsuario));
     }
 }
