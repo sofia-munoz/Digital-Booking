@@ -14,7 +14,4 @@ import javax.transaction.Transactional;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     Usuario findByEmail(String email);
 
-    @Modifying
-    @Query("update Usuario u set u.ciudad = ?1 where u.id = ?2")
-    void setCiudadForUsuario(String ciudad, int id);
 }
