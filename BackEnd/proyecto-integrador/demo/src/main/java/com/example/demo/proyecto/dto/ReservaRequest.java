@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 public class ReservaRequest {
     private LocalDate fechaInicial;
     private LocalDate fechaFinal;
+    private String horaLlegada;
     @NotNull(message = "debe asociar un producto valido")
     private Integer idProducto;
     @NotNull(message = "debe asociar un usuario valido")

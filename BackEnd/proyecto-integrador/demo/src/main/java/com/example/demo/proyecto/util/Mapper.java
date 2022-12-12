@@ -4,6 +4,7 @@ import com.example.demo.proyecto.dto.*;
 import com.example.demo.proyecto.model.*;
 import com.example.demo.proyecto.model.jwt.Usuario;
 
+import java.time.LocalTime;
 import java.util.Set;
 
 public class Mapper {
@@ -23,6 +24,7 @@ public class Mapper {
         Reserva reserva = new Reserva();
         reserva.setFechaInicial(r.getFechaInicial());
         reserva.setFechaFinal(r.getFechaFinal());
+        reserva.setHoraLLegada(LocalTime.parse(r.getHoraLlegada()));
         reserva.setProducto(producto);
         reserva.setUsuario(usuario);
 
