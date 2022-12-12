@@ -41,8 +41,10 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping
-    public ResponseEntity<Usuario> actualizar(@RequestBody Usuario usuario) throws ResourceNotFoundException {
-        return ResponseEntity.ok(usuarioService.actualizar(usuario));
+    @PutMapping("updateCiudad/{ciudad}/{id}")
+    public ResponseEntity<String> actualizar(@PathVariable String ciudad, @PathVariable int id) throws ResourceNotFoundException {
+        usuarioService.actualizar(ciudad,id);
+        return ResponseEntity.ok().body("Se actualizó la ciudad del usuario con id: " + id);
+
     }
 }

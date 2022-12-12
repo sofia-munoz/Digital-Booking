@@ -63,9 +63,17 @@ public class UsuarioService implements UserDetailsService{
         return usuarioRepository.findAll();
     }
 
-    public Usuario actualizar(Usuario usuario)throws ResourceNotFoundException{
-        buscar(usuario.getId());
-        return usuarioRepository.save(usuario);
+//    public Usuario actualizar(Usuario usuario)throws ResourceNotFoundException{
+//        buscar(usuario.getId());
+//        return usuarioRepository.save(usuario);
+//    }
+    public String actualizar(String ciudad, Integer id)throws ResourceNotFoundException{
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if(usuario.isEmpty()){
+            throw new ResourceNotFoundException("No existe un usuario con el ID: " + id);
+        }
+        usuarioRepository.setCiudadForUsuario(ciudad,id);
+        return "Ciudad actualizada";
     }
 
 }
