@@ -31,13 +31,11 @@ export default function MyBookingPage () {
                   const response = await fetch (url, settings)
                   const data = await response.json()
                   setBookingList(data) 
-                  console.log("DATA BOOKING", data)
-                  if (data.lenght===0){
+                  if (data.length===0){
                     setProductsNotFound(true)
                   }
               } catch (error){
                   console.error(error)
-                  setProductsNotFound(true)
               }
             })
     }, [  ])
@@ -49,16 +47,17 @@ export default function MyBookingPage () {
         return object
     })
 
+    if(!bookingList){
+        return
+    }
 
-    console.log("BOOKINGLIST", bookingList)
-    console.log("PRODUCTINFO", productInfo)
     return (
     <>
         <BloqueHeader header={infoHeader}/>
         <div className={styles.greet_container}>
             <h1>Hola, {userInfo.name}!</h1>
         </div>
-        <ProductList productInfo={productInfo} title={"Estas son tus reservas:"} message={"Aún no has efectuado ninguna reserva!"} goBack={true}/>
+        {!productsNotFound&&(<ProductList productInfo={productInfo} title={"Estas son tus reservas:"} message={"Aún no has efectuado ninguna reserva!"} goBack={true}/>)}
         {productsNotFound&&(
         <NoProductsFound message={"Aún no has efectuado ninguna reserva!"} goBack={true}/>
          )}

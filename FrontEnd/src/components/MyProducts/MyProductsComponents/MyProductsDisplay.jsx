@@ -23,23 +23,23 @@ export default function MyProductsPage () {
               try{
                   const response = await fetch (urlProductos, settings)
                   const data = await response.json()
-                  setMyProducts(data) 
-                  if (data.lenght===0){
+                  setMyProducts(data)
+                  if (data.length===0){
+                    console.log("Hola", data)
                     setProductsNotFound(true)
-                  }
+                  } 
               } catch (error){
                 console.error(error)
                 setProductsNotFound(true)
               }
             })
+            
     },[])  
     
-    console.log(urlProductos)
-
-    if (!myProducts){
+    console.log(myProducts)
+    if(!myProducts){
       return
     }
-
     return (
     <>
         <div className={styles.new_product}>
@@ -49,9 +49,9 @@ export default function MyProductsPage () {
             <Link to='/my-products/my-new-product'><button>Crear nueva propiedad</button></Link>
         </div>
         <div className={styles.my_product_list}>
-            <ListaProductos productInfo={myProducts} title={"Mis productos"} userOwnsProduct={true}/>
+            {!productsNotFound&&(<ListaProductos productInfo={myProducts} title={"Mis productos"} userOwnsProduct={true}/>)}
             {productsNotFound&&(
-              <NoProductsFound message={"Aún no has publicado products!"} goBack={true}/>
+              <NoProductsFound message={"Aún no has publicado productos!"} goBack={true}/>
             )}
         </div>
     </>

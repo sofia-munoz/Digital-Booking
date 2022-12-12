@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useParams, useLocation} from "react-router-dom";
 import ListaProductos from "../../../ProductList/ListaProductos"
+import NoProductsFound from "../../../NoProductsFound/NoProductsFound";
 
 export default function Reults() {
 
@@ -13,6 +14,8 @@ const {startDate} = useParams()
 const {endDate} = useParams()
 const [urlProductos, setUrlProductos] = useState('')
 const [title, setTitle] = useState('')
+const [productsNotFound, setProductsNotFound] = useState(false)
+
 const settings ={
                    method: 'GET',
                    headers: {
@@ -46,7 +49,10 @@ if (location.pathname.includes('date') && location.pathname.includes('city')){
               try{
                   const response = await fetch (urlProductos, settings)
                   const data = await response.json()
-                  setProductInfo(data) 
+                  setProductInfo(data)
+                  if (data.length===0){
+                    setProductsNotFound(true)
+                  }
               } catch (error){
                 console.error(error)
               }
@@ -60,6 +66,10 @@ if (location.pathname.includes('date') && location.pathname.includes('city')){
   console.log("PRODUCT INFO", productInfo)
   
   return(
-    <ListaProductos productInfo={productInfo} title={title}/>
+      <>
+        {!productsNotFound&&(<ListaProductos productInfo={productInfo} title={title}/>)}
+        {productsNotFound&&(
+        <NoProductsFound message={"No se han encontrado hospedajes"} goBack={false}/>)}
+      </>
   )
 }
