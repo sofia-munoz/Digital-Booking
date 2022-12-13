@@ -228,7 +228,7 @@ export default function MyNewProduct () {
                     <div className={styles.amenity_options}>
                     <h3>Atributos</h3>
                     <span>Elegí los atributos que contenga tu propiedad. Recordá que podés elegir más de uno.</span>
-                        <CheckboxList itemList={amenityList} selectedItems ={selectedAmenities} handleSelectedItems ={setSelectedAmenities}/>
+                        <CheckboxList itemList={amenityList} selectedItems ={selectedAmenities} handleSelectedItems ={setSelectedAmenities} obligatory={selectedAmenitiesAlert}/>
                     </div>
 
                     <h3>Politicas del producto</h3>

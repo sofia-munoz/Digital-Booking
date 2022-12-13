@@ -15,7 +15,7 @@ import styles from './CheckboxList.module.css'
 }]
  */
 
-export default function CheckboxList ({itemList, selectedItems , handleSelectedItems}) {
+export default function CheckboxList ({itemList, selectedItems , handleSelectedItems, obligatory}) {
 
 const handleSelect = (selected, itemID) =>{
     let items = [...selectedItems];
@@ -37,9 +37,9 @@ return(
         <>
             {itemList.map((item) => <Checkbox item={item} key={item.id} handleSelectItem ={handleSelect}/>)}
         </>
-        <div className={styles.alert}>
+        {obligatory&&(<div className={styles.alert}>
             <span >Tu hospedaje debe incluir al menos uno de estos atributos</span>
-        </div>
+        </div>)}
     </>
 )
 }
