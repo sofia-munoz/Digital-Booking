@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import Input from '../../Input/InputText/Input'
 import InputSelect from '../../Input/InputSelect/InputSelect'
 import InputTextArea from '../../Input/InputTextArea/InputTextArea'
+import PrimaryButton from '../../PrimaryButton/PrimaryButton'
 
 export default function MyNewProduct () {
 
@@ -257,7 +258,7 @@ export default function MyNewProduct () {
                     </div>    
                 </form>
                 <div className={styles.submit_buttons}>
-                        <button onClick={HandleSubmit}>Crear producto</button>
+                        <PrimaryButton onClickFunction={HandleSubmit} text={"Crear producto"}/>
                 </div>
                 {showProductCreated&&(<ModalMessage handleShowMessage={setShowProductCreated} modalInfo={succedMessage}/>)}
                 {showProductFailed&&(<ModalMessage handleShowMessage={setShowProductFailed} modalInfo={failedMessage}/>)}

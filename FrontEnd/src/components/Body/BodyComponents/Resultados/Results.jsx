@@ -52,6 +52,8 @@ if (location.pathname.includes('date') && location.pathname.includes('city')){
                   setProductInfo(data)
                   if (data.length===0){
                     setProductsNotFound(true)
+                  } else {
+                    setProductsNotFound(false)
                   }
               } catch (error){
                 console.error(error)

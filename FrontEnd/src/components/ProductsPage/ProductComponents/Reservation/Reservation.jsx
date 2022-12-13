@@ -5,6 +5,7 @@ import{useNavigate } from 'react-router-dom'
 import { userInfoContext } from "../../../../App";
 import { useState } from "react";
 import { useEffect } from "react";
+import PrimaryButton from "../../../PrimaryButton/PrimaryButton";
 
 export default function Reservation ({daysBooked, handleLogOut, handleCheckIn, handleCheckOut, product}) {
     const userLogged = useContext(userInfoContext)
@@ -55,7 +56,7 @@ export default function Reservation ({daysBooked, handleLogOut, handleCheckIn, h
                 </div>
                 <div className={styles.reservation_start}>
                     <p>{bookingText}</p>
-                    <button onClick={HandleNavigate}>{buttonTitle}</button>
+                    <PrimaryButton onClickFunction={HandleNavigate} text={buttonTitle}/>
                 </div>
             </div>
         </div>

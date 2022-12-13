@@ -31,19 +31,27 @@
     margin: 0rem;
 }
 
-.container_notFound button {
-    height: 4rem;
-    width: 100%;
-    background-color: var(--primary);
-    color: var(--font-color-light);
-    border-radius: 0.5rem;
-    border: 0rem;
-    margin: 1rem 0rem;
+.btn_container {
+    width: 50%;
+}
 
+@media screen and (max-width: 767.5px){
+    .btn_container {
+            width: 70%;
+    }
+        .secondary_container {
+            width: 80%;
+        }
 }
 
 @media screen and (max-width: 300px) {
     .secondary_container {
         height: 40vh;
+        min-width: 150px;
     }
+        .container_notFound {
+            min-width: 150px;
+            justify-content: flex-start;
+
+        }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PrimaryButton from '../../PrimaryButton/PrimaryButton'
 import styles from './BloqueDetail.module.css'
 import { DetailDate } from './DetailDate/DetailDate'
 import { DetailInformation } from './DetailInformation/DetailInformation'
@@ -22,7 +23,8 @@ const BookingDetail = ({checkin, checkout, timeAlert, calendarAlert, handleBooki
                             {calendarAlert&&(<p className={styles.alert}>Por favor elija un rango de fechas para la reserva</p>)}                        
                         </div>
                         <div className={styles.button_container}>
-                        <button className={styles.button_reserva} onClick={handleBooking}>Confirmar reserva</button></div>
+                        <PrimaryButton onClickFunction={handleBooking} text={"Confirmar reserva"}/>
+                        </div>
                     </div>
                 </div>    
             </div>

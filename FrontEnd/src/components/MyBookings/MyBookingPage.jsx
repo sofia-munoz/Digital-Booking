@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState,useEffect, useContext } from 'react'
-import BloqueHeader from '../ProductsPage/ProductComponents/BloqueHeader/BloqueHeader'
+import BloqueHeader from '../BloqueHeader/BloqueHeader'
 import { userInfoContext } from '../../App'
 import ProductList from '../ProductList/ListaProductos'
 import styles from './MyBookingPage.module.css'
 import NoProductsFound from '../NoProductsFound/NoProductsFound'
-import { GoBeaker } from 'react-icons/go'
+
 
 export default function MyBookingPage () {
     const userInfo = useContext(userInfoContext)

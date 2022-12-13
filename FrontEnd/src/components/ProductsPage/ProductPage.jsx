@@ -3,7 +3,7 @@ import { Routes, Route, useParams } from "react-router-dom";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ProductInformation from "./ProductInformation";
 import BookingPage from "../BookingPage/BookingPage";
-import BloqueHeader from "./ProductComponents/BloqueHeader/BloqueHeader";
+import BloqueHeader from "../BloqueHeader/BloqueHeader";
 
 export default function ProductPage ({handleLogOut}) {
     const [product, setProduct] = useState(null)

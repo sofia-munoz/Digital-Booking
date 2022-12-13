@@ -8,6 +8,7 @@
     gap: 40px;
     padding: 20px 40px 40px;
     position: relative;
+    min-width: 300px;
 }
 
 .main_container{
@@ -32,6 +33,7 @@
 .calendar_select{
     width: 100%;
     padding-bottom: 20px;
+    min-width: 300px;
 }
 
 .react-datepicker {

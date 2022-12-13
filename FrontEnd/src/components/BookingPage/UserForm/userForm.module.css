@@ -1,6 +1,7 @@
 .user_data {
     padding-bottom: 20px;
     padding-top: 0px;
+    min-width: 300px;
 }
 
 .body_form {
@@ -9,51 +10,28 @@
     border: 1px solid #dfe4ea;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    width: 100%;
+    /* width: 100%; */
     align-items: flex-start;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
+    padding: 1.5rem;
 
-.body_form form {
-    width: 100%;
 }
 
 .form_component {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-}
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+        width: 100%
+    }
 
-.form_component_i {
-    padding: 10px 25px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.form_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #fff;
-    width: 100%;
-
-}
-
-.input {
-    width: 100%;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    background-color: #ffffff;
-    border: #dfe4ea;
-    height: 40px;
-
+.body_form input {
     background: #dfe4ea;
     opacity: 0.4;
-    /* input shadow */
-    text-indent: 10px;
+}
 
+@media screen and (max-width:1023px) {
+    .form_component {
+            display: flex;
+            flex-direction: column;
+        }
 }

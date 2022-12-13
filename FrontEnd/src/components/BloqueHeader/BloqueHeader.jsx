@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate  } from "react-router-dom";
-import pathBackButton from "../../../../assets/pathBack.png"
+import pathBackButton from "../../assets/pathBack.png"
 import styles from './bloqueHeader.module.css';
 
 /**

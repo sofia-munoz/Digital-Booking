@@ -19,7 +19,7 @@ const [timeArrival, setTimeArrival] = useState("")
 const [calendarAlert, setCalendarAlert] =useState(false)
 const [timeAlert, setTimeAlert] =useState(false)
 const userInfo = useContext(userInfoContext)
-const [userCity, setUserCity] = useState('')
+const [userCity, setUserCity] = useState("")
 const location = useLocation()
 
 const succedMessage = {
@@ -47,10 +47,7 @@ const failedMessage = {
     }, [userInfo.idRole])
 
 
-const usuarioCiudad = {          
-    id: userInfo.id,
-    ciudad: userCity
-  }
+
 
 
 const handleAcceptFailed = () => {
@@ -75,6 +72,7 @@ const handleBooking = ()=>{
         
         if(calendarOk && timeOk)
         {
+            //info for the fetchs
             const data = { 
                 fechaInicial : checkin,
                 fechaFinal : checkout,
@@ -83,7 +81,10 @@ const handleBooking = ()=>{
                 horaLlegada : timeArrival
             }
 
-            console.log("reserva", data)
+            const usuarioCiudad = {          
+                id: userInfo.id,
+                ciudad: userCity
+            }
             
             const settings = {
                     method: 'POST',
@@ -93,9 +94,9 @@ const handleBooking = ()=>{
                         },
                     body: JSON.stringify(data)
                             }
-            
-            console.log("SETTINGS ", settings)                
-            
+                
+                //fetch to book a place
+                            
                 fetch('http://52.14.221.16:8080/reservas', settings)
                     .then(response => {
                         if (response.status!=200){
@@ -115,7 +116,9 @@ const handleBooking = ()=>{
                                 navigate(window.scrollTo(0, 0))
                             });
                 
-                fetch('http://52.14.221.16:8080/usuarios/', {
+                //fetch to update the user           
+
+                fetch('http://52.14.221.16:8080/usuarios', {
                     method: 'PUT',
                     headers: {
                         'Authorization': `Bearer ${userInfo.tokenJWT}`,
@@ -146,7 +149,7 @@ const handleBooking = ()=>{
             <div className={styles.main_container}> 
                 <div className={styles.container}>   
                     <div className={styles.first_column}>
-                        <UserForm handleUserCity={setUserCity}/>
+                        <UserForm handleUserCity={setUserCity} userCity={userCity}/>
                         <BookingDateSelector daysBooked={daysBooked} handleCheckIn={handleCheckIn} handleCheckOut={handleCheckOut}/>
                         <BookingTimeSelector setTimeArrival={setTimeArrival}/>
                     </div>

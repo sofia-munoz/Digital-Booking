@@ -27,7 +27,7 @@ export default function TimeSelector({setTimeArrival}) {
             selectedOption ? styles.selected : ""
           }`}
         >
-          <>{selectedOption || "Elegí un tiempo estimado"}</>
+          <>{selectedOption || "Elegí un horario estimado"}</>
         </div>
 
         {isOpen && (

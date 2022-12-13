@@ -3,6 +3,7 @@
     background-color: #383B58;
     display: flex;
     justify-content: center;
+    min-width: 380px;
 }
 .close_gallery_button{
     position: absolute;

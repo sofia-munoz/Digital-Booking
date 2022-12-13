@@ -3,31 +3,41 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     align-items: center;
     padding: 2rem;
+    margin: 0%
 }
 
-.new_product button {
+.greet_container h1{
+    min-width: 250px;
+    color: var(--tertiary);
+}
+
+.btn_container {
     width: 500px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
-    background-color: #1DBEB4;
-    border: #1DBEB4;
-    height: 40px;
-    color: #FFFFFF;
+    padding-bottom: 2rem;
 }
 
 @media screen and (max-width: 767.5px) {
-    .new_product button {
+    .btn_container {
         width: 300px;
     }
     
 }
 
 @media screen and (max-width: 500px) {
-    .new_product button {
-        width: 100%;
+    .btn_container {
+        width: 80%;
+        min-width: 200px;
     }
 
+
+        .new_product {
+    
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2rem;
+            margin: 0%
+        }
 }

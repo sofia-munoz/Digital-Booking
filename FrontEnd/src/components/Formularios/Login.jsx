@@ -3,6 +3,8 @@ import {useState, useEffect, useContext} from 'react'
 import styles from "./formularios.module.css"
 import { userInfoContext } from '../../App'
 import jwt from 'jwt-decode'
+import SpecialInput from '../Input/SpecialInput/SpecialInput'
+import PrimaryButton from '../PrimaryButton/PrimaryButton'
 
 const Login = ({handleUserLogged}) =>{
 
@@ -16,14 +18,14 @@ const Login = ({handleUserLogged}) =>{
     }, [userInfo.name])
 
     const [correo, setCorreo] = useState('')
-    const [contraseña, setContraseña] = useState('')
+    const [contrasenia, setContrasenia] = useState('')
     const [errorForm,setErrorForm] = useState(false)
     const prodId=localStorage.getItem('idProduct')
     const prodName=localStorage.getItem('nameProduct')
     
     const usuario= {
         email: correo,
-        password: contraseña
+        password: contrasenia
     }
 
         const handleSubmit = (event) =>{
@@ -73,7 +75,7 @@ const Login = ({handleUserLogged}) =>{
                             .catch((error) => {
                                 console.error('Error:', error);
                                 setErrorForm(true); 
-                                setContraseña(''); 
+                                setContrasenia(''); 
                                 setCorreo('')
                             });
 
@@ -84,6 +86,9 @@ const Login = ({handleUserLogged}) =>{
 
     const onChangeCorreo= (e) =>{
         setCorreo(e.target.value)
+    }
+    const onChangeContrasenia= (e) =>{
+        setContrasenia(e.target.value)
     }
 
     return(
@@ -96,19 +101,13 @@ const Login = ({handleUserLogged}) =>{
                 </div>)}
             <h1>Iniciar sesión</h1>
             <form onSubmit={handleSubmit}>
-                <div className={styles.form_component}>
-                <label htmlFor=''>Correo electrónico</label>
-                <input type="email" onChange={onChangeCorreo} value={correo}/>
-                </div>
-                <div className={styles.form_component}>
-                <label htmlFor=''>Contraseña</label>
-                <input type="password" onChange={(e) =>{setContraseña(e.target.value)}} value={contraseña}/>
-                </div>
+                <SpecialInput label={"Correo electrónico"} inputOnChange={onChangeCorreo} valueContent={correo} obligatory={false} validation={false}  inputType={"email"}/>
+                <SpecialInput label={"Contraseña"} inputOnChange={onChangeContrasenia} valueContent={contrasenia} obligatory={false} validation={errorForm} messageValidation={"Por favor vuelva a intentarlo, sus credenciales son inválidas"} inputType={"password"}/>
 
-                {errorForm ? <span className={styles.error_en_credenciales}>Por favor vuelva a intentarlo, sus credenciales son inválidas</span> : <span/>}
-                
-                <button type="submit">Ingresar</button>
-
+            <div className={styles.button_submit}>   
+                <PrimaryButton buttonType={"submit"} text={"Ingresar"}/>
+            </div> 
+            
                 <div className={styles.switch_path_component}>
                 <p>¿Aún no tenés cuenta?&nbsp;</p><Link to='/register'><p className={styles.switch_path_link}> Registrate</p></Link>
                 </div>

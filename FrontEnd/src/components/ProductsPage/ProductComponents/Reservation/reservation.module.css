@@ -3,6 +3,7 @@
 .reservation {
     padding: 10px 40px;
     background-color: var(--background-color-body);
+    min-width: 300px
 }
 
 .reservation_container {
@@ -128,10 +129,6 @@ hr {
             align-items: center;
             justify-content: center;
             text-align: center;
-            width: 100%;
-        }
-
-        .reservation_start button {
             width: 100%;
         }
     

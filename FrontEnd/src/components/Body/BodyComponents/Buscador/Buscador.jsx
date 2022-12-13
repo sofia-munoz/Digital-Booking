@@ -3,6 +3,7 @@ import PlaceSelector from "./BuscadorComponents/PlaceSelector";
 import DateSelector from "./BuscadorComponents/DateSelector";
 import styles from "./Buscador.module.css"
 import {useNavigate, useLocation} from "react-router-dom";
+import PrimaryButton from '../../../PrimaryButton/PrimaryButton'
 
 export default function Buscador () {
  
@@ -54,7 +55,9 @@ const handleBuscar = (event) => {
             <form className={styles.searchBarForm}>
                 <PlaceSelector citySelected={citySelected} setCitySelected={setCitySelected} cityList={cityList}/>
                 <DateSelector setNewDateSelected={setNewDateSelected}/>
-                <button className={styles.btn_buscar} onClick={handleBuscar} type="submit">Buscar</button>
+                <div className={styles.search_button}>
+                <PrimaryButton onClickFuncion={handleBuscar} buttonType={"submit"} text={"Buscar"}/>
+                </div>
             </form>
         </section>
     )

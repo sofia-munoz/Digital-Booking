@@ -12,13 +12,6 @@
     color: var(--tertiary);
 }
 
-.form_component{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-bottom: 15px;
-}
-
 .title, .location{
     display: flex;
     flex-direction: row;
@@ -85,7 +78,7 @@ h6 {
 }
 
 .form_container span {
-    color: var(--tertiary);
+
     font-size: 1.4rem;
     font-weight: lighter;
     display: flex;

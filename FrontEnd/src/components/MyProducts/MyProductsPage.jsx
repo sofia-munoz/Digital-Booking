@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import BloqueHeader from '../ProductsPage/ProductComponents/BloqueHeader/BloqueHeader'
+import BloqueHeader from '../BloqueHeader/BloqueHeader'
 import { userInfoContext } from "../../App";
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import MyProductsDisplay from './MyProductsDisplay/MyProductsDisplay';

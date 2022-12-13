@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './ModalMessage.module.css'
 import succed from '../../assets/succed.png'
 import failed from '../../assets/error.png'
+import PrimaryButton from '../PrimaryButton/PrimaryButton'
 
 /**
  * Descripcion
@@ -38,9 +39,10 @@ const ModalMessage = ({handleShowMessage, modalInfo }) => {
       <p className={styles.mensaje}>{modalInfo.title}</p>
       <span className={styles.text}>{modalInfo.body}</span>
       <span className={styles.text}>{modalInfo.text}</span>
-  
-      <button className={styles.button} onClick={handleButton} >Aceptar</button>
-      
+
+      <div className={styles.btn_container}>
+        <PrimaryButton onClickFunction={handleButton} text={"Aceptar"}/>
+      </div>
       </div>
       
       </div>

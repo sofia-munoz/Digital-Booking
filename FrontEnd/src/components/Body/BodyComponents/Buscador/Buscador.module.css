@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center ;
+  min-width: 360px;
 }
 
 .searchTitle {
@@ -25,20 +26,9 @@
   margin-top: 1rem;
 } */
 
-.btn_buscar{
+.search_button{
   width: 20%;
-  margin: 1rem 0rem;
-  color: #FFFFFF;
-  /* B -DB COLOR PRINCIPAL */
-  background: #1dbeb4;
-  /* botton sombra */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-  border: 0;
-  padding: 5px;
-  border-radius: 5px;
-  transform: rotate(-0.16deg);
-  text-align: center;
-  flex-grow: 1;
+  
 }
 
 /*---------  RESPONSIVE ---------*/
@@ -46,7 +36,7 @@
 /* mobile version */
 
 @media screen and (max-width: 767px) {
-    .btn_buscar {
+    .search_button {
         width: 90%;
       }
     .searchBarForm {
@@ -78,7 +68,7 @@
     gap: 1rem;
   }
 
-  .btn_buscar {
+  .search_button {
     width: 20%;
   }
 

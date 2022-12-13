@@ -2,6 +2,7 @@
 
 .detail_container {
     padding: 10px 40px;
+    min-width: 300px;
 }
 
 .amenities_container {

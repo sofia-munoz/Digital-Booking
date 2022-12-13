@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import DateDisplayer from "../../DateDisplayer/DateDisplayer";
+import PrimaryButton from "../../PrimaryButton/PrimaryButton"
  
 const CardProduct = ({producto, userOwnsProduct}) => {
   const productTitle = producto.titulo.replace(/ /g,'-')
@@ -65,8 +66,9 @@ const CardProduct = ({producto, userOwnsProduct}) => {
                 </div>
               </>
             )}
-            <Link to={path} onClick={() => {window.scroll(0, 0); }}><button className={styles.button}>Ver más</button></Link>
-
+            <div className={styles.button_container}>
+            <Link to={path} onClick={() => {window.scroll(0, 0); }}><PrimaryButton text={"Ver más"}/></Link>
+            </div>
         </div>        
       </div>
     )

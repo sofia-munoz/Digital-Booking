@@ -10,6 +10,7 @@
     background-color: var(--quaternary);
     padding-top: 2rem;
     padding-left: 4rem;
+    min-width: 360px;
 
 }
 .title{
@@ -37,3 +38,11 @@
     }
 }
 
+@media screen and (max-width:500px){
+    .container {
+            justify-content: center;
+        }
+    .recomendation{
+        padding: 1rem;
+    }
+}
