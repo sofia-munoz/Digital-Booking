@@ -8,7 +8,7 @@ import {Routes, Route, useLocation, useNavigate}  from "react-router-dom";
 import usuario from './mocks/api/usuario.json';
 import MenuDrawer from './components/MenuDrawer/MenuDrawer';
 import ProductPage from './components/ProductsPage/ProductPage'
-import BodyHome from './components/Body/BodyHome';
+import BodyHome from './components/HomPage/BodyHome';
 import MyProductsPage from './components/MyProducts/MyProductsPage';
 import useLogin from './hooks/useLogin';
 import MyBookingPage from './components/MyBookings/MyBookingPage'
@@ -18,7 +18,6 @@ export const userInfoContext = react.createContext();
 function App() {
 
     const user = useLogin()
-    console.log("USER", user)
     const location = useLocation()
     const navigate = useNavigate()
     const [userInfo, setUserInfo] = useState(user ?? {})

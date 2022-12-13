@@ -64,7 +64,7 @@ const handleSubmit = (event) =>{
         setErrorConfVacio(contraseniaC ==='')
         setErrorUserRoleVacio(userRoleSelected ===-1)
 
-        if(nombre !== '' & apellido !=='' & correo!=='' & contrasenia!=='' & userRoleSelected!==-1){
+        if(nombre !== '' && apellido !=='' && correo!=='' && contrasenia!=='' && userRoleSelected!==-1){
             if(contrasenia.length+1 < 6){ 
                 setErrorContrasenia(true)
                 setErrorConfDistinto(false)
@@ -77,7 +77,7 @@ const handleSubmit = (event) =>{
                     setErrorConfVacio(false)
                     setContraseniaC('')
                     setContrasenia('')
-                    var element = document.getElementById('password2');
+                    var element = document.getElementById('confirm_password');
                     element.classList.toggle('error');
                         }else { 
                             setErrorConfDistinto(false);
@@ -110,6 +110,7 @@ const handleSubmit = (event) =>{
                                 console.log('Success:', data);
                                 setErrorRegister(false)
                                 setSucced(true)
+                                navigate(window.scrollTo(0, 0))
                             })
                             .catch((error) => {
                                 console.error('Error:', error);
@@ -137,7 +138,7 @@ const handleSubmit = (event) =>{
         setContrasenia(e.target.value)
         if(contrasenia.length+1 < 6) {
             setErrorContrasenia(true);
-            var element = document.getElementById('password1');
+            var element = document.getElementById('password');
             element.classList.toggle('error');
         } else setErrorContrasenia(false)
     }
@@ -163,9 +164,9 @@ const handleSubmit = (event) =>{
                             <Input label={"Apellido"} handleValue={setApellido} valueContent={apellido} obligatory={errorApellidoVacio}/>
                         </div>
 
-                        <SpecialInput label={"Correo electrónico"} inputOnChange={onChangeCorreo} valueContent={correo} obligatory={errorCorreoVacio} validation={errorCorreo} messageValidation={"El correo no es válido"} inputType={"email"}/>
-                        <SpecialInput label={"Contraseña"} inputOnChange={onChangeContrasenia} valueContent={contrasenia} obligatory={errorContraseniaVacio} validation={errorContrasenia} messageValidation={"La contraseña debe contener al menos 6 caracteres"} inputType={"password"} inputId={"password"}/>
-                        <SpecialInput label={"Confirmar contraseña"} inputOnChange={onChangeConfirmacion} valueContent={contraseniaC} obligatory={errorConfVacio} validation={errorConfDistinto} messageValidation={"Las contraseñas ingresadas no coinciden"} inputType={"password"} inputId={"confirm_password"}/>
+                        <SpecialInput label={"Correo electrónico"} inputOnChange={onChangeCorreo} valueContent={correo} obligatory={errorCorreoVacio} validation={errorCorreo} messageValidation={"El correo no es válido"} inputType={'email'} inputId={'email'}/>
+                        <SpecialInput label={"Contraseña"} inputOnChange={onChangeContrasenia} valueContent={contrasenia} obligatory={errorContraseniaVacio} validation={errorContrasenia} messageValidation={"La contraseña debe contener al menos 6 caracteres"} inputType={"password"} inputId={"password"} />
+                        <SpecialInput label={"Confirmar contraseña"} inputOnChange={onChangeConfirmacion} valueContent={contraseniaC} obligatory={errorConfVacio} validation={errorConfDistinto} messageValidation={"Las contraseñas ingresadas no coinciden"} inputType={"password"} inputId={"confirm_password"} />
 
                         <InputSelect label={"Elegí qué clase de usuario querés ser"} handleSelected={HandleUserRoleSelected} infoList={userRoleList.map((element) => {return {id : element.id, value : element.descripcion}})} obligatory={errorUserRoleVacio} />
                         {userRoleSelected===1&&(<div  className={styles.warning_user}>Te recordamos que los usuarios administradores no pueden realizar reservas</div>)}
@@ -176,7 +177,7 @@ const handleSubmit = (event) =>{
                         {succed&&(<ModalMessage handleShowMessage={setSucced} modalInfo={succedMessage}/>)}                            
 
                         <div className={styles.button_submit}>   
-                            <PrimaryButton buttonType={"submit"} text={"Crear cuenta"}/>
+                            <PrimaryButton buttonType={"submit"} text={"Crear cuenta"} />
                         </div> 
                         <div className={styles.switch_path_component}>
                         <p>¿Ya tienes una cuenta? &nbsp;</p> <Link to='/login'><p className={styles.switch_path_link}>Iniciar sesión</p></Link>

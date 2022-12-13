@@ -181,32 +181,32 @@ export default function MyNewProduct () {
                     precio: 4000,
                     idUsuario: userInfo.id
                     }
-
-                 
-                fetch('http://52.14.221.16:8080/productos/administracion', {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${userInfo.tokenJWT}`,
-                            'Content-Type': 'application/json'
-                            },
-                        body: JSON.stringify(data)
-                                })
-                .then(response => {
-                        if (response.status!=200){
-                            throw new Error(response.error)
-                        } 
-                            return response.json()
-                        })
-                .then(data => {
                         console.log(data)
-                        setShowProductCreated(true)
-                        navigate(window.scrollTo(0, 0))
-                        })
-                .catch((error) => {
-                        console.error('Error:', error);
-                        setShowProductFailed(true)
-                        navigate(window.scrollTo(0, 0))
-                        });    
+                 
+                // fetch('http://52.14.221.16:8080/productos/administracion', {
+                //         method: 'POST',
+                //         headers: {
+                //             'Authorization': `Bearer ${userInfo.tokenJWT}`,
+                //             'Content-Type': 'application/json'
+                //             },
+                //         body: JSON.stringify(data)
+                //                 })
+                // .then(response => {
+                //         if (response.status!=200){
+                //             throw new Error(response.error)
+                //         } 
+                //             return response.json()
+                //         })
+                // .then(data => {
+                //         console.log(data)
+                //         setShowProductCreated(true)
+                //         navigate(window.scrollTo(0, 0))
+                //         })
+                // .catch((error) => {
+                //         console.error('Error:', error);
+                //         setShowProductFailed(true)
+                //         navigate(window.scrollTo(0, 0))
+                //         });    
             }
     }
 

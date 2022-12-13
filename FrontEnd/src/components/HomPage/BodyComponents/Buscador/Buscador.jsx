@@ -52,11 +52,11 @@ const handleBuscar = (event) => {
     return(
         <section className={styles.searchBar} aria-label="search">
                 <h1 className={styles.searchTitle}>Busca ofertas en hoteles, casas y mucho más</h1>
-            <form className={styles.searchBarForm}>
+            <form className={styles.searchBarForm} onSubmit={handleBuscar}>
                 <PlaceSelector citySelected={citySelected} setCitySelected={setCitySelected} cityList={cityList}/>
                 <DateSelector setNewDateSelected={setNewDateSelected}/>
                 <div className={styles.search_button}>
-                <PrimaryButton onClickFuncion={handleBuscar} buttonType={"submit"} text={"Buscar"}/>
+                <PrimaryButton text={"Buscar"} buttonType={"submit"} />
                 </div>
             </form>
         </section>
