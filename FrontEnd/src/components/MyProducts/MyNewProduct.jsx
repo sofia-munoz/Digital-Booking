@@ -152,13 +152,13 @@ export default function MyNewProduct () {
             address!=='' &&
             titleDescription!=='' && 
             description!=='' &&
-            selectedAmenities.length===0 &&
+            selectedAmenities.length!==0 &&
             rules!=='' &&
             security!=='' &&
-            cancelation!==''
-            // &&
-            // imageList>4
-            ){
+            cancelation!=='' &&
+            imageList.length>4
+            ){  
+                
             
                 //Info for the fetch
                 const data = {
@@ -181,6 +181,7 @@ export default function MyNewProduct () {
                     idUsuario: userInfo.id
                     }
 
+                 
                 fetch('http://52.14.221.16:8080/productos/administracion', {
                         method: 'POST',
                         headers: {

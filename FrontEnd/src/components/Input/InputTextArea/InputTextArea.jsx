@@ -18,7 +18,7 @@ export default function InputTextArea ({label, handleValue, valueContent, placeH
   return (
     <div className={styles.input_container}>
         <label htmlFor=''>{label}</label>
-        <textarea maxlength={maxChar} rows={rows} onChange={(e) =>{handleValue(e.target.value)}} value={valueContent} placeholder={placeHolderContent}/>
+        <textarea maxLength={maxChar} rows={rows} onChange={(e) =>{handleValue(e.target.value)}} value={valueContent} placeholder={placeHolderContent}/>
         {obligatory&&(<span>Este campo es obligatorio</span>)}
     </div>
   )

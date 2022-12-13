@@ -16,7 +16,7 @@ const CardProduct = ({producto, userOwnsProduct}) => {
   }else{
     setPath("/my-product/id="+producto.id+"/"+productTitle)
   }
-  },[])
+  },[producto])
   
     return (
       <div className={styles.card}>
