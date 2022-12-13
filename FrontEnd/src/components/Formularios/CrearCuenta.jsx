@@ -54,14 +54,14 @@ const CrearCuenta = () =>{
 
 const handleSubmit = (event) =>{
         event.preventDefault()
-        nombre ===''? setErrorNombreVacio(true):setErrorNombreVacio(false)
-        apellido ===''? setErrorApellidoVacio(true):setErrorApellidoVacio(false)
-        correo ===''? setErrorCorreoVacio(true):setErrorCorreoVacio(false)
-        contraseña ===''? setErrorContraseñaVacio(true):setErrorContraseñaVacio(false)
-        contraseñaC ===''? setErrorConfVacio(true):setErrorConfVacio(false)
-        userRoleSelected ===-1 ? setErrorUserRoleVacio(true):setErrorUserRoleVacio(false)
+        setErrorNombreVacio(nombre === '')
+        setErrorApellidoVacio(apellido ==='')
+        setErrorCorreoVacio(correo ==='')
+        setErrorContraseñaVacio(contraseña ==='')
+        setErrorConfVacio(contraseñaC ==='')
+        setErrorUserRoleVacio(userRoleSelected ===-1)
 
-        if(nombre!=='' & apellido!=='' & correo!=='' & contraseña!=='' & userRoleSelected!==-1){
+        if(nombre !== '' & apellido !=='' & correo!=='' & contraseña!=='' & userRoleSelected!==-1){
             if(contraseña.length+1 < 6){ 
                 setErrorContraseña(true)
                 setErrorConfDistinto(false)

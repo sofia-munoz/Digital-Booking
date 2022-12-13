@@ -4,7 +4,7 @@ import styles from "./Selector.module.css"
 /**
  * Descripcion
  * 
- * @param handleSelected a setState awating for a boolean
+ * @param handleSelected a setState to save the id selected from the list
  * @param infoList an array of objects. Structure {id:number, value:string}
  */
 export default function Selector({handleSelected, infoList}) {

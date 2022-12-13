@@ -1,5 +1,6 @@
 import React from "react";
 import Checkbox from "./Checkbox"
+import styles from './CheckboxList.module.css'
 
 /**
  * Descripcion
@@ -33,7 +34,12 @@ const handleSelect = (selected, itemID) =>{
 
 return(
     <>
-        {itemList.map((item) => <Checkbox item={item} key={item.id} handleSelectItem ={handleSelect}/>)}
+        <>
+            {itemList.map((item) => <Checkbox item={item} key={item.id} handleSelectItem ={handleSelect}/>)}
+        </>
+        <div className={styles.alert}>
+            <span >Tu hospedaje debe incluir al menos uno de estos atributos</span>
+        </div>
     </>
 )
 }
