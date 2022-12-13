@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { userInfoContext } from "../../../App";
-import styles from './MyProductsDisplay.module.css'
+import styles from './MyProductsDisplay'
 import { Link } from 'react-router-dom';
 import ListaProductos from '../../ProductList/ListaProductos';
 import NoProductsFound from '../../NoProductsFound/NoProductsFound';

@@ -1,7 +1,7 @@
 import{Link, useNavigate} from 'react-router-dom'
 import {useState, useEffect, useContext} from 'react'
 import styles from "./formularios.module.css"
-import Selector from '../MyProducts/MyNewProductComponents/Selector';
+import Selector from '../Input/Selector/Selector';
 import userRoleList from '../../mocks/api/usuario.json'
 import { userInfoContext } from '../../App'
 import ModalMessage from '../ModalMessage/ModalMessage';

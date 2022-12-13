@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './ItemList.module.css'
-import add from '../../../../assets/add.png'
-import remove from '../../../../assets/remove.png'
+import add from '../../../assets/add.png'
+import remove from '../../../assets/remove.png'
 import { useState } from 'react';
 import { useCallback } from 'react';
 

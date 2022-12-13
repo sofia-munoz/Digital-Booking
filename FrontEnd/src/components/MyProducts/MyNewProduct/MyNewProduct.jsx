@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState, useEffect, useContext } from 'react'
-import styles from './MyProducts.module.css'
-import CheckboxList from './MyNewProductComponents/CheckboxList'
-import ItemListAdd from './MyNewProductComponents/ItemListAdd/ItemListAdd'
-import { userInfoContext } from "../../App";
-import ModalMessage from '../ModalMessage/ModalMessage'
+import styles from './MyNewProduct.module.css'
+import CheckboxList from '../../Input/CheckboxList/CheckboxList'
+import ItemListAdd from '../../Input/ItemListAdd/ItemListAdd'
+import { userInfoContext } from "../../../App";
+import ModalMessage from '../../ModalMessage/ModalMessage'
 import { useNavigate } from 'react-router-dom'
-import Input from '../Input/InputText/Input'
-import InputSelect from '../Input/InputSelect/InputSelect'
-import InputTextArea from '../Input/InputTextArea/InputTextArea'
+import Input from '../../Input/InputText/Input'
+import InputSelect from '../../Input/InputSelect/InputSelect'
+import InputTextArea from '../../Input/InputTextArea/InputTextArea'
 
 export default function MyNewProduct () {
 

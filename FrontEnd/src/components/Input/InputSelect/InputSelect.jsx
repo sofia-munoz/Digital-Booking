@@ -1,5 +1,5 @@
 import React from 'react'
-import Selector from '../../MyProducts/MyNewProductComponents/Selector'
+import Selector from '../Selector/Selector'
 import styles from '../Input.module.css'
 
 /**

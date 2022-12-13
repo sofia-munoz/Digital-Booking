@@ -2,8 +2,8 @@ import React, {useContext} from 'react'
 import BloqueHeader from '../ProductsPage/ProductComponents/BloqueHeader/BloqueHeader'
 import { userInfoContext } from "../../App";
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import MyProductsDisplay from './MyProductsComponents/MyProductsDisplay';
-import MyNewProduct from './MyNewProduct'
+import MyProductsDisplay from './MyProductsDisplay/MyProductsDisplay';
+import MyNewProduct from './MyNewProduct/MyNewProduct'
 import { useEffect } from 'react';
 
 export default function MyProductsPage () {
