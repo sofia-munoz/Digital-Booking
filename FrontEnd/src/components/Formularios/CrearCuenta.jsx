@@ -78,7 +78,7 @@ const handleSubmit = (event) =>{
                     setContraseniaC('')
                     setContrasenia('')
                     var element = document.getElementById('confirm_password');
-                    element.classList.toggle('error');
+                    element.classList.toggle('error_input');
                         }else { 
                             setErrorConfDistinto(false);
                             setErrorConfVacio(false)
@@ -130,7 +130,7 @@ const handleSubmit = (event) =>{
         if(!isEmail(correo)){
             setErrorCorreo(true)
             var element = document.getElementById('email');
-            element.classList.toggle('error');
+            element.classList.toggle('error_input');
         } else {setErrorCorreo(false)}
     }
 
@@ -139,7 +139,7 @@ const handleSubmit = (event) =>{
         if(contrasenia.length+1 < 6) {
             setErrorContrasenia(true);
             var element = document.getElementById('password');
-            element.classList.toggle('error');
+            element.classList.toggle('error_input');
         } else setErrorContrasenia(false)
     }
 
@@ -177,7 +177,7 @@ const handleSubmit = (event) =>{
                         {succed&&(<ModalMessage handleShowMessage={setSucced} modalInfo={succedMessage}/>)}                            
 
                         <div className={styles.button_submit}>   
-                            <PrimaryButton buttonType={"submit"} text={"Crear cuenta"} />
+                            <PrimaryButton text={"Crear cuenta"} buttonType={"submit"} />
                         </div> 
                         <div className={styles.switch_path_component}>
                         <p>¿Ya tienes una cuenta? &nbsp;</p> <Link to='/login'><p className={styles.switch_path_link}>Iniciar sesión</p></Link>
