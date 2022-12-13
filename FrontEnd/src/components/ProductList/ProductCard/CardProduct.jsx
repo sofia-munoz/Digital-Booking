@@ -50,8 +50,7 @@ const CardProduct = ({producto, userOwnsProduct}) => {
           </div>
 
             <div className={styles.description}>
-              <p>{producto.descripcion}
-              <Link to={`/products/id=${producto.id}/${productTitle}`} onClick={() => {window.scroll(0, 0); }}><span className={styles.link}>más...</span></Link></p>
+              <p>{producto.descripcion}</p>
             </div>
 
             {producto.checkin&&(

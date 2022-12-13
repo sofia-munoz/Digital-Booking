@@ -155,8 +155,10 @@ export default function MyNewProduct () {
             selectedAmenities.length===0 &&
             rules!=='' &&
             security!=='' &&
-            cancelation!==''&&
-            imageList>4){
+            cancelation!==''
+            // &&
+            // imageList>4
+            ){
             
                 //Info for the fetch
                 const data = {
