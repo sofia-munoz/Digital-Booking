@@ -23,6 +23,7 @@ label {
 .form_container {
   flex-direction: column;
   width: 40rem;
+
 }
 
 .login_form{
@@ -32,6 +33,7 @@ label {
     display: flex;
     justify-content: center;
     margin: auto;
+    min-width: 380px;
 }
 
 .register_form {
@@ -41,6 +43,7 @@ label {
     display: flex;
     justify-content: center;
     margin: auto;
+    min-width: 380px;
 }
 .button_submit{
     margin-top: 2rem;
