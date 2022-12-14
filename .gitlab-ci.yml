@@ -1,0 +1,69 @@
+variables:
+  RULES_CHANGES_PATH: "**/*"
+  AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+  AWS_SECRET_ACCES_KEY: $AWS_SECRET_ACCES_KEY
+  AWS_S3_URL: $AWS_S3_URL
+
+stages:
+  - build
+  - test
+  - deploy
+
+
+
+.base-rules:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - $RULES_CHANGES_PATH
+    - when: manual
+      allow_failure: true
+
+.backend:
+  extends: .base-rules
+  variables:
+    RULES_CHANGES_PATH: "BackEnd/**/*"
+
+.frontend:
+  extends: .base-rules
+  variables:
+    RULES_CHANGES_PATH: "FrontEnd/**/*"
+
+frontend-build:
+  image: node:16.14.2-alpine
+  stage: build
+  extends: .frontend
+  needs: []
+  script:
+    - echo "Compiling the frontend code..."
+    - ls -la
+    - cd FrontEnd
+    - npm install 
+    - CI=false npm run build
+    - echo "Compile complete."
+  artifacts:
+    paths:
+    - FrontEnd/build
+
+frontend-test:
+  stage: test
+  extends: .frontend
+  needs: ["frontend-build"]
+  script:
+    - echo "Testing the frontend code..."
+  artifacts:
+    paths:
+    - FrontEnd/build
+
+    
+frontend-deploy:
+  image: python:latest
+  stage: deploy
+  extends: .frontend
+  needs: ["frontend-test"]
+  script:
+    - echo "Deploying the frontend app..."
+    - pip install awscli
+    - aws configure set aws_acces_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_acces_key  $AWS_SECRET_ACCES_KEY
+    - aws s3 sync FrontEnd/build s3://grupo5-0521ptc6n2 --delete

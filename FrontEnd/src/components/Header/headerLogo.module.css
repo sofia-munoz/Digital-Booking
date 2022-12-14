@@ -1,0 +1,28 @@
+   
+.logo {
+    display: flex;
+    padding: 15px 40px;
+}
+
+.logo img {
+    width: 71px;
+    height: 52px;
+}
+
+.logo p {
+    padding-bottom: 5px;
+    padding-left: 13px;
+    color: #545776;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width:1023.5px){
+    .logo p{
+        display: none;
+    }
+}
